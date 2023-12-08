@@ -1,8 +1,6 @@
 <?php
 include_once("../Model/Home.php");
 include_once("../Model/Account.php");
-
-
 // Triển khai phương thức index trong controller
 class HomeController
 {
@@ -24,6 +22,5 @@ class HomeController
 }
 // Tạo đối tượng controller
 $controller = new HomeController();
-
 // Gọi phương thức index
 $controller->index();

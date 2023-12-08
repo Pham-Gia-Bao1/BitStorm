@@ -111,19 +111,15 @@ li {
     color: transparent;
     margin-left: 10px;
 }
-
 .footer-col {
     padding: 10px;
     text-align: center;
 }
-
-
 /* Định dạng cho icon */
 .social-icon {
     color: #007bff;
     margin: 5px;
 }
-
 /* Định dạng cho các tiêu đề của cột */
 .column-title {
     color: #007bff;
@@ -155,6 +151,4 @@ p.column-text {
     display: flex;
     justify-content: space-between;
 }
-
-
 </style>

@@ -1,7 +1,6 @@
 <?php
 include_once("../Model/Blog.php");
 include_once("../Model/Account.php");
-
 class BlogController
 {
     public function showProductsAndPodcasts()
@@ -32,17 +31,14 @@ class BlogController
                         break;
                 }
             }
-
             // Kiểm tra nếu có giá trị tìm kiếm
             if (isset($_GET['search']) && !empty($_GET['search'])) {
                 $searchTerm = htmlspecialchars($_GET['search']);
                 $data['products'] = $productModel->find($searchTerm);
             }
         }
-
         include("../View/Blog/Blog.php");
     }
 }
-
 $controller = new BlogController();
 $controller->showProductsAndPodcasts();

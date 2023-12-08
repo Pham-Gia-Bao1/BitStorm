@@ -1,11 +1,10 @@
 <?php
 class Connection{
-    protected $host = 'localhost';
+    protected  $host = 'localhost';
     protected $username = 'root';
     protected $password = '';
     protected $dbName = 'DATA_PHP';
     protected $conn;
-
     public function connect_database()
     {
         try {
@@ -17,7 +16,6 @@ class Connection{
             return null;
         }
     }
-
     public function closeConnection()
     {
         $this->conn = null;

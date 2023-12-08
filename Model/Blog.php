@@ -1,6 +1,5 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-
 class Blog extends Connection
 {
     public function getProducts()
@@ -13,7 +12,6 @@ class Blog extends Connection
         $this->closeConnection();
         return $products;
     }
-
     public function getPodcast()
     {
         $this->connect_database();
@@ -24,7 +22,6 @@ class Blog extends Connection
         $this->closeConnection();
         return $podcasts;
     }
-
     public function get_video_type_dong_luc()
     {
         $this->connect_database();
@@ -35,7 +32,6 @@ class Blog extends Connection
         $this->closeConnection();
         return $videos;
     }
-
     public function get_video_type_tinh_yeu()
     {
         $this->connect_database();
@@ -46,7 +42,6 @@ class Blog extends Connection
         $this->closeConnection();
         return $videos;
     }
-
     public function get_video_type_gia_dinh()
     {
         $this->connect_database();
@@ -57,7 +52,6 @@ class Blog extends Connection
         $this->closeConnection();
         return $videos;
     }
-
     public function get_video_type_thien_nhien()
     {
         $this->connect_database();
@@ -68,7 +62,6 @@ class Blog extends Connection
         $this->closeConnection();
         return $videos;
     }
-
     public function find($searchTerm = '')
     {
         $this->connect_database();
@@ -83,12 +76,10 @@ class Blog extends Connection
         } else {
             return null;
         }
-
         $videos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->closeConnection();
         return $videos;
     }
-
     public function getVideoTitlesBySearchTerm($searchTerm)
     {
         $this->connect_database();
@@ -101,7 +92,6 @@ class Blog extends Connection
         $this->closeConnection();
         return $titles;
     }
-
     public function get_videos_by_bmi($bmi)
     {
         $this->connect_database();

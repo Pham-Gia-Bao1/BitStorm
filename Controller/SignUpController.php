@@ -3,7 +3,6 @@ include_once("../Model/Account.php");
 
 class SignUpController
 {
-
     public function signUp()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,7 +14,6 @@ class SignUpController
             if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $result = $account->signUpAccount($name, $password, $email);
             }
-
             if ($result) {
                 echo '<script>alert("Đăng Ký thành công!");</script>';
 
@@ -32,6 +30,5 @@ class SignUpController
         return $sanitizedInput;
     }
 }
-
 $signUpController = new SignUpController();
 $signUpController->signUp();
