@@ -4,14 +4,12 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 .header_home {
     background-image: url(Background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
-
 .hr_home {
     border: none;
     width: 100px;
@@ -48,13 +46,11 @@
     background-color: blueviolet;
     margin: 10px 0;
 }
-
 @keyframes textclip {
     to {
         background-position: 200% center;
     }
 }
-
 .button_home {
     font-family: 'Nunito', sans-serif;
     font-size: 10px;
@@ -121,23 +117,18 @@
         height: 30px;
         opacity: 1;
     }
-
     100% {
         width: 100px;
         height: 100px;
         opacity: 0;
     }
 }
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-
 .slide-container {
     max-width: 1120px;
     width: 100%;
     padding: 40px 0;
 }
-
 .slide-content {
     margin: 0 40px;
     overflow: hidden;
@@ -148,7 +139,7 @@
     border-radius: 25px;
     background-color: #FFF;
     transition: 0.5s;
-    
+
     cursor : pointer;
     transition : all .3s ease;
 }
@@ -156,9 +147,6 @@
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         transform: scale(1.05);
     }
-
- 
-
 .image-content,
 .card-content {
     display: flex;
@@ -278,15 +266,12 @@
     position: relative;
     transition: all .35s;
 }
-
-
     .wrappe1r a span {
         position: relative;
         z-index: 2;
         text-align: center;
         justify-content: center;
     }
-
     .wrappe1r a:after {
         position: absolute;
         content: "";
@@ -297,17 +282,14 @@
         background: #4070F4;
         transition: all .35s;
     }
-
     .wrappe1r a:hover {
         color: #fff;
         border: none;
         border-radius: 5px;
     }
-
         .wrappe1r a:hover:after {
             width: 100%;
         }
-
 .choose {
     background-image: url(why\ choose\ us.png);
     background-position: center center;
@@ -315,5 +297,4 @@
     background-size: cover;
     padding: 10px;
 }
-
 </style>

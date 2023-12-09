@@ -99,7 +99,7 @@ include("../root/CSS/About.css.php");
                                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                                     </span>
                                 <p class="name"> bác sĩ Tống Thị Luyến</p>
-                                
+
                             </div>
                             <p style="background-color:cornflowerblue; width:100%;height:50px;"></p>
                         </div>
@@ -141,7 +141,7 @@ include("../root/CSS/About.css.php");
     </div>
 </div>
 <div class="p-5"></div>
-    
+
 <?php
 
 include("../WEB_PHP/View/LayOut/Footer/Footer.php");

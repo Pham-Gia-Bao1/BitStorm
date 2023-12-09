@@ -1,5 +1,4 @@
 <style>
-   
 body{
     overflow-x:hidden;
 }
@@ -30,14 +29,12 @@ body{
    background-color: blue;
    overflow-x: hidden;
 }
-
    .container-fluid h1 {
        width: 70%;
        display: flex;
        justify-content: center;
        color: white;
    }
-
 .box_search {
    background-color: white;
    width: 40%;
@@ -56,30 +53,24 @@ body{
    border-radius: 10px;
    padding: 10px;
 }
-
    .content_video video {
        /* border-radius: 10px;     */
        border-top-right-radius: 10px;
        border-top-left-radius: 10px;
        border-radius: 8px;
    }
-
    .content_video:hover {
        box-shadow: rgba(193, 193, 194, 0.2) 0px 7px 29px 0px;
        transform: scale( 0.95);
    }
-
 .box_search input {
    width: 80%;
    display: inline;
    border: none; /* Loại bỏ border của input */
 }
-
 .box_search input {
    outline: 2px solid rgb(255, 255, 255) !important;
 }
-
-
 .box_search button {
    width: 10%;
    display: inline;
@@ -87,29 +78,24 @@ body{
    background: none; /* Loại bỏ nền của button */
    color: rgb(0, 0, 0); /* Màu chữ của button */
 }
-
 .box_choice {
    gap: 30px;
 }
-
    .box_choice button.active {
        background-color: blue;
    }
-
 .item_style {
    /* background-color: aquamarine; */
    display: flex;
    gap: 20px;
    align-items: center;
 }
-
    .item_style h6 {
        padding: 5px;
        display: inline;
    }
-
 #container1 {
-  
+
    display: flex;
    flex-wrap: wrap;
 
@@ -119,7 +105,6 @@ body{
    justify-content: center;
    margin-bottom: 50px;
    }
-
 .sub_title {
    padding-left: 120px;
    margin: 30px;
@@ -137,7 +122,6 @@ body{
    -webkit-line-clamp: 2; /* Số dòng hiển thị tối đa */
    -webkit-box-orient: vertical;
 }
-
 .card-body p:last-child {
    cursor: pointer;
    background-color: rgba(219, 219, 219, 0.444);
@@ -146,7 +130,6 @@ body{
    border-radius: 5px;
    transition: all 1s ease; /* Thời gian chuyển màu và hàm easing */
 }
-
    .card-body p:last-child:hover {
        background-color: #0093E9;
        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
@@ -160,11 +143,9 @@ body{
    margin: 100px;
    gap: 30px;
 }
-
 .change {
    transition: box-shadow 0.3s, transform 0.3s;
 }
-
    .change:hover {
        box-shadow: rgba(193, 193, 194, 0.2) 0px 7px 29px 0px;
        transform: scale(1.05);
@@ -200,11 +181,9 @@ a{
     display: flex;
     justify-content: center;
   }
-
   .suggestion_box li {
     background-color: white;
   }
-
   .suggestion_box {
     list-style: none;
     padding: 0;
@@ -218,16 +197,12 @@ a{
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 8px;
-     
-
   }
-
   .suggestion_box li {
     background-color: white;
     padding: 10px;
-    
+
   }
-  
   .suggestion_box li:last-child{
     border-bottom-left-radius: 20px;
      border-bottom-right-radius: 20px;
@@ -236,7 +211,6 @@ a{
     border-top-left-radius: 20px;
      border-top-right-radius: 20px;
   }
-
 
   .suggestion_box li:hover {
     background-color: #e9ecef;

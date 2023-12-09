@@ -18,7 +18,7 @@
         const input = parent.querySelector(".input-add-comment input");
         if (input.value == "" || input.value == " ") {
             return;
-        }   
+        }
         window.location.href = `Comment/Create?idPost=${idPost}&content=${input.value}`;
         input.value = "";
 
@@ -36,7 +36,7 @@
         window.location.href = `Post/Create?content=${content.value}&isAnonymous=${IsAnonymousTag.checked}`;
         content.value = "";
     }
-  
+
 
 </script>
 <script>

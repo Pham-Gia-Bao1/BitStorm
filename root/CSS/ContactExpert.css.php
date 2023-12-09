@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .image-container {
     width: 100%;
     height: 100%;
@@ -12,20 +11,18 @@
     justify-content: center;
     align-items: center;
 }
-
  .image-container img {
     object-fit: cover;
     width: 80%;
     height: 100%;
  }
-
 .image_doctor {
     width: 240px;
 }
 .top_image {
     object-fit: cover;
     width: 100%;
-}   
+}
 .infor {
     width: 245px;
     background-color: #dee4e9;
@@ -37,7 +34,6 @@
     text-decoration : none;
     text-align: center;
 }
-
 .viewAll {
     width: 25%;
     height: 50px;
@@ -50,7 +46,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .btn-view {
     display: block;
     display: flex;
@@ -58,7 +53,6 @@
     align-items: center;
     text-align: center;
 }
-
 .viewNumber {
     height: 100px;
     width: 80%;
@@ -70,11 +64,9 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 .text {
     color: rgb(0, 133, 111);
 }
-
 .card:hover {
     /* CSS khi di chuột hover */
     transition: transform 0.3s ease;

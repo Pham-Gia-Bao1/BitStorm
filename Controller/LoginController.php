@@ -1,6 +1,5 @@
 <?php
 include_once("../Model/Account.php");
-
 class log_in
 {
     public function log_in()
@@ -21,7 +20,6 @@ class log_in
             }
         }
     }
-
     private function sanitizeInput($input)
     {
         $sanitizedInput = trim($input);
@@ -29,7 +27,6 @@ class log_in
         return $sanitizedInput;
     }
 }
-
 $login = new log_in();
 $login->log_in();
 ?>

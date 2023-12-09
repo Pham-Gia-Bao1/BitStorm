@@ -20,7 +20,7 @@
     .log_gg {
         text-align: center;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        margin-top: 100px;       
+        margin-top: 100px;
     }
     .log_gg i {
     color: red; /* Màu sắc biểu tượng tùy chỉnh */

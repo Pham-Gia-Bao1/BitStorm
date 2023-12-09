@@ -1,14 +1,9 @@
 <?php
-
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/Blog.css.php");
-// include("../root/JS/Blog.js.php");
-
 ?>
-
 <title>Blog</title>
 <link rel="stylesheet" href="http://localhost/WEB_PHP/root/CSS/Blog.css">
-
 <!-- phần 1 -->
 <div class="container-fluid" id="main">
   <h1 class="main_title">
@@ -22,15 +17,12 @@ include("../root/CSS/Blog.css.php");
       </button>
       <input type="text" name="search" class="input_search" placeholder="Tìm kiếm...">
     </form>
-
     <ul class="suggestion_box"></ul>
   </div>
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <?php
   include("../root/JS/Blog.js.php");
   ?>
-  
   <div class="box_choice d-flex">
   <form method="get" action="http://localhost/WEB_PHP/Blog">
   <button type="submit" class="btn btn-primary" name="opption" value="TAT_CA">
@@ -56,7 +48,6 @@ include("../root/CSS/Blog.css.php");
   <h2 class="text-primary sub_title">Dành cho bạn</h2>
   <div class="container-fluid container1 d-flex flex-wrap gap-4" id="container1">
     <?php
-
     foreach ($data['products'] as $product) { ?>
       <div class="card content_video" id="content_video">
         <div class="video">
@@ -84,17 +75,12 @@ include("../root/CSS/Blog.css.php");
       echo '<img src="https://st.chungta.vn/v303/chungta/images/graphics/404.svg" alt="">';
     } ?>
   </div>
-
 </div>
-
 <div class="content2">
   <div class="podcast">
-
     <p class="p111">Giới Thiệu Cho Bạn</p>
     <div class="content" id="content">
       <h6 style="text-align: center; padding-bottom: 10px;font-size: 30px;"><b>Một Vài Podcast Tâm Hồn</b></h6>
-
-
       <div class="container-fluid container1 d-flex flex-wrap gap-4" id="container1">
         <?php foreach ($data['podcasts'] as $product) { ?>
           <div class="card content_video" id="content_video">
@@ -121,10 +107,6 @@ include("../root/CSS/Blog.css.php");
     </div>
   </div>
 </div>
-
-
 <?php
-
 include("../View/LayOut/Footer/Footer.php");
-// session_destroy();
 ?>
