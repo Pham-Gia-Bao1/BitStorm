@@ -11,12 +11,13 @@ include("../root/CSS/NavBar.css.php");
     <div style="--i:3" class="slider"></div>
     <div style="--i:4" class="slider"></div>
   </section>
+</div>
   <!-- script cho loading -->
   <?php
   include("../root/JS/NavBar.js.php");
   ?>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">BisTorm</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +49,7 @@ include("../root/CSS/NavBar.css.php");
               $name = $nameAndImg[0];
               $img = $nameAndImg[1];
 
-              
-              
+
               ?>
               <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="avata1" src="<?php echo $img; ?>" alt="User Image">
@@ -109,7 +109,7 @@ include("../root/CSS/NavBar.css.php");
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <?php include("../View/Account/Login.php"); ?>
+            <?php include("../View/Account/LoginView.php"); ?>
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@ include("../root/CSS/NavBar.css.php");
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <?php include("../View/Account/SignUp.php"); ?>
+            <?php include("../View/Account/SignUpView.php"); ?>
           </div>
         </div>
       </div>

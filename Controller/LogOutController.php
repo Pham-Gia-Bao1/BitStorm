@@ -1,5 +1,5 @@
-<?php 
-include_once("../Model/Account.php");
+<?php
+include_once("../Model/AccountModel.php");
 class LogOut{
     public function log_out()
     {

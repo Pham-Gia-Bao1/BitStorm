@@ -2,6 +2,10 @@
   .navbar {
     background-color: #f8f9fa;
     padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
   }
 
   .model_nav {

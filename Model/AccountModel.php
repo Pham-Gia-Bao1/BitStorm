@@ -1,5 +1,5 @@
 <?php
-include_once("../Model/Blog.php");
+include_once("../Model/BlogModel.php");
 
 class Account
 {
@@ -155,7 +155,7 @@ class Account
             array_push($name_and_img, $row['name']);
             array_push($name_and_img, $row['img']);
         }
-        return $name_and_img; // mảng có length = 2 
+        return $name_and_img; // mảng có length = 2
     }
     public function change_avatar($newAvatarUrl)
     {

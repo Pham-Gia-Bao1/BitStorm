@@ -25,6 +25,7 @@
     .log_gg i {
     color: red; /* Màu sắc biểu tượng tùy chỉnh */
   }
+  
 </style>
 <div class="d-flex">
     <div class="img">

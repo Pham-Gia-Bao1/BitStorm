@@ -1,6 +1,6 @@
 <?php
-include_once("../Model/Blog.php");
-include_once("../Model/Account.php");
+include_once("../Model/BlogModel.php");
+include_once("../Model/AccountModel.php");
 class UserProfile extends Account
 {
     public function change_avatar($newAvatarUrl)

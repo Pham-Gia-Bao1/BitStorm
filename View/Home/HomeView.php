@@ -11,8 +11,6 @@ include("../root/CSS/Home.php");
 
 
 <div class="header">
-    <div class = "navbar">
-    </div>
     <div class= "container-fluid header_home">
         <div class="row">
             <div class="col-sm-1"></div>
@@ -70,7 +68,7 @@ include("../root/CSS/Home.php");
                                     <img src="http://localhost/WEB_PHP/root/Image/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
-    
+
                         <div class="card-content">
                             <h2 class="name">Blog</h2>
                             <p class="description">Nơi để đọc những bài viết, những video truyền độc lực từ nhiều nguồn khác nhau. Thông qua nhưng câu chuyenej đó thì nhóm cũng có thể giúp một phần nào đó để chữ lành tâm hồn của bạn.</p>
@@ -95,9 +93,9 @@ include("../root/CSS/Home.php");
                         </div>
                         <div class="card-content">
                             <h2 class="name">About us</h2>
-                            <p class="description">Ở đây chúng tôi sẽ nói về app này, bên cạnh đó có thể giới thiệu cho bạn một số bác sĩ tâm lí nổi tiếng không tốn chi phí. Chúng tôi cũng có thể giúp bạn tìm những workshop về chủ đề về sức khỏe tâm thần để giới thiệu cho bạn.</p> 
+                            <p class="description">Ở đây chúng tôi sẽ nói về app này, bên cạnh đó có thể giới thiệu cho bạn một số bác sĩ tâm lí nổi tiếng không tốn chi phí. Chúng tôi cũng có thể giúp bạn tìm những workshop về chủ đề về sức khỏe tâm thần để giới thiệu cho bạn.</p>
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
             <div class="swiper-button-next swiper-navBtn"></div>
@@ -105,7 +103,7 @@ include("../root/CSS/Home.php");
             <div class="swiper-pagination"></div>
         </div>
     </div>
-    
+
     <div class="container-fluid text-center" >
         <div class="row d-flex gap-5 justify-content-center">
             <div class="col-sm-4 a_home">
@@ -115,11 +113,11 @@ include("../root/CSS/Home.php");
                 <hr class="hr_homer">
                 <a href="#" >Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
             </div>
-           
+
             <div class="col-sm-5">
                 <img src="https://images2.thanhnien.vn/Uploaded/thanhnam/2018_11_24/streaa_WPBI.jpg" alt=""  height="400px" style="border-radius: 10px;padding-top: 20px;">
             </div>
-        </div> 
+        </div>
     </div>
     <div class="p-5"></div>
     <div class="container-fluid podcast ">
@@ -139,7 +137,7 @@ include("../root/CSS/Home.php");
                                         <i class="fa-solid fa-graduation-cap"></i>
 
                                         <p style="font-size: 15px; color: gray;">1h30p</p>
-                                            
+
                                         <div style="margin-left: auto;color: #FF9933">
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -161,7 +159,7 @@ include("../root/CSS/Home.php");
                                         <i class="fa-solid fa-graduation-cap"></i>
 
                                         <p style="font-size: 15px; color: gray;">1h0p</p>
-                                            
+
                                         <div style="margin-left: auto;color: #FF9933">
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -187,7 +185,7 @@ include("../root/CSS/Home.php");
                                         <i class="fa-solid fa-graduation-cap"></i>
 
                                         <p style="font-size: 15px; color: gray;">1h30p</p>
-                                            
+
                                         <div style="margin-left: auto;color: #FF9933">
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -208,9 +206,9 @@ include("../root/CSS/Home.php");
 
                                         <i class="fa-solid fa-graduation-cap"></i>
 
-                                        
+
                                         <p style="font-size: 15px; color: gray;">1h30p</p>
-                                            
+
                                         <div style="margin-left: auto;color: #FF9933">
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -230,7 +228,7 @@ include("../root/CSS/Home.php");
             </div>
         </div>
     </div>
-   
+
     <div class="container-fluid choose">
         <p style="color: darkblue; text-align: center;font-size: 10px;">Tại sao lại lựa chọn chúng tôi</p>
         <h5 style="text-align: center; padding-bottom: 10px;font-size: 20px;font-weight: bold;">Sự Lựa Chọn Đúng Đắn Dành Cho Bạn</h5>
@@ -254,7 +252,7 @@ include("../root/CSS/Home.php");
                             <div class="card-body">
                                 <img src="http://localhost/WEB_PHP/root/Image/Group%201000006529.png" alt="">
                                 <h6>Xây Dựng Cộng Đồng</h6>
-                                <p class="card-text">Xây dựng một cộng đồng văn mình 
+                                <p class="card-text">Xây dựng một cộng đồng văn mình
                                 để mọi người cùng nhau phát triển</p>
                             </div>
                             </div>
@@ -270,7 +268,7 @@ include("../root/CSS/Home.php");
                             <div class="card-body">
                                 <img src="http://localhost/WEB_PHP/root/Image/Group%201000006530.png" alt="">
                                 <h6>Kiểm duyệt thông tin</h6>
-                                <p class="card-text">Có một điều bạn chưa biết 
+                                <p class="card-text">Có một điều bạn chưa biết
                                 phần kiểm duyệt thông tin khá là hay</p>
                             </div>
                             </div>
@@ -293,7 +291,7 @@ include("../root/CSS/Home.php");
         </div>
     </div>
 
-       
+
 </div>
 
 <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>

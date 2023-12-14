@@ -1,5 +1,5 @@
 <?php
-include_once("../Model/Account.php");
+include_once("../Model/AccountModel.php");
 class log_in
 {
     public function log_in()
@@ -10,12 +10,12 @@ class log_in
             $email = $this->sanitizeInput($_POST['email']);
             $password = $this->sanitizeInput($_POST['password']);
             $result = $account->login($name, $email, $password);
-            if ($result) {                
-              echo '<script>alert("Đăng nhập thành công!");</script>';              
+            if ($result) {
+              echo '<script>alert("Đăng nhập thành công!");</script>';
               header("Location: home");
                 exit;
             } else {
-                echo '<script>alert("Đăng nhập thất bại!");</script>';     
+                echo '<script>alert("Đăng nhập thất bại!");</script>';
                 echo '<script>window.location.href = "home";</script>';
             }
         }
