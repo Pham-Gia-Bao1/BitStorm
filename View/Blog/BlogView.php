@@ -6,7 +6,10 @@ include("../root/CSS/Blog.css.php");
 <link rel="stylesheet" href="http://localhost/WEB_PHP/root/CSS/Blog.css">
 <!-- phần 1 -->
 <div class="container-fluid" id="main">
-  <h1 class="main_title">
+<h1 class="main_title">
+    Video dành cho bạn
+  </h1>
+  <h1 class="">
     Bạn muốn xem gì hôm nay ?
   </h1>
   <div class="box_search">
@@ -24,21 +27,26 @@ include("../root/CSS/Blog.css.php");
   include("../root/JS/Blog.js.php");
   ?>
   <div class="box_choice d-flex">
-  <form method="get" action="http://localhost/WEB_PHP/Blog">
+  <form method="get" action="http://localhost/WEB_PHP/Blog" id="form_opption">
   <button type="submit" class="btn btn-primary" name="opption" value="TAT_CA">
+
     TẤT CẢ
   </button>
   <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="DONG_LUC">
     ĐỘNG LỰC
+    <i class="fa-solid fa-person-running"></i>
   </button>
   <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="GIA_DINH">
     GIA ĐÌNH
+    <i class="fa-solid fa-house"></i>
   </button>
   <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="TINH_YEU">
     TÌNH YÊU
+    <i class="fa-solid fa-heart"></i>
   </button>
   <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="THIEN_NHIEN">
     THIÊN NHIÊN
+    <i class="fa-solid fa-cloud"></i>
   </button>
 </form>
   </div>

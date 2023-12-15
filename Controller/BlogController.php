@@ -1,6 +1,6 @@
 <?php
-include_once("../Model/Blog.php");
-include_once("../Model/Account.php");
+include_once("../Model/BlogModel.php");
+include_once("../Model/AccountModel.php");
 class BlogController
 {
     public function showProductsAndPodcasts()
@@ -27,7 +27,7 @@ class BlogController
                         $data['products'] = $productModel->get_video_type_thien_nhien();
                         break;
                     default:
-                        $data['products'] = [];
+                        $data['products'] =$productModel->getProducts();
                         break;
                 }
             }
@@ -37,7 +37,7 @@ class BlogController
                 $data['products'] = $productModel->find($searchTerm);
             }
         }
-        include("../View/Blog/Blog.php");
+        include("../View/Blog/BlogView.php");
     }
 }
 $controller = new BlogController();

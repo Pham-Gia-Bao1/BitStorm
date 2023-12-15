@@ -10,7 +10,7 @@ include("../root/CSS/UserProfile.css.php");
   <div class="container-fluid  ig_top"></div>
   <div class="avata m-1 p-2">
 
-    <img id="uploaded-image" class="rounded-circle avata_user" src="<?= $img; ?>" alt="<?= $name; ?>">
+    <img id="uploaded-image" class="rounded-circle avata_user" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($name); ?>">
     <h3 id="name_user" class="m-3"><?= $name; ?></h3>
 
     <form id="upload-form" method="post" action="http://localhost/WEB_PHP/userprofile">
@@ -58,16 +58,16 @@ include("../root/CSS/UserProfile.css.php");
             <form method="POST" action="http://localhost/WEB_PHP/login" class="p-3 m-2 gap-5 form w-100">
               <div class="form-group p-1 m-1">
                 <label for="username">Tên đăng nhập:</label>
-                <input type="text" class="form-control" id="username" name="username" readonly value="<?= $name ?>">
+                <input type="text" class="form-control" id="username" name="username" readonly value="<?= htmlspecialchars($name); ?>">
               </div>
               <div class="form-group p-1 m-1">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" readonly value="<?= $email?>">
+                <input type="email" class="form-control" id="email" name="email" readonly value="<?= htmlspecialchars($email);?>">
               </div>
               <div class="form-group p-1 m-1">
                 <label for="password">Mật khẩu:</label>
                 <div class="input-group">
-                  <input type="password" class="form-control" id="password" name="password" readonly value="<?= $pass ?>">
+                  <input type="password" class="form-control" id="password" name="password" readonly value="<?= htmlspecialchars($pass); ?>">
                   <div class="input-group-appen">
                     <span class="input-group-text p-3 btn btn-primary" id="show-password-toggle">
                       <i class="fas fa-eye"></i>
@@ -100,16 +100,16 @@ include("../root/CSS/UserProfile.css.php");
             <div class="p-3 m-2 gap-5 form w-100">
               <div class="form-group p-1 m-1">
                 <label for="username">Tên đăng nhập:</label>
-                <input type="text" class="form-control" id="username" name="username_setting" value="<?= $name ?>">
+                <input type="text" class="form-control" id="username" name="username_setting" value="<?= htmlspecialchars($name); ?>">
               </div>
               <div class="form-group p-1 m-1">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email_setting" value="<?= $email ?>">
+                <input type="email" class="form-control" id="email" name="email_setting" value="<?= htmlspecialchars($email); ?>">
               </div>
               <div class="form-group p-1 m-1">
                 <label for="password">Mật khẩu:</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="password" name="password_setting" value="<?= $pass ?>">
+                  <input type="text" class="form-control" id="password" name="password_setting" value="<?=htmlspecialchars( $pass); ?>">
                   <div class="input-group-append">
                     <span class="input-group-text p-3 btn btn-primary" id="show-password-toggle">
                       <i class="fas fa-eye"></i>

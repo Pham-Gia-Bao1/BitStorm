@@ -1,5 +1,5 @@
 <?php
-    include_once("../Model/Blog.php");
+    include_once("../Model/BlogModel.php");
     $blog = new Blog();
     // Lấy giá trị tìm kiếm từ yêu cầu Ajax
     $searchTerm = $_GET['search'];

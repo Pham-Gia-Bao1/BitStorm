@@ -1,5 +1,5 @@
-<?php 
-include("../Model/Post.php");
-include_once("../Model/Account.php");
-include("../View/Post/Post.php");
+<?php
+include("../Model/PostModel.php");
+include_once("../Model/AccountModel.php");
+include("../View/Post/PostView.php");
 ?>

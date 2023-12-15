@@ -16,7 +16,7 @@ body{
    margin-right:auto;
 }
 #main {
-   height: 95vh !important;
+   height: 84vh !important;
    margin-top: 10px;
    display: flex;
    flex-direction: column;
@@ -24,6 +24,7 @@ body{
    align-items: center;
    gap: 30px;
    background-image: url('https://encuentra.com/wp-content/uploads/2023/03/Elogioalsilencio-encuentra.com_-2048x984.jpg');
+   background-attachment: fixed;
    background-repeat: no-repeat;
    background-size: cover;
    background-color: blue;
@@ -191,12 +192,13 @@ a{
     position: absolute;
     list-style: none;
     margin: 0;
-    top: 405px;
+    top: 450px;
     width: 40.2%;
     height: 290px;
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 8px;
+    z-index: 2;
   }
   .suggestion_box li {
     background-color: white;
@@ -215,6 +217,48 @@ a{
   .suggestion_box li:hover {
     background-color: #e9ecef;
     cursor: pointer;
+  }
+  #form_opption{
+   width: 60vw;
+   background-color: white;
+   padding: 20px;
+   position: relative;
+   bottom: -100px;
+   z-index: 0;
+   border-top-right-radius: 50px;
+   border-top-left-radius: 50px;
+  }
+  #form_opption button{
+   width: 19%;
+   height: 100%;
+   padding: 20px;
+   padding-top: 20px;
+   background-color: white;
+   border: 0px solid;
+   padding-bottom: 30px;
+  }
+  #form_opption button:first-child{
+   background-color: #0093E9;
+   margin-left: 1px;
+   width: 21.5% ;
+  }
+  #form_opption button:first-child{
+   border-top-left-radius: 30px;
+  }
+  #form_opption button:last-child{
+   border-top-right-radius: 30px;
+
+  }
+  .main_title:first-child{
+   font-size: 72px;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  .main_title:last-child{
+   font-family: 'Beyond';
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
   }
 
 </style>

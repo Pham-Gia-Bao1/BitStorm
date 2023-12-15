@@ -1,6 +1,6 @@
 <?php
-include_once("../Model/Home.php");
-include_once("../Model/Account.php");
+include_once("../Model/HomeModel.php");
+include_once("../Model/AccountModel.php");
 // Triển khai phương thức index trong controller
 class HomeController
 {
@@ -14,9 +14,9 @@ class HomeController
             $nameAndImg = $account->get_name_and_img_user();
             $name = $nameAndImg[0] ?? '';
             $img = $nameAndImg[1] ?? '';
-            include("../View/Home/Home.php");
+            include("../View/Home/HomeView.php");
         } else {
-            include("../View/Home/Home.php");
+            include("../View/Home/HomeView.php");
         }
     }
 }

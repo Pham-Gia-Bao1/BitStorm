@@ -1,5 +1,5 @@
 <?php
-include_once("../Model/UserProfile.php");
+include_once("../Model/UserProfileModel.php");
 $userprofile = new UserProfile();
 $nameAndImg = $userprofile->get_name_and_img_user();
 $name = $nameAndImg[0] ?? '';
@@ -34,4 +34,4 @@ if (isset($_POST['username_setting'])) {
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include("../View/UserProfile/UserProfile.php");
+include("../View/UserProfile/UserProfileView.php");
