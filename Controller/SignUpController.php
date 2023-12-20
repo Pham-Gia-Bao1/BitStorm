@@ -12,8 +12,8 @@ class SignUpController
             $email = $this->sanitizeInput($_POST['email']);
             $password =  $this->sanitizeInput($_POST['password']);
 
-
             $isValid = $this->validateForm($name, $email, $password);
+
 
             if ($isValid) {
                 // Check if user already exists
@@ -21,27 +21,31 @@ class SignUpController
                     if ($password == $password_again) {
                         $result = $account->signUpAccount($name, $password, $email);
                         if ($result) {
+                            $new_user_name = base64_encode($name);
+                            setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
                             echo '<script>alert("Đăng Ký thành công!");</script>';
-                            header("Location: home");
+                            echo '<script>window.location.href = "home";</script>';
+
                             exit;
                         } else {
                             echo '<script>alert("Đăng Ký lỗi!");</script>';
-                            header("Location: home");
+                            echo '<script>window.location.href = "home";</script>';
+
                             exit;
                         }
                     } else {
                         echo '<script>alert("Mật khẩu không khớp!");</script>';
-                        header("Location: home");
+                        echo '<script>window.location.href = "home";</script>';
                         exit;
                     }
                 } else {
                     echo '<script>alert("Email không hợp lệ!");</script>';
-                    header("Location: home");
+                    echo '<script>window.location.href = "home";</script>';
                     exit;
                 }
             } else {
                 echo '<script>alert("Dữ liệu không hợp lệ!");</script>';
-                header("Location: home");
+                echo '<script>window.location.href = "home";</script>';
                 exit;
             }
         }
@@ -55,21 +59,24 @@ class SignUpController
         $passwordPattern = '/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$/';
         $emailPattern = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
 
-        if (!preg_match($usernamePattern, $username)) {
-            return false;
-        }
+        if (isset($username) && isset($password) && isset($email)) {
 
-        if (!preg_match($emailPattern, $email)) {
-            return false;
-        }
+            if (!preg_match($usernamePattern, $username)) {
+                return false;
+            }
 
-        if (!preg_match($passwordPattern, $password)) {
-            return false;
-        }
+            if (!preg_match($emailPattern, $email)) {
+                return false;
+            }
 
-        return true;
+            if (!preg_match($passwordPattern, $password)) {
+                return false;
+            }
+
+            return true;
+        }
+        return false;
     }
-
     private function sanitizeInput($input)
     {
         $sanitizedInput = trim($input);
@@ -80,4 +87,3 @@ class SignUpController
 
 $signUpController = new SignUpController();
 $signUpController->signUp();
-?>

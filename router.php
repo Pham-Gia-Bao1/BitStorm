@@ -53,5 +53,5 @@ if (file_exists($controllerPath)) {
 }
 
 
-header("Location: http://localhost/WEB_PHP/home");
+header("Location:home");
 echo "Page not found";

@@ -132,6 +132,29 @@
             border-color: #fff;
             background: #fff;
         }
+
+        .input_role {
+            display: none;
+        }
+
+        .button_role {
+            font-size: 10px;
+            padding: 10px;
+            width: 125px;
+            background-color: #009aff;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+
+
+        }
+
+        #client:checked~#label_role_client , #doctor:checked~#label_role_doctor{
+            background-color: #002bff;
+            /* Màu sắc khi input được checked */
+        }
+        
+
     </style>
 </head>
 
@@ -186,7 +209,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="emailInput" name="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+                <input type="email" class="form-control" id="emailInput" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
                 <small id="emailError" class="text-danger"></small>
             </div>
             <div class="form-group">
@@ -207,6 +230,14 @@
                 </div>
                 <small id="passwordErrorAgain" class="text-danger"></small>
             </div>
+            <div class="form-group">
+
+                <input type="radio" id="client" class="input_role" name="input_role">
+                <label for="client" class="button_role rounded-pill" id="label_role_client">Người nhận tư vấn</label>
+                <input type="radio" id="doctor" class="input_role" name="input_role">
+                <label for="doctor" class="button_role rounded-pill" id="label_role_doctor">Người tư vấn</label>
+            </div>
+
             <button type="submit" class="btn btn-primary btn_login">Đăng Ký Ngay</button>
         </form>
     </div>
@@ -245,7 +276,7 @@
             var username = document.getElementById("usernameInput").value;
             var email = document.getElementById("emailInput").value;
             var password = document.getElementById("passwordInput").value;
-            var password_again =document.getElementById("passwordInputAgain").value;
+            var password_again = document.getElementById("passwordInputAgain").value;
 
             var usernamePattern = /^[a-zA-Z0-9\s]+$/;
             var passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$/;
@@ -261,6 +292,8 @@
             usernameError.textContent = "";
             emailError.textContent = "";
             passwordError.textContent = "";
+            passwordError_again.textContent = "";
+
 
             if (!usernamePattern.test(username)) {
                 usernameError.textContent = "Tên người dùng phải chứa chữ cái, số và khoảng trắng!";
@@ -276,10 +309,17 @@
                 passwordError.textContent = "Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ cái hoa, một chữ số và một ký tự đặc biệt!";
                 return false;
             }
-            if (!passwordPattern_again.test(password)) {
-                passwordError_again.textContent = "Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ cái hoa, một chữ số và một ký tự đặc biệt!";
+            // if (!passwordPattern_again.test(password)) {
+            //     passwordError_again.textContent = "Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ cái hoa, một chữ số và một ký tự đặc biệt!";
+            //     return false;
+            // }
+            if (password !== password_again) {
+                passwordError_again.textContent = "Mật khẩu không khớp!";
                 return false;
+            } else {
+                passwordError_again.textContent = ""; // Xóa thông báo lỗi nếu mật khẩu khớp
             }
+
 
             return true;
         }

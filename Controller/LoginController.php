@@ -11,12 +11,15 @@ class log_in
             $password = $this->sanitizeInput($_POST['password']);
             $result = $account->login($name, $email, $password);
             if ($result) {
-              echo '<script>alert("Đăng nhập thành công!");</script>';
-              header("Location: home");
+                $new_user_name = base64_encode($name);
+                setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
+                echo '<script>alert("Đăng nhập thành công!");</script>';
+                header("Location: home");
                 exit;
             } else {
                 echo '<script>alert("Đăng nhập thất bại!");</script>';
-                echo '<script>window.location.href = "home";</script>';
+                header("Location: home");
+
             }
         }
     }
@@ -29,4 +32,3 @@ class log_in
 }
 $login = new log_in();
 $login->log_in();
-?>
