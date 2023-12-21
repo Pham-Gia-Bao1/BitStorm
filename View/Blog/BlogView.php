@@ -3,7 +3,7 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/Blog.css.php");
 ?>
 <title>Blog</title>
-<link rel="stylesheet" href="http://localhost/WEB_PHP/root/CSS/Blog.css">
+<link rel="stylesheet" href="http://localhost/BitStorm/root/CSS/Blog.css">
 <!-- phần 1 -->
 <div class="container-fluid" id="main">
 <h1 class="main_title">
@@ -14,7 +14,7 @@ include("../root/CSS/Blog.css.php");
   </h1>
   <div class="box_search">
     <!-- Phần tìm kiếm -->
-    <form class="w-100 p-0 form_search" method="GET" action="http://localhost/WEB_PHP/Blog">
+    <form class="w-100 p-0 form_search" method="GET" action="http://localhost/BitStorm/Blog">
       <button class="box_search_icon" type="submit">
         <i class="fa fa-search"></i>
       </button>
@@ -27,7 +27,7 @@ include("../root/CSS/Blog.css.php");
   include("../root/JS/Blog.js.php");
   ?>
   <div class="box_choice d-flex">
-  <form method="get" action="http://localhost/WEB_PHP/Blog" id="form_opption">
+  <form method="get" action="http://localhost/BitStorm/Blog" id="form_opption">
   <button type="submit" class="btn btn-primary" name="opption" value="TAT_CA">
 
     TẤT CẢ
