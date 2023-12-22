@@ -1,9 +1,10 @@
 <?php
+include "../Config/config.php";
 class Connection{
-    protected  $host = 'localhost';
-    protected $username = 'root';
+    protected  $host = DB_HOST ;
+    protected $username = DB_USER;
     protected $password = '';
-    protected $dbName = 'DATA_PHP';
+    protected $dbName = DB_NAME;
     protected $conn;
     public function connect_database()
     {
