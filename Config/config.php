@@ -1,7 +1,7 @@
 <?php
 
 //site name
-define('SITE_NAME', 'Universe');
+define('SITE_NAME', 'BitStorm');
 
 //App Root
 define('APP_ROOT', dirname(dirname(__FILE__)));

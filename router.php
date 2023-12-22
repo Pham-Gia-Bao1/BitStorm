@@ -19,9 +19,11 @@ if ($relativePath === '') {
     $controller->index();
     exit();
 }
+
 // Lấy tên controller
 $controllerName = ucfirst($parts[0]) . 'Controller'; // Sửa lấy phần tử đầu tiên của $parts
 $controllerPath = 'Controller/' . $controllerName . '.php';
+
 // Kiểm tra xem tệp tin controller có tồn tại không
 if (file_exists($controllerPath)) {
     // Gọi controller
@@ -51,5 +53,5 @@ if (file_exists($controllerPath)) {
 }
 
 
-header("Location:home");
+header("Location: http://localhost/BitStorm/home");
 echo "Page not found";
