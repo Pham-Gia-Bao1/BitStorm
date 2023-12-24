@@ -128,6 +128,7 @@
     max-width: 1120px;
     width: 100%;
     padding: 40px 0;
+    height:fit-content;
 }
 .slide-content {
     margin: 0 40px;
@@ -291,10 +292,10 @@
             width: 100%;
         }
 .choose {
-    background-image: url(why\ choose\ us.png);
+    background-image: url(../Image/why\ choose\ us.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 10px;
 }
+
 </style>
