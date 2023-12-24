@@ -161,7 +161,7 @@
 <body>
     <div class="d-flex">
         <div class="img">
-            <img src="http://localhost/WEB_PHP/root/Image/signupimage.svg" alt="logoutimg" style="width: 100%;">
+            <img src="http://localhost/BitStorm/root/Image/signupimage.svg" alt="logoutimg" style="width: 100%;">
             <div id="progress-bar">
                 <div class="step">
                     <p>
@@ -201,7 +201,7 @@
                 </div>
             </div>
         </div>
-        <form method="post" action="http://localhost/WEB_PHP/SignUp" class="form" onsubmit="return validateForm()">
+        <form method="post" action="http://localhost/BitStorm/SignUp" class="form" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="username">Họ và Tên:</label>
                 <input type="text" class="form-control" id="usernameInput" name="username" required maxlength="50" pattern="^[a-zA-Z0-9\s]+$">
