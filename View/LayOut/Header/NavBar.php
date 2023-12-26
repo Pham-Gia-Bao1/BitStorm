@@ -1,6 +1,6 @@
 <?php
 include("../root/CSS/NavBar.css.php");
-
+// include("../root/CSS/Header.css.php");
 ?>
 <!-- loading -->
 <!-- <div id="loading-overlay">
@@ -18,29 +18,25 @@ include("../root/CSS/NavBar.css.php");
   ?>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">BisTorm</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="Home">Home</a>
-          <a class="nav-link" href="About">About</a>
-          <a class="nav-link" href="Blog">Video</a>
-          <a class="nav-link" href="Post">Bài viết</a>
-        </div>
-        <div class="navbar-nav ms-auto">
+      <div class="navbar-left" >
+            <img src="http://localhost/BitStorm/root/Image/logo_header.png" alt="Logo" class="logo">
+            <h1 class="group-name">BitStorm</h1>
+      </div>
+      <div class="navbar-center">
+          <a class="navbar-center-a current-page" href="Home">Trang chủ</a>
+          <a class="navbar-center-a" href="ContactExpert">Kết nối chuyên gia</a>
+          <a class="navbar-center-a"href="Blog" >Video</a>
+          <a class="navbar-center-a" href="Post">Bài viết</a>
+          <a class="navbar-center-a" href="About?About">Về chúng tôi</a>
+      </div>
+        <div class="navbar-right">
+          <!-- check user -->
           <?php
           $cookie_name = "User";
           if (!isset($_COOKIE[$cookie_name])) {
           ?>
-            <a href="#" class="nav-link">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-            </a>
-            <a href="#" class="nav-link">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup">Sign up</button>
-            </a>
+              <button class="btn-login btn-header" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+              <button class="btn-register btn-header" data-bs-toggle="modal" data-bs-target="#signup">Sign up</button>        
           <?php } else { ?>
             <div class="dropdown">
               <?php
@@ -86,9 +82,8 @@ include("../root/CSS/NavBar.css.php");
               </ul>
             </div>
           <?php } ?>
+          <!-- end navbar-left -->
         </div>
-      </div>
-    </div>
   </nav>
 
   <?php
@@ -96,8 +91,6 @@ include("../root/CSS/NavBar.css.php");
   if (!isset($_COOKIE[$cookie_name])) {
 
   ?>
-    <div>
-    </div>
     <!-- The Modal -->
     <div class="modal fade model_nav" id="loginModal">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -126,7 +119,9 @@ include("../root/CSS/NavBar.css.php");
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <?php include("../View/Account/SignUpView.php"); ?>
+            <?php include("../View/Account/SignUpView.php"); 
+
+            ?>
           </div>
         </div>
       </div>
@@ -147,11 +142,11 @@ include("../root/CSS/NavBar.css.php");
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-              <img src="http://localhost/WEB_PHP/root/Image/logoutimage.svg" alt="logoutimg" style="width: 100%;">
+              <img src="http://localhost/BitStorm/root/Image/logoutimage.svg" alt="logoutimg" style="width: 100%;">
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <a href="http://localhost/WEB_PHP/Logout" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href=this.href;">OK</a>
+              <a href="http://localhost/BitStorm/Logout" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href=this.href;">OK</a>
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
             </div>
           </div>
