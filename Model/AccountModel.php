@@ -50,7 +50,7 @@ class Account
         $this->img = $img;
     }
 
-    private function test_input($data) {
+    public function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
