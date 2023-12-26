@@ -8,15 +8,13 @@ include("../root/CSS/BlogDetail.css.php");
     <!-- phần 1 -->
     <div id="contain_main_video">
         <div class="video-container">
-            <iframe id="video" src="<?= $video[0]['youtube_link']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe id="video" src="<?= $video[0]['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
-
     <div class="name">
-        <h2 class="text-primary"><?= $video[0]['title']?></h2>
+        <h2 class="text-primary"><?= $video[0]['title'] ?></h2>
     </div>
     <!-- phần 2 -->
-
     <div class="d-flex justify-content-between align-items-center my-5" id="option_of_video">
         <div class="text-muted d-flex gap-3">
             <p class="view bg-light p-2">132,757 views</p>
@@ -33,19 +31,16 @@ include("../root/CSS/BlogDetail.css.php");
     </div>
 </div>
 <!-- phần 3 -->
-
 <div class="d-flex justify-content-between align-items-center my-3 offical">
     <div class="d-flex m-3">
         <img src="https://www.drivelah.sg/static/media/avatar4.a80a5d55.jpeg" alt="" class="rounded-circle" width=50 height=50>
         <div class="ms-3 gap-5 align-items-center">
             <h3 class="m-0"><?php echo $video[0]['author'] ?></h3>
-
         </div>
-        <!-- <button class="btn btn-primary subsribe align-items-center">SUBSCRIBE</button> -->
     </div>
 </div>
 <!-- phần 4 -->
-<h4 class="m-5 decription_video"><?= $video[0]['description']?></h4>
+<h4 class="m-5 decription_video"><?= $video[0]['description'] ?></h4>
 <h5 class="m-5"><?php echo $video[0]['view'] ?> Lượt xem </h5>
 <!-- phần 5 -->
 
@@ -75,11 +70,7 @@ include("../root/CSS/BlogDetail.css.php");
                         <p class="me-3 mb-0 tỉme">3 days ago</p>
 
                     </div>
-
-
-
                     <p class="mb-2">This product is amazing! I love the taste and texture.</p>
-
                     <div class="comment-actions d-flex">
                         <button class="btn btn-light me-3">
                             <i class="far fa-thumbs-up p-1 like"></i>232
@@ -87,19 +78,15 @@ include("../root/CSS/BlogDetail.css.php");
                         <button class="btn btn-light">
                             <i class="far fa-thumbs-down p-1 didlike"></i> Dislike
                         </button>
-
                     </div>
-
                     <div class="d-flex gap-2 p-2 align-content-center">
                         <i class="fa-solid fa-chevron-down text-primary"></i>
                         <p class="text-primary">15 REPLIES</p>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="card mb-3">
         <div class="card-body">
             <div class="d-flex align-items-start">
@@ -111,11 +98,8 @@ include("../root/CSS/BlogDetail.css.php");
                             <span class="rating star">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
                         </div>
                         <p class="me-3 mb-0 tỉme">3 days ago</p>
-
                     </div>
-
                     <p class="mb-2">I'm not impressed with this product. It didn't meet my expectations.</p>
-
                     <div class="comment-actions d-flex">
                         <button class="btn btn-light me-3">
                             <i class="far fa-thumbs-up p-1 like"></i>232
@@ -193,9 +177,25 @@ include("../root/CSS/BlogDetail.css.php");
 <!-- phần 6 -->
 <div class="d-flex gap-4 flex-wrap justify-content-center list_product">
     <div class="card content_video" id="content_video">
-                      <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center my-3">
+                <div class="d-flex gap-1">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
+                    <div class="ms-3 gap-5 align-items-center sub_title">
+                        <h6 class="m-0">How to build a loyal community online and offline</h6>
+                        <span class="d-inline">FC Barcelona</span>
+                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
+                        <span class="d-inline-block w-100">14.1M Subscriber</span>
+                        <span class="d-inline-block w-100">22 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card content_video" id="content_video">
+        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center my-3">
                 <div class="d-flex gap-1">
@@ -209,16 +209,11 @@ include("../root/CSS/BlogDetail.css.php");
 
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <div class="card content_video" id="content_video">
-                      <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
+        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center my-3">
                 <div class="d-flex gap-1">
@@ -229,19 +224,13 @@ include("../root/CSS/BlogDetail.css.php");
                         <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
                         <span class="d-inline-block w-100">14.1M Subscriber</span>
                         <span class="d-inline-block w-100">22 hours ago</span>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <div class="card content_video" id="content_video">
-                      <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
+        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center my-3">
                 <div class="d-flex gap-1">
@@ -252,19 +241,13 @@ include("../root/CSS/BlogDetail.css.php");
                         <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
                         <span class="d-inline-block w-100">14.1M Subscriber</span>
                         <span class="d-inline-block w-100">22 hours ago</span>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <div class="card content_video" id="content_video">
-                      <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
+        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center my-3">
                 <div class="d-flex gap-1">
@@ -275,19 +258,30 @@ include("../root/CSS/BlogDetail.css.php");
                         <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
                         <span class="d-inline-block w-100">14.1M Subscriber</span>
                         <span class="d-inline-block w-100">22 hours ago</span>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <div class="card content_video" id="content_video">
-                      <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
+        <iframe src="<?= $video[0]['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center my-3">
+                <div class="d-flex gap-1">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
+                    <div class="ms-3 gap-5 align-items-center sub_title">
+                        <h6 class="m-0"> <?= $video[0]['description'] ?></h6>
+                        <span class="d-inline">FC Barcelona</span>
+                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
+                        <span class="d-inline-block w-100">14.1M Subscriber</span>
+                        <span class="d-inline-block w-100">22 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card content_video" id="content_video">
+        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center my-3">
                 <div class="d-flex gap-1">
@@ -298,42 +292,13 @@ include("../root/CSS/BlogDetail.css.php");
                         <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
                         <span class="d-inline-block w-100">14.1M Subscriber</span>
                         <span class="d-inline-block w-100">22 hours ago</span>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <div class="card content_video" id="content_video">
-                      <iframe src="<?= $video[0]['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0"> <?= $video[0]['description']?></h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-    <div class="card content_video" id="content_video">
-                      <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
+        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center my-3">
                 <div class="d-flex gap-1">
@@ -344,40 +309,11 @@ include("../root/CSS/BlogDetail.css.php");
                         <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
                         <span class="d-inline-block w-100">14.1M Subscriber</span>
                         <span class="d-inline-block w-100">22 hours ago</span>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-    <div class="card content_video" id="content_video">
-                      <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
 </div>
 <?php
 include("../View/LayOut/Footer/Footer.php");
