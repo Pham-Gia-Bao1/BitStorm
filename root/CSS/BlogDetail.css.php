@@ -181,5 +181,12 @@
         margin-bottom: 30px;
         border-radius: 8px !important;
     }
+    .button_view{
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    .card_box_2{
+        padding-bottom: 10px;
+    }
 
 </style>

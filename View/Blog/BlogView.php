@@ -94,7 +94,6 @@ include("../root/CSS/Blog.css.php");
             </div>
             <div class="item_style">
               <h6><?= $product['title'] ?></h6>
-
             </div>
             <h3 class="card-title item_name"></h3>
             <p class="card-text item_sub_title">
