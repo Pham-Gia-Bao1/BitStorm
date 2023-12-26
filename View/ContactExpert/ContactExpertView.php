@@ -1,8 +1,6 @@
 <?php
-
 include("../View/LayOut/Header/Header.php");
 ?>
-
 
 <title>Kết nối chuyên gia</title>
 <?php
@@ -10,7 +8,7 @@ include("../root/CSS/ContactExpert.css.php");
 ?>
 <div class="container-fluid mt-5">
     <div>
-        <img class="top_image w-90 mb-5" src="https://hellohomedoctor.com.au/wp-content/uploads/2018/08/THE-MOST-COMMON-REASON-PATIENTS-CALL-134100-IN-THE-AFTER-HOURS..png">
+        <img class="top_image mb-5" src="https://hellohomedoctor.com.au/wp-content/uploads/2018/08/THE-MOST-COMMON-REASON-PATIENTS-CALL-134100-IN-THE-AFTER-HOURS..png">
     </div>
     <div class="findDoctor_container p-3 ml-5 mr-5">
         <h3 class="ml-5 fw-bold">Find a doctor</h3>
@@ -48,7 +46,7 @@ include("../root/CSS/ContactExpert.css.php");
                         <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
                         <div class="col-sm-10">
                             <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details">
+                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
                                     Xem thêm
                                 </a>
                             </button>
@@ -79,7 +77,7 @@ include("../root/CSS/ContactExpert.css.php");
                         <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
                         <div class="col-sm-10">
                             <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details">
+                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
                                     Xem thêm
                                 </a>
                             </button>
@@ -110,7 +108,7 @@ include("../root/CSS/ContactExpert.css.php");
                         <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
                         <div class="col-sm-10">
                             <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details">
+                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
                                     Xem thêm
                                 </a>
                             </button>
@@ -141,7 +139,7 @@ include("../root/CSS/ContactExpert.css.php");
                         <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
                         <div class="col-sm-10">
                             <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details">
+                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
                                     Xem thêm
                                 </a>
                             </button>

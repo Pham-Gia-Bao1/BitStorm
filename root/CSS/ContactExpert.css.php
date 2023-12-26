@@ -40,6 +40,11 @@
 
     }
 
+    .viewMorebtn a {
+        color: white;
+        text-decoration: none;
+    }
+
     .time {
         border-radius: 50px;
         border: 1px solid #057dcd;
