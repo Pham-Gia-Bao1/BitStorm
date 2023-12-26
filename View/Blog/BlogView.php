@@ -14,7 +14,7 @@ include("../root/CSS/Blog.css.php");
   </h1>
   <div class="box_search">
     <!-- Phần tìm kiếm -->
-    <form class="w-100 p-0 form_search" method="GET" action="http://localhost/BitStorm/Blog">
+    <form class="w-100 p-0 form_search" method="GET" action="Blog">
       <button class="box_search_icon" type="submit">
         <i class="fa fa-search"></i>
       </button>
@@ -27,7 +27,7 @@ include("../root/CSS/Blog.css.php");
   include("../root/JS/Blog.js.php");
   ?>
   <div class="box_choice d-flex">
-  <form method="get" action="http://localhost/BitStorm/Blog" id="form_opption">
+  <form method="get" action="Blog" id="form_opption">
   <button type="submit" class="btn btn-primary" name="opption" value="TAT_CA">
 
     TẤT CẢ
@@ -70,9 +70,9 @@ include("../root/CSS/Blog.css.php");
           <?= $product['description'] ?>
         </p>
         <p class="text-primary">
-          <a href="<?= $product['youtube_link'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
+          <a href="BlogDetail?id=<?= $product['id'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
             Xem video
-          </a>
+
           <i class="fa-solid fa-chevron-right"></i>
         </p>
 

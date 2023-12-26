@@ -9,7 +9,7 @@
           clearSuggestions();
         } else {
           $.ajax({
-            url: 'http://localhost/WEB_PHP/Controller/SuggestController.php',
+            url: 'http://localhost/BitStorm/Controller/SuggestController.php',
             type: "GET",
             data: {
               search: searchTerm

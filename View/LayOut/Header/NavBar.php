@@ -3,7 +3,7 @@ include("../root/CSS/NavBar.css.php");
 
 ?>
 <!-- loading -->
-<div id="loading-overlay">
+<!-- <div id="loading-overlay">
   <section class="loader">
     <div style="--i:0" class="slider"></div>
     <div style="--i:1" class="slider"></div>
@@ -11,7 +11,7 @@ include("../root/CSS/NavBar.css.php");
     <div style="--i:3" class="slider"></div>
     <div style="--i:4" class="slider"></div>
   </section>
-</div>
+</div> -->
   <!-- script cho loading -->
   <?php
   include("../root/JS/NavBar.js.php");
