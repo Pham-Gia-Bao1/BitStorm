@@ -59,7 +59,8 @@ include("../root/CSS/Blog.css.php");
     foreach ($data['products'] as $product) { ?>
       <div class="card content_video" id="content_video">
         <div class="video">
-          <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <!-- <iframe src=" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+        <iframe width="560" height="315" src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <div class="item_style d-lex flex-wrap">
           <h6 class="w-100"><?= $product['title'] ?></h6>
@@ -104,7 +105,7 @@ include("../root/CSS/Blog.css.php");
               <?= $product['description'] ?>
             </p>
             <p class="text-primary">
-              <a href="<?= $product['youtube_link'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
+              <a href="PodcastDetail?id=<?= $product['id'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
                 Xem thêm
               </a>
               <i class="fa-solid fa-chevron-right"></i>
