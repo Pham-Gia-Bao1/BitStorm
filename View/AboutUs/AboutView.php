@@ -148,7 +148,7 @@ include("../root/CSS/About.css.php");
 
 
 <?php
-// include ("../../root/JS/AboutUs.js.php");
+
 include("../View/LayOut/Footer/Footer.php")
 
 ?>
