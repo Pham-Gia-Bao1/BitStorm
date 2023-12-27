@@ -2,8 +2,10 @@
 <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
 
 
+
 <!-- Font awesome -->
 <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css" type="text/css" />
+
 
 <!-- Custom css - Các file css do chúng ta tự viết -->
 <link rel="stylesheet" type="text/css" href="style.css"/>
@@ -13,3 +15,5 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">

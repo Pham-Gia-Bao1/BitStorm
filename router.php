@@ -3,7 +3,7 @@
 
 // Lấy đường dẫn URL sau localhost
 $requestUri = $_SERVER['REQUEST_URI'];
-$baseUrl = 'WEB_PHP/'; // Đường dẫn gốc của ứng dụng
+$baseUrl = 'BitStorm/'; // Đường dẫn gốc của ứng dụng
 
 // Xóa đường dẫn gốc khỏi URL để chỉ lấy phần đường dẫn tương đối
 $relativePath = str_replace($baseUrl, '', $requestUri);
@@ -14,7 +14,7 @@ $parts = explode('/', $relativePath);
 // Kiểm tra xem đường dẫn tương đối có rỗng hay không
 if ($relativePath === '') {
     // Gọi controller home
-    require_once("../WEB_PHP/Controller/HomeController.php");
+    require_once("../BitStorm/Controller/HomeController.php");
     $controller = new HomeController();
     $controller->index();
     exit();
@@ -53,6 +53,6 @@ if (file_exists($controllerPath)) {
 }
 
 
-header("Location: ../WEB_PHP/home");
+header("Location: ../BitStorm/home");
 
 echo "Page not found";

@@ -24,7 +24,7 @@ include("../root/CSS/Home.php");
                 <hr class="hr_home">
             </div>
             <div class = "col-sm-4">
-                <img src="../root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
+                <img src="http://localhost/BitStorm/root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                    <img src="../root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
+                                    <img src="http://localhost/BitStorm/root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="https://localhost/WEB_PHP/root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
+                                <img src="https://localhost/BitStorm/root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
                         <div class="card-content">
@@ -86,7 +86,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="../../root/Image/operator.png" alt="" class="card-img" width="100px" height="100px">
+                                <img src="https://localhost/BitStorm/root/Image/operator.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
                         <div class="card-content">
@@ -131,7 +131,7 @@ include("../root/CSS/Home.php");
                     <div class="row justify-content-center ">
                         <div class="col-sm-6">
                             <div class="card pb-3 mb-3" style="width: 18rem;">
-                                <img src="../../root/Image/homePage/podcast1.jpg" class="card-img-top" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
+                                <img src="https://localhost/BitStorm/root/Image/homePage/podcast1.jpg" class="card-img-top" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
                                 <div class="card-body  mx-3">
                                     <p class="card-text">Chữa lành tâm hồn những người đang âu lo..</p>
                                     <div class="d-flex">
@@ -237,7 +237,7 @@ include("../root/CSS/Home.php");
                     <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
-                                <img src="../../root/Image/Group 1000006528.png" alt="ảnh">
+                                <img src="https://localhost/BitStorm/root/Image/homePage/Group-1000006528.png" alt="ảnh">
                                 <h6>Tư Vấn Online</h6>
                                 <p class="card-text">Được sự hỗ trợ nhiệt tình từ các
                                 chuyên gia trong lĩnh vực tư vấn.</p>
@@ -247,7 +247,7 @@ include("../root/CSS/Home.php");
                     <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
-                                <img src="../../root/Image/Group 1000006529.png" alt="ảnh">
+                                <img src="https://localhost/BitStorm/root/Image/homePage/Group-1000006529.png" alt="ảnh">
                                 <h6>Xây Dựng Cộng Đồng</h6>
                                 <p class="card-text">Xây dựng một cộng đồng văn mình
                                 để mọi người cùng nhau phát triển</p>
@@ -261,7 +261,7 @@ include("../root/CSS/Home.php");
                      <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
-                                <img src="../../root/Image/Group 1000006530.png" alt="ảnh">
+                                <img src="https://localhost/BitStorm/root/Image/homePage/Group-1000006530.png" alt="ảnh">
                                 <h6>Kiểm duyệt thông tin</h6>
                                 <p class="card-text">Có một điều bạn chưa biết
                                 phần kiểm duyệt thông tin khá là hay</p>
@@ -271,7 +271,7 @@ include("../root/CSS/Home.php");
                     <div class="col-sm-5">
                         <div class="card ">
                             <div class="card-body">
-                                <img src="../../root/Image/Group 1000006531.png" alt="ảnh">
+                                <img src="https://localhost/BitStorm/root/Image/homePage/Group-1000006531.png" alt="ảnh">
                                 <h6>Hoàn toàn miễn phí</h6>
                                 <p class="card-text">Nhận được sự tư vấn từ mọi người
                                 hoàn toàn miễn phí..</p>
