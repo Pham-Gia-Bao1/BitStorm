@@ -41,7 +41,7 @@
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="form-group p-1 m-1">
-            <label for="password">Mật khẩu:</label>
+            <label for="password">Mật khẩu: </label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit" class="btn btn-primary p-1 m-2 login_btn">Đăng nhập</button>
