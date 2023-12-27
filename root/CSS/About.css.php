@@ -1,10 +1,13 @@
 <style>
-    
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+.hr {
+    color: #fff;
+    margin-top: 10px;
+    height: 10px;
 }
 .heading {
     padding:20px;
@@ -12,13 +15,14 @@
     height:500px;
     background-position: center center;
     background-size:cover;
-    background-image: url(https://img.freepik.com/free-photo/young-pretty-stylish-smiling-woman-having-fun-city-park-positive-emotional-wearing-yellow-top-striped-mini-skirt-pink-sunglasses-summer-style-fashion-trend-positive-emotion_285396-5310.jpg?w=996&t=st=1700065396~exp=1700065996~hmac=15e899b8e10af7200f401bb452578208a17ed4cd2f5fc525d7ec94d8f61465ed)
+    background-image: url(https://img.freepik.com/free-photo/medical-staff-doctors-concept-young-smiling-female-doctor-healthcare-worker-white-coat-st_1258-121749.jpg?w=1380&t=st=1703518963~exp=1703519563~hmac=085285af120488119787f579e01eb78eaaad2ded52d4ad25b90a734f3b22f3b2)
 }
 .text{
     padding-top: 20px;
     margin-top:10%;
 }
 .text hr {
+    color: #fff;
     margin-top:10px;
 }
 .animate-charcter {

@@ -24,7 +24,7 @@ include("../root/CSS/Home.php");
                 <hr class="hr_home">
             </div>
             <div class = "col-sm-4">
-                <img src="../../root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
+                <img src="../root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="../../root/Image/homePage/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="ảnh" class="card-img" width="100px"
+                                <img src="http://localhost/BitStorm/root/Image/homePage/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="ảnh" class="card-img" width="100px"
                                 height="100px">
                             </div>
                         </div>
@@ -63,7 +63,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                    <img src="../../root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
+                                    <img src="../root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="../../root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
+                                <img src="https://localhost/WEB_PHP/root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
                         <div class="card-content">
