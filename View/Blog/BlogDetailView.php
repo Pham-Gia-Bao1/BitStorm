@@ -46,13 +46,10 @@ include("../root/CSS/BlogDetail.css.php");
 <div class="comment-list my-3 m-3 bg-light" id="comment-list">
     <div class="card mb-3">
         <div class="card-body  border-white">
-            <div class="d-flex align-items-start  border-white">
+            <div class="d-flex align-items-start  border-white justify-content-between">
                 <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width=50 height=50>
-                <div>
-                    <div class="d-flex align-items-center">
-                        <input type="text" class="form-control custom-input m-2 input" placeholder="Add a comment">
-                    </div>
-                </div>
+                <input type="text" class="form-control custom-input m-2 input" placeholder="Add a comment">
+                <button class="btn-primary add_comment">Thêm Bình luận </button>
             </div>
         </div>
     </div>
@@ -61,7 +58,9 @@ include("../root/CSS/BlogDetail.css.php");
         <div class="card mb-3">
             <div class="card-body  border-white">
                 <div class="d-flex align-items-start  border-white">
-                    <?php include_once("../Model/AccountModel.php");$account = new Account(); $name_and_img = $account->get_name_and_img_user_by_id($comment['user_id']);?>
+                    <?php include_once("../Model/AccountModel.php");
+                    $account = new Account();
+                    $name_and_img = $account->get_name_and_img_user_by_id($comment['user_id']); ?>
                     <img class="rounded-circle me-3 avatar_comment" src="<?php echo $name_and_img[1] ?>" alt="Profile Picture" width=50 height=50>
                     <div>
                         <div class="d-flex align-items-center">
@@ -128,6 +127,8 @@ include("../root/CSS/BlogDetail.css.php");
             </div>
         </a>
     <?php } ?>
+
+</div>
     <?php
     include("../View/LayOut/Footer/Footer.php");
     ?>

@@ -53,6 +53,19 @@ class BlogDetail extends Connection
         }
         return null;
     }
+    // public function add_comment_for_videos($user_id,$video_id,$content){
+
+    //     if (isset($user_id)) {
+    //         $this->connect_database();
+    //         $sql_query = "INSERT INTO comment_videos VALUE ("
+    //         $stmt = $this->conn->prepare($sql_query);
+    //         $stmt->bindParam(":id", $id);
+    //         $stmt->execute();
+    //         $comment_podcasts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //         return $comment_podcasts;
+    //     }
+    //     return null;
+    // }
 
 
 }

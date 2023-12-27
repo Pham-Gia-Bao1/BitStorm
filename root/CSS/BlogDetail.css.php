@@ -161,7 +161,11 @@
         transform: scale(1.04);
     }
     input {
-        width: 87vw !important;
+        width: 84% !important;
+        background-color: aqua;
+    }
+    .add_comment{
+        margin-top: 7px;
     }
     #comment-list {
         padding: 10px;
