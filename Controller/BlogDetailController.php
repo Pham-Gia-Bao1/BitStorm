@@ -3,8 +3,8 @@ include_once("../Model/BlogDetailModel.php");
 include_once("../Model/BlogModel.php");
 include_once("../Model/AccountModel.php");
 
-if($_SERVER['REQUEST_METHOD'] === "GET" && isset($_SERVER['REQUEST_METHOD'])){
-    $account=new Account();
+if ($_SERVER['REQUEST_METHOD'] === "GET" && isset($_SERVER['REQUEST_METHOD'])) {
+    $account = new Account();
     $blog = new Blog();
     $blogDetail = new BlogDetail();
     $id = $_GET["id"];
@@ -14,7 +14,9 @@ if($_SERVER['REQUEST_METHOD'] === "GET" && isset($_SERVER['REQUEST_METHOD'])){
     $videos = $blog->getProducts();
     $data['products'] = $blog->getProducts();
     $check = false;
-    $comments = $blogDetail->get_comment_for_user($id);
+
+    $comments = $blogDetail->get_comment_video_for_user($id);
+
 }
 
 include("../View/Blog/BlogDetailView.php");

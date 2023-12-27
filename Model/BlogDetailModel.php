@@ -27,16 +27,32 @@ class BlogDetail extends Connection
         return $video;
     }
 
-    public function get_comment_for_user($user_id)
+    public function get_comment_video_for_user($id)
     {
-        if (isset($user_id)) {
+        if (isset($id)) {
             $this->connect_database();
             $sql_query = "SELECT * FROM comment_videos WHERE video_id = :id";
             $stmt = $this->conn->prepare($sql_query);
-            $stmt->bindParam(":id", $user_id);
+            $stmt->bindParam(":id", $id);
             $stmt->execute();
             $comment_videos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $comment_videos;
         }
+        return null;
     }
+    public function get_comment_podcast_for_user($id)
+    {
+        if (isset($id)) {
+            $this->connect_database();
+            $sql_query = "SELECT * FROM comment_podcast WHERE podcast_id = :id";
+            $stmt = $this->conn->prepare($sql_query);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $comment_podcasts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $comment_podcasts;
+        }
+        return null;
+    }
+
+
 }
