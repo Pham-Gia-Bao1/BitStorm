@@ -53,5 +53,6 @@ if (file_exists($controllerPath)) {
 }
 
 
-header("Location: home");
+header("Location: ../BitStorm/home");
+
 echo "Page not found";

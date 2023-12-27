@@ -10,13 +10,13 @@ include("../root/CSS/About.css.php");
             <div class="container-fluid">
                 <div class="row">
                   <div class="col-sm-12 text">
-                    <h6 style="color:white;">HOME / CONTACT US</h6>
+                    <h6 style="color:black;">HOME / CONTACT US</h6>
                     <h3 class="animate-charcter"> Contact Us</h3>
-                    <hr style="color:white; width:100px;height:10px;">
+                    <hr>
                   </div>
                 </div>
-              </div>
-          </div>
+            </div>
+        </div>
     </div>
 <div class="bodier">
     <section>
@@ -53,7 +53,7 @@ include("../root/CSS/About.css.php");
                 <p>Nếu bạn có bất kỳ câu hỏi nào hã liên hệ chúng tôi qua email này để ọi người có thể liên hệ với bạn để có thể giải quyết được vấn đề của bạn một cách nhanh nhất.</p>
             </div>
             <div class="col-sm-1"></div>
-            <div class="col-sm-6">
+            <div class="col-sm-7">
                 <form action="" class="d-flex">
                     <div class="input-field">
                         <input type="text" id="name" required />
@@ -76,74 +76,79 @@ include("../root/CSS/About.css.php");
                         <button type="submit"><span>Gửi Ngay</span></button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
     <div class="p-5"></div>
     <div class="container">
-        <div class="row contactExpert">
-            <p style="color:#159EEC;">Về Chúng Tôi</p>
-            <h5>Các Bác Sĩ Chuyên Nghành</h5>
-            <div class="p-3"></div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://khamdinhkydanang.com/wp-content/uploads/2021/05/B%C3%A1c-s%C4%A9-T%E1%BB%91ng-Th%E1%BB%8B-Luy%E1%BA%BFn.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Name</h5>
-                                <span> <i class="fa fa-address-book" aria-hidden="true"></i>
-                                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </span>
-                                <p class="name"> bác sĩ Tống Thị Luyến</p>
-
+        <div id="cards_landscape_wrap-2">
+        <div class="content">
+            <h5>Về Chúng Tôi </h5>
+            <h3>Các Bác Sĩ Chuyên Ngành Tâm Lý</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="ContactExpert">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img src="https://img.freepik.com/free-photo/portrait-beautiful-young-asian-doctor-asian-woman_74190-10520.jpg?size=626&ext=jpg&uid=R118456395&ga=GA1.1.650210055.1693416336&semt=ais" alt="" />
+                                </div>
+                                <div class="text-container">
+                                    <h6>nguyenvanA@gmail.com</h6>
+                                    <p>Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm lo âu trong 7 năm đã giúp được hơn hàng trăm người thoát khỏi.</p>
+                                    <i class="fa-brands fa-facebook"></i>
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
                             </div>
-                            <p style="background-color:cornflowerblue; width:100%;height:50px;"></p>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://img.freepik.com/free-photo/cheerful-asian-dentists-posing-treatment-room-clinic-front-equipment_1098-20373.jpg?w=996&t=st=1700098288~exp=1700098888~hmac=678afce76991632944f2e0702ff65215fbd60b95ceccdd3a629b8751414a806a" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Name</h5>
-                                <span>
-                                    <i class="fa fa-address-book" aria-hidden="true"></i>
-                                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                </span>
-                                <p class="name">Bác sĩ Phan Thị Phương Quỳnh</p>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="ContactExpert">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img src="https://img.freepik.com/free-photo/doctors-day-cute-young-brunette-guy-lab-coat-wearing-glasses-thinking-looking-up_140725-162862.jpg?w=996&t=st=1703642418~exp=1703643018~hmac=898ed322167a963b15a6c4b0cbd0dc68c736175ac9d63859457167f0016e05f4" alt="" />
+                                </div>
+                                <div class="text-container">                                    
+                                    <h6>phamdinhD@outlook.com</h6>
+                                    <p>Kinh nghiệm trong việc hỗ trợ những người gặp khó khăn trong quá trình luyện phục hồi sau chấn thương trong 3 năm.</p>
+                                    <i class="fa-brands fa-facebook"></i>
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
                             </div>
-                            <p style="background-color:cornflowerblue; width:100%;height:50px;"></p>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://www.docosan.com/blog/wp-content/uploads/2021/12/bac-si-tam-ly-o-da-nang-3.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Name</h5>
-                                <span>
-                                    <i class="fa fa-address-book" aria-hidden="true"></i>
-                                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                </span>
-                                <p class="name">Bác sĩ Trần Nguyên Ngọc</p>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="ContactExpert">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img src="https://img.freepik.com/free-photo/smiling-asian-male-doctor-pointing-upwards_1262-18321.jpg?w=996&t=st=1703642535~exp=1703643135~hmac=5b6d6b7084fcd32cda69109c2402529ec82d67ee60ebcba0f07f34d7ebe9dfe1" alt="" />
+                                </div>
+                                <div class="text-container">
+                                    <h6>tranthiB@yahoo.com</h6>
+                                   <p>Kinh nghiệm tư vấn tâm lý trong việc quản lý căng thẳng và xử lý áp lực công việc trong 9 năm làm việc tại bệnh viện.</p>
+                                   <i class="fa-brands fa-facebook"></i>
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
                             </div>
-                            <p style="background-color:cornflowerblue; width:100%;height:50px;"></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <div class="col-sm-2"></div>
         </div>
+    </div>
     </div>
 </div>
 <div class="p-5"></div>
 
+
 <?php
 
-include("../WEB_PHP/View/LayOut/Footer/Footer.php");
+include("../View/LayOut/Footer/Footer.php")
 
 ?>
