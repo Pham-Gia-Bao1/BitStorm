@@ -3,10 +3,10 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/Blog.css.php");
 ?>
 <title>Blog</title>
-<link rel="stylesheet" href="http://localhost/WEB_PHP/root/CSS/Blog.css">
+<link rel="stylesheet" href="http://localhost/BitStorm/root/CSS/Blog.css">
 <!-- phần 1 -->
 <div class="container-fluid" id="main">
-<h1 class="main_title">
+  <h1 class="main_title">
     Video dành cho bạn
   </h1>
   <h1 class="">
@@ -14,7 +14,7 @@ include("../root/CSS/Blog.css.php");
   </h1>
   <div class="box_search">
     <!-- Phần tìm kiếm -->
-    <form class="w-100 p-0 form_search" method="GET" action="http://localhost/WEB_PHP/Blog">
+    <form class="w-100 p-0 form_search" method="GET" action="Blog">
       <button class="box_search_icon" type="submit">
         <i class="fa fa-search"></i>
       </button>
@@ -27,31 +27,29 @@ include("../root/CSS/Blog.css.php");
   include("../root/JS/Blog.js.php");
   ?>
   <div class="box_choice d-flex">
-  <form method="get" action="http://localhost/WEB_PHP/Blog" id="form_opption">
-  <button type="submit" class="btn btn-primary" name="opption" value="TAT_CA">
-
-    TẤT CẢ
-  </button>
-  <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="DONG_LUC">
-    ĐỘNG LỰC
-    <i class="fa-solid fa-person-running"></i>
-  </button>
-  <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="GIA_DINH">
-    GIA ĐÌNH
-    <i class="fa-solid fa-house"></i>
-  </button>
-  <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="TINH_YEU">
-    TÌNH YÊU
-    <i class="fa-solid fa-heart"></i>
-  </button>
-  <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="THIEN_NHIEN">
-    THIÊN NHIÊN
-    <i class="fa-solid fa-cloud"></i>
-  </button>
-</form>
+    <form method="get" action="Blog" id="form_opption">
+      <button type="submit" class="btn btn-primary" name="opption" value="TAT_CA">
+        TẤT CẢ
+      </button>
+      <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="DONG_LUC">
+        ĐỘNG LỰC
+        <i class="fa-solid fa-person-running"></i>
+      </button>
+      <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="GIA_DINH">
+        GIA ĐÌNH
+        <i class="fa-solid fa-house"></i>
+      </button>
+      <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="TINH_YEU">
+        TÌNH YÊU
+        <i class="fa-solid fa-heart"></i>
+      </button>
+      <button type="submit" class="btn btn-light box_choice_btn" name="opption" value="THIEN_NHIEN">
+        THIÊN NHIÊN
+        <i class="fa-solid fa-cloud"></i>
+      </button>
+    </form>
   </div>
 </div>
-<!-- <div class="block_img"> here </div> -->
 <div class="content" id="content">
   <h2 class="text-primary sub_title">Dành cho bạn</h2>
   <div class="container-fluid container1 d-flex flex-wrap gap-4" id="container1">
@@ -59,21 +57,20 @@ include("../root/CSS/Blog.css.php");
     foreach ($data['products'] as $product) { ?>
       <div class="card content_video" id="content_video">
         <div class="video">
-          <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <div class="item_style d-lex flex-wrap">
           <h6 class="w-100"><?= $product['title'] ?></h6>
-          <h6>5 min read</h6>
         </div>
         <h3 class="card-title item_name"></h3>
         <p class="card-text item_sub_title">
           <?= $product['description'] ?>
         </p>
         <p class="text-primary">
-          <a href="<?= $product['youtube_link'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
+          <a href="BlogDetail?id=<?= $product['id'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
             Xem video
+            <i class="fa-solid fa-chevron-right"></i>
           </a>
-          <i class="fa-solid fa-chevron-right"></i>
         </p>
 
       </div>
@@ -97,14 +94,14 @@ include("../root/CSS/Blog.css.php");
             </div>
             <div class="item_style">
               <h6><?= $product['title'] ?></h6>
-              <h6>5 min read</h6>
+
             </div>
             <h3 class="card-title item_name"></h3>
             <p class="card-text item_sub_title">
               <?= $product['description'] ?>
             </p>
             <p class="text-primary">
-              <a href="<?= $product['youtube_link'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
+              <a href="PodcastDetail?id=<?= $product['id'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
                 Xem thêm
               </a>
               <i class="fa-solid fa-chevron-right"></i>

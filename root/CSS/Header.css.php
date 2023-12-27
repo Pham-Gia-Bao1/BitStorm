@@ -38,33 +38,40 @@ body {
 
 .navbar-center {
     display: flex;
+    
 }
 
-.navbar-center .nav-link {
+.navbar-center-a {
     margin: 0 12px;
     font-size: 20px;
-    color: black !important;
+    color: black;
     position: relative;
     text-decoration: none;
 }
 
-.nav-link:hover {
-    color: #002bff;
+.navbar-center-a:hover {
+    text-decoration: none;
+    text-decoration-line: none;
+    color: #0A3567;
+    font-weight: 500s;
+    /* box-shadow: 0 2px dodgerblue; */
+
 }
 
 .current-page {
     box-shadow: 0 2px dodgerblue;
-    /* background-color: #87cefa;
-    padding: 0 5px; */
+    color: #0A3567;
+    font-weight: bold;
+    padding: 0 5px;
 }
 
 .navbar-right {
     display: flex;
     align-items: center;
 }
-li {
+/* li {
     list-style-type:none;
-}
+} */
 .btn-header {
     font-size: 17px;
     padding: 0.5em 1.5em;
@@ -89,13 +96,14 @@ li {
     background: rgb(138, 192, 245);
 }
 
+/* FOOTER */
+
 /* Định dạng cho footer */
 .footer {
     background-color: #f8f9fa;
     padding: 20px;
     margin-top: 100px;
 }
-
 
 .logo-footer {
     width: 40%;

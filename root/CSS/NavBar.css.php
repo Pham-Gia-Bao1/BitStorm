@@ -21,13 +21,13 @@
     margin-left: auto;
   }
 
-  .nav-link {
+  /* .nav-link {
     color: #333;
   }
 
   .nav-link:hover {
     color: #007bff;
-  }
+  } */
 
   .btn-primary {
     background-color: #007bff;

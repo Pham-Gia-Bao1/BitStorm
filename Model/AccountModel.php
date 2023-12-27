@@ -49,26 +49,8 @@ class Account
     {
         $this->img = $img;
     }
-    public function connect_database()
-    {
-        $host = 'localhost';
-        $username = 'root';
-        $password = '';
-        $dbName = 'DATA_PHP';
-        try {
-            $conn = new PDO("mysql:host=$host;dbname=$dbName", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $conn;
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-            return null;
-        }
-    }
-    private function closeConnection()
-    {
-        $this->conn = null;
-    }
-    private function test_input($data) {
+
+    public function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -82,14 +64,11 @@ class Account
             $account = new Account($username, $password, $email);
             $blog = new Blog();
             $conn = $blog->connect_database();
-            // Check if email already exists in the users table
             $sql_check = "SELECT * FROM users WHERE email = :email";
             $stmt_check = $conn->prepare($sql_check);
             $stmt_check->bindParam(':email', $email);
             $stmt_check->execute();
             if ($stmt_check->rowCount() > 0) {
-                // Email already exists, do not proceed with registration
-                echo '<script>alert("Đăng Ký thất bại!"); window.location.href = "home";</script>';
                 return false;
             }
             // Insert the new user into the users table
@@ -101,35 +80,27 @@ class Account
             $stmt->bindParam(':password', $password);
             $img = $account->getImg();
             $stmt->bindParam(':img', $img);
-            $result = $stmt->execute();
-            $new_user_name = base64_encode($username);
-            setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-            // Close the database connection
+            $stmt->execute();
             $blog->closeConnection();
 
-            return $result;
+            return true;
         }
         return false;
     }
     // Login function
-    public static function login($name, $email, $password)
+    public static function login($name,$email, $password)
     {
         if (!empty($email) && !empty($password)) {
             $blog = new Blog();
             $conn = $blog->connect_database();
-            // Set a cookie for the user
-            $new_user_name = base64_encode($name);
-            setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-            $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
+            $sql = "SELECT users.id FROM users WHERE users.name = :name and users.email = :email AND users.password = :password";
             $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':name', $name);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->execute();
-            // Close the database connection
             $blog->closeConnection();
-            if ($stmt->rowCount() > 0) {
-                return true;
-            }
+            return true;
         }
         return false;
     }
