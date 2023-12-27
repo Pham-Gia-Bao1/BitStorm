@@ -8,7 +8,7 @@ include("../root/CSS/ContactExpert.css.php");
 ?>
 <div class="container-fluid mt-5">
     <div>
-        <img class="top_image mb-5" src="https://hellohomedoctor.com.au/wp-content/uploads/2018/08/THE-MOST-COMMON-REASON-PATIENTS-CALL-134100-IN-THE-AFTER-HOURS..png">
+        <img class="top_image mb-5" src="./root/Image/contactExpert/doctors.png" alt="image">
     </div>
     <div class="findDoctor_container p-3 ml-5 mr-5">
         <h3 class="ml-5 fw-bold">Find a doctor</h3>
@@ -27,7 +27,7 @@ include("../root/CSS/ContactExpert.css.php");
         <h4 class="mb-3 fw-bold">Những chuyên gia top đầu</h4>
         <div class="col-sm-3">
             <div class="card" style="width: 18rem;">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                 <div class="card-body text-center">
                     <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                     <p>Chuyên viên tâm lý</p>
@@ -58,7 +58,7 @@ include("../root/CSS/ContactExpert.css.php");
 
         <div class="col-sm-3">
             <div class="card" style="width: 18rem;">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                 <div class="card-body text-center">
                     <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                     <p>Chuyên viên tâm lý</p>
@@ -89,7 +89,7 @@ include("../root/CSS/ContactExpert.css.php");
 
         <div class="col-sm-3">
             <div class="card" style="width: 18rem;">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                 <div class="card-body text-center">
                     <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                     <p>Chuyên viên tâm lý</p>
@@ -120,7 +120,7 @@ include("../root/CSS/ContactExpert.css.php");
 
         <div class="col-sm-3">
             <div class="card" style="width: 18rem;">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                 <div class="card-body text-center">
                     <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                     <p>Chuyên viên tâm lý</p>
@@ -157,35 +157,33 @@ include("../root/CSS/ContactExpert.css.php");
     <div class="text-center mt-5">
         <h2 class="comment fw-bold">Bình luận của các khách hàng</h2>
         <p>Trải nghiệm người dùng luôn được chúng tôi ưu tiên hàng đầu. <br>
-            Việc mang lại trải nghiệm tốt giúp họ vượt qua giai đoạn căng thẳng là sứ mệnh của chúng tôi
+            Việc mang lại trải nghiệm tốt giúp họ vượt qua giai đoạn căng thẳng là sứ mệnh của chúng tôi.
         </p>
     </div>
     <div class="row mt-5 pl-5 pr-5">
         <div class="col-md-4">
             <div class="testimonial-card">
-                <img src="../../root/Image/contactExpert/client1.png" alt="Client 1" class="img-fluid">
-                <p class="client-quote">Trước đây tôi không thể mở lòng với bất kì ai, nhưng từ khi được sự tư vấn tâm lý
-                    của bác Anh, tôi đã trở nên tự tin hơn
-                    rất nhiều.</p>
-                <img src="../../root/Image/contactExpert/stars.png" alt="stars">
+                <img src="./root/Image/contactExpert/userimage1.jpg" alt="Client 1" class="img-fluid">
+                <p class="client-quote mt-1">Từ khi tôi sử dụng BitStorm và sử dụng trang web này thì tôi
+                    thấy cuộc sống tôi đã tốt hơn nhiều so với trước đây. BitStorm thật tuyệt vời</p>
+                <img src="./root/Image/contactExpert/stars.png" alt="stars">
             </div>
         </div>
         <div class="col-md-4">
             <div class="testimonial-card">
-                <img src="../../root/Image/contactExpert/client1.png" alt="Client 1" class="img-fluid">
-                <p class="client-quote">Trước đây tôi không thể mở lòng với bất kì ai, nhưng từ khi được sự tư vấn tâm lý
-                    của bác Anh, tôi đã trở nên tự tin hơn
+                <img src="./root/Image/contactExpert/userimage.png" alt="Client 1" class="img-fluid">
+                <p class="client-quote mt-1">Trước đây tôi không thể mở lòng với bất kì ai, nhưng từ khi được sự tư vấn tâm lý
+                    của bác bác sĩ, tôi đã trở nên tự tin hơn
                     rất nhiều.</p>
-                <img src="../../root/Image/contactExpert/stars.png" alt="stars">
+                <img src="./root/Image/contactExpert/stars.png" alt="stars">
             </div>
         </div>
         <div class="col-md-4">
             <div class="testimonial-card">
-                <img src="../../root/Image/contactExpert/client1.png" alt="Client 1" class="img-fluid">
-                <p class="client-quote">Trước đây tôi không thể mở lòng với bất kì ai, nhưng từ khi được sự tư vấn tâm lý
-                    của bác Anh, tôi đã trở nên tự tin hơn
-                    rất nhiều.</p>
-                <img src="../../root/Image/contactExpert/stars.png" alt="stars">
+                <img src="./root/Image/contactExpert/userimage2.png" alt="Client 1" class="img-fluid">
+                <p class="client-quote mt-1">Tôi đã căng thẳng hơn 1 năm rồi nhưng không có ai lắng nghe tôi chia sẻ
+                    BitStom luôn đem lại cho tôi những sự bất ngờ.</p>
+                <img src="./root/Image/contactExpert/stars.png" alt="stars">
             </div>
         </div>
     </div>
