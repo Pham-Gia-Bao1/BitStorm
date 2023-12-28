@@ -45,13 +45,17 @@ include("../root/CSS/BlogDetail.css.php");
 
 <div class="comment-list my-3 m-3 bg-light" id="comment-list">
     <div class="card mb-3">
-        <div class="card-body  border-white">
-            <div class="d-flex align-items-start  border-white justify-content-between">
-                <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width=50 height=50>
-                <input type="text" class="form-control custom-input m-2 input" placeholder="Thêm bình luận ">
-                <button class="btn-primary add_comment">Thêm Bình luận </button>
+        <div class="card-body border-white">
+            <div class="d-flex align-items-start border-white justify-content-between">
+                <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width="50" height="50">
+                <form id="commentForm" method="get" action="comment"> <!-- Thay đổi đường dẫn tới CommentController -->
+                <input type="hidden" name="id" value="<?= $video[0]['id']?>">
+                    <input type="text" id="commentInput" class="form-control custom-input m-2 input" placeholder="Thêm bình luận" name="content">
+                    <button type="submit" class="btn-primary add_comment">Thêm Bình luận</button>
+                </form>
             </div>
         </div>
+
     </div>
     <?php foreach ($comments as $comment) {
     ?>
@@ -129,6 +133,6 @@ include("../root/CSS/BlogDetail.css.php");
     <?php } ?>
 
 </div>
-    <?php
-    include("../View/LayOut/Footer/Footer.php");
-    ?>
+<?php
+include("../View/LayOut/Footer/Footer.php");
+?>

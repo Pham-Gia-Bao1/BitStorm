@@ -178,4 +178,18 @@ class Account
         $blog->closeConnection();
         return $result;
     }
+    public function get_id(){
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+        if (!isset($_SESSION["User"])){
+            $user_name = base64_decode($_COOKIE['User']);
+            $sql = "SELECT users.id from users where name = :name";
+            $stmt = $conn->prepare($sql);
+            $stmt -> bindParam(':name' ,$user_name);
+            $stmt -> execute();
+            $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $id[0]['id'];
+        }
+        return null;
+    }
 }

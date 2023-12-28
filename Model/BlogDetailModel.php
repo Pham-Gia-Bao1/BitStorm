@@ -67,22 +67,23 @@ class BlogDetail extends Connection
         }
         return null;
     }
-    public function add_comment_videos($user_id,$podcasts_id,$content,$video_id){
-        if (isset($user_id) && isset($podcasts_id) && isset($content)) {
-
+    public function add_comment_videos($user_id, $content, $video_id) {
+        if (isset($user_id) && isset($content)) {
             $this->connect_database();
-            $date_time =  date("Y-m-d H:i:s");
-            $sql_query = "INSERT INTO comment_videos ( content, author, created_at, video_id, user_id, like_count, dislike_count)
-                            VALUE (:content, :author, :create_at, :video_id, :user_id , :like_count, :dislike_count) ";
+            $date_time = date("Y-m-d H:i:s");
+            $sql_query = "INSERT INTO comment_videos (content, author, created_at, video_id, user_id, like_count, dislike_count)
+                          VALUES (:content, :author, :created_at, :video_id, :user_id, :like_count, :dislike_count)";
             $stmt = $this->conn->prepare($sql_query);
+            $author = null;
+            $like_count = 0;
+            $dislike_count = 0;
             $stmt->bindParam(":content", $content);
-            $stmt->bindParam(":author", null);
-            $stmt->bindParam(":create_at", $date_time);
+            $stmt->bindParam(":author", $author);
+            $stmt->bindParam(":created_at", $date_time);
             $stmt->bindParam(":video_id", $video_id);
             $stmt->bindParam(":user_id", $user_id);
-            $stmt->bindParam(":like_count", 0);
-            $stmt->bindParam(":dislike_count", 0);
-
+            $stmt->bindParam(":like_count", $like_count);
+            $stmt->bindParam(":dislike_count", $dislike_count);
             $stmt->execute();
             return true;
         }
