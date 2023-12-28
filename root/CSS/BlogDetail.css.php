@@ -161,7 +161,11 @@
         transform: scale(1.04);
     }
     input {
-        width: 87vw !important;
+        width: 84% !important;
+        background-color: aqua;
+    }
+    .add_comment{
+        margin-top: 7px;
     }
     #comment-list {
         padding: 10px;
@@ -180,6 +184,13 @@
         height: 800px;
         margin-bottom: 30px;
         border-radius: 8px !important;
+    }
+    .button_view{
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    .card_box_2{
+        padding-bottom: 10px;
     }
 
 </style>
