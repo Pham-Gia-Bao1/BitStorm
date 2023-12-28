@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS  data_php;
+CREATE DATABASE   data_php;
 USE data_php;
 
 
@@ -14,23 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-INSERT INTO users (name, email, password, role_id, img, address, phone_number)
-VALUES
-    ('Nguyễn Sĩ Hùng', 'hungsi@gmail.com', 'Hung@#sd23090', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '123 Đường Trần Phú, Quận Hải Châu, Đà Nẵng, Việt Nam', '093237623'),
-    ('Trần Đức Hùng', 'hung.duc@gmail.com', 'Hung@#$jsdgh6253', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '456 Đường Bạch Đằng, Quận Hòa Vang, Đà Nẵng, Việt Nam', '087623781'),
-    ('Nguyễn Bích Thủy', 'bichthhuy234@gmail.com', 'thuy90@22@#d', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '789 Đường Nguyễn Văn Linh, Quận Sơn Trà, Đà Nẵng, Việt Nam', '087623231'),
-    ('Trần Thị Mỹ Tâm', 'tranthimytam09@gmail.com', 'sdjh%#$%543sjdh', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '321 Đường Ngô Quyền, Quận Liên Chiểu, Đà Nẵng, Việt Nam', '082362233'),
-    ('Lê Văn Thắng', 'thang@gmail.com', 'sdasj%$Shew52', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '987 Đường Nguyễn Hữu Thọ, Quận Cẩm Lệ, Đà Nẵng, Việt Nam', '012834642');
-
-create table roles (
-	id int primary key,
-    name varchar(100)
- );
- INSERT INTO roles (id, name) VALUES
-(1, 'admin'),
-(2, 'client'),
-(3, 'expert');
-
+select * from users ;
 
 CREATE TABLE IF NOT EXISTS posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,18 +29,14 @@ CREATE TABLE IF NOT EXISTS posts (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
-INSERT INTO posts (user_id, auth, created_by, updated_by, like_count, isAnonymous, content, created_at, updated_at)
-VALUES (2, 'pham gia bao', 'pham gia bao', 'pham gia bao', 23, 1, 'Bame à, con áp lực với con số. Nó một ngày một lớn. Con không biết phải làm sao nữa. Bame à.', '2023-10-12', '2023-10-12'),
-       (3, 'vân thư', 'vân thư', 'vân thư', 323, 0, 'MẬP TRĂM KÍ LÀ CẢM GIÁC như thế nào?\nLà được nhận những lời trêu đùa từ mọi người?\nLà đứa đi đâu cũng ngại. Lên xe của bạn thì sợ bể lốp. Áo mượn của bạn thì sợ bị rách.\nCác cậu cho cách nào giúp tớ không? Tớ không có nhiều thời gian cũng như chi phí để đến các phòng tập gym.', '2023-10-12', '2023-10-12'),
-       (2, 'việt mỹ', 'việt mỹ', 'việt mỹ', 232, 1, 'Xin chào tất cả các bạn,\nChắc hẳn các bạn đang rất mệt mỏi và áp lực về nhiều thứ, nhưng nếu các bạn mãi tiêu cực như vậy, bạn sẽ cứ thế chôn vùi tương lai tươi đẹp phía trước của mình. Và tôi biết rằng để các bạn có thể tích cực và vui vẻ trở lại rất khó khăn, nhưng hãy cố gắng thực hiện theo các tips này để có thể cải thiện từng chút một nhé.\n', '2023-10-12', '2023-10-12'),
-       (3, 'bích quyên', 'bích quyên', 'bích quyên', 121, 1, 'Xin chào mọi người,\nHôm nay, tôi muốn mở lòng và chia sẻ với các bạn về tình trạng trầm cảm mà tôi đang trải qua. Đôi khi, cuộc sống có thể trở nên khó khăn và cảm giác trầm cảm đã ập đến lấn át tâm trí của tôi.\nTrong những tháng qua, tôi đã phải đối mặt với cuộc chiến với trầm cảm. Cảm giác u ám và mệt mỏi vẫn luôn hiện diện trong cuộc sống hàng ngày của tôi. Đôi khi, nó khiến tôi cảm thấy như một cuộc đấu tranh không có hồi kết. Tôi cảm thấy mất đi sự hứng thú và niềm vui với những điều trước đây tôi thường thích. Cảm xúc này thật khó diễn tả và đôi khi tôi cảm thấy mình bị lạc trong một thế giới tối tăm. Các bạn có đang gặp tình trạng giống tôi không?', '2023-10-12', '2023-10-12');
 
+select * from posts ;
 
 CREATE TABLE  podcasts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
     description TEXT,
-    author VARCHAR(50),
+    author_id int,
     youtube_link VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     image_url VARCHAR(255),
@@ -64,13 +44,13 @@ CREATE TABLE  podcasts (
     view int
 );
 
-INSERT INTO podcasts (title, description, author, youtube_link, created_at, image_url, type, view)
-VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là Sun. Các bạn đang lắng nghe Sunhuyn Podcast. Nếu có những ngày cảm thấy chênh vênh hãy quay về đây và yêu lấy chính mình. Cùng lắng nghe và thấu hiểu.', 'Sunhuyn Podcast', 'https://www.youtube.com/embed/pZTjXtkPam0?si=wnP82s0G_dOnVRFt', '2023-08-08', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Tình yêu', 100),
-('Cách để đối diện với tiêu cực và vượt qua nó cùng Khánh Vy | ĐCNNTK #10', 'Đắp Chăn Nằm Nghe Tun Kể là series podcast đầu tiên của Tun, nơi Tun và các bạn có thể trải lòng với nhau về những điều mệt mỏi trong cuộc sống, cùng cho nhau những lời khuyên hay ho, cùng chữa lành những tổn thương, đổ vỡ để trái tim tụi mình một lần nữa được ngập tràn yêu thương.', 'Tun Cảm Ơn', 'https://www.youtube.com/embed/bdK95yNhIP0?si=EjvSPZ0F9ZxxE-43', '2022-04-09', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Gia đình', 309),
-('Cách vượt qua ÁP LỰC học tập và điểm số', 'Những kỳ thi cuối năm sắp tới, và mình hiểu có thể các bạn đang gặp nhiều áp lực học tập và điểm số đến chừng nào! Bạn có bao giờ cảm xúc tiêu cực vì bị so sánh với "con nhà người ta"? Mình sẽ ở đây để chia sẻ cùng các bạn. Hãy luôn vững tin và học tập với một niềm yêu thích và đam mê nhé ❤️', 'Vừng', 'https://www.youtube.com/embed/-y4N5aXLbDo?si=t9QVCITIFRqG3SCD', '2021-12-10', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Học tập', 232),
+INSERT INTO podcasts (title, description, author_id, youtube_link, created_at, image_url, type, view)
+VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là Sun. Các bạn đang lắng nghe Sunhuyn Podcast. Nếu có những ngày cảm thấy chênh vênh hãy quay về đây và yêu lấy chính mình. Cùng lắng nghe và thấu hiểu.', 1, 'https://www.youtube.com/embed/pZTjXtkPam0?si=wnP82s0G_dOnVRFt', '2023-08-08', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Tình yêu', 100),
+('Cách để đối diện với tiêu cực và vượt qua nó cùng Khánh Vy | ĐCNNTK #10', 'Đắp Chăn Nằm Nghe Tun Kể là series podcast đầu tiên của Tun, nơi Tun và các bạn có thể trải lòng với nhau về những điều mệt mỏi trong cuộc sống, cùng cho nhau những lời khuyên hay ho, cùng chữa lành những tổn thương, đổ vỡ để trái tim tụi mình một lần nữa được ngập tràn yêu thương.', 3, 'https://www.youtube.com/embed/bdK95yNhIP0?si=EjvSPZ0F9ZxxE-43', '2022-04-09', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Gia đình', 309),
+('Cách vượt qua ÁP LỰC học tập và điểm số', 'Những kỳ thi cuối năm sắp tới, và mình hiểu có thể các bạn đang gặp nhiều áp lực học tập và điểm số đến chừng nào! Bạn có bao giờ cảm xúc tiêu cực vì bị so sánh với "con nhà người ta"? Mình sẽ ở đây để chia sẻ cùng các bạn. Hãy luôn vững tin và học tập với một niềm yêu thích và đam mê nhé ❤️', 2, 'https://www.youtube.com/embed/-y4N5aXLbDo?si=t9QVCITIFRqG3SCD', '2021-12-10', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Học tập', 232),
 ("Đối mặt với TỰ TI NGOẠI HÌNH // sự thật về mặc cảm cơ thể, body shaming, tips yêu cơ thể",
 "Bạn có từng cảm thấy tự ti về ngoại hình của mình? Hay có những mặc cảm về cơ thể mà bạn không biết làm thế nào để vượt qua? Nếu câu trả lời là 'có,' thì video này chính là dành cho bạn! Trong video này, mình sẽ cùng thảo luận và chia sẻ về chủ đề tự ti ngoại hình và mặc cảm cơ thể. Với những nội dung độc đáo và sâu sắc, chúng tôi hy vọng sẽ mang đến cho bạn những thông tin hữu ích và truyền cảm hứng để bạn tự tin hơn với bản thân mình. Tại đây, bạn sẽ tìm thấy các video về cách xây dựng lòng tự tin, tư vấn về làm đẹp và phong cách, cũng như những câu chuyện thành công của những người đã vượt qua mặc cảm của mình. Chúng tôi cung cấp những lời khuyên thiết thực và chi tiết, giúp bạn hiểu rõ hơn về nguyên nhân và cách giải quyết các vấn đề ngoại hình và cơ thể. Nếu bạn đang tìm kiếm các từ khóa như 'tự ti về ngoại hình,' 'vượt qua mặc cảm cơ thể,' hay 'tự tin trong cuộc sống,' thì bạn đã đến đúng nơi! Chúng tôi tối ưu hóa nội dung của video để đáp ứng nhu cầu của bạn và giúp bạn tìm thấy chúng dễ dàng.",
-"Vừng",
+1,
 "https://www.youtube.com/embed/8XH96t4aY0c?si=fOewaJlFtpUjY0-f",
 "2023-05-26",
 "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
@@ -84,6 +64,9 @@ VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là 
 "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
 "Stress",
 123);
+
+select * from podcasts;
+
 
 CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -102,6 +85,7 @@ VALUES (1, 'động lực'),
 (9, 'tính cách'),
 (10, 'niềm tin');
 
+select * from categories;
 
 CREATE TABLE IF NOT EXISTS podcasts_categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -117,6 +101,8 @@ VALUES (1, 3),
 (5, 1),
 (4, 5);
 
+select * from podcasts_categories;
+
 CREATE TABLE  user_preferences (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -125,7 +111,7 @@ CREATE TABLE  user_preferences (
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
-
+-- drop table user_preferences;
 INSERT INTO user_preferences (user_id, category_id) VALUES (1, 1);
 INSERT INTO user_preferences (user_id, category_id) VALUES (1, 2);
 INSERT INTO user_preferences (user_id, category_id) VALUES (2, 3);
@@ -137,32 +123,22 @@ INSERT INTO user_preferences (user_id, category_id) VALUES (4, 4);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 1);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 4);
 
+select * from user_preferences;
 
+--
 CREATE TABLE  videos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     youtube_link VARCHAR(255),
     title VARCHAR(255),
-    author varchar(50),
+    author_id int,
     description TEXT,
     duration INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     type VARCHAR(255),
     view varchar(50)
 );
-INSERT INTO videos (youtube_link, title, author, description , duration, type, view)
-VALUES
-('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 'Author 1','Description for Video 1',120, 'động lực','23'),
-('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 'Author 2','Description for Video 2', 120, 'gia đình','123'),
-('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 'Author 3','Description for Video 3', 120, 'tình yêu','232'),
-('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6','Author 4', 'Description for Video 6',120, 'thiên nhiên','32'),
-('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4', 'Author 5','Description for Video 4',120, 'động lực','232'),
-('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 'Pham Gia Bảo','Description for Video 1', 120, 'động lực','912'),
-('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 'Võ Thị Vân Thư','Description for Video 2',120, 'gia đình','127'),
-('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 'Author 6','Description for Video 3',120, 'tình yêu','232'),
-('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6','Author 7', 'Description for Video 6', 120, 'thiên nhiên','321'),
-('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4','Author 8', 'Description for Video 4',120, 'động lực','763'),
-('https://www.youtube.com/embed/18mSyyOQua0?si=Hl7vG1-x1fUjKfAV', 'Video 5', 'Author 9','Description for Video 5',120, 'gia đình','776');
 
+select * from videos;
 
 
 CREATE TABLE IF NOT EXISTS video_categories (
@@ -184,10 +160,11 @@ INSERT INTO video_categories (video_id, category_id) VALUES
 (5, 1),
 (5, 2);
 
+select * from video_categories;
 
 CREATE TABLE comment_videos
 (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY auto_increment,
     content TEXT,
     author varchar(50),
     created_at TIMESTAMP,
@@ -201,16 +178,16 @@ CREATE TABLE comment_videos
 
 INSERT INTO comment_videos (id, content, author, created_at, video_id, user_id, like_count, dislike_count)
 VALUES
-(1, 'Great video!', 'John Doe', '2023-01-01 10:00:00', 1, 1, 23, 1),
-(2, 'I learned a lot from this video.', 'Jane Smith', '2023-01-02 15:30:00', 1, 3, 212, 3),
-(3, 'Could you explain this further?', 'Michael Johnson', '2023-01-03 08:45:00', 2, 2, 323, 32),
-(4, 'Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2, 4, 43, 4),
-(5, 'This video is very informative.', 'Robert Wilson', '2023-01-05 09:10:00', 3, 1, 34, 4),
-(6, 'I have a question regarding the topic.', 'Sophia Thompson', '2023-01-06 14:05:00', 3, 5, 56, 12),
-(7, 'Thanks for sharing!', 'John Doe', '2023-01-07 17:55:00', 4, 5, 21, 2),
-(8, 'I enjoyed watching this video.', 'Jane Smith', '2023-01-08 11:30:00', 4, 2, 98, 4),
-(9, 'Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 5, 2, 45, 4),
-(10, 'I found this video very helpful.', 'Emily Davis', '2023-01-10 16:25:00', 5, 1, 234, 43);
+('Great video!', 'John Doe', '2023-01-01 10:00:00', 1, 1, 23, 1),
+('I learned a lot from this video.', 'Jane Smith', '2023-01-02 15:30:00', 1, 3, 212, 3),
+('Could you explain this further?', 'Michael Johnson', '2023-01-03 08:45:00', 2, 2, 323, 32),
+('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2, 4, 43, 4),
+('This video is very informative.', 'Robert Wilson', '2023-01-05 09:10:00', 3, 1, 34, 4),
+('I have a question regarding the topic.', 'Sophia Thompson', '2023-01-06 14:05:00', 3, 5, 56, 12),
+('Thanks for sharing!', 'John Doe', '2023-01-07 17:55:00', 4, 5, 21, 2),
+('I enjoyed watching this video.', 'Jane Smith', '2023-01-08 11:30:00', 4, 2, 98, 4),
+('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 5, 2, 45, 4),
+('I found this video very helpful.', 'Emily Davis', '2023-01-10 16:25:00', 5, 1, 234, 43);
 select * from comment_videos where video_id = 2;
 
 
@@ -234,6 +211,8 @@ INSERT INTO comment_posts (id, content, author, created_at, post_id) VALUES
 (8, 'This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
 (9, 'Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
 (10, 'Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
+
+select * from comment_posts;
 
 
 CREATE TABLE experts (
@@ -261,6 +240,8 @@ INSERT INTO experts (id,full_name, gender, address, email, phone_number, age, ex
 (8, 'Bùi Thị Lan','Female', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Kinh nghiệm tư vấn tâm lý trong việc quản lý căng thẳng và xử lý áp lực công việc trong 9 năm.', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 3, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg'),
 (9, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Kinh nghiệm tư vấn tâm lý cho người mắc các rối loạn ăn uống và hỗ trợ phục hồi sau rối loạn dinh dưỡng trong 7 năm.', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 16, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg'),
 (10, 'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 9, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg');
+select * from experts;
+
 
 CREATE TABLE bookings (
   id INT PRIMARY KEY,
@@ -287,6 +268,19 @@ INSERT INTO bookings (id, user_id, expert_id, appointment_time, note, created_at
 (9, 4, 9, '2023-01-09 16:30:00', 'I need guidance on project planning.', '2023-01-09 16:00:00', 'Confirmed', 5),
 (10, 5, 10, '2023-01-10 12:15:00', 'I want to discuss leadership skills.', '2023-01-10 11:45:00', 'Confirmed', 4);
 
+select * from bookings;
+
+
+create table roles (
+	id int primary key,
+    name varchar(100)
+ );
+ INSERT INTO roles (id, name) VALUES
+(1, 'admin'),
+(2, 'client'),
+(3, 'expert');
+
+select * from roles;
 
  CREATE TABLE calendar (
   id INT PRIMARY KEY,
@@ -351,30 +345,59 @@ INSERT INTO new_categories (id, new_id, category_id) VALUES
 (8, 4, 6),
 (9, 5, 1),
 (10, 5, 7);
-
-
-INSERT INTO videos (youtube_link, title, author, description , duration, type, view)
+select * from new_categories;
+INSERT INTO users (name, email, password, role_id, img, address, phone_number)
 VALUES
-('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 'Author 1','Description for Video 1',120, 'động lực','23'),
-('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 'Author 2','Description for Video 2', 120, 'gia đình','123'),
-('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 'Author 3','Description for Video 3', 120, 'tình yêu','232'),
-('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6','Author 4', 'Description for Video 6',120, 'thiên nhiên','32'),
-('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4', 'Author 5','Description for Video 4',120, 'động lực','232'),
-('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 'Pham Gia Bảo','Description for Video 1', 120, 'động lực','912'),
-('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 'Võ Thị Vân Thư','Description for Video 2',120, 'gia đình','127'),
-('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 'Author 6','Description for Video 3',120, 'tình yêu','232'),
-('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6','Author 7', 'Description for Video 6', 120, 'thiên nhiên','321'),
-('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4','Author 8', 'Description for Video 4',120, 'động lực','763'),
-('https://www.youtube.com/embed/18mSyyOQua0?si=Hl7vG1-x1fUjKfAV', 'Video 5', 'Author 9','Description for Video 5',120, 'gia đình','776');
+    ('Nguyễn Sĩ Hùng', 'hungsi@gmail.com', 'Hung@#sd23090', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '123 Đường Trần Phú, Quận Hải Châu, Đà Nẵng, Việt Nam', '093237623'),
+    ('Trần Đức Hùng', 'hung.duc@gmail.com', 'Hung@#$jsdgh6253', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '456 Đường Bạch Đằng, Quận Hòa Vang, Đà Nẵng, Việt Nam', '087623781'),
+    ('Nguyễn Bích Thủy', 'bichthhuy234@gmail.com', 'thuy90@22@#d', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '789 Đường Nguyễn Văn Linh, Quận Sơn Trà, Đà Nẵng, Việt Nam', '087623231'),
+    ('Trần Thị Mỹ Tâm', 'tranthimytam09@gmail.com', 'sdjh%#$%543sjdh', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '321 Đường Ngô Quyền, Quận Liên Chiểu, Đà Nẵng, Việt Nam', '082362233'),
+    ('Lê Văn Thắng', 'thang@gmail.com', 'sdasj%$Shew52', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '987 Đường Nguyễn Hữu Thọ, Quận Cẩm Lệ, Đà Nẵng, Việt Nam', '012834642');
 
-INSERT INTO podcasts (title, description, author, youtube_link, image_url, type)
+INSERT INTO posts (user_id, auth, created_by, updated_by, like_count, isAnonymous, content, created_at, updated_at)
+VALUES (2, 'pham gia bao', 'pham gia bao', 'pham gia bao', 23, 1, 'Bame à, con áp lực với con số. Nó một ngày một lớn. Con không biết phải làm sao nữa. Bame à.', '2023-10-12', '2023-10-12'),
+       (3, 'vân thư', 'vân thư', 'vân thư', 323, 0, 'MẬP TRĂM KÍ LÀ CẢM GIÁC như thế nào?\nLà được nhận những lời trêu đùa từ mọi người?\nLà đứa đi đâu cũng ngại. Lên xe của bạn thì sợ bể lốp. Áo mượn của bạn thì sợ bị rách.\nCác cậu cho cách nào giúp tớ không? Tớ không có nhiều thời gian cũng như chi phí để đến các phòng tập gym.', '2023-10-12', '2023-10-12'),
+       (2, 'việt mỹ', 'việt mỹ', 'việt mỹ', 232, 1, 'Xin chào tất cả các bạn,\nChắc hẳn các bạn đang rất mệt mỏi và áp lực về nhiều thứ, nhưng nếu các bạn mãi tiêu cực như vậy, bạn sẽ cứ thế chôn vùi tương lai tươi đẹp phía trước của mình. Và tôi biết rằng để các bạn có thể tích cực và vui vẻ trở lại rất khó khăn, nhưng hãy cố gắng thực hiện theo các tips này để có thể cải thiện từng chút một nhé.\n', '2023-10-12', '2023-10-12'),
+       (3, 'bích quyên', 'bích quyên', 'bích quyên', 121, 1, 'Xin chào mọi người,\nHôm nay, tôi muốn mở lòng và chia sẻ với các bạn về tình trạng trầm cảm mà tôi đang trải qua. Đôi khi, cuộc sống có thể trở nên khó khăn và cảm giác trầm cảm đã ập đến lấn át tâm trí của tôi.\nTrong những tháng qua, tôi đã phải đối mặt với cuộc chiến với trầm cảm. Cảm giác u ám và mệt mỏi vẫn luôn hiện diện trong cuộc sống hàng ngày của tôi. Đôi khi, nó khiến tôi cảm thấy như một cuộc đấu tranh không có hồi kết. Tôi cảm thấy mất đi sự hứng thú và niềm vui với những điều trước đây tôi thường thích. Cảm xúc này thật khó diễn tả và đôi khi tôi cảm thấy mình bị lạc trong một thế giới tối tăm. Các bạn có đang gặp tình trạng giống tôi không?', '2023-10-12', '2023-10-12');
+
+select *  from experts limit 6 ;
+
+INSERT INTO videos (youtube_link, title, author_id, description , duration, type, view)
 VALUES
-    ('Podcast 1', 'Description 1', 'Author 1', 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'động lực'),
-    ('Podcast 2', 'Description 2', 'Author 2', 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'tình yêu'),
-    ('Podcast 3', 'Description 3', 'Author 3', 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'gia đình'),
-    ('Podcast 4', 'Description 4', 'Author 4', 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên'),
-    ('Podcast 5', 'Description 5', 'Author 5', 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên');
+('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 1,'Description for Video 1',120, 'động lực','23'),
+('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 3,'Description for Video 2', 120, 'gia đình','123'),
+('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 2,'Description for Video 3', 120, 'tình yêu','232'),
+('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6',1, 'Description for Video 6',120, 'thiên nhiên','32'),
+('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4', 2,'Description for Video 4',120, 'động lực','232'),
+('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 3,'Description for Video 1', 120, 'động lực','912'),
+('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 2,'Description for Video 2',120, 'gia đình','127'),
+('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 1,'Description for Video 3',120, 'tình yêu','232'),
+('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6',3, 'Description for Video 6', 120, 'thiên nhiên','321'),
+('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4',2, 'Description for Video 4',120, 'động lực','763'),
+('https://www.youtube.com/embed/18mSyyOQua0?si=Hl7vG1-x1fUjKfAV', 'Video 5', 1,'Description for Video 5',120, 'gia đình','776');
 
+INSERT INTO podcasts (title, description, author_id, youtube_link, image_url, type)
+VALUES
+    ('Podcast 1', 'Description 1', 1, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'động lực'),
+    ('Podcast 2', 'Description 2',2, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'tình yêu'),
+    ('Podcast 3', 'Description 3', 3, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'gia đình'),
+    ('Podcast 4', 'Description 4', 1, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên'),
+    ('Podcast 5', 'Description 5', 2, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên');
+
+INSERT INTO users (name, email, password, role, img) VALUES
+    ('Pham Gia Bao', 'bao.pham25@student.passerellesnumeriques.org', 'Bao@123', 1, 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png');
+
+CREATE USER 'Van_Thu'@'localhost' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Van_Thu'@'localhost';
+
+CREATE USER 'Viet_My'@'localhost' IDENTIFIED BY '00000';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Viet_My'@'localhost';
+
+CREATE USER 'Bich_Quyen'@'localhost' IDENTIFIED BY '6789';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Bich_Quyen'@'localhost';
+
+FLUSH PRIVILEGES;
+-- phần bổ sung sau
 CREATE TABLE comment_podcast
 (
     id INT PRIMARY KEY,
@@ -388,6 +411,8 @@ CREATE TABLE comment_podcast
     FOREIGN KEY (podcast_id) REFERENCES podcasts(id)
 );
 
+
+
 INSERT INTO comment_podcast (id, content, created_at, podcast_id, user_id, like_count, dislike_count)
 VALUES
     (1, 'Bài podcast rất hay!', '2023-12-27 10:30:00', 1, 1, 300, 100),
@@ -400,5 +425,12 @@ VALUES
     (8, 'Đang chờ phần phỏng vấn khách mời.', '2023-12-30 16:45:00', 4, 3, 300, 100),
     (9, 'Nên tăng thời lượng podcast lên.', '2023-12-31 11:10:00', 5, 2, 200, 50),
     (10, 'Có thể đưa ra ví dụ cụ thể hơn không?', '2024-01-01 13:20:00', 5, 3, 450, 150);
+CREATE TABLE authors
+(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    img_profile varchar(255)
+);
 
+INSERT INTO authors (name,img_profile) VALUES ('Sun','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Hồ Thị Hoài Anh','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Long Nguyễn','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg');
 

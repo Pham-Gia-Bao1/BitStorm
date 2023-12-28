@@ -14,6 +14,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET" && isset($_SERVER['REQUEST_METHOD'])){
     $data['products']  = $blog->getPodcast();
     $check = true;
     $comments = $blogDetail->get_comment_podcast_for_user($id);
+    $author = $blogDetail->get_author($id);
 
 }
 include("../View/Blog/BlogDetailView.php");

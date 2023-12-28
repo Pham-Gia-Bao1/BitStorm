@@ -21,20 +21,20 @@ include("../root/CSS/BlogDetail.css.php");
         </div>
         <div class="d-flex justify-content-between align-items-center gap-3">
             <p class="btn btn-light"><i class="far fa-thumbs-up"></i> 21K</p>
-            <p class="btn btn-light"><i class="far fa-thumbs-down"></i> DISLIKE</p>
-            <p class="btn btn-light"><i class="fas fa-share"></i> SHARE</p>
-            <p class="btn btn-light"><i class="fas fa-download"></i> DOWNLOAD</p>
-            <p class="btn btn-light"><i class="far fa-copy"></i> CLIP</p>
-            <p class="btn btn-light"><i class="far fa-save"></i> SAVE</p>
+            <p class="btn btn-light"><i class="far fa-thumbs-down"></i> Không thích</p>
+            <p class="btn btn-light"><i class="fas fa-share"></i> Chia sẻ </p>
+            <p class="btn btn-light"><i class="fas fa-download"></i> Tải xuống </p>
+            <!-- <p class="btn btn-light"><i class="far fa-copy"></i> CLIP</p> -->
+            <p class="btn btn-light"><i class="far fa-save"></i> Lưu </p>
         </div>
     </div>
 </div>
 <!-- phần 3 -->
 <div class="d-flex justify-content-between align-items-center my-3 offical">
     <div class="d-flex m-3">
-        <img src="https://www.drivelah.sg/static/media/avatar4.a80a5d55.jpeg" alt="" class="rounded-circle" width=50 height=50>
+        <img src="<?= $author[0]['img_profile'] ?>" alt="" class="rounded-circle" width=50 height=50>
         <div class="ms-3 gap-5 align-items-center">
-            <h3 class="m-0"><?php echo $video[0]['author'] ?></h3>
+            <h3 class="m-0"><?php echo $author[0]['name'] ?></h3>
         </div>
     </div>
 </div>
@@ -48,7 +48,7 @@ include("../root/CSS/BlogDetail.css.php");
         <div class="card-body  border-white">
             <div class="d-flex align-items-start  border-white justify-content-between">
                 <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width=50 height=50>
-                <input type="text" class="form-control custom-input m-2 input" placeholder="Add a comment">
+                <input type="text" class="form-control custom-input m-2 input" placeholder="Thêm bình luận ">
                 <button class="btn-primary add_comment">Thêm Bình luận </button>
             </div>
         </div>
@@ -81,7 +81,7 @@ include("../root/CSS/BlogDetail.css.php");
                         </div>
                         <div class="d-flex gap-2 p-2 align-content-center">
                             <i class="fa-solid fa-chevron-down text-primary"></i>
-                            <p class="text-primary">15 REPLIES</p>
+                            <p class="text-primary">15 Trả lời </p>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ include("../root/CSS/BlogDetail.css.php");
     <?php } ?>
 
     <button class="border-0 p-2 rounded-3">
-        View more
+        Xem thêm
         <i class="fa-solid fa-chevron-down text-primary"></i>
 
     </button>
