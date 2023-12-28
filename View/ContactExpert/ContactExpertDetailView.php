@@ -7,11 +7,11 @@ include("../root/CSS/ContactExpertDetail.css.php");
 ?>
 <div class="container-fluid mt-2">
     <div>
-        <img class="top_image" src="https://cpsnb.org/images/slideshow/cpsnb_slide3.jpg">
+        <img class="top_image" src="./root/Image/contactExpert/top_img.jpg">
     </div>
     <div class="row mt-5">
-        <div class="col-sm-5 doctor_image p-lg-2">
-            <img src="https://vieclam123.vn/ckfinder/userfiles/images/images/bac-si-tam-ly.jpg" alt="image">
+        <div class="col-sm-4 doctor_image p-lg-2">
+            <img src="./root/Image/contactExpert/doctor.jpg" alt="image">
         </div>
         <div class="col-sm-5 container_content">
             <p id="text">Doctor</p>
@@ -45,7 +45,7 @@ include("../root/CSS/ContactExpertDetail.css.php");
             <div class="row mt-4 card_container">
                 <div class="col-sm-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                        <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                         <div class="card-body text-center">
                             <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                             <p>Chuyên viên tâm lý</p>
@@ -76,7 +76,7 @@ include("../root/CSS/ContactExpertDetail.css.php");
 
                 <div class="col-sm-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                        <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                         <div class="card-body text-center">
                             <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                             <p>Chuyên viên tâm lý</p>
@@ -107,7 +107,7 @@ include("../root/CSS/ContactExpertDetail.css.php");
 
                 <div class="col-sm-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                        <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                         <div class="card-body text-center">
                             <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                             <p>Chuyên viên tâm lý</p>
@@ -138,7 +138,7 @@ include("../root/CSS/ContactExpertDetail.css.php");
 
                 <div class="col-sm-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="image">
+                        <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
                         <div class="card-body text-center">
                             <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
                             <p>Chuyên viên tâm lý</p>

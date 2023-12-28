@@ -13,6 +13,7 @@
     .doctor_image img {
         margin-left: 40px;
         max-width: 90%;
+        border-radius: 15px;
     }
 
     #text {
