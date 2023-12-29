@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET" && isset($_SERVER['REQUEST_METHOD'])) {
     $comments = $blogDetail->get_comment_video_for_user($id);
     $author = $blogDetail->get_author($id);
     // print_r($author);
+    // print_r($videos);
 
 }
 

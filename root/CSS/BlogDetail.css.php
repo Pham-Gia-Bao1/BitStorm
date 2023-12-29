@@ -81,8 +81,8 @@
     }
     .video-container {
         display: inline-block;
-        width: 90vw;
-        left: -30px;
+        width: 100%;
+        /* left: -30px; */
         margin: 0 auto;
         border-radius: 8px;
         margin-bottom: 20px;
@@ -170,6 +170,8 @@
     #comment-list {
         padding: 10px;
         border-radius: 8px;
+        height: 75vh;
+        overflow-y: hidden;
     }
     .list_product {
         margin-top: 50px;
@@ -180,7 +182,7 @@
         padding-left: 30px;
     }
     #video {
-        width: 100vw;
+        width: 90vw;
         height: 800px;
         margin-bottom: 30px;
         border-radius: 8px !important;
@@ -192,5 +194,26 @@
     .card_box_2{
         padding-bottom: 10px;
     }
+    #main{
+       /* background-color: blue; */
+       width: 100vw;
+       overflow-x: hidden;
+   }
+   .view_more{
+      margin-left: 20px;
+   }
+   .comment_item{
+        height: auto;
+   }
+   @media screen and (max-width : 739px){
+       #option_of_video{
+        background-color: #000 !important;
+        flex-wrap: wrap;
+       }
+       .video-container{
+         height: 50vh;
+       }
+   }
+
 
 </style>

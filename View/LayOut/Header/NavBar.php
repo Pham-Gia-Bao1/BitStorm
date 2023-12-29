@@ -36,7 +36,7 @@ include("../root/CSS/NavBar.css.php");
           if (!isset($_COOKIE[$cookie_name])) {
           ?>
               <button class="btn-login btn-header" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-              <button class="btn-register btn-header" data-bs-toggle="modal" data-bs-target="#signup">Sign up</button>        
+              <button class="btn-register btn-header" data-bs-toggle="modal" data-bs-target="#signup">Sign up</button>
           <?php } else { ?>
             <div class="dropdown">
               <?php
@@ -119,7 +119,7 @@ include("../root/CSS/NavBar.css.php");
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <?php include("../View/Account/SignUpView.php"); 
+            <?php include("../View/Account/SignUpView.php");
 
             ?>
           </div>
@@ -128,8 +128,6 @@ include("../root/CSS/NavBar.css.php");
     <?php } else {
 
     ?>
-
-
 
       <!-- The Modal -->
       <div class="modal fade model_nav" id="myModal">

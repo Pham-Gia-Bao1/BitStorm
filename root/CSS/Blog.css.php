@@ -33,6 +33,7 @@
       background-attachment: fixed;
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: top;
       background-color: blue;
       overflow-x: hidden;
    }
@@ -206,10 +207,14 @@
       overflow-y: auto;
       padding-top: 8px;
       z-index: 2;
+      padding: 10px;
+
    }
    .suggestion_box li {
       background-color: white;
       padding: 10px;
+
+
    }
    .suggestion_box li:last-child {
       border-bottom-left-radius: 20px;
@@ -222,6 +227,7 @@
    .suggestion_box li:hover {
       background-color: #e9ecef;
       cursor: pointer;
+
    }
    #form_opption {
       width: 60vw;
@@ -267,7 +273,7 @@
    }
    .title_videos{
       margin-top: 10px;
-
    }
+   
 
 </style>
