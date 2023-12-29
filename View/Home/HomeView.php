@@ -7,9 +7,6 @@ include("../root/CSS/Home.php");
 
 ?>
 <title>home</title>
-
-
-
 <div class="header">
     <div class= "container-fluid header_home">
         <div class="row">
@@ -27,7 +24,7 @@ include("../root/CSS/Home.php");
                 <hr class="hr_home">
             </div>
             <div class = "col-sm-4">
-                <img src="http://localhost/WEB_PHP/root/Image/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58%201.png" alt="ảnh" height="500px">
+                <img src="./root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
             </div>
         </div>
     </div>
@@ -35,14 +32,15 @@ include("../root/CSS/Home.php");
 <div class = "bodier">
 
     <div class="container-fluid">
-        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ </h4>
+        <div class="p-5"></div>
+        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại <span style="color:cadetblue">BitStorm</span> </h4>
         <div class="slide-container swiper p-5">
             <div class="slide-content p-3">
                 <div class="card-wrapper swiper-wrapper">
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="https://t4.ftcdn.net/jpg/01/87/04/55/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="" class="card-img" width="100px"
+                                <img src="./root/Image/homePage/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="ảnh" class="card-img" width="100px"
                                 height="100px">
                             </div>
                         </div>
@@ -65,7 +63,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                    <img src="http://localhost/WEB_PHP/root/Image/blogger.png" alt="" class="card-img" width="100px" height="100px">
+                                    <img src="./root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
 
@@ -77,7 +75,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="http://localhost/WEB_PHP/root/Image/paper-plane.png" alt="" class="card-img" width="100px" height="100px">
+                                <img src="./root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
                         <div class="card-content">
@@ -88,7 +86,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="http://localhost/WEB_PHP/root/Image/operator.png" alt="" class="card-img" width="100px" height="100px">
+                                <img src="./root/Image/operator.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
                         <div class="card-content">
@@ -111,7 +109,10 @@ include("../root/CSS/Home.php");
                 <h6 style="font-size: 30px;">Một số câu chuyện <b> truyền động lực</b></h6>
                 <p>Nam là chàng trai trẻ 25 tuổi đã đấu tranh với chứng rối loạn này trong 10 năm. Bạn hiện đang làm dịch thuật tự do và sinh sống tại Hà Nội. Thời gian Nam sống chung với bệnh trầm cảm không hề dễ dàng nhưng chàng trai ấy đã vượt qua căn bệnh này để trở lại cuộc sống bình thường. Những chia sẻ của Nam và góc nhìn từ chuyên gia tâm lý Phạm Tiến Dũng (Dũng Phạm) về thời gian chiến đấu và chiến thắng trầm cảm có thể tiếp thêm động lực cho bạn hoặc người thân.</p>
                 <hr class="hr_homer">
-                <a href="#" >Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                <div class="p-2"></div>
+                <div class="wrappe1r">
+                    <a href="#"><span>Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+                </div>
             </div>
 
             <div class="col-sm-5">
@@ -119,17 +120,18 @@ include("../root/CSS/Home.php");
             </div>
         </div>
     </div>
-    <div class="p-5"></div>
-    <div class="container-fluid podcast ">
+    <div class="p-5"></div> 
+
+     <div class="container-fluid podcast ">
         <p class="p111">Giới Thiệu Cho Bạn</p>
-        <h6 style="text-align: center; padding-bottom: 10px;font-size: 30px;"><b>Một Vài Podcast Tâm Hồn</b></h6>
-        <div class="container-fluid ps-5 ">
-            <div class="row  m-5 ">
+        <h6 style="text-align: center; font-size: 20px;"><b>Một Vài Podcast Tâm Hồn</b></h6>
+        <div class="container">
+            <div class="row ">
                 <div class="col-sm-6">
                     <div class="row justify-content-center ">
                         <div class="col-sm-6">
-                            <div class="card pb-3 mb-3" style="width: 18rem;">
-                                <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" class="card-img-top" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
+                            <div class="card ">
+                                <img src="./root/Image/homePage/podcast1.jpg" class="card-img-top" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
                                 <div class="card-body  mx-3">
                                     <p class="card-text">Chữa lành tâm hồn những người đang âu lo..</p>
                                     <div class="d-flex">
@@ -150,7 +152,7 @@ include("../root/CSS/Home.php");
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="card pb-3 mb-3" style="width: 18rem;">
+                            <div class="card ">
                                 <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" alt="..." height="164px" style="border-top-left-radius:25px; border-top-right-radius:25px;">
                                 <div class="card-body mx-3">
                                     <p class="card-text">Hãy cảm ơn cuộc đời vì đã cho bạn sống....</p>
@@ -176,10 +178,10 @@ include("../root/CSS/Home.php");
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="card pb-3 mb-3" style="width: 18rem;">
-                                <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
+                            <div class="card ">
+                                <img src="./root/Image/homePage/podcast.jpg" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
                                 <div class="card-body mx-3">
-                                    <p class="card-text">Chữa lành tâm hồn những người đang âu lo..</p>
+                                    <p class="card-text">Cách học sao cho hiệu quả bằng nhiều phương pháp khác nhau..</p>
                                     <div class="d-flex">
 
                                         <i class="fa-solid fa-graduation-cap"></i>
@@ -198,17 +200,13 @@ include("../root/CSS/Home.php");
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="card pb-3 mb-3" style="width: 18rem;">
+                            <div class="card ">
                                 <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
                                 <div class="card-body mx-3">
-                                    <p class="card-text">Chữa lành tâm hồn những người đang âu lo..</p>
+                                    <p class="card-text">Hãy giúp những người khác để thay đổi bản thân</p>
                                     <div class="d-flex">
-
                                         <i class="fa-solid fa-graduation-cap"></i>
-
-
                                         <p style="font-size: 15px; color: gray;">1h30p</p>
-
                                         <div style="margin-left: auto;color: #FF9933">
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -224,78 +222,69 @@ include("../root/CSS/Home.php");
                 </div>
                 <div class="wrappe1r">
                     <a href="#"><span>Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
-                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </div> 
 
     <div class="container-fluid choose">
-        <p style="color: darkblue; text-align: center;font-size: 10px;">Tại sao lại lựa chọn chúng tôi</p>
-        <h5 style="text-align: center; padding-bottom: 10px;font-size: 20px;font-weight: bold;">Sự Lựa Chọn Đúng Đắn Dành Cho Bạn</h5>
+        <p style="color: 0166FF; text-align: center;font-size: 16px;">Tại sao lại lựa chọn chúng tôi</p>
+        <h5 style="text-align: center;font-size: 20px;font-weight: bold;">Sự Lựa Chọn Đúng Đắn Dành Cho Bạn</h5>
         <div class="row">
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col-sm-5">
-                        <div class="card ps-3 pb-3" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-body">
-                                <img src="http://localhost/WEB_PHP/root/Image/Group%201000006528.png" alt="">
+                                <img src="./root/Image/homePage/hinh1.png" alt="ảnh">
                                 <h6>Tư Vấn Online</h6>
                                 <p class="card-text">Được sự hỗ trợ nhiệt tình từ các
                                 chuyên gia trong lĩnh vực tư vấn.</p>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-sm-5">
-                        <div class="card ps-3 pb-3" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-body">
-                                <img src="http://localhost/WEB_PHP/root/Image/Group%201000006529.png" alt="">
+                                <img src="./root/Image/homePage/Group 1000006529.png" alt="ảnh">
                                 <h6>Xây Dựng Cộng Đồng</h6>
                                 <p class="card-text">Xây dựng một cộng đồng văn mình
-                                để mọi người cùng nhau phát triển</p>
+                                để mọi người cùng nhau </p>
                             </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="row">
-                    <!-- <div class="col-2"></div> -->
-
-                    <div class="col-sm-5">
-                        <div class="card ps-3 pb-3" style="width: 18rem;">
+                     <div class="col-sm-5">
+                        <div class="card">
                             <div class="card-body">
-                                <img src="http://localhost/WEB_PHP/root/Image/Group%201000006530.png" alt="">
+                                <img src="./root/Image/homePage/Group 1000006530.png" alt="ảnh">
                                 <h6>Kiểm duyệt thông tin</h6>
                                 <p class="card-text">Có một điều bạn chưa biết
                                 phần kiểm duyệt thông tin khá là hay</p>
                             </div>
-                            </div>
+                        </div>
                     </div>
-
                     <div class="col-sm-5">
-                        <div class="card  ps-3 pb-3" style="width: 18rem;">
+                        <div class="card ">
                             <div class="card-body">
-                                <img src="http://localhost/WEB_PHP/root/Image/Group%201000006531.png" alt="">
+                                <img src="./root/Image/homePage/Group 1000006531.png" alt="ảnh">
                                 <h6>Hoàn toàn miễn phí</h6>
                                 <p class="card-text">Nhận được sự tư vấn từ mọi người
                                 hoàn toàn miễn phí..</p>
                             </div>
-                            </div>
+                        </div>
                     </div>
-                    <div class="col-2"></div>
-
+                    <div class="col-2"></div> 
                 </div>
             </div>
-        </div>
-    </div>
-
-
+        </div> 
+    </div> 
 </div>
-
 <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
-<!-- <script src="../root/JS/Home.js"></script> -->
 <?php
 
 
