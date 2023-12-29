@@ -17,25 +17,24 @@ include("../root/CSS/BlogDetail.css.php");
     <!-- phần 2 -->
     <div class="d-flex justify-content-between align-items-center my-5" id="option_of_video">
         <div class="text-muted d-flex gap-3">
-            <p class="view bg-light p-2">132,757 views</p>
-            <p class="view bg-light p-2">22 hours ago</p>
+            <p class="view bg-light p-2"><?php echo $video[0]['view'] ?> views</p>
         </div>
         <div class="d-flex justify-content-between align-items-center gap-3">
             <p class="btn btn-light"><i class="far fa-thumbs-up"></i> 21K</p>
-            <p class="btn btn-light"><i class="far fa-thumbs-down"></i> DISLIKE</p>
-            <p class="btn btn-light"><i class="fas fa-share"></i> SHARE</p>
-            <p class="btn btn-light"><i class="fas fa-download"></i> DOWNLOAD</p>
-            <p class="btn btn-light"><i class="far fa-copy"></i> CLIP</p>
-            <p class="btn btn-light"><i class="far fa-save"></i> SAVE</p>
+            <p class="btn btn-light"><i class="far fa-thumbs-down"></i> Không thích</p>
+            <p class="btn btn-light"><i class="fas fa-share"></i> Chia sẻ </p>
+            <p class="btn btn-light"><i class="fas fa-download"></i> Tải xuống </p>
+            <!-- <p class="btn btn-light"><i class="far fa-copy"></i> CLIP</p> -->
+            <p class="btn btn-light"><i class="far fa-save"></i> Lưu </p>
         </div>
     </div>
 </div>
 <!-- phần 3 -->
 <div class="d-flex justify-content-between align-items-center my-3 offical">
     <div class="d-flex m-3">
-        <img src="https://www.drivelah.sg/static/media/avatar4.a80a5d55.jpeg" alt="" class="rounded-circle" width=50 height=50>
+        <img src="<?= $author[0]['img_profile'] ?>" alt="" class="rounded-circle" width=50 height=50>
         <div class="ms-3 gap-5 align-items-center">
-            <h3 class="m-0"><?php echo $video[0]['author'] ?></h3>
+            <h3 class="m-0"><?php echo $author[0]['name'] ?></h3>
         </div>
     </div>
 </div>
@@ -47,113 +46,51 @@ include("../root/CSS/BlogDetail.css.php");
 <div class="comment-list my-3 m-3 bg-light" id="comment-list">
     <div class="card mb-3">
         <div class="card-body  border-white">
-            <div class="d-flex align-items-start  border-white">
+            <div class="d-flex align-items-start  border-white justify-content-between">
                 <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width=50 height=50>
-                <div>
-                    <div class="d-flex align-items-center">
-                        <input type="text" class="form-control custom-input m-2 input" placeholder="Add a comment">
-                    </div>
-                </div>
+                <input type="text" class="form-control custom-input m-2 input" placeholder="Thêm bình luận ">
+                <button class="btn-primary add_comment">Thêm Bình luận </button>
             </div>
         </div>
     </div>
-    <div class="card mb-3">
-        <div class="card-body  border-white">
-            <div class="d-flex align-items-start  border-white">
-                <img class="rounded-circle me-3 avatar_comment" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww" alt="Profile Picture" width=50 height=50>
-                <div>
-                    <div class="d-flex align-items-center">
-                        <h5 class="me-3 mb-0">John Doe</h5>
-                        <div class="comment-rating">
-                            <span class="rating star">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+    <?php foreach ($comments as $comment) {
+    ?>
+        <div class="card mb-3">
+            <div class="card-body  border-white">
+                <div class="d-flex align-items-start  border-white">
+                    <?php include_once("../Model/AccountModel.php");
+                    $account = new Account();
+                    $name_and_img = $account->get_name_and_img_user_by_id($comment['user_id']); ?>
+                    <img class="rounded-circle me-3 avatar_comment" src="<?php echo $name_and_img[1] ?>" alt="Profile Picture" width=50 height=50>
+                    <div>
+                        <div class="d-flex align-items-center">
+                            <h5 class="me-3 mb-0"><?php echo $name_and_img[0] ?></h5>
+                            <div class="comment-rating">
+                                <span class="rating star">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            </div>
+                            <p class="me-3 mb-0 tỉme"><?php echo $comment['created_at'] ?></p>
                         </div>
-                        <p class="me-3 mb-0 tỉme">3 days ago</p>
-
-                    </div>
-                    <p class="mb-2">This product is amazing! I love the taste and texture.</p>
-                    <div class="comment-actions d-flex">
-                        <button class="btn btn-light me-3">
-                            <i class="far fa-thumbs-up p-1 like"></i>232
-                        </button>
-                        <button class="btn btn-light">
-                            <i class="far fa-thumbs-down p-1 didlike"></i> Dislike
-                        </button>
-                    </div>
-                    <div class="d-flex gap-2 p-2 align-content-center">
-                        <i class="fa-solid fa-chevron-down text-primary"></i>
-                        <p class="text-primary">15 REPLIES</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="d-flex align-items-start">
-                <img class="rounded-circle me-3 avatar_comment" src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699574400&semt=sph" alt="Profile Picture" width=50 height=50>
-                <div>
-                    <div class="d-flex align-items-center">
-                        <h5 class="me-3 mb-0">Jane Smith</h5>
-                        <div class="comment-rating">
-                            <span class="rating star">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
+                        <p class="mb-2"><?php echo $comment['content'] ?></p>
+                        <div class="comment-actions d-flex">
+                            <button class="btn btn-light me-3">
+                                <i class="far fa-thumbs-up p-1 like"></i><?php echo $comment['like_count'] ?>
+                            </button>
+                            <button class="btn btn-light">
+                                <i class="far fa-thumbs-down p-1 didlike"></i> <?php echo $comment['dislike_count'] ?>
+                            </button>
                         </div>
-                        <p class="me-3 mb-0 tỉme">3 days ago</p>
-                    </div>
-                    <p class="mb-2">I'm not impressed with this product. It didn't meet my expectations.</p>
-                    <div class="comment-actions d-flex">
-                        <button class="btn btn-light me-3">
-                            <i class="far fa-thumbs-up p-1 like"></i>232
-                        </button>
-                        <button class="btn btn-light">
-                            <i class="far fa-thumbs-down p-1 didlike"></i> Dislike
-                        </button>
-                    </div>
-
-                    <div class="d-flex gap-2 p-2 align-content-center">
-                        <i class="fa-solid fa-chevron-down text-primary"></i>
-                        <p class="text-primary">15 REPLIES</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="d-flex align-items-start">
-                <img class="rounded-circle me-3 avatar_comment" src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699574400&semt=sph" alt="Profile Picture" width=50 height=50>
-                <div>
-                    <div class="d-flex align-items-center">
-                        <h5 class="me-3 mb-0">Jane Smith</h5>
-                        <div class="comment-rating">
-                            <span class="rating star">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
+                        <div class="d-flex gap-2 p-2 align-content-center">
+                            <i class="fa-solid fa-chevron-down text-primary"></i>
+                            <p class="text-primary">15 Trả lời </p>
                         </div>
-                        <p class="me-3 mb-0 time">3 days ago</p>
-
-                    </div>
-
-                    <p class="mb-2">I'm not impressed with this product. It didn't meet my expectations.</p>
-
-                    <div class="comment-actions d-flex">
-                        <button class="btn btn-light me-3">
-                            <i class="far fa-thumbs-up p-1 like"></i>232
-                        </button>
-                        <button class="btn btn-light">
-                            <i class="far fa-thumbs-down p-1 didlike"></i> Dislike
-                        </button>
-                    </div>
-
-                    <div class="d-flex gap-2 p-2 align-content-center">
-                        <i class="fa-solid fa-chevron-down text-primary"></i>
-                        <p class="text-primary">15 REPLIES</p>
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
+
     <button class="border-0 p-2 rounded-3">
-        View more
+        Xem thêm
         <i class="fa-solid fa-chevron-down text-primary"></i>
 
     </button>
@@ -176,145 +113,22 @@ include("../root/CSS/BlogDetail.css.php");
 
 <!-- phần 6 -->
 <div class="d-flex gap-4 flex-wrap justify-content-center list_product">
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <?php foreach ($data['products'] as $product) { ?>
+        <a href="<?php if ($check) {
+                        echo 'PodcastDetail';
+                    } else {
+                        echo "BlogDetail";
+                    } ?>?id=<?= $product['id'] ?>">
+            <div class="card content_video" id="content_video">
+                <iframe class="rounded" src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="d-flex justify-content-end align-items-end  card_box_2">
+                    <button class="btn btn-primary rounded-pill button_view w-25">Xem</button>
+                </div>
+            </div>
+        </a>
+    <?php } ?>
 
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $video[0]['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0"> <?= $video[0]['description'] ?></h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card content_video" id="content_video">
-        <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center my-3">
-                <div class="d-flex gap-1">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" class="rounded-circle" width=50 height=50>
-                    <div class="ms-3 gap-5 align-items-center sub_title">
-                        <h6 class="m-0">How to build a loyal community online and offline</h6>
-                        <span class="d-inline">FC Barcelona</span>
-                        <span class="d-inline"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="d-inline-block w-100">14.1M Subscriber</span>
-                        <span class="d-inline-block w-100">22 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-<?php
-include("../View/LayOut/Footer/Footer.php");
-?>
+    <?php
+    include("../View/LayOut/Footer/Footer.php");
+    ?>

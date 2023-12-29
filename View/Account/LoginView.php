@@ -41,10 +41,10 @@
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="form-group p-1 m-1">
-            <label for="password">Mật khẩu:</label>
+            <label for="password">Mật khẩu: </label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary p-1 m-2 login_btn">Đăng nhập</button>
+        <button type="submit" class="btn btn-primary p-1 m-2 login_btn"> Đăng nhập </button>
         <div class="login_btn_gg d-flex justify-content-center">
             <a class="btn p-1 m-2 log_gg">
             Đăng Nhập Bằng  <i class="fab fa-google mr-2 "></i>

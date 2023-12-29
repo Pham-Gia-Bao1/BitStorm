@@ -1,3 +1,4 @@
-<?php 
-echo "<h1>comment</h1>";
+<?php
+// add comment
+
 ?>
