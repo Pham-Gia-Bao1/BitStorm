@@ -51,9 +51,9 @@ include("../root/CSS/BlogDetail.css.php");
                 $parts = parse_url($path); // Phân tích URL thành các thành phần
                 $path = $parts['path']; // Lấy phần đường dẫn từ URL
                 $filename = basename($path); // Lấy tên file cuối cùng từ đường dẫn
-                if($filename == "PodcastDetail"){
+                if ($filename == "PodcastDetail") {
                     $check_video = true;
-                }else{
+                } else {
                     $check_video = false;
                 }
                 ?>
@@ -87,18 +87,66 @@ include("../root/CSS/BlogDetail.css.php");
                             </div>
                             <p class="mb-2"><?php echo $comment['content'] ?></p>
                             <div class="comment-actions d-flex">
-                                <button class="btn btn-light me-3">
-                                    <i class="far fa-thumbs-up p-1 like"></i><?php echo $comment['like_count'] ?>
+                                <button class="btn btn-light me-3 like-count" onclick="increaseLikeCount(<?php echo $comment['id']; ?>)">
+                                    <i class="far fa-thumbs-up p-1 like like-count"></i><?php if (isset($result_like)) {
+                                                                                            echo $result_like['like_count'];
+                                                                                        } else {
+                                                                                            echo $comment['like_count'];
+                                                                                        } ?>
                                 </button>
-                                <button class="btn btn-light">
-                                    <i class="far fa-thumbs-down p-1 didlike"></i> <?php echo $comment['dislike_count'] ?>
+
+                                <button class="btn btn-light" onclick="increaseDislikeCount(<?php echo $comment['id']; ?>)">
+                                    <i class="far fa-thumbs-down p-1 didlike"></i> <?php echo $comment['dislike_count']; ?>
                                 </button>
-                            </div>
-                            <div class="d-flex gap-2 p-2 align-content-center">
-                                <i class="fa-solid fa-chevron-down text-primary"></i>
-                                <p class="text-primary">15 Trả lời </p>
                             </div>
                         </div>
+                        <script>
+                            function increaseLikeCount(commentId) {
+                                // Gửi yêu cầu AJAX để tăng lượt thích
+                                var xhr = new XMLHttpRequest();
+                                xhr.open("POST", "Comment", true);
+                                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                xhr.onreadystatechange = function() {
+                                    if (xhr.readyState === 4 && xhr.status === 200) {
+                                        // In ra phản hồi từ CommentController
+                                        console.log(xhr.responseText);
+                                        // Cập nhật số lượng lượt thích trên giao diện
+                                        var likeCountElement = document.querySelector('.like-count');
+                                        likeCountElement.innerHTML = xhr.responseText;
+                                    }
+                                };
+                                // Tạo dữ liệu yêu cầu
+                                // var data = "action=increment_like&comment_id=" + commentId;
+                                console.log(data)
+                                // Tạo dữ liệu yêu cầu
+                                var data = "action=increment_like&comment_id=" + commentId;
+
+                                // Gửi yêu cầu AJAX
+                                xhr.send(data);
+                            }
+
+                            function increaseDislikeCount(commentId) {
+                                // Gửi yêu cầu AJAX để tăng lượt không thích
+                                var xhr = new XMLHttpRequest();
+                                xhr.open("POST", "Comment", true);
+                                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                xhr.onreadystatechange = function() {
+                                    if (xhr.readyState === 4 && xhr.status === 200) {
+                                        // In ra phản hồi từ CommentController
+                                        console.log(xhr.responseText);
+                                        // Cập nhật số lượng lượt không thích trên giao diện
+                                        var dislikeCountElement = document.querySelector('.didlike');
+                                        dislikeCountElement.innerHTML = xhr.responseText;
+                                    }
+                                };
+
+                                // Tạo dữ liệu yêu cầu
+                                var data = "action=increment_dislike&comment_id=" + commentId;
+
+                                // Gửi yêu cầu AJAX
+                                xhr.send(data);
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
@@ -115,7 +163,7 @@ include("../root/CSS/BlogDetail.css.php");
         <i class="fa-solid fa-chevron-up text-primary"></i>
 
     </button>
-    <?php include_once ('../root/JS/BlogDetail.js.php') ?>
+    <?php include_once('../root/JS/BlogDetail.js.php') ?>
 
     <!-- phần 6 -->
     <div class="d-flex gap-4 flex-wrap justify-content-center list_product">
