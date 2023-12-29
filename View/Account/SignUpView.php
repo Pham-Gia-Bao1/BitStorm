@@ -161,7 +161,7 @@
 <body>
     <div class="d-flex">
         <div class="img">
-            <img src="http://localhost/BitStorm/root/Image/signupimage.svg" alt="logoutimg" style="width: 100%;">
+            <img src="./root/Image/signupimage.svg" alt="logoutimg" style="width: 100%;">
             <div id="progress-bar">
                 <div class="step">
                     <p>

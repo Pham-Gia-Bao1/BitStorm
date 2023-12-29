@@ -16,75 +16,100 @@ include("../root/CSS/NavBar.css.php");
   <?php
   include("../root/JS/NavBar.js.php");
   ?>
+<nav class="navbar navbar-expand-md">
+  <div class="container">
+    <img src="./root/Image/logo_header.png" alt="Logo" class="logo">
+    <a class="navbar-brand" href="#">BitStorm</a>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
-      <div class="navbar-left" >
-            <img src="http://localhost/BitStorm/root/Image/logo_header.png" alt="Logo" class="logo">
-            <h1 class="group-name">BitStorm</h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+    <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="Home">Trang Chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ContactExpert">Chuyên Gia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Post">Đăng Bài</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Blog">Video</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="News">Bài Báo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About">Liên Hệ</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="btn-login btn-header login" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng Nhập</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn-register btn-header signup" data-bs-toggle="modal" data-bs-target="#signup">Đăng Ký</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<?php
+    $cookie_name = "User";
+    if (!isset($_COOKIE[$cookie_name])) {
+    ?>
+
+    <?php } else { ?>
+      <div class="dropdown">
+        <?php
+        $account = new Account();
+        $nameAndImg = $account->get_name_and_img_user();
+        $name = $nameAndImg[0];
+        $img = $nameAndImg[1];
+
+
+        ?>
+        <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="avata1" src="<?php echo $img; ?>" alt="User Image">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end menu_list_profile" aria-labelledby="userDropdown">
+          <li>
+            <a href="userprofile" class="d-flex align-items-center border-bottom p-3">
+              <img class="avata1" src="<?= $img ?>" alt="" class="me-3">
+              <h5><?= $name ?></h5>
+            </a>
+          </li>
+          <li>
+            <a href="userprofile" class="d-flex align-items-center nav-link">
+              <i class="fa-solid fa-user me-3 order-1"></i>
+              <span class="me-auto order-2">Edit Profile</span>
+              <i class="fa-solid fa-chevron-right ms-3 order-3"></i>
+            </a>
+          </li>
+          <li>
+            <a href="userprofile" class="d-flex align-items-center nav-link">
+              <i class="fa-solid fa-gear me-3 order-1"></i>
+              <span class="me-auto order-2">Setting &amp; Privacy</span>
+              <i class="fa-solid fa-chevron-right order-3"></i>
+
+            </a>
+          </li>
+          <li>
+            <a href="#" class="d-flex align-items-center nav-link" data-bs-toggle="modal" data-bs-target="#myModal">
+              <i class="fa-solid fa-right-from-bracket me-3 order-1"></i>
+              <span class="me-auto order-2">Log Out</span>
+              <i class="fa-solid fa-chevron-right order-3"></i>
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="navbar-center">
-          <a class="navbar-center-a current-page" href="Home">Trang chủ</a>
-          <a class="navbar-center-a" href="ContactExpert">Kết nối chuyên gia</a>
-          <a class="navbar-center-a"href="Blog" >Video</a>
-          <a class="navbar-center-a" href="Post">Bài viết</a>
-          <a class="navbar-center-a" href="About?About">Về chúng tôi</a>
-      </div>
-        <div class="navbar-right">
-          <!-- check user -->
-          <?php
-          $cookie_name = "User";
-          if (!isset($_COOKIE[$cookie_name])) {
-          ?>
-              <button class="btn-login btn-header" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-              <button class="btn-register btn-header" data-bs-toggle="modal" data-bs-target="#signup">Sign up</button>        
-          <?php } else { ?>
-            <div class="dropdown">
-              <?php
-              $account = new Account();
-              $nameAndImg = $account->get_name_and_img_user();
-              $name = $nameAndImg[0];
-              $img = $nameAndImg[1];
-
-
-              ?>
-              <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="avata1" src="<?php echo $img; ?>" alt="User Image">
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end menu_list_profile" aria-labelledby="userDropdown">
-                <li>
-                  <a href="userprofile" class="d-flex align-items-center border-bottom p-3">
-                    <img class="avata1" src="<?= $img ?>" alt="" class="me-3">
-                    <h5><?= $name ?></h5>
-                  </a>
-                </li>
-                <li>
-                  <a href="userprofile" class="d-flex align-items-center nav-link">
-                    <i class="fa-solid fa-user me-3 order-1"></i>
-                    <span class="me-auto order-2">Edit Profile</span>
-                    <i class="fa-solid fa-chevron-right ms-3 order-3"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="userprofile" class="d-flex align-items-center nav-link">
-                    <i class="fa-solid fa-gear me-3 order-1"></i>
-                    <span class="me-auto order-2">Setting &amp; Privacy</span>
-                    <i class="fa-solid fa-chevron-right order-3"></i>
-
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex align-items-center nav-link" data-bs-toggle="modal" data-bs-target="#myModal">
-                    <i class="fa-solid fa-right-from-bracket me-3 order-1"></i>
-                    <span class="me-auto order-2">Log Out</span>
-                    <i class="fa-solid fa-chevron-right order-3"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          <?php } ?>
-          <!-- end navbar-left -->
-        </div>
-  </nav>
+    <?php } ?>
+    <!-- end navbar-left -->
+  </div>
+</nav>
 
   <?php
   $cookie_name = "User";
@@ -128,9 +153,6 @@ include("../root/CSS/NavBar.css.php");
     <?php } else {
 
     ?>
-
-
-
       <!-- The Modal -->
       <div class="modal fade model_nav" id="myModal">
         <div class="modal-dialog">
