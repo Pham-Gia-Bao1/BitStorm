@@ -24,11 +24,7 @@ include("../root/CSS/Home.php");
                 <hr class="hr_home">
             </div>
             <div class = "col-sm-4">
-<<<<<<< HEAD
-                <img src="http://localhost/BitStorm/root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
-=======
                 <img src="./root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
->>>>>>> 4468fd2437b7e3bb92cd0511f5d9b25cf2a10647
             </div>
         </div>
     </div>
@@ -44,11 +40,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-<<<<<<< HEAD
-                                <img src="http://localhost/BitStorm/root/Image/homePage/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="ảnh" class="card-img" width="100px"
-=======
                                 <img src="./root/Image/homePage/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="ảnh" class="card-img" width="100px"
->>>>>>> 4468fd2437b7e3bb92cd0511f5d9b25cf2a10647
                                 height="100px">
                             </div>
                         </div>
@@ -71,11 +63,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-<<<<<<< HEAD
-                                    <img src="http://localhost/BitStorm/root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
-=======
                                     <img src="./root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
->>>>>>> 4468fd2437b7e3bb92cd0511f5d9b25cf2a10647
                             </div>
                         </div>
 
@@ -87,11 +75,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-<<<<<<< HEAD
-                                <img src="https://localhost/BitStorm/root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
-=======
                                 <img src="./root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
->>>>>>> 4468fd2437b7e3bb92cd0511f5d9b25cf2a10647
                             </div>
                         </div>
                         <div class="card-content">
@@ -102,11 +86,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-<<<<<<< HEAD
-                                <img src="https://localhost/BitStorm/root/Image/operator.png" alt="" class="card-img" width="100px" height="100px">
-=======
                                 <img src="./root/Image/operator.png" alt="" class="card-img" width="100px" height="100px">
->>>>>>> 4468fd2437b7e3bb92cd0511f5d9b25cf2a10647
                             </div>
                         </div>
                         <div class="card-content">
