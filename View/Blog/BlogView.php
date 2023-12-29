@@ -60,14 +60,14 @@ include("../root/CSS/Blog.css.php");
           <iframe width="560" height="315" src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <div class="item_style d-lex flex-wrap">
-          <h6 class="w-100"><?= $product['title'] ?></h6>
+          <h6 class="w-100 title_videos"><?= $product['title'] ?></h6>
         </div>
         <h3 class="card-title item_name"></h3>
         <p class="card-text item_sub_title">
           <?= $product['description'] ?>
         </p>
         <p class="text-primary">
-          <a href="BlogDetail?id=<?= $product['id'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id">
+          <a href="BlogDetail?id=<?= $product['id'] ?>" asp-controller="Blog" asp-action="DetailVideo" asp-route-id="@video.Id" id="view_more">
             Xem video
             <i class="fa-solid fa-chevron-right"></i>
           </a>
@@ -83,9 +83,9 @@ include("../root/CSS/Blog.css.php");
 </div>
 <div class="content2">
   <div class="podcast">
-    <p class="p111">Giới Thiệu Cho Bạn</p>
+    <!-- <p class="p111">Giới Thiệu Cho Bạn</p> -->
     <div class="content" id="content">
-      <h6 style="text-align: center; padding-bottom: 10px;font-size: 30px;"><b>Một Vài Podcast Tâm Hồn</b></h6>
+      <h6 style="text-align: center; padding-bottom: 10px;font-size: 30px;"><b>Một vài Podcast tâm hồn </b></h6>
       <div class="container-fluid container1 d-flex flex-wrap gap-4" id="container1">
         <?php foreach ($data['podcasts'] as $product) { ?>
           <div class="card content_video" id="content_video">
@@ -93,8 +93,7 @@ include("../root/CSS/Blog.css.php");
               <iframe src="<?= $product['youtube_link'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="item_style">
-              <h6><?= $product['title'] ?></h6>
-
+              <h6 class="title_videos"><?= $product['title'] ?></h6>
             </div>
             <h3 class="card-title item_name"></h3>
             <p class="card-text item_sub_title">

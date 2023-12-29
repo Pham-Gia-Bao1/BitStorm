@@ -94,7 +94,8 @@
       flex-direction: column;
       gap: 20px;
       align-items: start;
-      height: 50px;
+      height:60px;
+      margin-top: 10px;
    }
    #container1 {
 
@@ -125,6 +126,9 @@
       -webkit-line-clamp: 2;
       /* Số dòng hiển thị tối đa */
       -webkit-box-orient: vertical;
+   }
+   .item_sub_title{
+      height: 50px;
    }
 
    .card-body p:last-child {
@@ -261,4 +265,9 @@
       color: #fff;
       text-align: center;
    }
+   .title_videos{
+      margin-top: 10px;
+
+   }
+
 </style>

@@ -128,6 +128,21 @@ class Account
         }
         return $name_and_img; // mảng có length = 2
     }
+    public function get_name_and_img_user_by_id($id)
+    {
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+        $sql = "SELECT name, img FROM users WHERE id=:id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $name_and_img = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($name_and_img, $row['name']);
+            array_push($name_and_img, $row['img']);
+        }
+        return $name_and_img; // mảng có length = 2
+    }
     public function change_avatar($newAvatarUrl)
     {
         $blog = new Blog();

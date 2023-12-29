@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 .header_home {
-    background-image: url(Background.png);
+    background-image: url(../Image/homePage/Background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -165,16 +165,16 @@
      margin-left : 150px;
 }
 .row{
-     margin-top: 100px;
+     margin-top: 30px;
 }
 .name {
     font-size: 18px;
     font-weight: 500;
     color: #333;
 }
-.choise_middle{
+/* .choise_middle{
      margin-top: -100px;
-}
+} */
 .history{
     gap: 150px;
 }
@@ -183,10 +183,10 @@
     color: #707070;
     text-align: center;
 }
-.choise_bottom{
+/* .choise_bottom{
      margin-bottom:100px;
      margin-top: -80px;
-}
+} */
 
 .button {
     border: none;
