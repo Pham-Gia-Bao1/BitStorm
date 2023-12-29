@@ -73,7 +73,7 @@ include("../root/CSS/About.css.php");
                     </div>
                     <div class="p-3"></div>
                     <div class="wrapper">
-                        <button type="submit"><span>Gửi Ngay</span></button>
+                        <button type="submit" class="button1"><span>Gửi Ngay</span></button>
                     </div>
                 </form>
             </div>

@@ -122,7 +122,7 @@ input {
     font-weight: bold;
 }
 
-button {
+.button1 {
     display: block;
     width: 200px;
     height: 40px;
@@ -138,12 +138,12 @@ button {
     transition: all .35s;
 }
 
-    button span {
+.button1 span {
         position: relative;
         z-index: 2;
     }
 
-    button:after {
+    .button:after {
         position: absolute;
         content: "";
         top: 0;
@@ -154,11 +154,11 @@ button {
         transition: all .35s;
     }
 
-    button:hover {
+    .button:hover {
         color: #fff;
     }
 
-        button:hover:after {
+        .button:hover:after {
             width: 100%;
         }
 .contactExpert {
