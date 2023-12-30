@@ -200,7 +200,7 @@
       position: absolute;
       list-style: none;
       margin: 0;
-      top: 450px;
+      top: 350px;
       width: 40.2%;
       height: 290px;
       overflow-x: hidden;
@@ -208,6 +208,7 @@
       padding-top: 8px;
       z-index: 2;
       padding: 10px;
+      transition: display 10s ease; /* Ví dụ: transition cho thuộc tính height */
 
    }
    .suggestion_box li {
@@ -274,6 +275,6 @@
    .title_videos{
       margin-top: 10px;
    }
-   
+
 
 </style>

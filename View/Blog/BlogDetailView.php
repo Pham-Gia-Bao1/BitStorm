@@ -3,6 +3,7 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/BlogDetail.css.php");
 ?>
 <title>Blog</title>
+
 <main id="main">
 
     <div class="m-5" id="content">
@@ -23,8 +24,55 @@ include("../root/CSS/BlogDetail.css.php");
             <div class="d-flex justify-content-between align-items-center gap-3">
                 <p class="btn btn-light"><i class="far fa-thumbs-up"></i> <?php echo htmlspecialchars($video[0]['like_count']) ?></p>
                 <p class="btn btn-light"><i class="far fa-thumbs-down"></i><?php echo htmlspecialchars($video[0]['dislike_count']) ?></p>
-                <p class="btn btn-light"><i class="fas fa-share"></i> Chia sẻ </p>
-                <p class="btn btn-light"><i class="fas fa-download"></i> Tải xuống </p>
+                <!-- Thẻ p để kích hoạt modal -->
+                <!-- Thẻ p để kích hoạt modal -->
+                <p class="btn btn-light" data-toggle="modal" data-target="#videoModal"><i class="fas fa-share"></i> Chia sẻ</p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" id="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="videoModalLabel">Link video</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body gap-3">
+                                <!-- Hiển thị link video tại đây -->
+                                <div class="d-flex gap-2 m-4">
+                                    <input type="text" class="form-control w-100" id="videoLinkInput" readonly value="<?php echo htmlspecialchars($video[0]['youtube_link']) ?>">
+                                    <button class="btn-primary" onclick="copyLink()">Copy</button>
+                                </div>
+                                <script>
+                                    function copyLink() {
+                                        /* Tạo một phần tử input để chứa liên kết */
+                                        var linkInput = document.getElementById("videoLinkInput");
+
+                                        /* Chọn nội dung của phần tử input */
+                                        linkInput.select();
+
+                                        /* Sao chép nội dung đã chọn vào clipboard */
+                                        document.execCommand("copy");
+
+                                        /* Thông báo sao chép thành công */
+                                        alert("Đã sao chép liên kết: " + linkInput.value);
+                                    }
+                                </script>
+                                <!-- Nút chia sẻ -->
+                                <div class="share-buttons gap-2 m-4">
+                                    <a href="mailto:?subject=Chia sẻ video&body=Đây là link video: <?php echo htmlspecialchars($video[0]['youtube_link']) ?>" class="btn btn-primary"><i class="fas fa-envelope"></i> Email</a>
+                                    <a href="https://zalo.me/?text=<?php echo urlencode($video[0]['youtube_link']) ?>" class="btn btn-primary"><i class="fab fa-zalo"></i> Zalo</a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($video[0]['youtube_link']) ?>" class="btn btn-primary"><i class="fab fa-facebook"></i> Facebook</a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="btn btn-light" id="downloadBtn"><i class="fas fa-download"></i> Tải xuống</p>
                 <!-- <p class="btn btn-light"><i class="far fa-copy"></i> CLIP</p> -->
                 <p class="btn btn-light"><i class="far fa-save"></i> Lưu </p>
             </div>
@@ -56,14 +104,27 @@ include("../root/CSS/BlogDetail.css.php");
                 } else {
                     $check_video = false;
                 }
+
                 ?>
-                <form id="commentForm" method="get" action="comment" class="d-flex align-items-start border-white justify-content-between"> <!-- Thay đổi đường dẫn tới CommentController -->
+                <form id="commentForm" method="get" action="comment" class="d-flex align-items-start border-white justify-content-between" onsubmit="return validateForm()">
                     <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width="50" height="50">
                     <input type="hidden" name="id" value="<?= htmlspecialchars($video[0]['id']) ?>">
                     <input type="hidden" name="check" value="<?php echo $check_video ?>">
                     <input type="text" id="commentInput" class="form-control custom-input m-2 input" required placeholder="Thêm bình luận" name="content">
                     <button type="submit" class="btn-primary add_comment">Thêm Bình luận</button>
                 </form>
+
+                <script>
+                    function validateForm() {
+                        var userCookie = '<?php echo isset($_COOKIE["User"]) ? "true" : "false"; ?>';
+
+                        if (userCookie === "false") {
+                            alert("Bạn chưa đăng nhập");
+                            return false; // Ngăn người dùng gửi form nếu chưa đăng nhập
+                        }
+                        return true; // Cho phép gửi form nếu đã đăng nhập
+                    }
+                </script>
 
             </div>
 
@@ -88,13 +149,8 @@ include("../root/CSS/BlogDetail.css.php");
                             <p class="mb-2"><?php echo $comment['content'] ?></p>
                             <div class="comment-actions d-flex">
                                 <button class="btn btn-light me-3 like-count" onclick="increaseLikeCount(<?php echo $comment['id']; ?>)">
-                                    <i class="far fa-thumbs-up p-1 like like-count"></i><?php if (isset($result_like)) {
-                                                                                            echo $result_like['like_count'];
-                                                                                        } else {
-                                                                                            echo $comment['like_count'];
-                                                                                        } ?>
+                                    <i class="far fa-thumbs-up p-1 like like-count"></i><?php echo $comment['like_count']; ?>
                                 </button>
-
                                 <button class="btn btn-light" onclick="increaseDislikeCount(<?php echo $comment['id']; ?>)">
                                     <i class="far fa-thumbs-down p-1 didlike"></i> <?php echo $comment['dislike_count']; ?>
                                 </button>

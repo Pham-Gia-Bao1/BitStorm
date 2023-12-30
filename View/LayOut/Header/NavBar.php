@@ -45,6 +45,7 @@ include("../root/CSS/NavBar.css.php");
               $name = $nameAndImg[0];
               $img = $nameAndImg[1];
 
+
               ?>
               <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="avata1" src="<?php echo $img; ?>" alt="User Image">

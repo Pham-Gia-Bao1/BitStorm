@@ -243,7 +243,7 @@
         transition: height .5s ease-in-out ;
         /* Thêm transition vào đây */
     }
-
+   
     @media screen and (max-width : 739px) {
         #option_of_video {
             background-color: #000 !important;

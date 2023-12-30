@@ -23,7 +23,7 @@ include("../root/CSS/Post.css.php");
                
                     <div class="post-row1">
                         <div class="post-avt me-3">
-                            <img src="https://phunuvietnam.mediacdn.vn/media/news/33abffcedac43a654ac7f501856bf700/anh-profile-tiet-lo-g-ve-ban-1.jpg" alt="anh dai dien" id="img" style="border-radius: 50%; width: 40px; height: 40px;" />
+                            <img src="https://demoda.vn/wp-content/uploads/2022/03/anh-cute-meo-le-luoi.jpg" alt="anh dai dien" id="img" style="border-radius: 50%; width: 40px; height: 40px;" />
                         </div>
                         <div class="post-name">
                             <p class="name-user">Người dùng ẩn danh</p>
@@ -89,39 +89,12 @@ include("../root/CSS/Post.css.php");
 </div>
 
 
-<div id="modalPost" class="modal">
-    <div class="modal-content" id="model_post">
-        <div class="modal-header">
-            <h2 class="title">Tạo bài viết</h2>
-            <span class="close" onclick="closeModal()">&times;</span>
-        </div>
-        <div class="modal-body">
-            <div class=" status-post-user">
-                <div><p style="margin-bottom: 0;">Đăng ẩn danh</p></div>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-      <div class=" avt-name-modal ">
-                <img src="https://tse3.mm.bing.net/th?id=OIP.ixZ69lPCOZ3ZO5UqSHQGIAHaHa&pid=Api&P=0&h=220" alt="anh dai dien"   style="border-radius: 50%; width: 40px; height: 40px;" />
-                <p class="name-user mb-0">Vân Thư</p>
-            </div>  
 
-
-            <textarea class="content-modal mt-3" placeholder="Bạn viết gì đi..." oninput="autoResize(this)"></textarea>
-        </div>
-        <div>
-            <hr>
-            <button type="button" onclick="CreatePost(event)">Đăng bài viết</button>
-        </div>
-
-    </div>
-</div>
 
 
 <?php
-  include("../root/JS/Post.js.php");
+    include("CreatePostView.php");
+    include("../root/JS/Post.js.php");
 ?>
 
 

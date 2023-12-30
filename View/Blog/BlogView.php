@@ -19,8 +19,8 @@ include("../root/CSS/Blog.css.php");
         <i class="fa fa-search"></i>
       </button>
       <input type="text" name="search" class="input_search" placeholder="Tìm kiếm...">
+      <ul class="suggestion_box"></ul>
     </form>
-    <ul class="suggestion_box"></ul>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <?php

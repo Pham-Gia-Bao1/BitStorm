@@ -15,9 +15,9 @@
     margin: 100px 200px;
 }
 
-.post-bar {
+/* .post-bar {
     margin-bottom: 50px;
-}
+} */
 
 .box_search {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -315,7 +315,7 @@
     background-color: rgba(205, 182, 182, 0.314);
     /* opacity: 0.5; */
 }
-/* The switch - the box around the slider */
+/* The switch - the box around the anonymous-slider */
 .switch {
     font-size: 12px;
     position: relative;
@@ -331,7 +331,7 @@
     }
 
 /* The slider */
-.slider {
+.anonymous-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -344,7 +344,7 @@
     border-radius: 30px;
 }
 
-    .slider:before {
+    .anonymous-slider:before {
         position: absolute;
         content: "";
         height: 1.4em;
@@ -356,16 +356,16 @@
         transition: .4s;
     }
 
-input:checked + .slider {
+input:checked + .anonymous-slider {
     background-color: #007bff;
     border: 1px solid #007bff;
 }
 
-input:focus + .slider {
+input:focus + .anonymous-slider {
     box-shadow: 0 0 1px #007bff;
 }
 
-input:checked + .slider:before {
+input:checked + .anonymous-slider:before {
     transform: translateX(1.4em);
     background-color: #fff;
 }
