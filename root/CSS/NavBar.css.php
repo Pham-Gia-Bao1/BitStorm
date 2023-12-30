@@ -1,6 +1,5 @@
 <style>
-  .navbar {
-    background-color: #f8f9fa;
+  /* .navbar {
     padding: 10px;
     position: sticky;
     top: 0;
@@ -19,7 +18,7 @@
 
   .navbar-nav {
     margin-left: auto;
-  }
+  } */
 
   /* .nav-link {
     color: #333;
@@ -29,7 +28,7 @@
     color: #007bff;
   } */
 
-  .btn-primary {
+  .btn-primary{
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -44,14 +43,13 @@
   }
 
   .avata1 {
-
     width: 30px;
     border-radius: 50%;
     margin-right: 8px;
     cursor: pointer;
   }
 
-  .dropdown-toggle::after {
+  /* .dropdown-toggle::after {
     display: none;
   }
 
@@ -69,7 +67,7 @@
     width: 200px;
   }
   /* style cho loadinng */
-  #loading-overlay {
+  /* #loading-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -129,7 +127,50 @@
   100% {
     transform: translateY(250px) rotate(80deg);
     filter: hue-rotate(180deg);
-  }
+  } */
+/* }  */
+/* * {
+      font-family: 'Poppins', sans-serif;
+    } */
+.navbar {
+  position: fixed !important;
+  top: 0 ;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color:ivory !important;
+  height: 70px !important;
 }
+.navbar-brand {
+  color:cadetblue;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.navbar-nav .nav-item .nav-link  {
+  color:black;
+  position: relative; 
+  transition: 0.3s;
+  font-weight: 400;
+  color:black;
+}
+
+.navbar-nav .nav-item .nav-link::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:#007bff;
+  transition: 0.3s;
+  color:#007bff;
+}
+
+.navbar-nav .nav-item .nav-link:hover::before {
+  width: 100%; 
+  color:#007bff;
+}
+
 
 </style>
