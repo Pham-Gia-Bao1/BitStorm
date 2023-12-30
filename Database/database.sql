@@ -307,26 +307,21 @@ INSERT INTO calendar (id, day, start_time, end_time, price, describer, expert_id
 select * from calendar;
 
 CREATE TABLE news (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY auto_increment,
   title VARCHAR(255),
   content TEXT,
   img VARCHAR(255),
-  link_new VARCHAR(255)
+  created_at VARCHAR(255),
+  author_id INT,
+  FOREIGN KEY (author_id) REFERENCES author(author_id),
+
 );
 
-INSERT INTO news (id, title, content, img, link_new) VALUES
-(1, '10 Cách để Cải thiện Sức khỏe Tinh thần hàng ngày', 'Hãy khám phá 10 cách đơn giản nhưng hiệu quả để cải thiện sức khỏe tinh thần của bạn mỗi ngày.', 'https://covid19.vnuhcm.edu.vn/wp-content/uploads/2021/12/Hinh_100.jpeg', 'https://www.example.com/news/1'),
-(2, 'Khám phá Niềm vui trong Cuộc sống Hằng ngày', 'Tìm hiểu về những điều nhỏ nhặt mang lại niềm vui và hạnh phúc trong cuộc sống hàng ngày của bạn.', 'https://imgs.vietnamnet.vn/Images/vnn/2015/05/18/16/20150518163656-girl-in-fieldlowres.jpg', 'https://www.example.com/news/2'),
-(3, 'Lợi ích của Thể thao đối với Sức khỏe', 'Đọc về những lợi ích tuyệt vời mà việc tham gia vào hoạt động thể thao mang lại cho sức khỏe của bạn.', 'sports-benefits.jpghttps://app.dr-psy.com/files/images/kham-suc-khoe-tinh-than-toan-dien-tai-dr-psy-1654137333174.jpg', 'https://www.example.com/news/3'),
-(4, '5 Bước để Cải thiện Sức khỏe toàn diện', 'Tìm hiểu về 5 bước quan trọng để cải thiện sức khỏe tổng thể và tăng cường cân bằng trong cuộc sống.', 'https://image.giacngo.vn/w770/Uploaded/2023/xpcwvolc/2021_08_16/untitled-1-7908.jpg', 'https://www.example.com/news/4'),
-(5, 'Bí quyết để Xây dựng Gia đình Hạnh phúc', 'Khám phá những bí quyết và gợi ý để xây dựng một gia đình hạnh phúc và đáng yêu.', 'https://benhviendakhoatinhphutho.vn/wp-content/uploads/2022/04/Anh7.jpg.webp', 'https://www.example.com/news/5'),
-(6, 'Cách Tạo dựng Tình cảm chân thành trong Mối quan hệ', 'Tìm hiểu về những cách đơn giản nhưng quan trọng để tạo dựng tình cảm chân thành và gắn kết trong các mối quan hệ.', 'https://www.liena.com.vn/media/amasty/blog/cache/s/u/840/840/suc-khoe-tinh-than-Thumb.png', 'https://www.example.com/news/6'),
-(7, 'Cách Giảm căng thẳng và Lo lắng trong Cuộc sống', 'Khám phá những phương pháp hiệu quả giúp giảm căng thẳng và lo lắng, mang lại sự thư thái và bình an.', 'https://admin.tamlyvietphap.vn/uploaded/Images/Original/2021/07/27/improve-psy-3_2707142251.jpg', 'https://www.example.com/news/7'),
-(8, 'Lợi ích của Truyền cảm hứng và Gương mẫu trong Cuộc sống', 'Tìm hiểu về tầm quan trọng của truyền cảm hứng và có một gương mẫu tích cực trong cuộc sống của chúng ta.', 'https://vinmec-prod.s3.amazonaws.com/images/20211121_013407_655314_cai-thien-suc-khoe-.max-1800x1800.png', 'https://www.example.com/news/8'),
-(9, '5 Bài tập Đơn giản giúp Cải thiện Sức khỏe toàn diện', 'Hãy thử những bài tập đơn giản nhưng hiệu quả để cải thiện sức khỏe toàn diện của bạn mỗi ngày.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8EpZmmLj2PhzZm7j_WGxhKmmb3IgnCjIzDA&usqp=CAU', 'https://www.example.com/news/9'),
-(10, 'Cách Tạo không gian Hạnh phúc trong Gia đình', 'Khám phá những cách tạo ra không gian hạnh phúc và ấm cúng trong gia đình của bạn để tạo dựng sự gắn kết và tình yêu.', 'https://vinmec-prod.s3.amazonaws.com/images/20211121_013127_656501_cai-thien-suc-khoe-.max-1800x1800.jpg', 'https://www.example.com/news/10');
+INSERT INTO news ( title, content, img,created_at,author_id) VALUES
+()
 
-select  * from news;
+select  * from news; 
+-- Bảng mới
 CREATE TABLE new_categories (
   id INT PRIMARY KEY,
   new_id INT,
@@ -335,17 +330,35 @@ CREATE TABLE new_categories (
   FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 INSERT INTO new_categories (id, new_id, category_id) VALUES
-(1, 1, 1),
-(2, 1, 4),
-(3, 2, 1),
-(4, 2, 5),
-(5, 3, 1),
-(6, 3, 3),
-(7, 4, 1),
-(8, 4, 6),
-(9, 5, 1),
-(10, 5, 7);
+(1, 1, 4),
+(2, 2, 4),
+(3, 3, 2),
+(4, 4, 4),
+(5, 5, 1),
+(6, 1, 1),
+(7, 2, 1),
+(8, 3, 5),
+(9, 4, 5),
+(10, 5, 5),
+(11,1,6),
+(12,2,6),
+(13,3,7),
+(14,4,2);
 select * from new_categories;
+-- author table
+CREATE TABLE author (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name_author varchar(20),
+    img VARCHAR(255)
+)
+INSERT INTO author (name_author,img) VALUES
+    ("Trần Văn Lực",'https://toplist.vn/images/800px/de-bi-am-anh-boi-ve-be-ngoai-420451.jpg'),
+    ('Lê Thị Kim Thoa','https://www.vietnamfineart.com.vn/wp-content/uploads/2023/07/hinh-anh-gai-tay-590x590-1.jpg'),
+    ("Huỳnh Tố Nga",'https://haycafe.vn/wp-content/uploads/2022/02/Hi%CC%80nh-a%CC%89nh-ga%CC%81i-xinh-Han-Quoc-to%CC%81c-va%CC%80ng.jpg'),
+    ("Phan Văn Lịch",'https://vnn-imgs-a1.vgcloud.vn/cdn.24h.com.vn/upload/1-2020/images/2020-03-15/1584240065-176-dep-trai-8-1583833459-width600height750.jpg'),
+    ("Nguyễn Tố Linh",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4AgsnK8DzW5VVXS2hF-0FOBB9krdex14oNBUSRG5gTiVNSCq4zMQDkzYtB6EPznFhGk&usqp=CAU')
+
+
 INSERT INTO users (name, email, password, role_id, img, address, phone_number)
 VALUES
     ('Nguyễn Sĩ Hùng', 'hungsi@gmail.com', 'Hung@#sd23090', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '123 Đường Trần Phú, Quận Hải Châu, Đà Nẵng, Việt Nam', '093237623'),
