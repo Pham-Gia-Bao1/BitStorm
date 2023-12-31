@@ -106,8 +106,7 @@ include("../root/CSS/News.css.php");
             echo "Error: " . $e->getMessage();
         }
     }
-    ?>
-                
+    ?>               
     </div>
 </div>
 
