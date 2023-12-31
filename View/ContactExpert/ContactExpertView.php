@@ -1,164 +1,128 @@
 <?php
 include("../View/LayOut/Header/Header.php");
-?>
-
-<title>Kết nối chuyên gia</title>
-<?php
 include("../root/CSS/ContactExpert.css.php");
 ?>
-<div class="container-fluid mt-5">
-    <div>
-        <img class="top_image mb-5" src="./root/Image/contactExpert/doctors.png" alt="image">
+<title>Kết nối chuyên gia</title>
+
+<div class="container-fluid">
+    <div class="text-center">
+        <img class="top_image mb-3" src="./root/Image/contactExpert/doctors.png" alt="image">
     </div>
     <div class="findDoctor_container p-3 ml-5 mr-5">
-        <h3 class="ml-5 fw-bold">Find a doctor</h3>
-        <div class="row">
-            <div class="col-sm-9 ml-5">
-                <form action="" method="">
-                    <input type="text" class="form-control" name="fdoctor" id="fdoctor" value="" placeholder="Tên bác sĩ hoặc vấn đề bạn đang gặp phải...">
-                </form>
+        <h3 class="ml-5 fw-bold">Tìm kiếm bác sĩ</h3>
+        <form action="ContactExpert" method="get" id="myForm">
+            <div class="row">
+                <div class="col-sm-9 ml-5">
+                    <input type="text" class="form-control" name="fdoctor" id="doctor" value="" placeholder="Tên bác sĩ hoặc vấn đề bạn đang gặp phải...">
+                </div>
+                <div class="col-sm-2 mb-2">
+                    <button type="submit" class="fdoctor_button" id="searchDoctor">Search</button>
+                </div>
             </div>
-            <div class="col-sm-2 mb-2">
-                <button type="submit" class="fdoctor_button">Search</button>
-            </div>
+        </form>
+    </div>
+    <div class="row mt-3 card_container">
+        <div class="row boxCard" id="boxCard">
+            <?php if ($resultOfSearchExperts) : ?>
+                <h4 class="mb-3 fw-bold">Chuyên gia dựa theo tìm kiếm của bạn</h4>
+                <?php foreach ($resultOfSearchExperts as $expert) : ?>
+                    <div class="col-sm-3 mt-4">
+                        <div class="card mb-1" style="width: 17rem;">
+                            <img class="img_card" src="<?php echo $expert['profile_picture']; ?>" class="card-img-top" alt="image">
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
+                                <p><?php echo $expert['specialization']; ?></p>
+                                <div class="row mb-3">
+                                    <div class="col-sm-7 time d-flex">
+                                        <span class="time_icon">
+                                            <i class="fas fa-clock aclock"></i>
+                                        </span>
+                                        <p class="fw-bold mt-3 ml-1 textTime">
+                                            <?php
+                                            echo date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time']));
+                                            ?>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-4 fee">
+                                        <p class="fw-bold"><?php echo $expert['price']; ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
+                                    <div class="col-sm-10">
+                                        <button class="viewMorebtn">
+                                            <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
+                                                Xem thêm
+                                            </a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php elseif ($isFinding) : ?>
+                <h3 class="text-primary text-center">Không tìm thấy chuyên gia phù hợp dựa theo tìm kiếm của bạn</h3>
+            <?php else : ?>
+                <h4 class="mb-3 fw-bold">Những chuyên gia top đầu: </h4>
+                <?php $count = 0; ?>
+                <?php foreach ($data as $expert) : ?>
+                    <?php if ($count < 4) : ?>
+                        <div class="col-sm-3 mt-4">
+                            <div class="card mb-1" style="width: 17rem;">
+                                <div class="text-center">
+                                    <img class="img_card" src="<?php echo $expert['profile_picture']; ?>" class="card-img-top" alt="image">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
+                                    <p><?php echo $expert['specialization']; ?></p>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-7 time d-flex">
+                                            <span class="time_icon">
+                                                <i class="fas fa-clock aclock"></i>
+                                            </span>
+                                            <p class="fw-bold mt-3 ml-1 textTime">
+                                                <?php
+                                                echo date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time']));
+                                                ?>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-4 fee">
+                                            <p class="fw-bold"><?php echo $expert['price']; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
+                                        <div class="col-sm-10">
+                                            <button class="viewMorebtn">
+                                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
+                                                    Xem thêm
+                                                </a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php $count++; ?>
+                <?php endforeach; ?>
+                <div class="row btn-view mt-5">
+                    <button type="submit" class="viewAll text-center" id="viewAll">
+                        Xem tất cả
+                    </button>
+                </div>
+                <!-- <div class="row btn-view mt-5">
+                    <button type="submit" class="viewAll text-center" id="hide">
+                        Ẩn
+                    </button>
+                </div> -->
+            <?php endif; ?>
         </div>
     </div>
-    <div class="row mt-5 card_container">
-        <h4 class="mb-3 fw-bold">Những chuyên gia top đầu</h4>
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
-                <div class="card-body text-center">
-                    <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
-                    <p>Chuyên viên tâm lý</p>
-                    <div class="row mb-3">
-                        <div class="col time d-flex">
-                            <span class="time_icon">
-                                <i class="fas fa-clock aclock"></i>
-                            </span>
-                            <p class="fw-bold mt-3 ml-1">3PM - 5PM</p>
-                        </div>
-                        <div class="col fee">
-                            <p class="fw-bold mt-1">100000 VND</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
-                        <div class="col-sm-10">
-                            <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
-                                    Xem thêm
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
-                <div class="card-body text-center">
-                    <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
-                    <p>Chuyên viên tâm lý</p>
-                    <div class="row mb-3">
-                        <div class="col time d-flex">
-                            <span class="time_icon">
-                                <i class="fas fa-clock aclock"></i>
-                            </span>
-                            <p class="fw-bold mt-3 ml-1">3PM - 5PM</p>
-                        </div>
-                        <div class="col fee">
-                            <p class="fw-bold mt-1">100000 VND</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
-                        <div class="col-sm-10">
-                            <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
-                                    Xem thêm
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
-                <div class="card-body text-center">
-                    <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
-                    <p>Chuyên viên tâm lý</p>
-                    <div class="row mb-3">
-                        <div class="col time d-flex">
-                            <span class="time_icon">
-                                <i class="fas fa-clock aclock"></i>
-                            </span>
-                            <p class="fw-bold mt-3 ml-1">3PM - 5PM</p>
-                        </div>
-                        <div class="col fee">
-                            <p class="fw-bold mt-1">100000 VND</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
-                        <div class="col-sm-10">
-                            <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
-                                    Xem thêm
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="./root/Image/contactExpert/doctor.jpg" class="card-img-top" alt="image">
-                <div class="card-body text-center">
-                    <h5 class="fw-bold">Th.sĩ Nguyễn Trung Nghĩa</h5>
-                    <p>Chuyên viên tâm lý</p>
-                    <div class="row mb-3">
-                        <div class="col time d-flex">
-                            <span class="time_icon">
-                                <i class="fas fa-clock aclock"></i>
-                            </span>
-                            <p class="fw-bold mt-3 ml-1">3PM - 5PM</p>
-                        </div>
-                        <div class="col fee">
-                            <p class="fw-bold mt-1">100000 VND</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
-                        <div class="col-sm-10">
-                            <button class="viewMorebtn">
-                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
-                                    Xem thêm
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row btn-view mt-5">
-        <div class="viewAll text-center">
-            Xem tất cả
-        </div>
-    </div>
     <div class="text-center mt-5">
-        <h2 class="comment fw-bold">Bình luận của các khách hàng</h2>
-        <p>Trải nghiệm người dùng luôn được chúng tôi ưu tiên hàng đầu. <br>
-            Việc mang lại trải nghiệm tốt giúp họ vượt qua giai đoạn căng thẳng là sứ mệnh của chúng tôi.
-        </p>
+        <h2 class="comment fw-bold">Một số bình luận của người dùng</h2>
     </div>
     <div class="row mt-5 pl-5 pr-5">
         <div class="col-md-4">
@@ -204,5 +168,6 @@ include("../root/CSS/ContactExpert.css.php");
 </div>
 
 <?php
+include("../root/JS/ContactExpert.js.php");
 include("../View/LayOut/Footer/Footer.php");
 ?>

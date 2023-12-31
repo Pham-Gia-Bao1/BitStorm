@@ -13,6 +13,11 @@
         align-items: center;
     }
 
+    .img_card{
+        width: 95%;
+        height: 255px;
+        object-fit: cover;
+    } 
     .findDoctor_container {
         background-color: #dee6e9;
         border-radius: 16px;
@@ -62,6 +67,7 @@
         border-radius: 50px;
         border: 1px solid #e12729;
         height: 30px;
+        padding-top: 2px;
     }
 
     .actives {
@@ -100,8 +106,6 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease-in-out;
         transition: box-shadow 0.3s ease, transform 0.3s ease;
-        /* Add transition properties */
-        /* Optional: Add a smooth transition effect */
     }
 
     .card:hover {
@@ -122,8 +126,7 @@
     }
 
     .top_image {
-        object-fit: cover;
-        width: 100%;
+        max-width: 100%;
     }
 
     .infor {
@@ -143,6 +146,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border: none;
     }
 
     .viewAll:hover {
@@ -186,6 +190,10 @@
         color: #007bff;
     }
 
+    .textTime {
+        font-size: 14px;
+    }
+
     .number {
         color: #007bff;
         font-weight: bold;
@@ -206,4 +214,9 @@
     p {
         text-decoration: none;
     }
+
+    /* .boxCard {
+        height: 80vh;
+        overflow-y: hidden;
+    } */
 </style>
