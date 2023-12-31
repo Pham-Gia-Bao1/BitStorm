@@ -106,7 +106,7 @@ include("../root/CSS/BlogDetail.css.php");
                 }
 
                 ?>
-                <form id="commentForm" method="get" action="comment" class="d-flex align-items-start border-white justify-content-between" onsubmit="return validateForm()">
+                <form id="commentForm" method="get" action="comment" class="d-flex align-items-start border-white justify-content-between" onsubmit="validateForm()">
                     <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width="50" height="50">
                     <input type="hidden" name="id" value="<?= htmlspecialchars($video[0]['id']) ?>">
                     <input type="hidden" name="check" value="<?php echo $check_video ?>">

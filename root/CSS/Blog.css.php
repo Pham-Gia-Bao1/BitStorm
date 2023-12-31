@@ -200,7 +200,7 @@
       position: absolute;
       list-style: none;
       margin: 0;
-      top: 350px;
+      top: 380px;
       width: 40.2%;
       height: 290px;
       overflow-x: hidden;

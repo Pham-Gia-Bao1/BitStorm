@@ -46,6 +46,12 @@ include("../root/CSS/NavBar.css.php");
           <a class="nav-link" href="About">Liên Hệ</a>
         </li>
       </ul>
+
+      <?php
+    $cookie_name = "User";
+    if (!isset($_COOKIE[$cookie_name])) {
+
+      ?>
       <ul class="navbar-nav">
         <li class="nav-item">
           <button class="btn-login btn-header login" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng Nhập</button>
@@ -54,13 +60,6 @@ include("../root/CSS/NavBar.css.php");
           <button class="btn-register btn-header signup" data-bs-toggle="modal" data-bs-target="#signup">Đăng Ký</button>
         </li>
       </ul>
-    </div>
-  </div>
-</nav>
-<?php
-    $cookie_name = "User";
-    if (!isset($_COOKIE[$cookie_name])) {
-    ?>
 
     <?php } else { ?>
       <div class="dropdown">
@@ -153,10 +152,6 @@ include("../root/CSS/NavBar.css.php");
     <?php } else {
 
     ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 4a272b6ce8b4d043c87c599e2bb8f388e2d0918a
       <!-- The Modal -->
       <div class="modal fade model_nav" id="myModal">
         <div class="modal-dialog">
