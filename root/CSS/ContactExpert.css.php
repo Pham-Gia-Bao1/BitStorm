@@ -13,11 +13,12 @@
         align-items: center;
     }
 
-    .img_card{
+    .img_card {
         width: 95%;
         height: 255px;
         object-fit: cover;
-    } 
+    }
+
     .findDoctor_container {
         background-color: #dee6e9;
         border-radius: 16px;
@@ -127,6 +128,7 @@
 
     .top_image {
         max-width: 100%;
+        margin-top: 70px;
     }
 
     .infor {
@@ -206,6 +208,9 @@
         color: white;
     }
 
+    .pageNotFound{
+        max-width: fit-content;
+    } 
     a {
         text-decoration: none !important;
     }

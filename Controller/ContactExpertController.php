@@ -12,6 +12,8 @@ if (isset($_GET['fdoctor']) && !empty($_GET['fdoctor'])) {
     $searchKeyword = urldecode($_GET['fdoctor']);
     $resultOfSearchExperts = $ExpertModel->searchExperts($searchKeyword, $currentDate);
 }
+
 include("../View/ContactExpert/ContactExpertView.php");
 ?>
+
 
