@@ -29,7 +29,7 @@
 </style>
 <div class="d-flex">
     <div class="img">
-        <img src="http://localhost/BitStorm/root/Image/loginimage.svg" alt="logoutimg" style="width: 100%;">
+        <img src="./root/Image/loginimage.svg" alt="logoutimg" style="width: 100%;">
     </div>
     <form method="POST" action="http://localhost/BitStorm/login" class="p-3 m-2 gap-5 form">
         <div class="form-group p-1 m-1">

@@ -3,4 +3,4 @@
     $controllerPath = 'router.php';
     include $controllerPath;
 
-?>
+?>+
