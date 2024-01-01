@@ -82,7 +82,7 @@
   width: 19vw;
 }
 .menu_list_profile li:hover{
-  background-color: red;
+  background-color:#007bff;
   color: #ffff;
 }
 .menu_list_profile li a{
@@ -90,4 +90,31 @@
    color : black;
 }
 
+body::-webkit-scrollbar {
+  width: 10px; /* Độ rộng của thanh cuộn */
+  background-color: #f0f0f0; /* Màu nền của thanh cuộn */
+  border-radius: 4px; /* Bo tròn các góc của thanh cuộn */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white; /* Màu nền của nút trượt */
+  border-radius: 4px; /* Bo tròn các góc của nút trượt */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #0088cc; /* Màu nền của nút trượt khi hover */
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #006699; /* Màu nền của nút trượt khi active */
+  
+}
+
+/* Ẩn thanh cuộn khi không hover */
+body::-webkit-scrollbar-thumb {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+}
 </style>

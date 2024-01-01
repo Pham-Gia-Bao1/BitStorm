@@ -4,7 +4,7 @@
    }
 
 
-   #main {
+   #main,#item1 {
       margin-left: 0px !important;
       width: 100vw;
       padding-right: 0 !important;
@@ -17,7 +17,7 @@
       justify-content: center;
       align-items: center;
       gap: 30px;
-      background-image: url('https://encuentra.com/wp-content/uploads/2023/03/Elogioalsilencio-encuentra.com_-2048x984.jpg');
+      background-image: url('https://images.unsplash.com/photo-1608170825938-a8ea0305d46c?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       background-attachment: fixed;
       background-repeat: no-repeat;
       background-size: cover;
@@ -25,6 +25,18 @@
       background-color: blue;
       overflow-x: hidden;
    }
+   #item1{
+      margin-top: 100px !important;
+      height: 50vh !important;
+      background-image: url('https://www.groovypost.com/wp-content/uploads/2021/03/podcast-podcasts-featured.jpg');
+
+   }
+   #item1 h6{
+      width: 50%;
+       font-size: 60px !important;
+       color: white;
+   }
+
    .container-fluid h1 {
       width: 70%;
       display: flex;
@@ -55,7 +67,7 @@
    }
    .content_video:hover {
       box-shadow: rgba(193, 193, 194, 0.2) 0px 7px 29px 0px;
-      transform: scale(0.95);
+      transform: scale(1.05);
    }
    .box_search input {
       width: 80%;
@@ -224,6 +236,15 @@
       cursor: pointer;
 
    }
+   .box_choice_btn{
+      cursor: pointer;
+   }
+
+/* Kiểu cho thanh cuộn dọc */
+
+.body_active_model:hover::-webkit-scrollbar-thumb {
+  opacity: 1; /* Hiển thị nút trượt khi hover vào phần tử */
+}
 
 
 </style>

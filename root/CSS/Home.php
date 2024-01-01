@@ -34,7 +34,10 @@
     display: inline-block;
     font-size: 60px;
 }
+.card-wrapper__box{
+     background-color: #00FFCB;
 
+}
 .a_home a {
     text-decoration: none;
 }
@@ -140,7 +143,6 @@
     border-radius: 25px;
     background-color: #FFF;
     transition: 0.5s;
-
     cursor : pointer;
     transition : all .3s ease;
 }
@@ -154,6 +156,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px 14px;
+    height: 250px;
 }
 
 .image-content {

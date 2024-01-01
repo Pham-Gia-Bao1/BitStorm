@@ -158,7 +158,7 @@ include("../root/CSS/NavBar.css.php");
           <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Do you want to logout now?</h4>
+              <h4 class="modal-title">Bạn muốn đăng xuất bây giờ sao?</h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <!-- Modal body -->
@@ -167,8 +167,8 @@ include("../root/CSS/NavBar.css.php");
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <a href="http://localhost/BitStorm/Logout" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href=this.href;">OK</a>
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+              <a href="http://localhost/BitStorm/Logout" class="btn btn-danger" data-bs-dismiss="modal" onclick="window.location.href=this.href;">Rời đi</a>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ở lại</button>
             </div>
           </div>
         </div>

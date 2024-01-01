@@ -47,6 +47,7 @@ include("../root/CSS/Home.php");
                         <div class="card-content">
                             <h2 class="name">Home page</h2>
                             <p class="description">Nơi cung cấp cho các bạn về các thông tin liên quan về app, bạn có thể viết status để tâm sự cùng người lạ trên web này. Bên cạnh đó bạn cũng sẽ được nhiều người truyền cảm hứng hơn so với bạn không tiếp xúc với ai.</p>
+                            <a href="home">Đến Trang chủ</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -58,6 +59,7 @@ include("../root/CSS/Home.php");
                         <div class="card-content">
                             <h2 class="name">Contact expert</h2>
                             <p class="description">Trang web này cho phép bạn chat 1 1 với chuyên gia, với những người đã vượt qua cơn trầm cảm. Họ có những kinh nghiệm, có những lời khuyên cho bạn, hoàn toàn miễn phí. Vì chúng tôi hiểu rằng muốn điều trị hoàn toàn thì cực kỳ tốn chi phí.</p>
+                            <a href="ContactExpert">Đi đến với chuyên gia</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -70,6 +72,7 @@ include("../root/CSS/Home.php");
                         <div class="card-content">
                             <h2 class="name">Blog</h2>
                             <p class="description">Nơi để đọc những bài viết, những video truyền độc lực từ nhiều nguồn khác nhau. Thông qua nhưng câu chuyenej đó thì nhóm cũng có thể giúp một phần nào đó để chữ lành tâm hồn của bạn.</p>
+                            <a href="blog">Đi đến trang video</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -81,6 +84,7 @@ include("../root/CSS/Home.php");
                         <div class="card-content">
                             <h2 class="name">Post</h2>
                             <p class="description">Trong trang này thì bạn có thể đăng những bài viết để người khác có thể xam các trạng thái bài viết của người khác bên cạnh đó bạn có thể chia sẻ cảm nhận của mình dưới ẩn danh</p>
+                            <a href="post">Đi đến trang post</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -92,7 +96,9 @@ include("../root/CSS/Home.php");
                         <div class="card-content">
                             <h2 class="name">About us</h2>
                             <p class="description">Ở đây chúng tôi sẽ nói về app này, bên cạnh đó có thể giới thiệu cho bạn một số bác sĩ tâm lí nổi tiếng không tốn chi phí. Chúng tôi cũng có thể giúp bạn tìm những workshop về chủ đề về sức khỏe tâm thần để giới thiệu cho bạn.</p>
+                            <a href="About">Đi đến trang liên hệ</a>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -120,7 +126,7 @@ include("../root/CSS/Home.php");
             </div>
         </div>
     </div>
-    <div class="p-5"></div> 
+    <div class="p-5"></div>
 
      <div class="container-fluid podcast ">
         <p class="p111">Giới Thiệu Cho Bạn</p>
@@ -132,7 +138,7 @@ include("../root/CSS/Home.php");
                         <div class="col-sm-6">
                             <div class="card ">
                                 <img src="./root/Image/homePage/podcast1.jpg" class="card-img-top" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <div class="card-body  mx-3">
+                                <a href="PodcastDetail?id=1" class="card-body  mx-3">
                                     <p class="card-text">Chữa lành tâm hồn những người đang âu lo..</p>
                                     <div class="d-flex">
 
@@ -148,13 +154,13 @@ include("../root/CSS/Home.php");
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="card ">
                                 <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" alt="..." height="164px" style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <div class="card-body mx-3">
+                                <a href="PodcastDetail?id=5" class="card-body mx-3">
                                     <p class="card-text">Hãy cảm ơn cuộc đời vì đã cho bạn sống....</p>
                                     <div class="d-flex ">
 
@@ -170,7 +176,7 @@ include("../root/CSS/Home.php");
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -180,7 +186,7 @@ include("../root/CSS/Home.php");
                         <div class="col-sm-6">
                             <div class="card ">
                                 <img src="./root/Image/homePage/podcast.jpg" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <div class="card-body mx-3">
+                                <a href="PodcastDetail?id=2" class="card-body mx-3">
                                     <p class="card-text">Cách học sao cho hiệu quả bằng nhiều phương pháp khác nhau..</p>
                                     <div class="d-flex">
 
@@ -196,13 +202,13 @@ include("../root/CSS/Home.php");
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="card ">
                                 <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <div class="card-body mx-3">
+                                <a href="PodcastDetail?id=1" class="card-body mx-3">
                                     <p class="card-text">Hãy giúp những người khác để thay đổi bản thân</p>
                                     <div class="d-flex">
                                         <i class="fa-solid fa-graduation-cap"></i>
@@ -215,7 +221,7 @@ include("../root/CSS/Home.php");
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -225,7 +231,7 @@ include("../root/CSS/Home.php");
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div class="container-fluid choose">
         <p style="color: 0166FF; text-align: center;font-size: 16px;">Tại sao lại lựa chọn chúng tôi</p>
@@ -278,11 +284,11 @@ include("../root/CSS/Home.php");
                             </div>
                         </div>
                     </div>
-                    <div class="col-2"></div> 
+                    <div class="col-2"></div>
                 </div>
             </div>
-        </div> 
-    </div> 
+        </div>
+    </div>
 </div>
 <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
 <?php
