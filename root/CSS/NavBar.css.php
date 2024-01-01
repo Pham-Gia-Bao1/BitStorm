@@ -15,14 +15,12 @@
   }
 
   .avata1 {
-    width: 30px;
+    width: 40px;
     border-radius: 50%;
     margin-right: 8px;
     cursor: pointer;
   }
-   .menu_list_profile {
-    width: 200px;
-  }
+
 .navbar {
   position: fixed !important;
   top: 0 ;
@@ -70,11 +68,26 @@
 .nav-link:hover + .dropdown-menu,
 .dropdown-menu:hover {
   display: block; /* Hiển thị danh sách thả xuống khi hover vào .nav-link hoặc .dropdown-menu */
+
 }
 
 .dropdown{
-  background-color: #007bff;
+  /* background-color: #007bff; */
   float: right;
+
+
+}
+.dropdown-menu{
+  /* background-color: #007bff; */
+  width: 19vw;
+}
+.menu_list_profile li:hover{
+  background-color: red;
+  color: #ffff;
+}
+.menu_list_profile li a{
+   text-decoration: none;
+   color : black;
 }
 
 </style>

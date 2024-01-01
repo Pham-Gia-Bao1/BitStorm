@@ -194,8 +194,8 @@ include("../root/CSS/UserProfile.css.php");
 </div>
 
 
-<h1 class="heading">Note</h1>
-<p class="info-text">Double click on a note to remove it</p>
+<h1 class="heading">Ghi chú</h1>
+<p class="info-text">Nhấn chuột 2 liên tục đểt xóa</p>
 <div class="app" id="app">
   <button class="btn1" id="btn">+</button>
 </div>

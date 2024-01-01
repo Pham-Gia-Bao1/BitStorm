@@ -84,14 +84,14 @@ include("../root/CSS/NavBar.css.php");
           <li>
             <a href="userprofile" class="d-flex align-items-center nav-link">
               <i class="fa-solid fa-user me-3 order-1"></i>
-              <span class="me-auto order-2">Edit Profile</span>
+              <span class="me-auto order-2">Chỉnh sửa trang cá nhân </span>
               <i class="fa-solid fa-chevron-right ms-3 order-3"></i>
             </a>
           </li>
           <li>
             <a href="userprofile" class="d-flex align-items-center nav-link">
               <i class="fa-solid fa-gear me-3 order-1"></i>
-              <span class="me-auto order-2">Setting &amp; Privacy</span>
+              <span class="me-auto order-2">Cài đặt  &amp;  riêng tư</span>
               <i class="fa-solid fa-chevron-right order-3"></i>
 
             </a>
@@ -99,7 +99,7 @@ include("../root/CSS/NavBar.css.php");
           <li>
             <a href="#" class="d-flex align-items-center nav-link" data-bs-toggle="modal" data-bs-target="#myModal">
               <i class="fa-solid fa-right-from-bracket me-3 order-1"></i>
-              <span class="me-auto order-2">Log Out</span>
+              <span class="me-auto order-2">Đăng xuất </span>
               <i class="fa-solid fa-chevron-right order-3"></i>
             </a>
           </li>
