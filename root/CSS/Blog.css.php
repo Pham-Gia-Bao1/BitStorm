@@ -2,26 +2,14 @@
    body {
       overflow-x: hidden;
    }
-   .container,
-   .container-fluid,
-   .container-lg,
-   .container-md,
-   .container-sm,
-   .container-xl,
-   .container-xxl {
-      padding-right: 0 !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
 
-   }
+
    #main {
       margin-left: 0px !important;
       width: 100vw;
       padding-right: 0 !important;
       margin-left: 0 !important;
       margin-right: auto;
-   }
-   #main {
       height: 84vh !important;
       margin-top: 10px;
       display: flex;
@@ -200,7 +188,7 @@
       position: absolute;
       list-style: none;
       margin: 0;
-      top: 380px;
+      top: 370px;
       width: 40.2%;
       height: 290px;
       overflow-x: hidden;
@@ -213,7 +201,13 @@
    }
    .suggestion_box li {
       background-color: white;
-      padding: 10px;
+      padding: 7px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /* Số dòng hiển thị tối đa */
+      -webkit-box-orient: vertical;
 
 
    }
@@ -229,51 +223,6 @@
       background-color: #e9ecef;
       cursor: pointer;
 
-   }
-   #form_opption {
-      width: 60vw;
-      background-color: white;
-      padding: 20px;
-      position: relative;
-      bottom: -100px;
-      z-index: 0;
-      border-top-right-radius: 50px;
-      border-top-left-radius: 50px;
-   }
-   #form_opption button {
-      width: 19%;
-      height: 100%;
-      padding: 20px;
-      padding-top: 20px;
-      background-color: white;
-      border: 0px solid;
-      padding-bottom: 30px;
-   }
-   #form_opption button:first-child {
-      background-color: #0093E9;
-      margin-left: 1px;
-      width: 21.5%;
-   }
-   #form_opption button:first-child {
-      border-top-left-radius: 30px;
-   }
-   #form_opption button:last-child {
-      border-top-right-radius: 30px;
-
-   }
-   .main_title:first-child {
-      font-size: 72px;
-      text-transform: uppercase;
-      font-weight: 900;
-   }
-   .main_title:last-child {
-      font-family: 'Beyond';
-      font-size: 100px;
-      color: #fff;
-      text-align: center;
-   }
-   .title_videos{
-      margin-top: 10px;
    }
 
 

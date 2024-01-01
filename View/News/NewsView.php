@@ -52,7 +52,7 @@ include("../root/CSS/News.css.php");
 <div class="search-box">
     <form method="POST" action="">
         <input class="search-input" type="text" placeholder="Search something.." name="keyword" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>">
-        <button class="search-btn" name="search" type="submit"><i class="fas fa-search"></i></button> 
+        <button class="search-btn" name="search" type="submit"><i class="fas fa-search"></i></button>
     </form>
 </div>
 <div class="p-3">
@@ -92,7 +92,7 @@ include("../root/CSS/News.css.php");
                     <div class="card-link">
                         <a href="#" title="Read Full"><span>Xem Thêm</span></a>
                     </div>
-                </div>                 
+                </div>
             </div>
             <?php
             }
@@ -106,7 +106,7 @@ include("../root/CSS/News.css.php");
             echo "Error: " . $e->getMessage();
         }
     }
-    ?>               
+    ?>
     </div>
 </div>
 
@@ -114,8 +114,8 @@ include("../root/CSS/News.css.php");
 <div class="container">
     <div class="row">
         <h2 class="h2_row">Dành Cho Bạn</h2>
-        <?php  foreach ($news as $new): ?> 
-       
+        <?php  foreach ($news as $new): ?>
+
         <div class="img-card iCard-style1 col-sm-4">
             <div class="card-content">
                 <div class="card-image">
@@ -127,13 +127,13 @@ include("../root/CSS/News.css.php");
                     <span class="d-flex">
                         <p class="card-text"><?php echo $new['created_at'] ?></p>
                         <p class="card-text"><?php echo $new['name_author'] ?></p>
-                    </span> 
+                    </span>
                 </div>
-            </div>                 
+            </div>
             <div class="card-link">
             <a href="NewsDetails?id=<?php echo $new['id']; ?>" title="Read Full"><span>Xem Thêm</span></a>
             </div>
-        </div> 
+        </div>
         <?php endforeach; ?>
     </div>
     <div>

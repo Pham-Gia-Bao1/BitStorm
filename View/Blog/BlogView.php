@@ -5,6 +5,9 @@ include("../root/CSS/Blog.css.php");
 <title>Blog</title>
 <link rel="stylesheet" href="http://localhost/BitStorm/root/CSS/Blog.css">
 <!-- phần 1 -->
+<body>
+
+
 <div class="container-fluid" id="main">
   <h1 class="main_title">
     Video dành cho bạn
@@ -111,6 +114,7 @@ include("../root/CSS/Blog.css.php");
     </div>
   </div>
 </div>
+</body>
 <?php
 include("../View/LayOut/Footer/Footer.php");
 ?>
