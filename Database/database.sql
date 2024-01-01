@@ -1,6 +1,6 @@
 CREATE DATABASE   data_php;
 USE data_php;
-
+-- drop database data_php;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -14,8 +14,67 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-select * from users ;
 
+INSERT INTO users (name, email, password, role_id, img, address, phone_number)
+VALUES
+    ('Nguyễn Sĩ Hùng', 'hungsi@gmail.com', 'Hung@#sd23090', 1, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '123 Main St', '093237623'),
+    ('Trần Đức Hùng', 'hung.duc@gmail.com', 'Hung@#$jsdgh6253', 2, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '456 Elm St', '087623781'),
+    ('Nguyễn Bích Thủy', 'bichthhuy234@gmail.com', 'thuy90@22@#d', 1, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '789 Oak St', '087623231'),
+    ('Trần Thị Mỹ Tâm', 'tranthimytam09@gmail.com', 'sdjh%#$%543sjdh', 2, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '321 Pine St', '082362233'),
+    ('Lê Văn Thắng', 'thang@gmail.com', 'sdasj%$Shew52', 1, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '012834642');
+
+
+select * from users ;
+CREATE TABLE experts (
+  id INT PRIMARY KEY,
+  full_name varchar(255),
+  gender VARCHAR(10),
+  address VARCHAR(255),
+  email VARCHAR(255),
+  phone_number VARCHAR(20),
+  age INT,
+  experience varchar(100),
+  profile_picture VARCHAR(255),
+  count_rating INT,
+  certificate varchar(255),
+  specialization varchar(255)
+);
+
+INSERT INTO experts (id,full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization) VALUES
+(1, 'Hồ Thị Mỹ Anh', 'Male', '123 Ngô Quyền, Hải Châu, Đà Nẵng.', 'john.doe@example.com', '1234567890', 30, 'Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm và lo âu trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbqu-0Q8CDAeN2O7GL0-IBmyCSTVMQGTBLA&usqp=CAU', 10, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(2, 'Nguyễn Anh Tú','Male', '456 Trần Phú, Thanh Khê, Đà Nẵng.', 'jane.smith@example.com', '9876543210', 35, 'Kinh nghiệm làm việc với các vấn đề tâm lý của trẻ em và gia đình trong 5 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ1yVXix9ieLDoQ9MKtLaWIoF9DNJj-vDMw&usqp=CAU', 15, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(3, 'Phạm Minh Đức','Male', '789 Lê Duẩn, Sơn Trà, Đà Nẵng.', 'michael.johnson@example.com', '4567890123', 40, 'Kinh nghiệm tư vấn tâm lý cá nhân và hôn nhân trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPnzAB_u-HL7U1UT2rWrZOJQRE-UjQ1Y8uLDbQMKOgHjeWpiYjahiiM-9znL55iF2DxLw&usqp=CAU',6,'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(4,'Hoàng Thị Diễm Trang', 'Female', '321 Bạch Đằng, Hòa Vang, Đà Nẵng.', 'emily.davis@example.com', '3210987654', 28, 'Kinh nghiệm trong việc hỗ trợ những người gặp khó khăn trong quá trình luyện phục hồi sau chấn thương trong 3 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTje4oiuXbsZY56QeeuBsPCibkPloH_fJ5TAw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(5,'Huỳnh Thị Hường', 'Male', '654 Nguyễn Văn Linh, Liên Chiểu, Đà Nẵng.', 'robert.wilson@example.com', '7890123456', 32, 'Kinh nghiệm tư vấn tâm lý cho người già và chăm sóc tâm lý cho người cao tuổi trong 8 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxYMnCwfkVOAdxhMtgdabOL6Ikszu_S0RHA&usqp=CAU', 12, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(6, 'Phạm Thị Ngọc Trâm', 'Female', '987 Điện Biên Phủ, Cẩm Lệ, Đà Nẵng.', 'sophia.thompson@example.com', '2109876543', 38, 'Kinh nghiệm làm việc với các vấn đề tự hại và tư vấn sự phục hồi sau tổn thương trong 6 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShgFLJkAiUli_HSho8OnGxmavSEzRTExJVfQ&usqp=CAU', 18, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(7, 'Đặng Quang Minh','Male', '234 Hàn Thuyên, Ngũ Hành Sơn, Đà Nẵng.', 'william.johnson@example.com', '5678901234', 45, 'Kinh nghiệm tư vấn tâm lý trong quá trình giải quyết xung đột gia đình và hỗ trợ hòa giải trong 4 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6k3mVWpBVfnzxxCNtBQ5SHtyBiFACtcDV3w&usqp=CAU', 25, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(8, 'Bùi Thị Lan','Female', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Kinh nghiệm tư vấn tâm lý trong việc quản lý căng thẳng và xử lý áp lực công việc trong 9 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkjSwH73LqDpz7kklerQsP1GfXJ_Nca-5cnmc7u9guB8aNse2C9lgi7mUuMFb9p94XHsc&usqp=CAU', 3, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(9, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Kinh nghiệm tư vấn tâm lý cho người mắc các rối loạn ăn uống và hỗ trợ phục hồi sau rối loạn dinh dưỡng trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMmpSwI8cn27qB_JIBnu9Pykk9l0b8KAJCyA&usqp=CAU', 16, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(10, 'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 9, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý");
+select * from experts;
+
+CREATE TABLE calendar (
+  id INT PRIMARY KEY,
+  day DATE,
+  start_time TIME,
+  end_time TIME,
+  price DECIMAL(10, 2),
+  describer  TEXT,
+  expert_id INT,
+  FOREIGN KEY (expert_id) REFERENCES experts(id)
+);
+INSERT INTO calendar (id, day, start_time, end_time, price, describer, expert_id) VALUES
+(1, '2023-12-31', '09:00:00', '11:00:00', 50.000, 'Morning availability', 1),
+(2, '2023-12-31', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 2),
+(3, '2023-12-31', '10:00:00', '12:00:00', 70.000, 'Morning availability', 3),
+(4, '2023-12-31', '15:00:00', '17:00:00', 55.000, 'Afternoon availability', 4),
+(5, '2023-12-31', '11:00:00', '13:00:00', 45.000, 'Morning availability', 5),
+(6, '2023-12-31', '16:00:00', '18:00:00', 70.000, 'Afternoon availability', 6),
+(7, '2023-12-31', '09:00:00', '11:00:00', 50.000, 'Morning availability', 7),
+(8, '2023-12-31', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 8),
+(9, '2024-01-01', '10:00:00', '12:00:00', 65.000, 'Morning availability', 9),
+(10, '2024-01-01', '15:00:00', '17:00:00', 60.000, 'Afternoon availability', 10);
+select * from calendar;
 CREATE TABLE IF NOT EXISTS posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -41,13 +100,15 @@ CREATE TABLE  podcasts (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     image_url VARCHAR(255),
     type VARCHAR(100),
-    view int
+    view int,
+    like_count int,
+    dislike_count int
 );
 
-INSERT INTO podcasts (title, description, author_id, youtube_link, created_at, image_url, type, view)
-VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là Sun. Các bạn đang lắng nghe Sunhuyn Podcast. Nếu có những ngày cảm thấy chênh vênh hãy quay về đây và yêu lấy chính mình. Cùng lắng nghe và thấu hiểu.', 1, 'https://www.youtube.com/embed/pZTjXtkPam0?si=wnP82s0G_dOnVRFt', '2023-08-08', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Tình yêu', 100),
-('Cách để đối diện với tiêu cực và vượt qua nó cùng Khánh Vy | ĐCNNTK #10', 'Đắp Chăn Nằm Nghe Tun Kể là series podcast đầu tiên của Tun, nơi Tun và các bạn có thể trải lòng với nhau về những điều mệt mỏi trong cuộc sống, cùng cho nhau những lời khuyên hay ho, cùng chữa lành những tổn thương, đổ vỡ để trái tim tụi mình một lần nữa được ngập tràn yêu thương.', 3, 'https://www.youtube.com/embed/bdK95yNhIP0?si=EjvSPZ0F9ZxxE-43', '2022-04-09', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Gia đình', 309),
-('Cách vượt qua ÁP LỰC học tập và điểm số', 'Những kỳ thi cuối năm sắp tới, và mình hiểu có thể các bạn đang gặp nhiều áp lực học tập và điểm số đến chừng nào! Bạn có bao giờ cảm xúc tiêu cực vì bị so sánh với "con nhà người ta"? Mình sẽ ở đây để chia sẻ cùng các bạn. Hãy luôn vững tin và học tập với một niềm yêu thích và đam mê nhé ❤️', 2, 'https://www.youtube.com/embed/-y4N5aXLbDo?si=t9QVCITIFRqG3SCD', '2021-12-10', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Học tập', 232),
+INSERT INTO podcasts (title, description, author_id, youtube_link, created_at, image_url, type, view,like_count , dislike_count)
+VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là Sun. Các bạn đang lắng nghe Sunhuyn Podcast. Nếu có những ngày cảm thấy chênh vênh hãy quay về đây và yêu lấy chính mình. Cùng lắng nghe và thấu hiểu.', 1, 'https://www.youtube.com/embed/pZTjXtkPam0?si=wnP82s0G_dOnVRFt', '2023-08-08', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Tình yêu', 100,342,12),
+('Cách để đối diện với tiêu cực và vượt qua nó cùng Khánh Vy | ĐCNNTK #10', 'Đắp Chăn Nằm Nghe Tun Kể là series podcast đầu tiên của Tun, nơi Tun và các bạn có thể trải lòng với nhau về những điều mệt mỏi trong cuộc sống, cùng cho nhau những lời khuyên hay ho, cùng chữa lành những tổn thương, đổ vỡ để trái tim tụi mình một lần nữa được ngập tràn yêu thương.', 3, 'https://www.youtube.com/embed/bdK95yNhIP0?si=EjvSPZ0F9ZxxE-43', '2022-04-09', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Gia đình', 309,2373,43),
+('Cách vượt qua ÁP LỰC học tập và điểm số', 'Những kỳ thi cuối năm sắp tới, và mình hiểu có thể các bạn đang gặp nhiều áp lực học tập và điểm số đến chừng nào! Bạn có bao giờ cảm xúc tiêu cực vì bị so sánh với "con nhà người ta"? Mình sẽ ở đây để chia sẻ cùng các bạn. Hãy luôn vững tin và học tập với một niềm yêu thích và đam mê nhé ❤️', 2, 'https://www.youtube.com/embed/-y4N5aXLbDo?si=t9QVCITIFRqG3SCD', '2021-12-10', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Học tập', 2323,2323,12),
 ("Đối mặt với TỰ TI NGOẠI HÌNH // sự thật về mặc cảm cơ thể, body shaming, tips yêu cơ thể",
 "Bạn có từng cảm thấy tự ti về ngoại hình của mình? Hay có những mặc cảm về cơ thể mà bạn không biết làm thế nào để vượt qua? Nếu câu trả lời là 'có,' thì video này chính là dành cho bạn! Trong video này, mình sẽ cùng thảo luận và chia sẻ về chủ đề tự ti ngoại hình và mặc cảm cơ thể. Với những nội dung độc đáo và sâu sắc, chúng tôi hy vọng sẽ mang đến cho bạn những thông tin hữu ích và truyền cảm hứng để bạn tự tin hơn với bản thân mình. Tại đây, bạn sẽ tìm thấy các video về cách xây dựng lòng tự tin, tư vấn về làm đẹp và phong cách, cũng như những câu chuyện thành công của những người đã vượt qua mặc cảm của mình. Chúng tôi cung cấp những lời khuyên thiết thực và chi tiết, giúp bạn hiểu rõ hơn về nguyên nhân và cách giải quyết các vấn đề ngoại hình và cơ thể. Nếu bạn đang tìm kiếm các từ khóa như 'tự ti về ngoại hình,' 'vượt qua mặc cảm cơ thể,' hay 'tự tin trong cuộc sống,' thì bạn đã đến đúng nơi! Chúng tôi tối ưu hóa nội dung của video để đáp ứng nhu cầu của bạn và giúp bạn tìm thấy chúng dễ dàng.",
 1,
@@ -55,7 +116,7 @@ VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là 
 "2023-05-26",
 "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
 "Body shaming",
-345),
+345,212,32),
 ("GIẢM STRESS & KHỞI ĐỘNG LẠI CUỘC SỐNG với 15 THÓI QUEN TÍCH CỰC // My Reset Routine",
 "Tuần vừa rồi, mình đã trải qua một giai đoạn rất mệt mỏi và căng thẳng. Dấu hiệu của stress thể hiện rõ ràng trên cả thể chất lẫn tinh thần của mình. Bởi vậy, mình quyết định dành ra một ngày để thực hiện 'reset routine' — một chu trình mình thường làm để khởi động lại cuộc sống và tìm về sự cân bằng trong nội tại. Trong video này, mình chia sẻ với các bạn chu trình này của mình, bao gồm 15 thói quen tí hon giúp bạn giảm nhanh stress và sớm tìm về sự an yên trong tâm hồn.",
 "The Present Writer",
@@ -63,7 +124,7 @@ VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là 
 "2022-03-31",
 "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
 "Stress",
-123);
+123,120,3);
 
 select * from podcasts;
 
@@ -135,11 +196,25 @@ CREATE TABLE  videos (
     duration INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     type VARCHAR(255),
-    view varchar(50)
+    view varchar(50),
+    like_count int,
+    dislike_count int
 );
 
 select * from videos;
-
+INSERT INTO videos (youtube_link, title, author_id, description , duration, type, view, like_count, dislike_count)
+VALUES
+('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 1,'Description for Video 1',120, 'động lực','23',232,34),
+('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 3,'Description for Video 2', 120, 'gia đình','123',1212,23),
+('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 2,'Description for Video 3', 120, 'tình yêu','232',455,45),
+('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6',1, 'Description for Video 6',120, 'thiên nhiên','32',7567,12),
+('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4', 2,'Description for Video 4',120, 'động lực','232',123,12),
+('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 3,'Description for Video 1', 120, 'động lực','912',787,12),
+('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 2,'Description for Video 2',120, 'gia đình','127',1234,65),
+('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 1,'Description for Video 3',120, 'tình yêu','232',123,45),
+('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6',3, 'Description for Video 6', 120, 'thiên nhiên','321',4566,43),
+('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4',2, 'Description for Video 4',120, 'động lực','763',564,67),
+('https://www.youtube.com/embed/18mSyyOQua0?si=Hl7vG1-x1fUjKfAV', 'Video 5', 1,'Description for Video 5',120, 'gia đình','776',898,12);
 
 CREATE TABLE IF NOT EXISTS video_categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -176,7 +251,7 @@ CREATE TABLE comment_videos
     FOREIGN KEY (video_id) REFERENCES videos(id)
 );
 
-INSERT INTO comment_videos (id, content, author, created_at, video_id, user_id, like_count, dislike_count)
+INSERT INTO comment_videos ( content, author, created_at, video_id, user_id, like_count, dislike_count)
 VALUES
 ('Great video!', 'John Doe', '2023-01-01 10:00:00', 1, 1, 23, 1),
 ('I learned a lot from this video.', 'Jane Smith', '2023-01-02 15:30:00', 1, 3, 212, 3),
@@ -192,7 +267,7 @@ select * from comment_videos where video_id = 2;
 
 
 CREATE TABLE comment_posts (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY auto_increment,
   content TEXT,
   author varchar(50),
   created_at TIMESTAMP,
@@ -200,47 +275,19 @@ CREATE TABLE comment_posts (
   FOREIGN KEY (post_id) REFERENCES posts(id)
 );
 
-INSERT INTO comment_posts (id, content, author, created_at, post_id) VALUES
-(1, 'Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
-(2, 'I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
-(3, 'This post is very informative.', 'Michael Johnson', '2023-01-03 08:45:00', 2),
-(4, 'Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2),
-(5, 'I have a question regarding the topic.', 'Robert Wilson', '2023-01-05 09:10:00', 3),
-(6, 'Thanks for sharing!', 'Sophia Thompson', '2023-01-06 14:05:00', 3),
-(7, 'I enjoyed reading this post.', 'John Doe', '2023-01-07 17:55:00', 4),
-(8, 'This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
-(9, 'Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
-(10, 'Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
+INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
+('Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
+('I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
+('This post is very informative.', 'Michael Johnson', '2023-01-03 08:45:00', 2),
+('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2),
+('I have a question regarding the topic.', 'Robert Wilson', '2023-01-05 09:10:00', 3),
+('Thanks for sharing!', 'Sophia Thompson', '2023-01-06 14:05:00', 3),
+('I enjoyed reading this post.', 'John Doe', '2023-01-07 17:55:00', 4),
+('This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
+('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
+('Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
 
 select * from comment_posts;
-
-
-CREATE TABLE experts (
-  id INT PRIMARY KEY,
-  full_name varchar(255),
-  gender VARCHAR(10),
-  address VARCHAR(255),
-  email VARCHAR(255),
-  phone_number VARCHAR(20),
-  age INT,
-  experience varchar(100),
-  profile_picture VARCHAR(255),
-  count_rating INT,
-  certificate varchar(255)
-);
-
-INSERT INTO experts (id,full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization) VALUES
-(1, 'Hồ Thị Mỹ Anh', 'Male', '123 Ngô Quyền, Hải Châu, Đà Nẵng.', 'john.doe@example.com', '1234567890', 30, 'Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm và lo âu trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbqu-0Q8CDAeN2O7GL0-IBmyCSTVMQGTBLA&usqp=CAU', 10, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(2, 'Nguyễn Anh Tú','Male', '456 Trần Phú, Thanh Khê, Đà Nẵng.', 'jane.smith@example.com', '9876543210', 35, 'Kinh nghiệm làm việc với các vấn đề tâm lý của trẻ em và gia đình trong 5 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ1yVXix9ieLDoQ9MKtLaWIoF9DNJj-vDMw&usqp=CAU', 15, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(3, 'Phạm Minh Đức','Male', '789 Lê Duẩn, Sơn Trà, Đà Nẵng.', 'michael.johnson@example.com', '4567890123', 40, 'Kinh nghiệm tư vấn tâm lý cá nhân và hôn nhân trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPnzAB_u-HL7U1UT2rWrZOJQRE-UjQ1Y8uLDbQMKOgHjeWpiYjahiiM-9znL55iF2DxLw&usqp=CAU',6,'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(4,'Hoàng Thị Diễm Trang', 'Female', '321 Bạch Đằng, Hòa Vang, Đà Nẵng.', 'emily.davis@example.com', '3210987654', 28, 'Kinh nghiệm trong việc hỗ trợ những người gặp khó khăn trong quá trình luyện phục hồi sau chấn thương trong 3 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTje4oiuXbsZY56QeeuBsPCibkPloH_fJ5TAw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(5,'Huỳnh Thị Hường', 'Male', '654 Nguyễn Văn Linh, Liên Chiểu, Đà Nẵng.', 'robert.wilson@example.com', '7890123456', 32, 'Kinh nghiệm tư vấn tâm lý cho người già và chăm sóc tâm lý cho người cao tuổi trong 8 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf1Pl_hNeFRprpB1CVWpq50tfEEoFDvCK1wXP_1bUX7n3O6h8GzlsoYE0vmqn3wXWaerY&usqp=CAU%27', 12, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"áBc sĩ tâm lý"),
-(6, 'Phạm Thị Ngọc Trâm', 'Female', '987 Điện Biên Phủ, Cẩm Lệ, Đà Nẵng.', 'sophia.thompson@example.com', '2109876543', 38, 'Kinh nghiệm làm việc với các vấn đề tự hại và tư vấn sự phục hồi sau tổn thương trong 6 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3yXDHKFG-8n9quKfcsGe409t_5m2UG_nQxQ&usqp=CAU', 18, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(7, 'Đặng Quang Minh','Male', '234 Hàn Thuyên, Ngũ Hành Sơn, Đà Nẵng.', 'william.johnson@example.com', '5678901234', 45, 'Kinh nghiệm tư vấn tâm lý trong quá trình giải quyết xung đột gia đình và hỗ trợ hòa giải trong 4 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6k3mVWpBVfnzxxCNtBQ5SHtyBiFACtcDV3w&usqp=CAU', 25, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(8, 'Bùi Thị Lan','Female', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Kinh nghiệm tư vấn tâm lý trong việc quản lý căng thẳng và xử lý áp lực công việc trong 9 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkjSwH73LqDpz7kklerQsP1GfXJ_Nca-5cnmc7u9guB8aNse2C9lgi7mUuMFb9p94XHsc&usqp=CAU', 3, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(9, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Kinh nghiệm tư vấn tâm lý cho người mắc các rối loạn ăn uống và hỗ trợ phục hồi sau rối loạn dinh dưỡng trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBTGIhpDfxhtCb7tSsh6-VgqIO-gNmhRWJmH7tETjTgz-YbB6HDJwgTubhxrLhD1ueVs&usqp=CAU%27', 16, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý"),
-(10, 'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 9, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý");
-select * from experts;
 
 
 CREATE TABLE bookings (
@@ -282,28 +329,6 @@ create table roles (
 
 select * from roles;
 
- CREATE TABLE calendar (
-  id INT PRIMARY KEY,
-  day DATE,
-  start_time TIME,
-  end_time TIME,
-  price DECIMAL(10, 2),
-  describer  TEXT,
-  expert_id INT,
-  FOREIGN KEY (expert_id) REFERENCES experts(id)
-);
-INSERT INTO calendar (id, day, start_time, end_time, price, describer, expert_id) VALUES
-(1, '2023-01-01', '09:00:00', '11:00:00', 50.00, 'Morning availability', 1),
-(2, '2023-01-01', '14:00:00', '16:00:00', 60.00, 'Afternoon availability', 1),
-(3, '2023-01-02', '10:00:00', '12:00:00', 70.00, 'Morning availability', 2),
-(4, '2023-01-02', '15:00:00', '17:00:00', 55.00, 'Afternoon availability', 2),
-(5, '2023-01-03', '11:00:00', '13:00:00', 45.00, 'Morning availability', 3),
-(6, '2023-01-03', '16:00:00', '18:00:00', 70.00, 'Afternoon availability', 3),
-(7, '2023-01-04', '09:00:00', '11:00:00', 50.00, 'Morning availability', 4),
-(8, '2023-01-04', '14:00:00', '16:00:00', 60.00, 'Afternoon availability', 4),
-(9, '2023-01-05', '10:00:00', '12:00:00', 65.00, 'Morning availability', 5),
-(10, '2023-01-05', '15:00:00', '17:00:00', 55.00, 'Afternoon availability', 5);
-
 select * from calendar;
 -- Bảng mới
 CREATE TABLE news (
@@ -333,9 +358,9 @@ Nguyên nhân gây ra tình trạng suy giảm trí nhớ khi thức khuya là d
 ('TOP 5 CÂY DƯỢC LIỆU MANG ĐẾN NHIỀU LỢI ÍCH CHO SỨC KHỎE',
 'Sử dụng cây dược liệu để hỗ trợ điều trị bệnh và bồi bổ cơ thể là phương pháp được nhiều người lựa chọn. Bài viết hôm nay sẽ tổng hợp 5 cây dược liệu mang đến nhiều lợi ích cho sức khỏe cũng như cách sử dụng những cây này sao cho an toàn, hiệu quả.',
 'Cây bạch quả
-Cây bạch quả còn được gọi với nhiều cái tên khác nhau như cây ngân hạnh, cây áp cước tù, công tôn thụ,… Đây là cây dược liệu rất quen thuộc và có tác dụng chữa nhiều bệnh khác nhau. Trong Đông y, hầu như các bộ phận của cây đều được sử dụng, cụ thể như sau: 
+Cây bạch quả còn được gọi với nhiều cái tên khác nhau như cây ngân hạnh, cây áp cước tù, công tôn thụ,… Đây là cây dược liệu rất quen thuộc và có tác dụng chữa nhiều bệnh khác nhau. Trong Đông y, hầu như các bộ phận của cây đều được sử dụng, cụ thể như sau:
 
-Hạt bạch quả dùng để điều trị hen suyễn, ho mạn tính, ho có đờm,… hay các bệnh lý về phổi, hô hấp. 
+Hạt bạch quả dùng để điều trị hen suyễn, ho mạn tính, ho có đờm,… hay các bệnh lý về phổi, hô hấp.
 Lá bạch quả giúp tăng cường trí nhớ, làm chậm quá trình suy giảm trí nhớ, mất trí nhớ do ảnh hưởng từ bệnh Alzheimer.
 Thân cây bạch quả có tác dụng hỗ trợ điều trị bệnh tiểu đường. ',
 'https://medlatec.vn/media/34587/file/cay-duoc-lieu-1.png',
@@ -387,15 +412,15 @@ Ví dụ, bạn có thể bắt đầu viết nhật ký về lòng biết ơn h
     'Động lực làm việc là yếu tố quan trọng, quyết định lớn đến năng suất, hiệu quả và khả năng thăng tiến của bạn trong một công việc. Cảm thấy mệt mỏi hay chán nản công việc là dấu hiệu đáng báo động để chúng ta đánh thức lại chính mình. Vậy, bạn đã biết cách tạo động lực làm việc nếu rơi vào tình trạng này chưa?',
     '10 Cách tạo động lực dành bạn nên thử ngay lúc này
 Nghĩ đến kết quả mà bạn đạt được khi làm việc chăm chỉ
-Hãy vẽ ra bức tranh kết quả công việc mà bạn mong muốn đạt được. Đưa vào đó những con số cụ thể giúp bạn dễ hình dung hơn về nó và gắn thêm mốc thời gian nếu có thể. 
+Hãy vẽ ra bức tranh kết quả công việc mà bạn mong muốn đạt được. Đưa vào đó những con số cụ thể giúp bạn dễ hình dung hơn về nó và gắn thêm mốc thời gian nếu có thể.
 
 Tưởng tượng bạn sẽ hạnh phúc và hài lòng như thế nào nếu đạt được kết quả đó. Nếu khao khát đủ mãnh liệt, bạn sẽ có động lực để mỗi ngày hoàn thành một đầu việc trong kế hoạch. Thời gian chạm tới bức tranh kết quả sẽ được rút ngắn nhờ động lực làm việc của bạn.
 
 Uống nước và nghỉ ngơi
-Nghe có vẻ đơn giản nhưng nếu bạn cho phép bản thân được thảnh thơi đôi phút, một cơ thể tràn đầy năng lượng sẽ giúp bạn làm việc tốt hơn gấp bội phần. 
+Nghe có vẻ đơn giản nhưng nếu bạn cho phép bản thân được thảnh thơi đôi phút, một cơ thể tràn đầy năng lượng sẽ giúp bạn làm việc tốt hơn gấp bội phần.
 
 Uống nước và nghỉ ngơi
-Sẽ rất ngán ngẩm và mệt mỏi nếu bạn cứ chăm chăm làm việc. Biểu hiện của chán việc không phải chỉ xuất hiện khi bạn gặp chuyện không suôn sẻ, mà kể cả khi bạn làm việc quá sức.  
+Sẽ rất ngán ngẩm và mệt mỏi nếu bạn cứ chăm chăm làm việc. Biểu hiện của chán việc không phải chỉ xuất hiện khi bạn gặp chuyện không suôn sẻ, mà kể cả khi bạn làm việc quá sức.
 
 Điều này dẫn đến việc chán làm mỗi ngày ở những khoảnh khắc mệt mỏi. Vậy làm gì khi chán việc? Câu trả lời đơn giản nhất chính là uống nước và nghỉ ngơi đôi chút. Nếu như cơ thể đang cảnh báo, bạn hãy đáp lời và cho phép nó được nghỉ ngơi.
 
@@ -432,7 +457,7 @@ Tình yêu tuổi học trò là như thế nào? Chúng chính là một thứ 
     'Trong một gia đình hiện đại, các bậc cha mẹ đôi khi cảm thấy việc duy trì các thói quen lành mạnh cho gia đình là một việc khó khăn, khi có quá nhiều việc phải làm với một guồng bận rộn từ lúc thức dậy đến khi đi ngủ. Bởi vậy, thay vì sửa đổi hoàn toàn lối sống của gia đình, kế hoạch điều chỉnh các thói quen theo cách phù hợp với cả nhà sẽ khả thi hơn. Dưới đây là một số ý tưởng mà các bậc cha mẹ có thể lựa chọn và thử áp dụng tại nhà.',
     '1. Tập thể dục
 
-Trong quãng thời gian TV quảng cáo hay quãng nghỉ giữa các tập phim, hãy tổ chức một cuộc thi đấu nhỏ giữa các thành viên để xem ai có thể chống đẩy nhiều nhất, plank lâu nhất hoặc nhảy dây nhiều nhất… 
+Trong quãng thời gian TV quảng cáo hay quãng nghỉ giữa các tập phim, hãy tổ chức một cuộc thi đấu nhỏ giữa các thành viên để xem ai có thể chống đẩy nhiều nhất, plank lâu nhất hoặc nhảy dây nhiều nhất…
 
 2. Tha thứ
 
@@ -481,7 +506,7 @@ Khoảnh khắc lần đầu tiên gặp mặt, những ấn tượng về nhau,
 BÍ QUYẾT SỐNG
 10 CÂU HỎI CẦN THIẾT GIÚP BẠN CHỌN NGÀNH DỄ DÀNG HƠN
 2. CÙNG NHAU TẠO NÊN NHỮNG KỶ NIỆM MỚI
-Hồi tưởng về quá khứ luôn khiến chúng ta cảm thấy bồi hồi, hạnh phúc. Nhưng để một mối quan hệ được lâu bền, kể cả tình bạn, tất cả phải cùng nhau tạo ra những trải nghiệm và khoảnh khắc hạnh phúc mới. Cùng nhau khám phá những sở thích mới, tham gia những hoạt động thú vị hay cùng đi du lịch khi có thời gian rảnh là cách để bạn cùng bạn bè của mình vừa có dịp cập nhật cuộc sống của nhau, vừa tạo ra những ký ức mới. Vì vậy, các bạn có thể cùng nhau lên kế hoạch cho những hoạt động mới để mọi người có thể sắp xếp thời gian và dễ gặp mặt nhau hơn khi mỗi người đều tất bật với cuộc sống của riêng mình. 
+Hồi tưởng về quá khứ luôn khiến chúng ta cảm thấy bồi hồi, hạnh phúc. Nhưng để một mối quan hệ được lâu bền, kể cả tình bạn, tất cả phải cùng nhau tạo ra những trải nghiệm và khoảnh khắc hạnh phúc mới. Cùng nhau khám phá những sở thích mới, tham gia những hoạt động thú vị hay cùng đi du lịch khi có thời gian rảnh là cách để bạn cùng bạn bè của mình vừa có dịp cập nhật cuộc sống của nhau, vừa tạo ra những ký ức mới. Vì vậy, các bạn có thể cùng nhau lên kế hoạch cho những hoạt động mới để mọi người có thể sắp xếp thời gian và dễ gặp mặt nhau hơn khi mỗi người đều tất bật với cuộc sống của riêng mình.
 
 Đôi khi, không nhất thiết phải tham gia các hoạt động cùng nhau mới có thể tạo ra những kỷ niệm mới. Chỉ cần các bạn ngồi lại và cùng nhau trò chuyện về những khó khăn mình đã trải qua, những thành tích đã đạt được, những mong muốn cho tương lai… cũng đủ để kéo mọi người lại gần nhau hơn. Sự chân thành sẽ xóa nhòa mọi khác biệt để mọi người có dịp hiểu về cuộc sống của nhau. Với các tiện ích của công nghệ ngày nay, việc giữ liên lạc thường xuyên với bạn bè trở nên dễ dàng hơn rất nhiều. Vì thế, hãy mở lòng lắng nghe những tâm sự của bạn bè và ngược lại để hiểu và thương yêu nhau nhiều hơn.
 
@@ -491,7 +516,7 @@ BÍ QUYẾT SỐNG
 HỘI CHỨNG KẺ MẠO DANH (IMPOSTER SYNDROME): NGUYÊN NHÂN VÀ CÁCH ĐỐI DIỆN
 3. THẤU HIỂU VÀ CẢM THÔNG CHO NHAU
 Hai người bạn thấu hiểu nhau
-Tìm cách sắp xếp thời gian gặp gỡ không phải là khó khăn duy nhất để duy trì tình bạn. Khi trưởng thành, mỗi người đều có những mối bận tâm và nỗi lo khác nhau, chẳng hạn như có người phải chăm sóc con cái, có người bận rộn vì công việc… Bên cạnh đó, vấn đề tài chính cũng ảnh hưởng đến việc họp mặt bạn bè hay tham gia các hoạt động gắn kết cùng nhau. 
+Tìm cách sắp xếp thời gian gặp gỡ không phải là khó khăn duy nhất để duy trì tình bạn. Khi trưởng thành, mỗi người đều có những mối bận tâm và nỗi lo khác nhau, chẳng hạn như có người phải chăm sóc con cái, có người bận rộn vì công việc… Bên cạnh đó, vấn đề tài chính cũng ảnh hưởng đến việc họp mặt bạn bè hay tham gia các hoạt động gắn kết cùng nhau.
 
 Đôi khi, chúng ta không nên ngần ngại chia sẻ với nhau về những khó khăn mà mỗi người đang phải đối diện. Hiểu được tình trạng tài chính của nhau giúp các bạn lên kế hoạch hợp lý hơn cho những buổi gặp mặt kế tiếp, chẳng hạn như tìm một địa điểm ăn uống, họp mặt với giá cả vừa phải để mọi người đều có thể cùng gặp gỡ mà không phải quá lo lắng về vấn đề tiền bạc.
 
@@ -514,7 +539,7 @@ Tuy nhiên, sau một thời gian không gặp mặt, ai trong nhóm bạn cũng
 Tỉnh bạn giữa hai cô gái
 Ảnh: Pexels/Yuliia Tretynychenko
 
-Tất cả mọi người đều tự so sánh bản thân với bạn bè ở một số thời điểm nào đó trong cuộc đời. Khi mỗi người đều đã xác định hướng đi riêng trong sự nghiệp và cuộc sống, dù không nói ra, nhưng ai cũng sẽ có xu hướng quan sát lẫn nhau và so sánh ai đang có cuộc sống tốt hơn hay thành đạt hơn những người còn lại. Đặc biệt, nếu tất cả bạn bè xung quanh ai cũng thành công và có chỗ đứng, bạn dễ cảm thấy tủi thân và ghen tỵ với mọi người. Đây là phản ứng hết sức bình thường. 
+Tất cả mọi người đều tự so sánh bản thân với bạn bè ở một số thời điểm nào đó trong cuộc đời. Khi mỗi người đều đã xác định hướng đi riêng trong sự nghiệp và cuộc sống, dù không nói ra, nhưng ai cũng sẽ có xu hướng quan sát lẫn nhau và so sánh ai đang có cuộc sống tốt hơn hay thành đạt hơn những người còn lại. Đặc biệt, nếu tất cả bạn bè xung quanh ai cũng thành công và có chỗ đứng, bạn dễ cảm thấy tủi thân và ghen tỵ với mọi người. Đây là phản ứng hết sức bình thường.
 
 Tuy nhiên, việc so sánh cuộc sống của bản thân với bè bạn có thể ảnh hưởng tiêu cực đến tình bạn và khiến bạn hoài nghi về con đường mà mình đã chọn trong đời. Thay vì tự trách bản thân hay cảm thấy thua xa những người bạn đồng trang lứa, hãy tập trung phát triển hướng đi và những dự định của mình.
 
@@ -546,9 +571,9 @@ Trong khi đó, mối quan hệ với những người bạn cũ mang ý nghĩa 
 Nhóm thực hiện
 Bài: Vy Dương Thảo
 
-Nguồn: Tạp chí Phái đẹp ELLE 
+Nguồn: Tạp chí Phái đẹp ELLE
 
-Tham khảo: The Every Girl 
+Tham khảo: The Every Girl
 
 BÌNH LUẬN
 0 lượt bình luận
@@ -708,7 +733,7 @@ Vì thế, mỗi cá nhân trong gia đình phải luôn sống thương yêu nh
 
 >> Xem thêm: Những câu nói hay về giá trị của sách và đọc sách
 
- 
+
 
 2. Những câu nói hay về phát triển bản thân
 1. Vinh quang không phải là không bao giờ thất bại, mà là cách chúng ta đứng dậy sau mỗi lần gục ngã.
@@ -758,7 +783,7 @@ TÌM HIỂU THÊM
 
 >> Xem thêm: Những câu nói hay về luật nhân quả trong cuộc sống
 
- 
+
 
 3. Những câu nói hay về sự cố gắng trong cuộc sống
 1. Một người bạn thật sự là người bước vào cuộc sống của bạn khi cả thế giới đã bước ra.
@@ -823,7 +848,7 @@ TÌM HIỂU THÊM
 
 
 
-select  * from news; 
+select  * from news;
 -- Bảng mới
 CREATE TABLE new_categories (
   id INT PRIMARY KEY,
@@ -842,7 +867,7 @@ INSERT INTO new_categories (id, new_id, category_id) VALUES
 (7,2,3),
 (8,3,4),
 (9,4,1),
-(10,5,3)
+(10,5,3);
 -- (6, 1, 1),
 -- (7, 2, 1),
 -- (8, 3, 5),
@@ -852,19 +877,19 @@ INSERT INTO new_categories (id, new_id, category_id) VALUES
 -- (12,2,6),
 -- (13,3,7),
 -- (14,4,2);
-select * from new_categories;
+
 -- author table
 CREATE TABLE author (
     author_id INT PRIMARY KEY,
     name_author varchar(20),
     img VARCHAR(255)
-)
+);
 INSERT INTO author (author_id,name_author,img) VALUES
     (1,"Trần Văn Lực",'https://toplist.vn/images/800px/de-bi-am-anh-boi-ve-be-ngoai-420451.jpg'),
     (2,'Lê Thị Kim Thoa','https://www.vietnamfineart.com.vn/wp-content/uploads/2023/07/hinh-anh-gai-tay-590x590-1.jpg'),
     (3,"Huỳnh Tố Nga",'https://haycafe.vn/wp-content/uploads/2022/02/Hi%CC%80nh-a%CC%89nh-ga%CC%81i-xinh-Han-Quoc-to%CC%81c-va%CC%80ng.jpg'),
     (4,"Phan Văn Lịch",'https://vnn-imgs-a1.vgcloud.vn/cdn.24h.com.vn/upload/1-2020/images/2020-03-15/1584240065-176-dep-trai-8-1583833459-width600height750.jpg'),
-    (5,"Nguyễn Tố Linh",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4AgsnK8DzW5VVXS2hF-0FOBB9krdex14oNBUSRG5gTiVNSCq4zMQDkzYtB6EPznFhGk&usqp=CAU')
+    (5,"Nguyễn Tố Linh",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4AgsnK8DzW5VVXS2hF-0FOBB9krdex14oNBUSRG5gTiVNSCq4zMQDkzYtB6EPznFhGk&usqp=CAU');
 
 
 INSERT INTO users (name, email, password, role_id, img, address, phone_number)
@@ -883,19 +908,7 @@ VALUES (2, 'pham gia bao', 'pham gia bao', 'pham gia bao', 23, 1, 'Bame à, con 
 
 select *  from experts limit 6 ;
 
-INSERT INTO videos (youtube_link, title, author_id, description , duration, type, view)
-VALUES
-('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 1,'Description for Video 1',120, 'động lực','23'),
-('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 3,'Description for Video 2', 120, 'gia đình','123'),
-('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 2,'Description for Video 3', 120, 'tình yêu','232'),
-('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6',1, 'Description for Video 6',120, 'thiên nhiên','32'),
-('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4', 2,'Description for Video 4',120, 'động lực','232'),
-('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 3,'Description for Video 1', 120, 'động lực','912'),
-('https://www.youtube.com/embed/XWhdbZ9-uGA?si=3z39LhTPNEfzwcuS', 'Video 2', 2,'Description for Video 2',120, 'gia đình','127'),
-('https://www.youtube.com/embed/gOtfJ151ue4?si=t3TlawuWaCbKpGoB', 'Video 3', 1,'Description for Video 3',120, 'tình yêu','232'),
-('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6',3, 'Description for Video 6', 120, 'thiên nhiên','321'),
-('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4',2, 'Description for Video 4',120, 'động lực','763'),
-('https://www.youtube.com/embed/18mSyyOQua0?si=Hl7vG1-x1fUjKfAV', 'Video 5', 1,'Description for Video 5',120, 'gia đình','776');
+
 
 INSERT INTO podcasts (title, description, author_id, youtube_link, image_url, type)
 VALUES
@@ -955,3 +968,29 @@ CREATE TABLE authors
 
 INSERT INTO authors (name,img_profile) VALUES ('Sun','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Hồ Thị Hoài Anh','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Long Nguyễn','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg');
 
+CREATE TABLE comment_videos (
+    id INT PRIMARY KEY,
+    content VARCHAR(255),
+    author VARCHAR(100),
+    created_at DATETIME,
+    video_id INT,
+    user_id INT,
+    like_count INT,
+    dislike_count INT
+);
+
+INSERT INTO comment_videos (id, content, author, created_at, video_id, user_id, like_count, dislike_count)
+VALUES
+    (1, 'Great video!', 'John', '2023-12-31 10:15:00', 1, 1, 25, 2),
+    (2, 'Interesting content.', 'Mary', '2023-12-31 12:30:00', 1, 2, 15, 0),
+    (3, 'I disagree with some points.', 'David', '2023-12-31 14:45:00', 1, 3, 8, 5),
+    (4, 'Awesome job!', 'Sarah', '2023-12-31 16:00:00', 2, 1, 32, 1),
+    (5, 'This video changed my perspective.', 'Emma', '2023-12-31 18:15:00', 2, 2, 10, 3),
+    (6, 'Not a fan of the content.', 'Michael', '2024-01-01 09:30:00', 3, 1, 5, 12),
+    (7, 'The presenter did a great job!', 'Sophia', '2024-01-01 11:45:00', 3, 2, 20, 0),
+    (8, 'Too many ads.', 'Daniel', '2024-01-01 14:00:00', 4, 1, 2, 8),
+    (9, 'I learned a lot from this video.', 'Olivia', '2024-01-01 16:15:00', 4, 3, 18, 1),
+    (10, 'The audio quality needs improvement.', 'William', '2024-01-01 18:30:00', 5, 1, 7, 4);
+
+    select * from comment_videos;
+    select * from users;

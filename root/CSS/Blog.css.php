@@ -2,26 +2,14 @@
    body {
       overflow-x: hidden;
    }
-   .container,
-   .container-fluid,
-   .container-lg,
-   .container-md,
-   .container-sm,
-   .container-xl,
-   .container-xxl {
-      padding-right: 0 !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
 
-   }
-   #main {
+
+   #main,#item1 {
       margin-left: 0px !important;
       width: 100vw;
       padding-right: 0 !important;
       margin-left: 0 !important;
       margin-right: auto;
-   }
-   #main {
       height: 84vh !important;
       margin-top: 10px;
       display: flex;
@@ -29,13 +17,26 @@
       justify-content: center;
       align-items: center;
       gap: 30px;
-      background-image: url('https://encuentra.com/wp-content/uploads/2023/03/Elogioalsilencio-encuentra.com_-2048x984.jpg');
+      background-image: url('https://images.unsplash.com/photo-1608170825938-a8ea0305d46c?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       background-attachment: fixed;
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: top;
       background-color: blue;
       overflow-x: hidden;
    }
+   #item1{
+      margin-top: 100px !important;
+      height: 50vh !important;
+      background-image: url('https://www.groovypost.com/wp-content/uploads/2021/03/podcast-podcasts-featured.jpg');
+
+   }
+   #item1 h6{
+      width: 50%;
+       font-size: 60px !important;
+       color: white;
+   }
+
    .container-fluid h1 {
       width: 70%;
       display: flex;
@@ -66,7 +67,7 @@
    }
    .content_video:hover {
       box-shadow: rgba(193, 193, 194, 0.2) 0px 7px 29px 0px;
-      transform: scale(0.95);
+      transform: scale(1.05);
    }
    .box_search input {
       width: 80%;
@@ -199,17 +200,28 @@
       position: absolute;
       list-style: none;
       margin: 0;
-      top: 450px;
+      top: 370px;
       width: 40.2%;
       height: 290px;
       overflow-x: hidden;
       overflow-y: auto;
       padding-top: 8px;
       z-index: 2;
+      padding: 10px;
+      transition: display 10s ease; /* Ví dụ: transition cho thuộc tính height */
+
    }
    .suggestion_box li {
       background-color: white;
-      padding: 10px;
+      padding: 7px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /* Số dòng hiển thị tối đa */
+      -webkit-box-orient: vertical;
+
+
    }
    .suggestion_box li:last-child {
       border-bottom-left-radius: 20px;
@@ -222,52 +234,17 @@
    .suggestion_box li:hover {
       background-color: #e9ecef;
       cursor: pointer;
-   }
-   #form_opption {
-      width: 60vw;
-      background-color: white;
-      padding: 20px;
-      position: relative;
-      bottom: -100px;
-      z-index: 0;
-      border-top-right-radius: 50px;
-      border-top-left-radius: 50px;
-   }
-   #form_opption button {
-      width: 19%;
-      height: 100%;
-      padding: 20px;
-      padding-top: 20px;
-      background-color: white;
-      border: 0px solid;
-      padding-bottom: 30px;
-   }
-   #form_opption button:first-child {
-      background-color: #0093E9;
-      margin-left: 1px;
-      width: 21.5%;
-   }
-   #form_opption button:first-child {
-      border-top-left-radius: 30px;
-   }
-   #form_opption button:last-child {
-      border-top-right-radius: 30px;
 
    }
-   .main_title:first-child {
-      font-size: 72px;
-      text-transform: uppercase;
-      font-weight: 900;
+   .box_choice_btn{
+      cursor: pointer;
    }
-   .main_title:last-child {
-      font-family: 'Beyond';
-      font-size: 100px;
-      color: #fff;
-      text-align: center;
-   }
-   .title_videos{
-      margin-top: 10px;
 
-   }
+/* Kiểu cho thanh cuộn dọc */
+
+.body_active_model:hover::-webkit-scrollbar-thumb {
+  opacity: 1; /* Hiển thị nút trượt khi hover vào phần tử */
+}
+
 
 </style>

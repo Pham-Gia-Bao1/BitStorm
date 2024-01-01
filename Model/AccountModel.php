@@ -58,7 +58,7 @@ class Account
       }
 
     // Sign up function
-    public static function signUpAccount($username, $password, $email)
+    public static function signUpAccount($username, $password, $email,$role_id)
     {
         if (!empty($username) && !empty($password) && !empty($email)) {
             $account = new Account($username, $password, $email);
@@ -72,12 +72,13 @@ class Account
                 return false;
             }
             // Insert the new user into the users table
-            $sql = "INSERT INTO users (name, email, password, role, img)
-                    VALUES (:username, :email, :password, 2, :img)";
+            $sql = "INSERT INTO users (name, email, password, role_id, img)
+                    VALUES (:username, :email, :password, :role_id , :img)";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':role_id', $role_id);
             $img = $account->getImg();
             $stmt->bindParam(':img', $img);
             $stmt->execute();
@@ -177,5 +178,19 @@ class Account
         setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
         $blog->closeConnection();
         return $result;
+    }
+    public function get_id(){
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+        if (!isset($_SESSION["User"])){
+            $user_name = base64_decode($_COOKIE['User']);
+            $sql = "SELECT users.id from users where name = :name";
+            $stmt = $conn->prepare($sql);
+            $stmt -> bindParam(':name' ,$user_name);
+            $stmt -> execute();
+            $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $id[0]['id'];
+        }
+        return null;
     }
 }

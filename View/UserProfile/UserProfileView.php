@@ -13,15 +13,12 @@ include("../root/CSS/UserProfile.css.php");
     <img id="uploaded-image" class="rounded-circle avata_user" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($name); ?>">
     <h3 id="name_user" class="m-3"><?= $name; ?></h3>
 
-    <form id="upload-form" method="post" action="http://localhost/WEB_PHP/userprofile">
+    <form id="upload-form" method="post" action="userprofile">
       <!-- <input type="hidden" name="image_url" id="image-url-input"> -->
       <label for="upload-input" id="label_for_input_avatar" class="btn btn-primary">Tải Lên</label>
       <input type="file" name="image_url" class="change_avata btn btn-primary" value="Đổi avata" id="upload-input" accept="image/png">
       <button type="submit" class="btn btn-primary" id="submit_avatar"></button>
     </form>
-
-
-
   </div>
   <div class="container-fluid d-flex justify-content-center gap-5 setting">
     <div class="card w-25 m-3 d-flex align-items-center justify-content-center p-4" data-bs-toggle="modal" data-bs-target="#Modal_view_infomation">
@@ -29,7 +26,7 @@ include("../root/CSS/UserProfile.css.php");
       <h5 class="text-primary">Thông tin cá nhân</h5>
       <p>Xem, chỉnh sửa thông tin cá nhân của mình...</p>
     </div>
-    <div class="card w-25 m-3 d-flex align-items-center justify-content-center p-4">
+    <div class="card w-25 m-3 d-flex align-items-center justify-content-center p-4" data-bs-toggle="modal" data-bs-target="#Modal_active_infomation">
       <img class="rounded-circle" src="https://static.thenounproject.com/png/1087190-200.png" alt="img">
       <h5 class="text-primary">Bài viết của bạn</h5>
       <p>Xem lại các bài viết bạn đã đăng, các comment của bạn..</p>
@@ -53,16 +50,16 @@ include("../root/CSS/UserProfile.css.php");
         <div class="modal-body">
           <div class="moddedl_ifomation">
             <div class="img" style="width : 30%">
-              <img src="<?= $img ?>" alt="logoutimg" style="width: 100%;" id="img_moddel_setting" class="rounded-circle avata_user">
+              <img src="<?= htmlspecialchars($img) ?>" alt="logoutimg" style="width: 100%;" id="img_moddel_setting" class="rounded-circle avata_user">
             </div>
-            <form method="POST" action="http://localhost/WEB_PHP/login" class="p-3 m-2 gap-5 form w-100">
+            <form method="POST" action="login" class="p-3 m-2 gap-5 form w-100">
               <div class="form-group p-1 m-1">
                 <label for="username">Tên đăng nhập:</label>
                 <input type="text" class="form-control" id="username" name="username" readonly value="<?= htmlspecialchars($name); ?>">
               </div>
               <div class="form-group p-1 m-1">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" readonly value="<?= htmlspecialchars($email);?>">
+                <input type="email" class="form-control" id="email" name="email" readonly value="<?= htmlspecialchars($email); ?>">
               </div>
               <div class="form-group p-1 m-1">
                 <label for="password">Mật khẩu:</label>
@@ -85,7 +82,7 @@ include("../root/CSS/UserProfile.css.php");
   <!-- Modal setting -->
   <div class="modal fade model_nav" id="Modal_view_setting">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-      <form  method="post" action="http://localhost/WEB_PHP/userprofile" class="modal-content">
+      <form method="post" action="userprofile" class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
           <h5 class="modal-title text-primary main_title_model_info" id="loginModalLabel">Chỉnh sửa thông tin cá nhân</h5>
@@ -95,7 +92,7 @@ include("../root/CSS/UserProfile.css.php");
         <div class="modal-body">
           <div class="moddedl_ifomation">
             <div class="img" style="width : 30%">
-              <img src="<?= $img ?>" alt="logoutimg" style="width: 100%;" id="img_moddel_setting" class="rounded-circle avata_user">
+              <img src="<?= htmlspecialchars($img) ?>" alt="logoutimg" style="width: 100%;" id="img_moddel_setting" class="rounded-circle avata_user">
             </div>
             <div class="p-3 m-2 gap-5 form w-100">
               <div class="form-group p-1 m-1">
@@ -109,7 +106,7 @@ include("../root/CSS/UserProfile.css.php");
               <div class="form-group p-1 m-1">
                 <label for="password">Mật khẩu:</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="password" name="password_setting" value="<?=htmlspecialchars( $pass); ?>">
+                  <input type="text" class="form-control" id="password" name="password_setting" value="<?= htmlspecialchars($pass); ?>">
                   <div class="input-group-append">
                     <span class="input-group-text p-3 btn btn-primary" id="show-password-toggle">
                       <i class="fas fa-eye"></i>
@@ -134,15 +131,77 @@ include("../root/CSS/UserProfile.css.php");
     </div>
   </div>
 
+  <!-- model hoạt động -->
+  <div class="modal fade model_nav" id="Modal_active_infomation">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title text-primary main_title_model_info" id="loginModalLabel">Lịch sử hoạt động </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- Modal info -->
+        <div class="modal-body body_active_model">
 
-  <h1 class="heading">Note</h1>
-  <p class="info-text">Double click on a note to remove it</p>
-  <div class="app" id="app">
-    <button class="btn1" id="btn">+</button>
+        <div class="d-flex align-items-center m-2 p-1 content_box">
+          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+          <div class="bg-light content_active">
+            <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
+            <p>35 phút trước</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center m-2 p-1 content_box">
+          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+          <div class="bg-light content_active">
+            <h6>Bạn đã đăng thành công bài viết</h6>
+            <p>35 phút trước</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center m-2 p-1 content_box">
+          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+          <div class="bg-light content_active">
+            <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
+            <p>35 phút trước</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center m-2 p-1 content_box">
+          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+          <div class="bg-light content_active">
+            <h6>Bạn đã đăng thành công bài viết</h6>
+            <p>35 phút trước</p>
+          </div>
+        </div> <div class="d-flex align-items-center m-2 p-1 content_box">
+          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+          <div class="bg-light content_active">
+            <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
+            <p>35 phút trước</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center m-2 p-1 content_box">
+          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+          <div class="bg-light content_active">
+            <h6>Bạn đã đăng thành công bài viết</h6>
+            <p>35 phút trước</p>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
   </div>
-  <?php
-  include("../root/JS/UserProfile.js.php");
-  ?>
+</div>
+
+
+<h1 class="heading">Ghi chú</h1>
+<p class="info-text">Nhấn chuột 2 liên tục đểt xóa</p>
+<div class="app" id="app">
+  <button class="btn1" id="btn">+</button>
+</div>
+<?php
+include("../root/JS/UserProfile.js.php");
+?>
 </div>
 <?php
 include("../View/LayOut/Footer/Footer.php");

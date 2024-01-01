@@ -23,10 +23,10 @@ class Expert extends Connection
     public function searchExperts($keyword, $currentDate)
     {
         $this->connect_database();
-        $sql_query = "SELECT experts.*, calendar.day, 
+        $sql_query = "SELECT experts.*, calendar.day,
         TIME_FORMAT(calendar.start_time, '%H:%i') AS start_time,
         TIME_FORMAT(calendar.end_time, '%H:%i') AS end_time,
-        calendar.price, calendar.describer 
+        calendar.price, calendar.describer
         FROM experts
         JOIN calendar ON experts.id = calendar.expert_id
         WHERE (experts.full_name LIKE :keyword
