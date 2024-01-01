@@ -68,6 +68,10 @@ include("../root/CSS/ContactExpert.css.php");
                     <h3 class="text-primary mb-4 mt-3">Không tìm thấy chuyên gia phù hợp dựa theo tìm kiếm của bạn</h3>
                     <img src="https://st.chungta.vn/v303/chungta/images/graphics/404.svg" alt="image" class="pageNotFound mb-3">
                 </div>
+                <script>
+                    var viewAll = document.getElementById('viewAll');
+                    viewAll.style.display = 'none';
+                </script>
             <?php else : ?>
                 <h4 class="mb-3 fw-bold">Những chuyên gia top đầu: </h4>
                 <?php $count = 0; ?>
@@ -114,43 +118,47 @@ include("../root/CSS/ContactExpert.css.php");
                 <?php endforeach; ?>
             <?php endif; ?>
             <?php if (isset($_GET['viewAll'])) : ?>
+                <?php $count = 0; ?>
                 <?php foreach ($data as $expert) : ?>
-                    <div class="col-sm-3 mt-4">
-                        <div class="card mb-1" style="width: 17rem;">
-                            <div class="text-center">
-                                <img class="img_card" src="<?php echo $expert['profile_picture']; ?>" class="card-img-top" alt="image">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
-                                <p><?php echo $expert['specialization']; ?></p>
-                                <div class="row mb-3">
-                                    <div class="col-sm-7 time d-flex">
-                                        <span class="time_icon">
-                                            <i class="fas fa-clock aclock"></i>
-                                        </span>
-                                        <p class="fw-bold mt-3 ml-1 textTime">
-                                            <?php
-                                            echo date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time']));
-                                            ?>
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-4 fee">
-                                        <p class="fw-bold"><?php echo $expert['price']; ?></p>
-                                    </div>
+                    <?php if ($count > 4) : ?>
+                        <div class="col-sm-3 mt-4">
+                            <div class="card mb-1" style="width: 17rem;">
+                                <div class="text-center">
+                                    <img class="img_card" src="<?php echo $expert['profile_picture']; ?>" class="card-img-top" alt="image">
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
-                                    <div class="col-sm-10">
-                                        <button class="viewMorebtn">
-                                            <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail?id=<?= $expert['id'] ?>" asp-route-id="@expert.id">
-                                                Xem thêm
-                                            </a>
-                                        </button>
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
+                                    <p><?php echo $expert['specialization']; ?></p>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-7 time d-flex">
+                                            <span class="time_icon">
+                                                <i class="fas fa-clock aclock"></i>
+                                            </span>
+                                            <p class="fw-bold mt-3 ml-1 textTime">
+                                                <?php
+                                                echo date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time']));
+                                                ?>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-4 fee">
+                                            <p class="fw-bold"><?php echo $expert['price']; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
+                                        <div class="col-sm-10">
+                                            <button class="viewMorebtn">
+                                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail?id=<?= $expert['id'] ?>" asp-route-id="@expert.id">
+                                                    Xem thêm
+                                                </a>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
+                    <?php $count++; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
             <form action="ContactExpert" method="get">
