@@ -88,9 +88,14 @@ CREATE TABLE IF NOT EXISTS posts (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-select * from posts ;
-
+-- change data post
+ALTER TABLE posts 
+DROP COLUMN auth;
+ALTER TABLE posts 
+DROP COLUMN created_by;
+ALTER TABLE posts 
+DROP COLUMN updated_by;
+-- end post
 CREATE TABLE  podcasts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
