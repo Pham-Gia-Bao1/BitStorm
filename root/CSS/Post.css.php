@@ -15,9 +15,9 @@
     margin: 100px 200px;
 }
 
-.post-bar {
+/* .post-bar {
     margin-bottom: 50px;
-}
+} */
 
 .box_search {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

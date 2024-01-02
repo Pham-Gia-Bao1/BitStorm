@@ -1,10 +1,6 @@
 <style>
   .ig_top {
-    height: 70vh;
-    background-image: url(http://localhost/WEB_PHP/root/Image/Room%20-%20Relaxing%20-%20Copy@3-1920x869.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
+    margin-top: 100px;
   }
 
   .avata {
@@ -26,6 +22,13 @@
     width: 250px;
     height: 250px;
     object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  #img_moddel_setting {
+    width: 200px !important;
+    height: 200px !important;
+    /* margin-bottom: 0px !important; */
   }
 
   .card {
@@ -66,92 +69,161 @@
   #submit_avatar {
     display: none;
   }
+
   .heading {
-      color: rgb(0, 0, 0);
-      text-align: center;
-      padding-top: 10px;
-      font-size: 35px;
-    }
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 10px;
+    font-size: 35px;
+  }
 
-    .info-text {
-      text-align: center;
-      color: rgb(4, 4, 4);
-      font-size: 18px;
-    }
+  .info-text {
+    text-align: center;
+    color: rgb(4, 4, 4);
+    font-size: 18px;
+  }
 
-    .app {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 300px);
-      gap: 40px;
-      justify-content: center;
-      padding: 50px;
-      padding-bottom: 100px;
-      background-image: url(http://localhost/WEB_PHP/root/Image/Hands%203D%20UI%20-%20Copy@1-1920x869.jpg);
-      background-repeat: no-repeat;
+  .app {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 40px;
+    justify-content: center;
+    padding: 50px;
+    padding-bottom: 100px;
+    background-image: url(http://localhost/WEB_PHP/root/Image/Hands%203D%20UI%20-%20Copy@1-1920x869.jpg);
+    background-repeat: no-repeat;
 
 
-    }
+  }
 
-    .note {
-      padding: 17px;
-      border-radius: 15px;
-      resize: none;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-      font-size: 18px;
-      height: 200px;
-      color: rgb(0, 0, 0);
-      border: none;
-      outline: none;
-      background: rgba(114, 47, 47, 0.1);
-      box-sizing: border-box;
-      cursor: pointer;
-    }
+  .note {
+    padding: 17px;
+    border-radius: 15px;
+    resize: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    height: 200px;
+    color: rgb(0, 0, 0);
+    border: none;
+    outline: none;
+    background: rgba(114, 47, 47, 0.1);
+    box-sizing: border-box;
+    cursor: pointer;
+  }
 
-    .note::placeholder {
-      color: gray;
-      opacity: 30%;
-    }
+  .note::placeholder {
+    color: gray;
+    opacity: 30%;
+  }
 
-    .note:hover,
-    .note:focus {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      transition: all 300ms ease;
-    }
+  .note:hover,
+  .note:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all 300ms ease;
+  }
 
-    .btn1 {
-      height: 200px;
-      border-color: rgba(255, 255, 255, 0.37);
-      background: rgba(136, 56, 56, 0.27);
-      border-radius: 15px;
-      font-size: 70px;
-      font-weight: 700;
-      color: rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-    }
+  .btn1 {
+    height: 200px;
+    border-color: rgba(255, 255, 255, 0.37);
+    background: rgba(136, 56, 56, 0.27);
+    border-radius: 15px;
+    font-size: 70px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
 
-    .btn1:hover {
-      background: rgba(189, 74, 74, 0.55);
-      color: rgba(0, 0, 0, 0.6);
-      transition: all 300ms ease;
-    }
-    .input-group-text{
-        cursor: pointer;
-    }
-    .moddedl_ifomation{
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-    }
-    .main_title_model_info{
-        text-align: center !important;
-    }
-    #img_moddel_setting{
-         margin-bottom:  -60px;
-    }
-    /* #img_moddel_info{
-        width:  200px;
-        height: 200px;
-        object-fit: contain;
-        outline: 2px solid blue;
-    } */
+  .btn1:hover {
+    background: rgba(189, 74, 74, 0.55);
+    color: rgba(0, 0, 0, 0.6);
+    transition: all 300ms ease;
+  }
+
+  .input-group-text {
+    cursor: pointer;
+  }
+
+  .moddedl_ifomation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main_title_model_info {
+    text-align: center !important;
+  }
+
+  #img_moddel_setting {
+    margin-bottom: -60px;
+  }
+
+  .avata_active {
+    width: 50px;
+    height: 50px;
+  }
+
+  .content_active {
+    width: 90%;
+    word-wrap: break-word;
+    border-radius: 20px;
+    padding: 10px;
+
+  }
+  .content_active h6{
+    color: #0088cc;
+  }
+
+  .content_box {
+    /* Các thuộc tính khác */
+    transition: box-shadow 0.3s ease;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  }
+
+  .content_box:hover {
+    transform: translateX(10px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    /* border-radius: 20px; */
+  }
+  .body_active_model {
+  /* Các thuộc tính khác */
+  overflow: auto; /* Hiển thị thanh cuộn khi nội dung vượt quá kích thước của phần tử */
+}
+#Modal_active_infomation{
+  padding: 20px !important;
+  /* height: 500px !important; */
+}
+
+/* Kiểu cho thanh cuộn dọc */
+.body_active_model::-webkit-scrollbar {
+  width: 10px; /* Độ rộng của thanh cuộn */
+  background-color: #f0f0f0; /* Màu nền của thanh cuộn */
+  border-radius: 4px; /* Bo tròn các góc của thanh cuộn */
+}
+
+.body_active_model::-webkit-scrollbar-thumb {
+  background-color: white; /* Màu nền của nút trượt */
+  border-radius: 4px; /* Bo tròn các góc của nút trượt */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.body_active_model::-webkit-scrollbar-thumb:hover {
+  background-color: #0088cc; /* Màu nền của nút trượt khi hover */
+}
+
+.body_active_model::-webkit-scrollbar-thumb:active {
+  background-color: #006699; /* Màu nền của nút trượt khi active */
+}
+
+/* Ẩn thanh cuộn khi không hover */
+.body_active_model::-webkit-scrollbar-thumb {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.body_active_model:hover::-webkit-scrollbar-thumb {
+  opacity: 1; /* Hiển thị nút trượt khi hover vào phần tử */
+}
 </style>

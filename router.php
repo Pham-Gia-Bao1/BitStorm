@@ -14,7 +14,7 @@ $parts = explode('/', $relativePath);
 // Kiểm tra xem đường dẫn tương đối có rỗng hay không
 if ($relativePath === '') {
     // Gọi controller home
-    require_once("../BitStorm/Controller/HomeController.php");
+    require_once("/BitStorm/Controller/HomeController.php");
     $controller = new HomeController();
     $controller->index();
     exit();
@@ -53,5 +53,6 @@ if (file_exists($controllerPath)) {
 }
 
 
-header("Location: home");
+header("Location: ../BitStorm/home");
+
 echo "Page not found";

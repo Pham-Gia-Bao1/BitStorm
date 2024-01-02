@@ -10,7 +10,7 @@ $email = $name_pass_email_user[2] ?? '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['image_url'])) {
         $imageURL = $_POST['image_url'];
-        $new_url_img = "http://localhost/WEB_PHP/root/Image/" . $imageURL;
+        $new_url_img = "http://localhost/BitStorm/root/Image/" . $imageURL;
         $userprofile->change_avatar($new_url_img);
         $nameAndImg = $userprofile->get_name_and_img_user();
         $name = $nameAndImg[0] ?? '';

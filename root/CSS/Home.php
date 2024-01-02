@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 .header_home {
-    background-image: url(Background.png);
+    background-image: url(../Image/homePage/Background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -34,7 +34,10 @@
     display: inline-block;
     font-size: 60px;
 }
+.card-wrapper__box{
+     background-color: #00FFCB;
 
+}
 .a_home a {
     text-decoration: none;
 }
@@ -128,6 +131,7 @@
     max-width: 1120px;
     width: 100%;
     padding: 40px 0;
+    height:fit-content;
 }
 .slide-content {
     margin: 0 40px;
@@ -139,7 +143,6 @@
     border-radius: 25px;
     background-color: #FFF;
     transition: 0.5s;
-
     cursor : pointer;
     transition : all .3s ease;
 }
@@ -153,6 +156,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px 14px;
+    height: 250px;
 }
 
 .image-content {
@@ -164,16 +168,16 @@
      margin-left : 150px;
 }
 .row{
-     margin-top: 100px;
+     margin-top: 30px;
 }
 .name {
     font-size: 18px;
     font-weight: 500;
     color: #333;
 }
-.choise_middle{
+/* .choise_middle{
      margin-top: -100px;
-}
+} */
 .history{
     gap: 150px;
 }
@@ -182,10 +186,10 @@
     color: #707070;
     text-align: center;
 }
-.choise_bottom{
+/* .choise_bottom{
      margin-bottom:100px;
      margin-top: -80px;
-}
+} */
 
 .button {
     border: none;
@@ -291,10 +295,10 @@
             width: 100%;
         }
 .choose {
-    background-image: url(why\ choose\ us.png);
+    background-image: url(../Image/why\ choose\ us.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 10px;
 }
+
 </style>

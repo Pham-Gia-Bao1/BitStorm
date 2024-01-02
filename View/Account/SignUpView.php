@@ -153,7 +153,7 @@
             background-color: #002bff;
             /* Màu sắc khi input được checked */
         }
-        
+
 
     </style>
 </head>
@@ -161,7 +161,7 @@
 <body>
     <div class="d-flex">
         <div class="img">
-            <img src="http://localhost/BitStorm/root/Image/signupimage.svg" alt="logoutimg" style="width: 100%;">
+            <img src="./root/Image/signupimage.svg" alt="logoutimg" style="width: 100%;">
             <div id="progress-bar">
                 <div class="step">
                     <p>
@@ -231,10 +231,9 @@
                 <small id="passwordErrorAgain" class="text-danger"></small>
             </div>
             <div class="form-group">
-
-                <input type="radio" id="client" class="input_role" name="input_role">
+                <input type="radio" id="client" class="input_role" name="input_role" value= "2">
                 <label for="client" class="button_role rounded-pill" id="label_role_client">Người nhận tư vấn</label>
-                <input type="radio" id="doctor" class="input_role" name="input_role">
+                <input type="radio" id="doctor" class="input_role" name="input_role" value="3">
                 <label for="doctor" class="button_role rounded-pill" id="label_role_doctor">Người tư vấn</label>
             </div>
 
