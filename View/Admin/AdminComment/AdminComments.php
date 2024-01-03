@@ -1,23 +1,15 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
 include("../root/CSS/Admin/AdminComment.css.php");
+include_once("../root/CSS/Admin/Homepage.css.php");
+include_once("../root/CSS/Admin/SideBar.css.php");
+
 ?>
 
-<title>admin comment</title>
 
 <body>
-
-    <main id="main">
-        <!-- <h1> admin comments</h1> -->
-        <nav class="position-sticky top-0 navbar-dark bg-primary">
-            <!-- Navbar content -->
-            <div class="m-2  navbar-brand">
-                <!-- <a href="AdminComments?page=commment_video"> <button class="btn btn-light">Bình luận video</button></a> -->
-            </div>
-            <div class="m-2  navbar-brand">
-                <!-- <a href="AdminComments?page=commment_podcast"> <button class="btn btn-light">Bình luận Podcast</button></a> -->
-            </div>
-        </nav>
+    <title>admin comment</title>
+    <div class="main" id="main">
         <table>
             <tr id="title_field">
                 <th></th>
@@ -73,7 +65,7 @@ include("../root/CSS/Admin/AdminComment.css.php");
                     <td><?= htmlspecialchars($comment['video_id']) ?></td>
                     <td><?= htmlspecialchars($comment['user_id']) ?></td>
                     <td>
-                        <a href="AdminComments?id=<?= $comment['id_comment'] ?>"><button class="btn btn-primary edit-comment-btn" data-bs-toggle="modal" data-bs-target="#update_model" data-id="<?= $comment['id_comment'] ?>"><i class="fa-solid fa-gear"></i></button></a>
+                        <a href="AdminComments?id=<?= $comment['id_comment'] ?>"><button class="btn btn-primary edit-comment-btn" data-bs-toggle="modal" data-bs-target="#update_model" data-id="<?= $comment['id_comment'] ?>"><i class="fa-solid fa-pen-to-square"></i></button></a>
                         <a href="AdminComments?id_user=<?= $comment['id_comment'] ?>"><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#view_model" data-id="<?= $comment['user_id'] ?>"><i class="fa-solid fa-eye"></i></button></a>
                     </td>
                     <script>
