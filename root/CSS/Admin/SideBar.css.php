@@ -48,7 +48,7 @@ body {
 }
 
 .navigation ul li:hover,
-.navigation ul li.hovered {
+.navigation ul li.active {
   background-color: var(--white);
 }
 
@@ -66,7 +66,7 @@ body {
   color: var(--white);
 }
 .navigation ul li:hover a,
-.navigation ul li.hovered a {
+.navigation ul li.active a {
   color: var(--blue);
 }
 
@@ -104,7 +104,7 @@ body {
 
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
+.navigation ul li.active a::before {
   content: "";
   position: absolute;
   right: 0;
@@ -117,7 +117,7 @@ body {
   pointer-events: none;
 }
 .navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
+.navigation ul li.active a::after {
   content: "";
   position: absolute;
   right: 0;
