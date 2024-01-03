@@ -1,18 +1,15 @@
 <?php
-include("../Model/PostModel.php");
-include_once("../Model/AccountModel.php");
-include("../View/Post/PostView.php");
 $cookie_name = "User";
 if (isset($_COOKIE[$cookie_name])) {
 
     include("../Model/PostModel.php");
     include_once("../Model/AccountModel.php");
-
+    
     $Post= new Post();
     $posts=$Post->GetAllPostsAndUserName_Img();
 
-
-
+    
+    
     // var_dump($posts);
     $account = new Account();
     $nameAndImg=$account->get_name_and_img_user();
@@ -30,9 +27,9 @@ if (isset($_COOKIE[$cookie_name])) {
             "likeCount"=> $likeCount,
             "content" => $content,
         ];
-
+        
         $Post->CreatePost($post);
-        // echo "đã creatPost";
+        header("Location: Post");
         }
 
     }
@@ -40,4 +37,5 @@ if (isset($_COOKIE[$cookie_name])) {
 }else{
     echo "<script> alert ('Vui lòng đăng nhập') </script>";
 }
+
 ?>

@@ -21,7 +21,14 @@ include("../root/CSS/Post.css.php");
         
         <?php 
 
-        foreach($posts as $post):?>
+        foreach($posts as $post):
+            if ($post['isAnonymous']){
+                $name=$post['name'];
+            }else{
+                $name="Người dùng ẩn danh";
+            };
+        ?>
+            
         <div class="post">
             
             <div class="post-row1">
@@ -29,7 +36,7 @@ include("../root/CSS/Post.css.php");
                         <img src="https://demoda.vn/wp-content/uploads/2022/03/anh-cute-meo-le-luoi.jpg" alt="anh dai dien" id="img" style="border-radius: 50%; width: 40px; height: 40px;" />
                     </div>
                     <div class="post-name">
-                        <p class="name-user"><?php echo $post['name']?></p>
+                        <p class="name-user"><?php echo $name?></p>
                         <p class="hours-posted"><?php echo $post['timeElapsed']?></p>
                     </div>
             </div>
@@ -76,6 +83,7 @@ include("../root/CSS/Post.css.php");
                         <img src="meow.jpg" alt="" class="avt-post">
                     </div>
                     <div class="post-content-comment">
+                    
                         <p class="name-post"><?php echo $comment['author']?></p>
                         <p class="content"><?php echo $comment['content']?></p>
                     
