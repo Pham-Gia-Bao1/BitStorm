@@ -56,7 +56,7 @@
                             <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
                             <div class="col-sm-10">
                                 <button class="viewMorebtn">
-                                    <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail">
+                                    <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail?id=${expert.id}">
                                         Xem thêm
                                     </a>
                                 </button>
