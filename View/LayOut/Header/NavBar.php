@@ -46,6 +46,12 @@ include("../root/CSS/NavBar.css.php");
           <a class="nav-link" href="About">Liên Hệ</a>
         </li>
       </ul>
+
+      <?php
+    $cookie_name = "User";
+    if (!isset($_COOKIE[$cookie_name])) {
+
+      ?>
       <ul class="navbar-nav">
         <li class="nav-item">
           <button class="btn-login btn-header login" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng Nhập</button>
@@ -54,13 +60,6 @@ include("../root/CSS/NavBar.css.php");
           <button class="btn-register btn-header signup" data-bs-toggle="modal" data-bs-target="#signup">Đăng Ký</button>
         </li>
       </ul>
-    </div>
-  </div>
-</nav>
-<?php
-    $cookie_name = "User";
-    if (!isset($_COOKIE[$cookie_name])) {
-    ?>
 
     <?php } else { ?>
       <div class="dropdown">
@@ -85,14 +84,14 @@ include("../root/CSS/NavBar.css.php");
           <li>
             <a href="userprofile" class="d-flex align-items-center nav-link">
               <i class="fa-solid fa-user me-3 order-1"></i>
-              <span class="me-auto order-2">Edit Profile</span>
+              <span class="me-auto order-2">Chỉnh sửa trang cá nhân </span>
               <i class="fa-solid fa-chevron-right ms-3 order-3"></i>
             </a>
           </li>
           <li>
             <a href="userprofile" class="d-flex align-items-center nav-link">
               <i class="fa-solid fa-gear me-3 order-1"></i>
-              <span class="me-auto order-2">Setting &amp; Privacy</span>
+              <span class="me-auto order-2">Cài đặt  &amp;  riêng tư</span>
               <i class="fa-solid fa-chevron-right order-3"></i>
 
             </a>
@@ -100,7 +99,7 @@ include("../root/CSS/NavBar.css.php");
           <li>
             <a href="#" class="d-flex align-items-center nav-link" data-bs-toggle="modal" data-bs-target="#myModal">
               <i class="fa-solid fa-right-from-bracket me-3 order-1"></i>
-              <span class="me-auto order-2">Log Out</span>
+              <span class="me-auto order-2">Đăng xuất </span>
               <i class="fa-solid fa-chevron-right order-3"></i>
             </a>
           </li>
@@ -144,7 +143,7 @@ include("../root/CSS/NavBar.css.php");
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <?php include("../View/Account/SignUpView.php"); 
+            <?php include("../View/Account/SignUpView.php");
 
             ?>
           </div>
@@ -159,7 +158,7 @@ include("../root/CSS/NavBar.css.php");
           <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Do you want to logout now?</h4>
+              <h4 class="modal-title">Bạn muốn đăng xuất bây giờ sao?</h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <!-- Modal body -->
@@ -168,8 +167,8 @@ include("../root/CSS/NavBar.css.php");
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <a href="http://localhost/BitStorm/Logout" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href=this.href;">OK</a>
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+              <a href="http://localhost/BitStorm/Logout" class="btn btn-danger" data-bs-dismiss="modal" onclick="window.location.href=this.href;">Rời đi</a>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ở lại</button>
             </div>
           </div>
         </div>

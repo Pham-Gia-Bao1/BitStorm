@@ -5,6 +5,9 @@ include("../root/CSS/Blog.css.php");
 <title>Blog</title>
 <link rel="stylesheet" href="http://localhost/BitStorm/root/CSS/Blog.css">
 <!-- phần 1 -->
+<body>
+
+
 <div class="container-fluid" id="main">
   <h1 class="main_title">
     Video dành cho bạn
@@ -19,8 +22,8 @@ include("../root/CSS/Blog.css.php");
         <i class="fa fa-search"></i>
       </button>
       <input type="text" name="search" class="input_search" placeholder="Tìm kiếm...">
+      <ul class="suggestion_box"></ul>
     </form>
-    <ul class="suggestion_box"></ul>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <?php
@@ -81,6 +84,7 @@ include("../root/CSS/Blog.css.php");
     } ?>
   </div>
 </div>
+<div id="item1"></div>
 <div class="content2">
   <div class="podcast">
     <!-- <p class="p111">Giới Thiệu Cho Bạn</p> -->
@@ -111,6 +115,7 @@ include("../root/CSS/Blog.css.php");
     </div>
   </div>
 </div>
+</body>
 <?php
 include("../View/LayOut/Footer/Footer.php");
 ?>

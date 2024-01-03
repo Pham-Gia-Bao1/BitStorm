@@ -54,7 +54,7 @@
       });
 
       function showDefaultSuggestions() {
-        var defaultSuggestions = ["Suggestion 1", "Suggestion 2", "Suggestion 3", "Suggestion 4", "Suggestion 5"];
+        var defaultSuggestions = ["động lực cuộc sống ", "Tình cảm gia đình ", "Tình yêu đôi lứa", "Niềm vui trong cuộc sống", "Hạnh phúc"];
         showSuggestions(defaultSuggestions);
       }
 

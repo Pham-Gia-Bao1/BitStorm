@@ -11,15 +11,17 @@ class SignUpController
             $name = $this->sanitizeInput($_POST['username']);
             $email = $this->sanitizeInput($_POST['email']);
             $password =  $this->sanitizeInput($_POST['password']);
+            $role_id = $this->sanitizeInput($_POST['input_role']);
+            // echo $role_id;
 
-            $isValid = $this->validateForm($name, $email, $password);
+            $isValid = $this->validateForm($name, $email, $password,$role_id);
 
 
             if ($isValid) {
                 // Check if user already exists
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     if ($password == $password_again) {
-                        $result = $account->signUpAccount($name, $password, $email);
+                        $result = $account->signUpAccount($name, $password, $email,$role_id);
                         if ($result) {
                             $new_user_name = base64_encode($name);
                             setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
@@ -50,10 +52,10 @@ class SignUpController
             }
         }
 
-        include("../WEB_PHP/View/Account/SignUpView.php");
+        include("../../BitStorm/View/Account/SignUpView.php");
     }
 
-    private function validateForm($username, $email, $password)
+    private function validateForm($username, $email, $password,$role_id)
     {
         $usernamePattern = '/^[a-zA-Z0-9\s]+$/';
         $passwordPattern = '/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$/';
