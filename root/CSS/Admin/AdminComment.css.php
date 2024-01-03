@@ -31,11 +31,11 @@
         }
         tr:first-child{
             position: sticky;
-            top: 63px;
+            top: 32px;
         }
         tr:nth-child(2){
             position: sticky;
-            top: 90px;
+            top: 60px;
         }
         .img_info_comment{
              width: 60px;

@@ -5,15 +5,17 @@ include("../Model/AdminCommentsModel.php");
 include_once("../Model/UserProfileModel.php");
 $productModel = new AdminComment();
 $comments = $productModel->get_all_comments();
+$id_users = $productModel->get_id_users();
+$id_videos = $productModel->get_id_videos();
 // print_r($comments);
 if (isset($_GET['id_comment'])) {
-    $id_comment = $_GET['id_comment'];
-    $content = $_GET['content'];
-    $date = $_GET['date'];
-    $video_id = $_GET['video_id'];
-    $user_id = $_GET['user_id'];
-    $like = $_GET['like_count'];
-    $dislike = $_GET['dislike_count'];
+    $id_comment = htmlspecialchars( $_GET['id_comment']);
+    $content = htmlspecialchars( $_GET['content']);
+    $date = htmlspecialchars( $_GET['date']);
+    $video_id = htmlspecialchars( $_GET['video_id']);
+    $user_id = htmlspecialchars( $_GET['user_id']);
+    $like = htmlspecialchars( $_GET['like_count']);
+    $dislike = htmlspecialchars( $_GET['dislike_count']);
     $result = $productModel->update_comments_video($id_comment, $content, $date, $video_id, $user_id, $like, $dislike);
     if ($result) {
         echo '<script>alert("Cập nhật thành công");</script>';
@@ -24,7 +26,7 @@ if (isset($_GET['id_comment'])) {
     exit();
 }
 if (isset($_GET['id_delete'])) {
-    $id_delete = $_GET['id_delete'];
+    $id_delete = htmlspecialchars($_GET['id_delete']);
     $id_array = explode(",", $id_delete);
     if ($id_delete == null) {
         header("Location: AdminComments");
@@ -36,7 +38,7 @@ if (isset($_GET['id_delete'])) {
     }
 }
 if (isset($_GET['id_coment'])) {
-    $id_user = $_GET["id_coment"];
+    $id_user = htmlspecialchars($_GET["id_coment"]);
     echo $id_user;
 }
 

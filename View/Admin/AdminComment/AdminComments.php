@@ -12,10 +12,10 @@ include("../root/CSS/Admin/AdminComment.css.php");
         <nav class="position-sticky top-0 navbar-dark bg-primary">
             <!-- Navbar content -->
             <div class="m-2  navbar-brand">
-                <a href="AdminComments?page=commment_video"> <button class="btn btn-light">Bình luận video</button></a>
+                <!-- <a href="AdminComments?page=commment_video"> <button class="btn btn-light">Bình luận video</button></a> -->
             </div>
             <div class="m-2  navbar-brand">
-            <a href="AdminComments?page=commment_podcast"> <button class="btn btn-light">Bình luận Podcast</button></a>
+                <!-- <a href="AdminComments?page=commment_podcast"> <button class="btn btn-light">Bình luận Podcast</button></a> -->
             </div>
         </nav>
         <table>
@@ -59,11 +59,11 @@ include("../root/CSS/Admin/AdminComment.css.php");
                     }
                 </script>
             </tr>
-            <?php
+            <?php $count = 1;
             foreach ($comments as $comment) :  ?>
                 <tr onclick="toggleCheckboxSelection(this)">
                     <td><input type="checkbox" name="comment_ids[]" value="<?= $comment['id_comment'] ?>" onchange="toggleRowSelection(this)"></td>
-                    <td class="id_comment"><?= $comment['id_comment'] ?></td>
+                    <td class="id_comment"><?= $count ?></td>
                     <td><?= htmlspecialchars($comment['content']) ?></td>
                     <td><?= htmlspecialchars($comment['created_at']) ?></td>
                     <td><?= htmlspecialchars($comment['title']) ?></td>
@@ -106,16 +106,16 @@ include("../root/CSS/Admin/AdminComment.css.php");
 
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="">Thông tin người bình luận </h5>
+                                            <h5 class="modal-title text-primary">Thông tin người bình luận </h5>
                                         </div>
                                         <div class="modal-body gap-4">
                                             <div class="d-flex justify-content-center align-items-center">
                                                 <img class="img_info_comment rounded-circle" src="<?= $info1['img'] ?>" alt="anh">
-                                                <div>
+                                                <div class="overflow-hidden">
                                                     <input type="text" readonly class="form-control input_info_name" value="Name : <?= $info1['username'] ?>">
                                                     <p class="form-control input_info_name">Email : <?= $info1['email'] ?></p>
                                                     <p class="form-control input_info_name">Địa Chỉ : <?= $info1['address'] ?></p>
-                                                    <p class="form-control input_info_name">Số điện thoại : <?= $info1['phone_number'] ?></p>
+                                                    <!-- <p class="form-control input_info_name">Số điện thoại : <?= $info1['phone_number'] ?></p> -->
 
                                                 </div>
                                             </div>
@@ -144,7 +144,7 @@ include("../root/CSS/Admin/AdminComment.css.php");
                     </div>
                     </div>
                 </tr>
-            <?php
+            <?php $count++;
             endforeach ?>
 
             <style>
@@ -228,7 +228,7 @@ include("../root/CSS/Admin/AdminComment.css.php");
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel">Chỉnh sửa bình luận </h5>
+                        <h5 class="modal-title text-primary" id="loginModalLabel">Chỉnh sửa bình luận </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <!-- Modal body -->
@@ -250,13 +250,22 @@ include("../root/CSS/Admin/AdminComment.css.php");
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text w-25">Mã video</span>
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="video_id">
+                                        <option selected><?= htmlspecialchars($info['video_id']) ?></option>
+                                        <?php foreach ($id_videos as $id) :  ?>
+                                            <option value="<?= htmlspecialchars($id['id']) ?>"><?= htmlspecialchars($id['id']) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
 
-                                    <input required class="form-control" type="text" value="<?= htmlspecialchars($info['video_id']) ?>" name="video_id">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text w-25">Mã người bình luận</span>
-
-                                    <input required class="form-control" type="text" value="<?= htmlspecialchars($info['user_id']) ?>" name="user_id">
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="user_id">
+                                        <option selected><?= htmlspecialchars($info['user_id']) ?></option>
+                                        <?php foreach ($id_users as $id) :  ?>
+                                            <option value="<?= htmlspecialchars($id['id']) ?>"><?= htmlspecialchars($id['id']) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text w-25">Lượt thích</span>

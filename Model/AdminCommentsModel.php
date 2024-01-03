@@ -105,4 +105,23 @@ class AdminComment extends Blog{
             return false;
         }
     }
+    public function get_id_videos(){
+        $this->connect_database();
+        $sql_query = "SELECT videos.id from videos;";
+        $stmt = $this->conn->prepare($sql_query);
+        $stmt->execute();
+        $videos_id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->closeConnection();
+        return $videos_id;
+
+    }
+    public function get_id_users(){
+        $this->connect_database();
+        $sql_query = "SELECT users.id from users ;";
+        $stmt = $this->conn->prepare($sql_query);
+        $stmt->execute();
+        $uers_id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->closeConnection();
+        return $uers_id;
+    }
 }
