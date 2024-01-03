@@ -25,14 +25,14 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="newspaper-outline"></ion-icon>
-                            
+
                         </span>
                         <span class="title">Bài Đăng</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="AdminComments">
                         <span class="icon">
                             <ion-icon name="chatbox-outline"></ion-icon>
                         </span>
@@ -43,7 +43,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="document-text-outline"></ion-icon>  
+                            <ion-icon name="document-text-outline"></ion-icon>
                         </span>
                         <span class="title">Dữ liệu</span>
                     </a>

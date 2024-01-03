@@ -8,6 +8,8 @@ class BlogController
         $productModel = new Blog();
         $data['products'] = $productModel->getProducts();
         $data['podcasts'] = $productModel->getPodcast();
+        // print_r($data['products']);
+    
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             if (isset($_GET['opption'])) {
@@ -37,6 +39,7 @@ class BlogController
                 $data['products'] = $productModel->find($searchTerm);
             }
         }
+
         include("../View/Blog/BlogView.php");
     }
 }
