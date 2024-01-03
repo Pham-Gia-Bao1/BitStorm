@@ -22,7 +22,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="AdminNews">    
                         <span class="icon">
                             <ion-icon name="newspaper-outline"></ion-icon>
                             
