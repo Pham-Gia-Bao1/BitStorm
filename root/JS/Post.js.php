@@ -1,4 +1,4 @@
-  include("../root/JS/Blog.js.php");<script>
+ <!-- <script>
     function GetParent(element, selector){
         while(element.parentElement){
             if(element.parentElement.matches(selector)){
@@ -35,10 +35,10 @@
         console.log(IsAnonymousTag.checked);
         window.location.href = `Post/Create?content=${content.value}&isAnonymous=${IsAnonymousTag.checked}`;
         content.value = "";
-    }
+    } 
 
 
-</script>
+</script>-->
 <script>
     function openModal() {
 
