@@ -1,6 +1,7 @@
 <?php
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/News.css.php");
+include_once("../../Model/AdminNewsModel.php");
 ?>
 <div class="section-1">
     <div class="header-photo-1-parent">
@@ -114,7 +115,8 @@ include("../root/CSS/News.css.php");
 <div class="container">
     <div class="row">
         <h2 class="h2_row">Dành Cho Bạn</h2>
-        <?php  foreach ($news as $new): ?>
+        <?php 
+        foreach ($news as $new): ?>
 
         <div class="img-card iCard-style1 col-sm-4">
             <div class="card-content">
@@ -126,7 +128,7 @@ include("../root/CSS/News.css.php");
                     <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $new['descriptions'] ?></p>
                     <span class="d-flex">
                         <p class="card-text"><?php echo $new['created_at'] ?></p>
-                        <p class="card-text"><?php echo $new['name_author'] ?></p>
+                        <!-- <p class="card-text"><?php echo $new['name_author'] ?></p> -->
                     </span>
                 </div>
             </div>
