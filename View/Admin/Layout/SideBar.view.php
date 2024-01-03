@@ -13,7 +13,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="AdminHomePage">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -22,7 +22,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="AdminPost">
                         <span class="icon">
                             <ion-icon name="newspaper-outline"></ion-icon>
                             
@@ -32,7 +32,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="AdminComment">
                         <span class="icon">
                             <ion-icon name="chatbox-outline"></ion-icon>
                         </span>
@@ -41,7 +41,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="AdminData">
                         <span class="icon">
                             <ion-icon name="document-text-outline"></ion-icon>  
                         </span>
@@ -50,7 +50,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="AdminUser">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -70,6 +70,3 @@ include_once("../root/CSS/Admin/SideBar.css.php");
             </ul>
         </div>
 <?php include_once(__DIR__.'/Script.php'); ?>
-<?php
-include ("../root/JS/Admin/SideBar.js.php")
-?>

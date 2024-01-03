@@ -48,7 +48,7 @@ body {
 }
 
 .navigation ul li:hover,
-.navigation ul li.hovered {
+.navigation ul li.active {
   background-color: var(--white);
 }
 
@@ -66,7 +66,7 @@ body {
   color: var(--white);
 }
 .navigation ul li:hover a,
-.navigation ul li.hovered a {
+.navigation ul li.active a {
   color: var(--blue);
 }
 
@@ -89,6 +89,8 @@ body {
   font-size: 40px;
   font-weight: 600;
   text-align: center;
+  margin-left: 12px;
+  margin-top: 10px;
 }
 .navigation ul li a .title {
   position: relative;
@@ -102,7 +104,7 @@ body {
 
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
+.navigation ul li.active a::before {
   content: "";
   position: absolute;
   right: 0;
@@ -115,7 +117,7 @@ body {
   pointer-events: none;
 }
 .navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
+.navigation ul li.active a::after {
   content: "";
   position: absolute;
   right: 0;
@@ -126,5 +128,84 @@ body {
   border-radius: 50%;
   box-shadow: 35px -35px 0 10px var(--white);
   pointer-events: none;
+}
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
