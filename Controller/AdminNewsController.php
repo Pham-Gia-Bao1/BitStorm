@@ -34,12 +34,12 @@ if (isset($_POST['title'], $_POST['content'], $_POST['descriptions'], $_POST['im
     $result = $newAdmin->updateNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link);
     if ($result) {
         header('Location: AdminNews');
-        exit;
+        // exit;
     }
 }
 // delete
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_GET['id_delete'])) {
+    $id = $_GET['id_delete'];
     $newAdmin->deleteNews($id);
     header('Location: AdminNews');
 }

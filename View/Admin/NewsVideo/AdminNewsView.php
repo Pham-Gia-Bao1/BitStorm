@@ -1,8 +1,6 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
-include_once "../Model/AdminNewsModel.php";
 require_once("../Database/database.php");
-require_once("../Controller/AdminNewsController.php");
 ?>
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -24,7 +22,7 @@ require_once("../Controller/AdminNewsController.php");
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="AdminNewsController.php">
+                    <form method="post" action="AdminNews">
                         <div class="form-group">
                             <label for="usr">Title</label>
                             <input type="text" class="form-control" id="title" name="title">
@@ -114,7 +112,7 @@ require_once("../Controller/AdminNewsController.php");
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="loginModalLabel">Chỉnh sửa bình luận</h5>
+                                        <h5 class="modal-title" id="loginModalLabel">Chỉnh sửa News</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -122,7 +120,6 @@ require_once("../Controller/AdminNewsController.php");
                                         $id_new = $_GET['id_update'];
                                         $new1 = $newAdmin->selectOneNews($id_new);
                                         ?>
-
                                         <form method="post" action="AdminNews">
                                             <!-- post ddeen controller de xu li -->
                                             <div class="form-group">
@@ -163,7 +160,7 @@ require_once("../Controller/AdminNewsController.php");
                             </div>
                         </div>
 
-                        <a href="AdminNews?id_delete=<?php echo $new['id'] ?>" id="updateLink">
+                        <a href="AdminNews?id_delete=<?php echo $new['id'] ?>" id="delete_model">
                             <button data-bs-toggle="modal" data-bs-target="#delete_model" type="button">Delete</button>
                         </a>
                         <script>
@@ -190,24 +187,27 @@ require_once("../Controller/AdminNewsController.php");
 
                     </td>
                 </tr>
-            <?php endforeach; ?>
-            <div class="modal fade model_nav" id="delete_model">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="loginModalLabel">Xóa</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h3>Bạn Có Muốn Xóa không</h3>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Xóa</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <div class="modal fade" role="dialog" id="delete_model">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">Xóa</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Bạn Có Muốn Xóa không</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <form method="post" action="AdminNews">
+                                    <input type="hidden" name="id_delete" value="<?php echo $new['id']; ?>">
+                                    <button type="submit" class="btn btn-primary">Xóa</button>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?> 
     </table>
     </tbody>
 </div>

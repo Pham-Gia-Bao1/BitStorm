@@ -21,11 +21,10 @@ class AdminNews extends Connection {
         $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $news;
     }
-    function createNews($title,$content,$descriptions,$image_url,$created_at,$author_id,$link) {
+    function createNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link) {
         try {
-            $newAdmin = new AdminNews();
-            $newAdmin = $this->connect_database();
-            $stmt =$newAdmin->prepare("INSERT INTO news (title, content, descriptions, image_url, created_at, author_id, link) VALUES (:title, :content, :descriptions, :image_url, :created_at, :author_id, :link)");
+            $db = $this->connect_database();
+            $stmt = $db->prepare("INSERT INTO news (title, content, descriptions, image_url, created_at, author_id, link) VALUES (:title, :content, :descriptions, :image_url, :created_at, :author_id, :link)");
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':content', $content);
             $stmt->bindParam(':descriptions', $descriptions);
@@ -34,12 +33,14 @@ class AdminNews extends Connection {
             $stmt->bindParam(':author_id', $author_id);
             $stmt->bindParam(':link', $link);
             $stmt->execute();
-            // echo "<script>alert('Thanh Cong')</script>";
+            echo "<script>alert('Thanh Cong')</script>";
+            // exit;
         } catch (PDOException $e) {
             echo "<script>alert('That Bai')</script>";
             echo "Connection failed: " . $e->getMessage();
         }
     }
+    
     
 
     function updateNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link){
@@ -56,7 +57,8 @@ class AdminNews extends Connection {
             $stmt->bindParam(':link', $link);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
-            // echo "<script>alert('Thanh Cong')</script>";
+            echo "<script>alert('Thanh Cong')</script>";
+            // exit;
         } catch(PDOException $e) {
             echo "<script>alert('That Bai')</script>";
             echo "Connection failed: " . $e->getMessage();
@@ -70,7 +72,7 @@ class AdminNews extends Connection {
                 // $stmt->bindParam(':id', $id);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 $stmt->execute();
-                // echo "<script>alert('Thanh Cong')</script>";
+                echo "<script>alert('Thanh Cong')</script>";
             }
             catch(PDOException $e) {
                 echo "<script>alert('That Bai')</script>";

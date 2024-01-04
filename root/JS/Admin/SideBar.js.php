@@ -1,15 +1,32 @@
 <script>
-    // add hovered class to selected list item
-let list = document.querySelectorAll(".navigation li");
+        document.addEventListener('DOMContentLoaded', function () {
+        var list = document.querySelectorAll('.navigation li');
 
-function activeLink() {
-  list.forEach((item) => {
-    item.classList.remove("hovered");
-  });
-  this.classList.add("hovered");
-}
+        list.forEach(function (item) {
+            item.addEventListener('click', function () {
+            // Loại bỏ lớp 'active' từ tất cả các phần tử
+            list.forEach(function (navlink) {
+                navlink.classList.remove('active');
+            });
 
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
+            // Thêm lớp 'active' cho phần tử được click
+            item.classList.add('active');
+            });
+        });
+        });
+    </script>
+<script>
+    // add active class to selected list item
+// let list = document.querySelectorAll(".navigation li");
+
+// function activeLink() {
+//   list.forEach((item) => {
+//     item.classList.remove("active"); 
+//   });
+//   this.classList.add("active");
+// }
+
+// list.forEach((item) => item.addEventListener("click", activeLink));
 
 // Menu Toggle
 let toggle = document.querySelector(".toggle");
