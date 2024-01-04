@@ -6,7 +6,7 @@
     }
 
     .container_checkout {
-        padding-top: 120px !important;
+        padding-top: 80px !important;
     }
 
     .input {
@@ -26,6 +26,10 @@
         border: 1px solid #d7d0cd;
         border-radius: 5px;
         height: 100px;
+    }
+
+    .inputNote {
+        width: 70%;
     }
 
     .text {

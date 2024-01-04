@@ -40,17 +40,14 @@
                         <h5 class="fw-bold">${expert.full_name}</h5>
                         <p>${expert.specialization}</p>
                         <div class="row mb-3">
-                            <div class="col-sm-7 time d-flex">
+                            <div class="col time d-flex">
                                 <span class="time_icon">
-                                    <i class="fas fa-clock aclock"></i>
+                                        <i class="fas fa-clock aclock"> 
+                                            <?php echo " " ?> ${formattedStartTime} - ${formattedEndTime}
+                                        </i>
                                 </span>
-                                <p class="fw-bold mt-3 ml-1 textTime">
-                                    ${formattedStartTime} - ${formattedEndTime}
-                                </p>
                             </div>
-                            <div class="col-sm-4 fee">
-                                <p class="fw-bold">${expert.price}</p>
-                            </div>
+                        
                         </div>
                         <div class="row">
                             <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>

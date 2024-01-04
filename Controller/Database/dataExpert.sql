@@ -37,14 +37,44 @@ CREATE TABLE calendar (
   FOREIGN KEY (expert_id) REFERENCES experts(id)
 );
 INSERT INTO calendar (id, day, start_time, end_time, price, describer, expert_id) VALUES
-(1, '2024-01-02', '09:00:00', '11:00:00', 50.000, 'Morning availability', 1),
-(2, '2024-01-06', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 2),
-(3, '2024-01-07', '10:00:00', '12:00:00', 70.000, 'Morning availability', 3),
-(4, '2024-01-08', '15:00:00', '17:00:00', 55.000, 'Afternoon availability', 4),
-(5, '2024-01-09', '11:00:00', '13:00:00', 45.000, 'Morning availability', 5),
-(6, '2024-01-10', '16:00:00', '18:00:00', 70.000, 'Afternoon availability', 6),
-(7, '2024-01-11', '09:00:00', '11:00:00', 50.000, 'Morning availability', 7),
-(8, '2024-01-12', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 8),
-(9, '2024-01-13', '10:00:00', '12:00:00', 65.000, 'Morning availability', 9),
-(10, '2024-01-14', '15:00:00', '17:00:00', 60.000, 'Afternoon availability', 10);
+(1, '2024-01-30', '09:00:00', '11:00:00', 50.000, 'Morning availability', 1),
+(2, '2024-01-30', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 2),
+(3, '2024-01-26', '10:00:00', '12:00:00', 70.000, 'Morning availability', 3),
+(4, '2024-01-26', '15:00:00', '17:00:00', 55.000, 'Afternoon availability', 4),
+(5, '2024-01-27', '11:00:00', '13:00:00', 45.000, 'Morning availability', 5),
+(6, '2024-01-27', '16:00:00', '18:00:00', 70.000, 'Afternoon availability', 6),
+(7, '2024-01-28', '09:00:00', '11:00:00', 50.000, 'Morning availability', 7),
+(8, '2024-01-25', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 8),
+(9, '2024-01-25', '10:00:00', '12:00:00', 65.000, 'Morning availability', 9),
+(10, '2024-01-25', '15:00:00', '17:00:00', 60.000, 'Afternoon availability', 10);
 select * from calendar;
+
+
+CREATE TABLE bookings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT,
+  expert_id INT,
+  calendar_id INT,
+  appointment_startTime DATETIME,
+  appointment_endTime DATETIME,
+  note TEXT,
+  created_at DATETIME,
+  status VARCHAR(20),
+  rating INT,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (expert_id) REFERENCES experts(id),
+  FOREIGN KEY (calendar_id) REFERENCES calendar(id)
+);
+
+INSERT INTO bookings (id, user_id, expert_id, note, created_at, status, rating) VALUES
+(1, 1, 1, 'Tôi muốn tư vấn về việc trầm cảm học đường.', '2023-01-01 09:30:00', 'Confirmed', 4),
+(2,2, 2, 'Tôi muốn tư vấn về việc bị bạo lực học đường.', '2023-01-02 13:45:00', 'Confirmed', 5),
+(3,3, 3, 'Tôi muốn tư vấn về việc bất đồng ý kiến với ba mẹ.', '2023-01-03 10:45:00', 'Confirmed', 3),
+(4,4, 4, 'Tôi muốn tư vấn về chứng rối loạn lo âu.', '2023-01-04 15:30:00', 'Confirmed', 5),
+(5,5, 5, 'Tôi muốn tư vấn về việc thiếu động lực', '2023-01-05 13:15:00', 'Confirmed', 4),
+(6,1, 6, 'Tôi muốn tư vấn về việc trầm cảm do tan vỡ hôn nhân.', '2023-01-06 09:00:00', 'Confirmed', 5),
+(7,2, 7, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-07 13:30:00', 'Confirmed', 4),
+(8,3, 8, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-08 11:15:00', 'Confirmed', 3),
+(9,4, 9, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-09 16:00:00', 'Confirmed', 5),
+(10,5, 10, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-10 11:45:00', 'Confirmed', 4);
+ALTER TABLE bookings AUTO_INCREMENT=1;

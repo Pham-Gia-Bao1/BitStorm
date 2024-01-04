@@ -33,19 +33,11 @@ include("../root/CSS/ContactExpert.css.php");
                                 <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
                                 <p><?php echo $expert['specialization']; ?></p>
                                 <div class="row mb-3">
-                                    <div class="col-sm-7 time d-flex">
-                                        <span class="time_icon">
-                                            <i class="fas fa-clock aclock"></i>
-                                        </span>
-                                        <p class="fw-bold mt-3 ml-1 textTime">
-                                            <?php
-                                            echo date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time']));
-                                            ?>
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-4 fee">
-                                        <p class="fw-bold"><?php echo $expert['price']; ?></p>
-                                    </div>
+                                    <span class="time_icon">
+                                        <i class="fas fa-clock aclock">
+                                            <?php echo " " . date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time'])) ?>
+                                        </i>
+                                    </span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
@@ -80,19 +72,14 @@ include("../root/CSS/ContactExpert.css.php");
                                     <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
                                     <p><?php echo $expert['specialization']; ?></p>
                                     <div class="row mb-3">
-                                        <div class="col-sm-7 time d-flex">
+                                        <div class="col time d-flex">
                                             <span class="time_icon">
-                                                <i class="fas fa-clock aclock"></i>
+                                                <i class="fas fa-clock aclock">
+                                                    <?php echo " " . date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time'])) ?>
+                                                </i>
                                             </span>
-                                            <p class="fw-bold mt-3 ml-1 textTime">
-                                                <?php
-                                                echo date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time']));
-                                                ?>
-                                            </p>
                                         </div>
-                                        <div class="col-sm-4 fee">
-                                            <p class="fw-bold"><?php echo $expert['price']; ?></p>
-                                        </div>
+
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>

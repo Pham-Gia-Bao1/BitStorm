@@ -4,25 +4,19 @@ include_once("../Model/ConnectDataBase.php");
 class Checkout extends Connection
 {
 
-    public function getExpert($id)
+    public function createBooking($userID, $expertID, $calendarID, $note)
     {
         $this->connect_database();
-        $sql_query = "SELECT experts.*,
-        DATE_FORMAT(calendar.day,'%d/%m/%Y') AS day,
-        TIME_FORMAT(calendar.start_time, '%H:%i') AS start_time,
-        TIME_FORMAT(calendar.end_time, '%H:%i') AS end_time, calendar.price
-        FROM experts
-        JOIN calendar ON experts.id = calendar.expert_id
-        WHERE experts.id = :id";
-        $stst = $this->conn->prepare($sql_query);
-        $stst->bindValue(':id', $id, PDO::PARAM_STR);
-        $stst->execute();
-        $expertDetail = $stst->fetch(PDO::FETCH_ASSOC);
+        $sql = "INSERT INTO bookings (user_id, expert_id, calendar_id, note, created_at, status, rating) 
+            VALUES (:user_id, :expert_id, :calendar_id, :note, NOW(), 'pending', NULL)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':user_id', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':expert_id', $expertID, PDO::PARAM_INT);
+        $stmt->bindParam(':calendar_id', $calendarID, PDO::PARAM_INT);
+        $stmt->bindParam(':note', $note, PDO::PARAM_STR);
+        $success = $stmt->execute();
         $this->closeConnection();
-        return $expertDetail;
+        return $success;
     }
-
-    
-
 
 }

@@ -43,14 +43,16 @@
                     <div class="col-sm-3 detailTime">
                         ${expert.day}
                     </div>
-                    <div class="col-sm-4 feeDetail">
-                        ${expert.price} VNĐ
-                    </div>
+
                 </div>
                 <div class="row mt-5 d-flex justify-content-center align-content-center">
-                    <div class="col-sm-6 checkout mt-2">
-                        <a id="checkoutBtn" class="mr-1" href="Checkout?expert_id=${expert.id}">Đi đến trang thanh toán </a> <i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                <div class="col-sm-6 checkout mt-2">
+                    <form action="" method="post">
+                        <button type="submit" class="checkoutButton" name="userID">
+                            <a id="checkoutBtn" class="mr-1" <?php if (isset($_COOKIE[$cookie_name])) : ?> href="Checkout?expert_id=${expert.id}" <?php endif ?> >Đi đến trang thanh toán </a> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
                 </div>
             </div>
         `;
@@ -79,17 +81,14 @@
                             <h5 class="fw-bold">${experts.full_name}</h5>
                             <p>${experts.specialization}</p>
                             <div class="row mb-3">
-                                <div class="col-sm-7 time d-flex">
-                                    <span class="time_icon">
-                                        <i class="fas fa-clock aclock"></i>
-                                    </span>
-                                    <p class="fw-bold mt-3 ml-1 textTime">
-                                        ${formattedStartTime} - ${formattedEndTime}
-                                    </p>
+                                <div class="col time d-flex">
+                                     <span class="time_icon">
+                                        <i class="fas fa-clock aclock"> 
+                                            <?php echo " " ?> ${formattedStartTime} - ${formattedEndTime}
+                                        </i>
+                                </span>
                                 </div>
-                                <div class="col-sm-4 fee">
-                                    <p class="fw-bold">${experts.price}</p>
-                                </div>
+                               
                             </div>
                             <div class="row">
                                 <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
