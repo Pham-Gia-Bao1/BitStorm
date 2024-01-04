@@ -2,10 +2,6 @@
 include("../View/Admin/Layout/SideBar.view.php");
 require_once("../Database/database.php");
 ?>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-
 <div class="main">
     <div class="p-3"></div>
     <ul class="nav nav-tabs">
@@ -105,9 +101,13 @@ require_once("../Database/database.php");
                     <td><?php echo $new['created_at'] ?></td>
                     <td><?php echo $new['link'] ?></td>
                     <td>
+                        <div class="action d-flex justify-content-end">
                         <a href="AdminNews?id_update=<?php echo $new['id'] ?>" id="updateLink">
-                            <button data-bs-toggle="modal" data-bs-target="#update_model" type="button">Update</button>
+                            <button data-bs-toggle="modal" data-bs-target="#update_model" type="button" class= "btn btn-warning">Update</button>
                         </a>
+                        <a href="AdminNews?id=<?php echo $new['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        </div>
+
                         <div id="update_model" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -121,6 +121,7 @@ require_once("../Database/database.php");
                                         $new1 = $newAdmin->selectOneNews($id_new);
                                         ?>
                                         <form method="post" action="AdminNews">
+                                            <input type="hidden" value="<?php echo $new1[0]['id'] ?>" name="id_new">
                                             <!-- post ddeen controller de xu li -->
                                             <div class="form-group">
                                                 <label for="title">Title</label>
@@ -160,54 +161,21 @@ require_once("../Database/database.php");
                             </div>
                         </div>
 
-                        <a href="AdminNews?id_delete=<?php echo $new['id'] ?>" id="delete_model">
-                            <button data-bs-toggle="modal" data-bs-target="#delete_model" type="button">Delete</button>
-                        </a>
                         <script>
                             $(document).ready(function() {
                                 const urlParams = new URLSearchParams(window.location.search);
                                 const idUpdateParam = urlParams.get('id_update');
-                                const idDeleteParam = urlParams.get('id_delete');
-
                                 if (idUpdateParam) {
                                     $('#update_model').modal('show');
                                 }
-
-                                if (idDeleteParam) {
-                                    $('#delete_model').modal('show');
-                                }
-
-                                // Attach an event handler to the 'hidden.bs.modal' event for both modals
-                                $('#update_model, #delete_model').on('hidden.bs.modal', function(e) {
-                                    // Redirect to the 'AdminNews' page when the modal is closed
+                                $('#update_model').on('hidden.bs.modal', function(e) {
                                     window.location.href = 'AdminNews';
                                 });
                             });
                         </script>
-
                     </td>
                 </tr>
-                <div class="modal fade" role="dialog" id="delete_model">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="loginModalLabel">Xóa</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h3>Bạn Có Muốn Xóa không</h3>
-                            </div>
-                            <div class="modal-footer">
-                                <form method="post" action="AdminNews">
-                                    <input type="hidden" name="id_delete" value="<?php echo $new['id']; ?>">
-                                    <button type="submit" class="btn btn-primary">Xóa</button>
-                                </form>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?> 
+            <?php endforeach; ?>
     </table>
     </tbody>
 </div>

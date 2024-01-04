@@ -1,11 +1,13 @@
 
-<?php 
+<?php
 include_once("../Model/ConnectDataBase.php");
 require("../Database/database.php");
 
-class AdminNews extends Connection {
-    
-    function selectNews() {
+class AdminNews extends Connection
+{
+
+    function selectNews()
+    {
         $db = $this->connect_database();
         $stmt = $db->prepare("SELECT * FROM news");
         $stmt->execute();
@@ -13,7 +15,8 @@ class AdminNews extends Connection {
         return $news;
     }
 
-    function selectOneNews($id){
+    function selectOneNews($id)
+    {
         $db = $this->connect_database();
         $stmt = $db->prepare("SELECT * FROM news WHERE id = :id");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -21,7 +24,8 @@ class AdminNews extends Connection {
         $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $news;
     }
-    function createNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link) {
+    function createNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link)
+    {
         try {
             $db = $this->connect_database();
             $stmt = $db->prepare("INSERT INTO news (title, content, descriptions, image_url, created_at, author_id, link) VALUES (:title, :content, :descriptions, :image_url, :created_at, :author_id, :link)");
@@ -32,19 +36,19 @@ class AdminNews extends Connection {
             $stmt->bindParam(':created_at', $created_at);
             $stmt->bindParam(':author_id', $author_id);
             $stmt->bindParam(':link', $link);
-            $stmt->execute();
-            echo "<script>alert('Thanh Cong')</script>";
-            // exit;
+            $result = $stmt->execute();
+            if ($result) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
-            echo "<script>alert('That Bai')</script>";
             echo "Connection failed: " . $e->getMessage();
         }
     }
-    
-    
-
-    function updateNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link){
-        try{
+    function updateNews($id, $title, $content, $descriptions, $image_url, $created_at, $author_id, $link)
+    {
+        try {
             $db = $this->connect_database();
             $stmt = $db->prepare("UPDATE news SET title = :title, content = :content, descriptions = :descriptions, image_url = :image_url, created_at = :created_at, author_id = :author_id, link = :link WHERE id = :id");
             // $stmt = $db->prepare("UPDATE news SET title = :title,content = :content,descriptions = :descriptions,image_url = :image_url,created_at= :created_at,author_id = :author_id,link = :link WHERE id= :id");
@@ -56,32 +60,33 @@ class AdminNews extends Connection {
             $stmt->bindParam(':author_id', $author_id);
             $stmt->bindParam(':link', $link);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
-            echo "<script>alert('Thanh Cong')</script>";
+            $result = $stmt->execute();
+            if ($result) {
+                return true;
+            } else {
+                return false;
+            }
+
             // exit;
-        } catch(PDOException $e) {
-            echo "<script>alert('That Bai')</script>";
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
-            }
         }
-        function deleteNews($id) {
-            try {
-                $db = $this->connect_database();
-                $sql = "DELETE FROM news WHERE id = :id";
-                $stmt = $db->prepare($sql);
-                // $stmt->bindParam(':id', $id);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                $stmt->execute();
-                echo "<script>alert('Thanh Cong')</script>";
+    }
+    function deleteNews($id) {
+        $db = $this->connect_database();
+        $sql = "DELETE FROM news WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
+                echo "<script>alert('Thành Công')</script>";
+                return true;
+            } else {
+                echo "Không tìm thấy học viên để xóa";
+                return false;
             }
-            catch(PDOException $e) {
-                echo "<script>alert('That Bai')</script>";
-                echo "Connection failed: " . $e->getMessage();
-                }
-            }
-  
-
+        } else {
+            echo "Error updating record " . $stmt->errorCode();
         }
-
-
-
+    }
+}

@@ -1,9 +1,5 @@
 <?php
-include "../Database/database.php";
 include_once "../root/CSS/Admin/AdminNews.css.php";
-include_once("../Model/BlogModel.php");
-// include("../Model/AdminCommentsModel.php");
-include_once("../Model/UserProfileModel.php");
 include_once "../Model/AdminNewsModel.php";
 $newAdmin = new AdminNews();
 $news = $newAdmin->selectNews();
@@ -30,17 +26,20 @@ if (isset($_POST['title'], $_POST['content'], $_POST['descriptions'], $_POST['im
     $created_at = $_POST['created_at'];
     $link = $_POST['link'];
     $author_id = $_POST['author_id'];
-
-    $result = $newAdmin->updateNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link);
+    $id = $_POST['id_new'];
+    $result = $newAdmin->updateNews($id,$title, $content, $descriptions, $image_url, $created_at, $author_id, $link);
     if ($result) {
         header('Location: AdminNews');
-        // exit;
+        exit();
     }
 }
 // delete
-if (isset($_GET['id_delete'])) {
-    $id = $_GET['id_delete'];
-    $newAdmin->deleteNews($id);
-    header('Location: AdminNews');
+if (isset($_GET['id'])) {
+    $id_delete = $_GET['id'];
+    $result = $newAdmin->deleteNews($id_delete);
+    if ($result) {
+        header('Location: AdminNews');
+        exit();
+    }
 }
 include_once "../View/Admin/NewsVideo/AdminNewsView.php";
