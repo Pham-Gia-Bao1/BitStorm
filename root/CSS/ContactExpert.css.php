@@ -51,10 +51,6 @@
     }
 
     .time {
-        border-radius: 50px;
-        border: 1px solid #057dcd;
-        height: 30px;
-        margin-right: 10px;
         justify-content: center;
         align-items: center;
     }
@@ -189,10 +185,6 @@
 
     .text {
         color: #007bff;
-    }
-
-    .textTime {
-        font-size: 14px;
     }
 
     .number {
