@@ -5,7 +5,7 @@ class AdminComment extends Blog{
     public function get_all_comments(){
         // $this->connect_database();
         $this->connect_database();
-        $sql_query = " SELECT *,comment_videos.id as id_comment,comment_videos.like_count as like_count_comment , comment_videos.dislike_count as dislike_count_comment from comment_videos inner join videos on videos.id = comment_videos.video_id inner join users on users.id = comment_videos.user_id order by id_comment  ;";
+        $sql_query = " SELECT *,comment_videos.created_at as created_at_comment ,comment_videos.id as id_comment,comment_videos.like_count as like_count_comment , comment_videos.dislike_count as dislike_count_comment from comment_videos inner join videos on videos.id = comment_videos.video_id inner join users on users.id = comment_videos.user_id order by id_comment  ;";
         $stmt = $this->conn->prepare($sql_query);
         $stmt->execute();
         $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);

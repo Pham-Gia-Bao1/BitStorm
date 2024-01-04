@@ -5,6 +5,7 @@ include("../Model/AdminCommentsModel.php");
 include_once("../Model/UserProfileModel.php");
 $productModel = new AdminComment();
 $comments = $productModel->get_all_comments();
+// print_r($comments);
 $id_users = $productModel->get_id_users();
 $id_videos = $productModel->get_id_videos();
 // print_r($comments);

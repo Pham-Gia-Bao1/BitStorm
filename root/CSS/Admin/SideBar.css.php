@@ -223,15 +223,9 @@
     font-size: 1.2rem;
   }
 
-  .user {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
+  .user{
+    margin-right: 30px;
   }
-
   .user img {
     position: absolute;
     top: 0;
@@ -240,4 +234,5 @@
     height: 100%;
     object-fit: cover;
   }
+
 </style>

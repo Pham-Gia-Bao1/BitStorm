@@ -166,7 +166,7 @@ include("../root/CSS/NavBar.css.php");
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <a href="http://localhost/BitStorm/Logout" class="btn btn-danger" data-bs-dismiss="modal" onclick="window.location.href=this.href;">Rời đi</a>
+              <a href="Logout" class="btn btn-danger" data-bs-dismiss="modal" onclick="window.location.href=this.href;">Rời đi</a>
               <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ở lại</button>
             </div>
           </div>

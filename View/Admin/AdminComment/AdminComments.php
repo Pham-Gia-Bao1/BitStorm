@@ -57,7 +57,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                     <td><input type="checkbox" name="comment_ids[]" value="<?= $comment['id_comment'] ?>" onchange="toggleRowSelection(this)"></td>
                     <td class="id_comment"><?= $count ?></td>
                     <td><?= htmlspecialchars($comment['content']) ?></td>
-                    <td><?= htmlspecialchars($comment['created_at']) ?></td>
+                    <td><?= htmlspecialchars($comment['created_at_comment']) ?></td>
                     <td><?= htmlspecialchars($comment['title']) ?></td>
                     <td><?= htmlspecialchars($comment['name']) ?></td>
                     <td><?= htmlspecialchars($comment['like_count_comment']) ?></td>
@@ -134,147 +134,169 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                             </div>
                         </div>
                     </div>
-                    </div>
-                </tr>
-            <?php $count++;
+    </div>
+    </tr>
+<?php $count++;
             endforeach ?>
 
-            <style>
-                .selected {
-                    background-color: #B4D4FF;
-                }
+<style>
+    .selected {
+        background-color: #B4D4FF;
+    }
 
-                .selected:hover {
-                    background-color: #5FBDFF;
-                }
-            </style>
-            <script>
-                function toggleCheckboxSelection(row) {
-                    var checkbox = row.querySelector('input[type="checkbox"]');
-                    checkbox.checked = !checkbox.checked;
-                    toggleRowSelection(checkbox);
-                }
+    .selected:hover {
+        background-color: #5FBDFF;
+    }
+</style>
+<script>
+    function toggleCheckboxSelection(row) {
+        var checkbox = row.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+        toggleRowSelection(checkbox);
+    }
 
-                function toggleRowSelection(checkbox) {
-                    var row = checkbox.parentNode.parentNode;
-                    if (checkbox.checked) {
-                        row.classList.add("selected");
-                    } else {
-                        row.classList.remove("selected");
-                    }
-                    var checkedValues = getCheckedValues();
-                    console.log(checkedValues);
-                }
-
-                function getCheckedValues() {
-                    var checkboxes = document.querySelectorAll('input[name="comment_ids[]"]:checked');
-                    var checkedValues = Array.from(checkboxes).map(function(checkbox) {
-                        return checkbox.value;
-                    });
-                    if (checkboxes.checked) {
-                        document.getElementById('delete_btn').style.backgroundColor = "blue";
-                    }
-
-                    return checkedValues;
-                }
-                // Sử dụng hàm getCheckedValues để lấy giá trị của các checkbox đã được chọn
-                function redirectToAdminComments() {
-                    var checkedValues = getCheckedValues();
-                    var url = 'AdminComments?id_delete=' + (checkedValues);
-                    window.location.href = url;
-                }
-            </script>
-            <!-- Thêm các hàng dữ liệu khác tương tự cho các comments khác -->
-        </table>
-        <script>
-            // Gọi hàm để hiển thị modal khi trang được tải
-            $(document).ready(function() {
-                var id = getUrlParameter('id');
-                if (id) {
-                    $('#update_model').modal('show');
-                }
-            });
-
-            $(document).ready(function() {
-                $('#update_model').on('hidden.bs.modal', function() {
-                    window.location.href = 'AdminComments';
-                });
-            });
-            // Hàm để lấy tham số từ URL
-            function getUrlParameter(name) {
-                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-                var results = regex.exec(location.search);
-                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-            }
-        </script>
-        <!-- model add -->
-        <?php
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $info = $productModel->get_one_coments_video($id);
+    function toggleRowSelection(checkbox) {
+        var row = checkbox.parentNode.parentNode;
+        if (checkbox.checked) {
+            row.classList.add("selected");
+        } else {
+            row.classList.remove("selected");
         }
-        ?>
-        <div class="modal fade model_nav" id="update_model">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="loginModalLabel">Chỉnh sửa bình luận </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form action="AdminComments" method="get">
-                            <div class="input-group mb-3">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text w-25">STT</span>
-                                    <input required type="text" class="form-control" id="id_comment" value="<?= $info['id_comment'] ?>" name="id_comment">
-                                </div>
+        var checkedValues = getCheckedValues();
+        console.log(checkedValues);
+    }
 
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text w-25">Nội dung</span>
-                                    <input required type="text" class="form-control" value="<?= htmlspecialchars($info['content']) ?>" id="content_comment" name="content">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text w-25">Ngày tạo</span>
-                                    <input required type="text" class="form-control" value="<?= htmlspecialchars($info['created_at']) ?>" name="date">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text w-25">Mã video</span>
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="video_id">
-                                        <option selected><?= htmlspecialchars($info['video_id']) ?></option>
-                                        <?php foreach ($id_videos as $id) :  ?>
-                                            <option value="<?= htmlspecialchars($id['id']) ?>"><?= htmlspecialchars($id['id']) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+    function getCheckedValues() {
+        var checkboxes = document.querySelectorAll('input[name="comment_ids[]"]:checked');
+        var checkedValues = Array.from(checkboxes).map(function(checkbox) {
+            return checkbox.value;
+        });
+        if (checkboxes.checked) {
+            document.getElementById('delete_btn').style.backgroundColor = "blue";
+        }
 
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text w-25">Mã người bình luận</span>
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="user_id">
-                                        <option selected><?= htmlspecialchars($info['user_id']) ?></option>
-                                        <?php foreach ($id_users as $id) :  ?>
-                                            <option value="<?= htmlspecialchars($id['id']) ?>"><?= htmlspecialchars($id['id']) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text w-25">Lượt thích</span>
-                                    <input required type="text" class="form-control" value="<?= htmlspecialchars($info['like_count_comment']) ?>" name="like_count">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text w-25">Lượt không thích</span>
-                                    <input required type="text" class="form-control" value="<?= htmlspecialchars($info['dislike_count_comment']) ?>" name="dislike_count">
-                                </div>
-                                <div>
-                                    <button class="btn btn-primary" type="submit">Lưu</button>
-                                </div>
-                        </form>
-                    </div>
-                </div>
+        return checkedValues;
+    }
+    // Sử dụng hàm getCheckedValues để lấy giá trị của các checkbox đã được chọn
+    function redirectToAdminComments() {
+        var checkedValues = getCheckedValues();
+        var url = 'AdminComments?id_delete=' + (checkedValues);
+        window.location.href = url;
+    }
+</script>
+<!-- Thêm các hàng dữ liệu khác tương tự cho các comments khác -->
+</table>
+<script>
+    // Gọi hàm để hiển thị modal khi trang được tải
+    $(document).ready(function() {
+        var id = getUrlParameter('id');
+        if (id) {
+            $('#update_model').modal('show');
+        }
+    });
+
+    $(document).ready(function() {
+        $('#update_model').on('hidden.bs.modal', function() {
+            window.location.href = 'AdminComments';
+        });
+    });
+    // Hàm để lấy tham số từ URL
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+</script>
+<!-- model add -->
+<?php
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $info = $productModel->get_one_coments_video($id);
+}
+?>
+<div class="modal fade model_nav" id="update_model">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title text-primary" id="loginModalLabel">Chỉnh sửa bình luận </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="AdminComments" method="get">
+                    <div class="input-group mb-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text w-25">STT</span>
+                            <input required type="text" class="form-control" id="id_comment" value="<?= $info['id_comment'] ?>" name="id_comment">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text w-25">Nội dung</span>
+                            <input required type="text" class="form-control" value="<?= htmlspecialchars($info['content']) ?>" id="content_comment" name="content">
+                        </div>
+                        <
+                        <div class="input-group mb-3">
+                            <span class="input-group-text w-25">Ngày tạo</span>
+                            <input required type="text" class="form-control" value="<?= htmlspecialchars($info['created_at']) ?>" name="date">
+
+                        </div>
+                      
+
+                        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
+                        <script>
+                            document.getElementById("showCalendarBtn").addEventListener('click', function() {
+                                var calendarEl = document.getElementById('calendar');
+                                calendarEl.style.display = 'block';
+
+                                var calendar = new FullCalendar.Calendar(calendarEl, {
+                                    initialView: 'dayGridMonth',
+                                    selectable: true,
+                                    select: function(info) {
+                                        console.log('Selected date: ' + info.startStr);
+                                        calendar.unselect();
+                                    }
+                                });
+
+                                calendar.render();
+                            });
+                        </script>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text w-25">Mã video</span>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="video_id">
+                                <option selected><?= htmlspecialchars($info['video_id']) ?></option>
+                                <?php foreach ($id_videos as $id) :  ?>
+                                    <option value="<?= htmlspecialchars($id['id']) ?>"><?= htmlspecialchars($id['id']) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text w-25">Mã người bình luận</span>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="user_id">
+                                <option selected><?= htmlspecialchars($info['user_id']) ?></option>
+                                <?php foreach ($id_users as $id) :  ?>
+                                    <option value="<?= htmlspecialchars($id['id']) ?>"><?= htmlspecialchars($id['id']) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text w-25">Lượt thích</span>
+                            <input required type="text" class="form-control" value="<?= htmlspecialchars($info['like_count_comment']) ?>" name="like_count">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text w-25">Lượt không thích</span>
+                            <input required type="text" class="form-control" value="<?= htmlspecialchars($info['dislike_count_comment']) ?>" name="dislike_count">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit">Lưu</button>
+                        </div>
+                </form>
             </div>
         </div>
+    </div>
+</div>
 
-    </main>
+</main>
 </body>
