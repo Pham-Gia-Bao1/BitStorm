@@ -17,7 +17,7 @@ if (isset($_COOKIE[$cookie_name])) {
     // xử lí đăng bài
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if (!empty($_POST['content'])){
-        $isAnonymous= isset($_POST['isAnonymous'])?($_POST['isAnonymous']):0;
+        $isAnonymous= isset($_POST['isAnonymous'])?($_POST['isAnonymous']):1;
         $id=$Post->get_id($nameAndImg[0]);
         $likeCount=0;
         $content =htmlspecialchars($_POST['content']); 

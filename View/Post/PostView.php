@@ -93,8 +93,8 @@ include("../root/CSS/Post.css.php");
             <?php 
             endif;?>
             <!-- end -->
-            <div class="input-add-comment">
-              
+            <div class="input-add-comment" >
+                <input type="hidden" name="comment_id" value="<?php echo $post['id']?>">
               <input placeholder="" class="input-field input_comment" type="text">
               <label for="input-field" class="input-label">Bình luận</label>
               <span class="input-highlight"></span>
