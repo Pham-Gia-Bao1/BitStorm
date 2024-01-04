@@ -7,11 +7,9 @@
   min-height: 100vh;
   background: var(--white);
   transition: 0.5s;
+  margin-top: 50px;
 }
-.main.active {
-  width: calc(100% - 80px);
-  left: 80px;
-}
+
 
 .topbar {
   width: 100%;
@@ -288,9 +286,9 @@
     width: 100%;
     left: 0;
   }
-  .main.active {
+  /* .main.active {
     left: 300px;
-  }
+  } */
   .cardBox {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -330,11 +328,6 @@
   .toggle {
     z-index: 10001;
   }
-  .main.active .toggle {
-    color: #fff;
-    position: fixed;
-    right: 0;
-    left: initial;
-  }
+
 }
 </style>
