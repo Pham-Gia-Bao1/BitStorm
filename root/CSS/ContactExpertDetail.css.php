@@ -5,14 +5,40 @@
         box-sizing: border-box;
     }
 
+    .textTime {
+        font-size: 14px;
+    }
+
     .top_image {
-        object-fit: cover;
+        padding-top: 80px;
+        max-width: 100%;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .top_image img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .doctor_image {
+        margin-left: 40px;
+        max-width: 90%;
+        height: 500px;
+    }
+
+    .img_card {
+        width: 95%;
+        height: 255px;
+        object-fit: cover;
     }
 
     .doctor_image img {
-        margin-left: 40px;
-        max-width: 90%;
+        width: 90%;
+        height: 80%;
+        object-fit: cover;
         border-radius: 15px;
     }
 
@@ -108,6 +134,7 @@
         border-radius: 50px;
         border: 1px solid #e12729;
         height: 30px;
+        padding-top: 2px;
     }
 
     .viewMorebtn {
