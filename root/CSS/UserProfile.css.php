@@ -1,22 +1,36 @@
 <style>
   .ig_top {
-    margin-top: 100px;
+    margin-top: -200px;
+    position: relative;
+    width: 85vw;
+    height: 400px;
+    background-color: #0088cc !important;
+    top: 140px;
+    z-index: -2;
+    border-radius: 20px;
+
   }
 
   .avata {
-    text-align: center;
+    text-align: start;
+    margin-left: 150px !important;
+    /* background-color: #f0f0f0; */
   }
 
   .avata img {
+    background-color: #006699;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 0px;
     transition: all 0.2s ease;
     cursor: pointer;
-  }
+    outline:  2px solid white;
+    outline-offset: 5px; /* Thay đổi giá trị outline-offset để điều chỉnh khoảng cách giữa đường viền và hình ảnh */
+}
 
-  .avata img:hover {
+
+  /* .avata img:hover {
     transform: scale(1.05);
-  }
+  } */
 
   .avata_user {
     width: 250px;
@@ -226,4 +240,43 @@
 .body_active_model:hover::-webkit-scrollbar-thumb {
   opacity: 1; /* Hiển thị nút trượt khi hover vào phần tử */
 }
+.box_title{
+   /* background-color: red; */
+   width: 100% !important;
+   padding: 25px;
+}
+
+.box_model{
+  border-radius: 30px;
+}
+.btn_choise{
+   width: 100%;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+}
+#input_file{
+  display: none;
+}
+.upload-demo,#form{
+  /* background-color: #006699; */
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+}
+.cr-image{
+   background-color: #0088cc !important;
+   margin-top: -30px;
+   object-fit: cover;
+   outline:  2px solid blue;
+    outline-offset: 5px;
+}
+#setAvatarNextButton{
+  width: 100%;
+    /* background-color: red; */
+    /* width:  500px !important; */
+}
+
 </style>

@@ -7,19 +7,132 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/UserProfile.css.php");
 ?>
 <div id="content">
-  <div class="container-fluid  ig_top"></div>
-  <div class="avata m-1 p-2">
-
-    <img id="uploaded-image" class="rounded-circle avata_user" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($name); ?>">
-    <h3 id="name_user" class="m-3"><?= $name; ?></h3>
-
-    <form id="upload-form" method="post" action="userprofile">
-      <!-- <input type="hidden" name="image_url" id="image-url-input"> -->
-      <label for="upload-input" id="label_for_input_avatar" class="btn btn-primary">Tải Lên</label>
-      <input type="file" name="image_url" class="change_avata btn btn-primary" value="Đổi avata" id="upload-input" accept="image/png">
-      <button type="submit" class="btn btn-primary" id="submit_avatar"></button>
-    </form>
+  <div class="container-fluid  ig_top">hello</div>
+  <div class="avata m-1 p-2 d-flex  align-items-center">
+    <img data-bs-toggle="modal" data-bs-target="#exampleModal" id="uploaded-image" class="rounded-circle avata_user" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($name); ?>">
+    <h3 id="name_user" class="m-3"><?= htmlspecialchars($name); ?></h3>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <div class="col-xs-12 d-flex justify-content-between box_title">
+            <div class="modal-h2">Profile Picture</div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="col-xs-12 d-flex justify-content-between box_title">
+
+            <button class="rounded-pill mb btn kfds-font-bold kfds-btn-tertiary-light kfds-srf-rounded bg-light btn_choise" onclick="$('.upload-btn').click();"><i class="far fa-image"></i><span class="kfds-left-mrgn-8">Choose Image...</span> </button>
+
+          </div>
+          <div class="col-xs-12 d-flex justify-content-between box_title">
+
+            <form action="userprofile" id="form" method="post">
+              <div class="hidden upload-btn-wrapper">
+                <input type="file" id="input_file" class="upload-btn" accept="image/*" value="Choose a file" name="image_url" class="change_avata btn btn-primary" value="Đổi avata" id="upload-input">
+              </div>
+              <div class="upload-demo croppie-container col-xs-12 d-flex justify-content-between box_title box_canvas">
+                <div class=" cr-boundary" aria-dropeffect="none" style="width: 218px; height: 218px;">
+                  <canvas id="myCanvas" class="cr-image" alt="preview" aria-grabbed="false" width="210" height="210" style="transform: translate3d(4.00001px, 4px, 0px) scale(1.0381); transform-origin: 105px 105px; opacity: 1;">
+                  </canvas>
+
+                  <script>
+                    var imgSrc = "<?php echo htmlspecialchars($img); ?>"; // Lấy đường dẫn hình ảnh từ PHP và escape HTML
+                    var canvas = document.getElementById('myCanvas'); // Lấy thẻ canvas bằng id
+                    var ctx = canvas.getContext('2d'); // Lấy context 2D của canvas
+
+                    var img = new Image(); // Tạo một đối tượng hình ảnh
+                    img.onload = function() {
+                      ctx.drawImage(img, 0, 0, 210, 210); // Vẽ hình ảnh lên canvas
+                    };
+                    img.src = imgSrc; // Đặt nguồn hình ảnh cho đối tượng hình ảnh
+                  </script>
+                  <div class="cr-viewport cr-vp-square" tabindex="0" style="width: 210px; height: 210px;">
+                  </div>
+                  <div class="cr-overlay" style="width: 218.001px; height: 218.001px; top: -0.0005035px; left: -0.0004882px;"></div>
+                </div>
+                <!-- <div class="cr-slider-wrap"><input class="cr-slider" type="range" step="0.0001" aria-label="zoom" min="1.0000" max="1.5000" aria-valuenow="1.0381"></div> -->
+              </div>
+              <script>
+                // Lắng nghe sự kiện thay đổi của input file
+                document.getElementById('input_file').addEventListener('change', function(e) {
+                  var file = e.target.files[0]; // Lấy tệp tin đầu tiên từ sự kiện
+
+                  if (file) {
+                    var reader = new FileReader(); // Tạo một FileReader object
+
+                    reader.onload = function(event) {
+                      var img = new Image(); // Tạo một đối tượng hình ảnh
+                      img.onload = function() {
+                        var canvas = document.createElement('canvas'); // Tạo canvas
+                        var ctx = canvas.getContext('2d');
+                        canvas.width = 210; // Thiết lập kích thước canvas tùy ý
+                        canvas.height = 210;
+
+                        // Vẽ hình ảnh lên canvas
+                        ctx.drawImage(img, 0, 0, 210, 210);
+
+                        // Hiển thị hình ảnh lên canvas trong HTML
+                        var canvasContainer = document.querySelector('.cr-boundary');
+                        canvasContainer.innerHTML = ''; // Xóa bất kỳ hình ảnh nào đang có trước đó
+                        canvasContainer.appendChild(canvas);
+                      };
+                      img.src = event.target.result; // Đặt nguồn hình ảnh cho đối tượng hình ảnh
+                    };
+
+                    reader.readAsDataURL(file); // Đọc tệp tin như là một URL data
+                  }
+                });
+              </script>
+
+              <!-- <input type="hidden" id="imagebase64" name="imagebase64"> -->
+              <div class="p-16 grey-container kfds-lyt-row-respon kfds-btm-mrgn-24 kfds-srf-rounded-8">
+                <div class="kfds-right-mrgn-24">
+                  <span class="kfds-font-size-medium kfds-font-clr-primary">💡</span>
+                </div>
+                <div class="kfds-border-left kfds-pdg-respon-24 kfds-font-clr-dark-op-8">
+                Bạn có thể thay đổi bất cứ lúc nào!
+                </div>
+              </div>
+              <button  aria-label="Next" id="setAvatarNextButton" class="btn btn-primary rounded-pill">Áp dụng ảnh</button>
+              <!-- <input hidden="" id="hasChangedDefault" value=""> -->
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="container-fluid d-flex justify-content-center gap-5 setting">
     <div class="card w-25 m-3 d-flex align-items-center justify-content-center p-4" data-bs-toggle="modal" data-bs-target="#Modal_view_infomation">
       <img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/456/456283.png" alt="img">
@@ -143,65 +256,66 @@ include("../root/CSS/UserProfile.css.php");
         <!-- Modal info -->
         <div class="modal-body body_active_model">
 
-        <div class="d-flex align-items-center m-2 p-1 content_box">
-          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-          <div class="bg-light content_active">
-            <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
-            <p>35 phút trước</p>
+          <div class="d-flex align-items-center m-2 p-1 content_box">
+            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+            <div class="bg-light content_active">
+              <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
+              <p>35 phút trước</p>
+            </div>
           </div>
-        </div>
-        <div class="d-flex align-items-center m-2 p-1 content_box">
-          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-          <div class="bg-light content_active">
-            <h6>Bạn đã đăng thành công bài viết</h6>
-            <p>35 phút trước</p>
+          <div class="d-flex align-items-center m-2 p-1 content_box">
+            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+            <div class="bg-light content_active">
+              <h6>Bạn đã đăng thành công bài viết</h6>
+              <p>35 phút trước</p>
+            </div>
           </div>
-        </div>
-        <div class="d-flex align-items-center m-2 p-1 content_box">
-          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-          <div class="bg-light content_active">
-            <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
-            <p>35 phút trước</p>
+          <div class="d-flex align-items-center m-2 p-1 content_box">
+            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+            <div class="bg-light content_active">
+              <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
+              <p>35 phút trước</p>
+            </div>
           </div>
-        </div>
-        <div class="d-flex align-items-center m-2 p-1 content_box">
-          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-          <div class="bg-light content_active">
-            <h6>Bạn đã đăng thành công bài viết</h6>
-            <p>35 phút trước</p>
+          <div class="d-flex align-items-center m-2 p-1 content_box">
+            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+            <div class="bg-light content_active">
+              <h6>Bạn đã đăng thành công bài viết</h6>
+              <p>35 phút trước</p>
+            </div>
           </div>
-        </div> <div class="d-flex align-items-center m-2 p-1 content_box">
-          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-          <div class="bg-light content_active">
-            <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
-            <p>35 phút trước</p>
+          <div class="d-flex align-items-center m-2 p-1 content_box">
+            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+            <div class="bg-light content_active">
+              <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
+              <p>35 phút trước</p>
+            </div>
           </div>
-        </div>
-        <div class="d-flex align-items-center m-2 p-1 content_box">
-          <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-          <div class="bg-light content_active">
-            <h6>Bạn đã đăng thành công bài viết</h6>
-            <p>35 phút trước</p>
+          <div class="d-flex align-items-center m-2 p-1 content_box">
+            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+            <div class="bg-light content_active">
+              <h6>Bạn đã đăng thành công bài viết</h6>
+              <p>35 phút trước</p>
+            </div>
           </div>
-        </div>
 
 
 
 
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<h1 class="heading">Ghi chú</h1>
-<p class="info-text">Nhấn chuột 2 liên tục đểt xóa</p>
-<div class="app" id="app">
-  <button class="btn1" id="btn">+</button>
-</div>
-<?php
-include("../root/JS/UserProfile.js.php");
-?>
+  <h1 class="heading">Ghi chú</h1>
+  <p class="info-text">Nhấn chuột 2 liên tục đểt xóa</p>
+  <div class="app" id="app">
+    <button class="btn1" id="btn">+</button>
+  </div>
+  <?php
+  include("../root/JS/UserProfile.js.php");
+  ?>
 </div>
 <?php
 include("../View/LayOut/Footer/Footer.php");
