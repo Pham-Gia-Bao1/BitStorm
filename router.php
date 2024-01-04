@@ -21,6 +21,7 @@ if ($relativePath === '') {
 }
 
 // Lấy tên controller
+
 $controllerName = ucfirst($parts[0]) . 'Controller'; // Sửa lấy phần tử đầu tiên của $parts
 $controllerPath = 'Controller/' . $controllerName . '.php';
 
