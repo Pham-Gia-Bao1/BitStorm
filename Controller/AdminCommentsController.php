@@ -3,28 +3,29 @@
 include_once("../Model/BlogModel.php");
 include("../Model/AdminCommentsModel.php");
 include_once("../Model/UserProfileModel.php");
+// include("../root/Notification/Notification.js.php");
 $productModel = new AdminComment();
 $comments = $productModel->get_all_comments();
-// print_r($comments);
+
 $id_users = $productModel->get_id_users();
 $id_videos = $productModel->get_id_videos();
 // print_r($comments);
 if (isset($_GET['id_comment'])) {
-    $id_comment = htmlspecialchars( $_GET['id_comment']);
-    $content = htmlspecialchars( $_GET['content']);
-    $date = htmlspecialchars( $_GET['date']);
-    $video_id = htmlspecialchars( $_GET['video_id']);
-    $user_id = htmlspecialchars( $_GET['user_id']);
-    $like = htmlspecialchars( $_GET['like_count']);
-    $dislike = htmlspecialchars( $_GET['dislike_count']);
+    $id_comment = htmlspecialchars($_GET['id_comment']);
+    $content = htmlspecialchars($_GET['content']);
+    $date = htmlspecialchars($_GET['date']);
+    $video_id = htmlspecialchars($_GET['video_id']);
+    $user_id = htmlspecialchars($_GET['user_id']);
+    $like = htmlspecialchars($_GET['like_count']);
+    $dislike = htmlspecialchars($_GET['dislike_count']);
     $result = $productModel->update_comments_video($id_comment, $content, $date, $video_id, $user_id, $like, $dislike);
     if ($result) {
-        echo '<script>alert("Cập nhật thành công");</script>';
+        setcookie("success_message", "success", time() + 3600);
+        header("Location: AdminComments");
     } else {
-        echo '<script>alert("Cập nhật thất bại");</script>';
+        setcookie("error_message", "error", time() + 3600);
+        header("Location: AdminComments");
     }
-    header("Location: AdminComments");
-    exit();
 }
 if (isset($_GET['id_delete'])) {
     $id_delete = htmlspecialchars($_GET['id_delete']);

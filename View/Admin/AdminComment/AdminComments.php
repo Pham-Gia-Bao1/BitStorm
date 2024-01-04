@@ -3,9 +3,8 @@ include("../View/Admin/Layout/SideBar.view.php");
 include("../root/CSS/Admin/AdminComment.css.php");
 include_once("../root/CSS/Admin/Homepage.css.php");
 include_once("../root/CSS/Admin/SideBar.css.php");
-
+include("../root/JS/Notification.js.php");
 ?>
-
 
 <body>
     <title>admin comment</title>
@@ -44,7 +43,6 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                             redirectToAdminComments();
                         }
                     }
-
                     function redirectToAdminComments() {
                         // Đoạn mã xử lý chuyển hướng đến trang AdminComments
                         window.location.href = 'AdminComments';
@@ -236,13 +234,13 @@ if (isset($_GET['id'])) {
                             <span class="input-group-text w-25">Nội dung</span>
                             <input required type="text" class="form-control" value="<?= htmlspecialchars($info['content']) ?>" id="content_comment" name="content">
                         </div>
-                        <
+
                         <div class="input-group mb-3">
                             <span class="input-group-text w-25">Ngày tạo</span>
                             <input required type="text" class="form-control" value="<?= htmlspecialchars($info['created_at']) ?>" name="date">
 
                         </div>
-                      
+
 
                         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
                         <script>
