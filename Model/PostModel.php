@@ -38,7 +38,6 @@ class Post extends Connection
         $stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
         $stmt->execute();
         $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         return ($stmt->rowCount() > 0) ? $comments : null;
         
     }
@@ -57,10 +56,10 @@ class Post extends Connection
     //tính thoi gian lúc đăng đến giờ hiện tại
     public function TimePost($datetime){
         $conn = $this->connect_database();
+        date_default_timezone_set("Asia/Bangkok");
         $currentTime = date("Y-m-d H:i:s");
         $beforeTime = new DateTime($datetime);
         $currentTime = new DateTime($currentTime);
-        
         $Time = $beforeTime->diff($currentTime);
         
         $numberOfDays = $Time->d;
