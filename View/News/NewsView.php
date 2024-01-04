@@ -1,7 +1,7 @@
 <?php
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/News.css.php");
-include_once("../../Model/AdminNewsModel.php");
+include_once("../Model/AdminNewsModel.php");
 ?>
 <div class="section-1">
     <div class="header-photo-1-parent">

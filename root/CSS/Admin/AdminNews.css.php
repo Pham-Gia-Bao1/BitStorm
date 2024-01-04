@@ -109,4 +109,8 @@
   opacity: 1;
   right: 0;
 }
+
+.modal-open .modal{
+   overflow: scroll;
+}
 </style>

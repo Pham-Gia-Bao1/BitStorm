@@ -2,8 +2,12 @@
 include("../View/Admin/Layout/SideBar.view.php");
 include_once "../Model/AdminNewsModel.php";
 require_once("../Database/database.php");
-
+require_once("../Controller/AdminNewsController.php");
 ?>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
 <div class="main">
     <div class="p-3"></div>
     <ul class="nav nav-tabs">
@@ -11,7 +15,6 @@ require_once("../Database/database.php");
         <li><a href="AdminVideo">Blog</a></li>
     </ul>
     <div class="p-3"></div>
-    <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 20px;">Create</button>
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
@@ -21,34 +24,34 @@ require_once("../Database/database.php");
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="AdminNews">
+                    <form method="post" action="AdminNewsController.php">
                         <div class="form-group">
                             <label for="usr">Title</label>
-                            <input type="text" class="form-control" id="usr" name="title">
+                            <input type="text" class="form-control" id="title" name="title">
                         </div>
                         <div class="form-group">
                             <label for="usr">Content</label>
-                            <input type="text" class="form-control" id="usr" name="content">
+                            <input type="text" class="form-control" id="content" name="content">
                         </div>
                         <div class="form-group">
                             <label for="usr">Descriptions</label>
-                            <input type="text" class="form-control" id="usr" name="descriptions">
+                            <input type="text" class="form-control" id="descriptions" name="descriptions">
                         </div>
                         <div class="form-group">
                             <label for="usr">Created_at</label>
-                            <input type="text" class="form-control" id="usr" name="created_at">
+                            <input type="text" class="form-control" id="created_at" name="created_at">
                         </div>
                         <div class="form-group">
                             <label for="usr">Image</label>
-                            <input type="text" class="form-control" id="usr" name="image_url">
+                            <input type="text" class="form-control" id="image_url" name="image_url">
                         </div>
                         <div class="form-group">
                             <label for="usr">Author</label>
-                            <input type="text" class="form-control" id="usr" name="author_id">
+                            <input type="text" class="form-control" id="author_id" name="author_id">
                         </div>
                         <div class="form-group">
                             <label for="usr">Link</label>
-                            <input type="text" class="form-control" id="usr" name="link">
+                            <input type="text" class="form-control" id="link" name="link">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-default">Create</button>
@@ -104,17 +107,107 @@ require_once("../Database/database.php");
                     <td><?php echo $new['created_at'] ?></td>
                     <td><?php echo $new['link'] ?></td>
                     <td>
-                        <a href="AdminNews?id=<?php echo $new['id']; ?>"> <button data-toggle="modal" data-target="#updateModel1">Update</button></a>
-                        <a href="AdminNews?id_delete=<?php echo $new['id']; ?>">
-                            <button class="delete-button" data-toggle="modal" data-target="#deleteModel1">Delete</button>
+                        <a href="AdminNews?id_update=<?php echo $new['id'] ?>" id="updateLink">
+                            <button data-bs-toggle="modal" data-bs-target="#update_model" type="button">Update</button>
                         </a>
+                        <div id="update_model" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="loginModalLabel">Chỉnh sửa bình luận</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <?php
+                                        $id_new = $_GET['id_update'];
+                                        $new1 = $newAdmin->selectOneNews($id_new);
+                                        ?>
+
+                                        <form method="post" action="AdminNews">
+                                            <!-- post ddeen controller de xu li -->
+                                            <div class="form-group">
+                                                <label for="title">Title</label>
+                                                <input type="text" class="form-control" id="title" name="title" value="<?php echo $new1[0]['title'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="content">Content</label>
+                                                <input type="text" class="form-control" id="content" name="content" value="<?php echo $new1[0]['content'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="descriptions">Descriptions</label>
+                                                <input type="text" class="form-control" id="descriptions" name="descriptions" value="<?php echo $new1[0]['descriptions'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="created_at">Created_at</label>
+                                                <input type="text" class="form-control" id="created_at" name="created_at" value="<?php echo $new1[0]['created_at'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="image_url">Image</label>
+                                                <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $new1[0]['image_url'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="author_id">Author</label>
+                                                <input type="text" class="form-control" id="author_id" name="author_id" value="<?php echo $new1[0]['author_id'] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="link">Link</label>
+                                                <input type="text" class="form-control" id="link" name="link" value="<?php echo $new1[0]['link'] ?>">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="AdminNews?id_delete=<?php echo $new['id'] ?>" id="updateLink">
+                            <button data-bs-toggle="modal" data-bs-target="#delete_model" type="button">Delete</button>
+                        </a>
+                        <script>
+                            $(document).ready(function() {
+                                const urlParams = new URLSearchParams(window.location.search);
+                                const idUpdateParam = urlParams.get('id_update');
+                                const idDeleteParam = urlParams.get('id_delete');
+
+                                if (idUpdateParam) {
+                                    $('#update_model').modal('show');
+                                }
+
+                                if (idDeleteParam) {
+                                    $('#delete_model').modal('show');
+                                }
+
+                                // Attach an event handler to the 'hidden.bs.modal' event for both modals
+                                $('#update_model, #delete_model').on('hidden.bs.modal', function(e) {
+                                    // Redirect to the 'AdminNews' page when the modal is closed
+                                    window.location.href = 'AdminNews';
+                                });
+                            });
+                        </script>
+
                     </td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
+            <div class="modal fade model_nav" id="delete_model">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginModalLabel">Xóa</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Bạn Có Muốn Xóa không</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Xóa</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </table>
-    <?php
-
-    ?>
-
+    </tbody>
 </div>

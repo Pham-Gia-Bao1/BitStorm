@@ -2,6 +2,7 @@
 
 require("../Database/database.php");
 class AdminVideo extends Connection {
+    
     function selectVideo() {
         $db = $this->connect_database();
         $stmt = $db->prepare("SELECT * FROM podcasts");
@@ -79,7 +80,7 @@ class AdminVideo extends Connection {
                 echo "<script>alert('That Bai')</script>";
                 echo "Connection failed huy: " . $e->getMessage();
             }
-        }}
+        }
     function updateVideo($title,$description,$author_id,$youtube_link,$created_at,$image_url,$type,$view){
         try{
             $db = $this->connect_database();
@@ -97,5 +98,5 @@ class AdminVideo extends Connection {
             echo "<script>alert('That Bai')</script>";
             echo "Connection failed: " . $e->getMessage();
             }
-        }
-    }
+        }}
+
