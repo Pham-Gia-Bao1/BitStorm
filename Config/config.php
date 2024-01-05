@@ -14,8 +14,4 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'DATA_PHP');
 
-// Định nghĩa vai trò
-define('ROLE_ADMIN', 'admin');
-define('ROLE_CLIENT', 'client');
-define('ROLE_DOCTOR', 'doctor');
 ?>

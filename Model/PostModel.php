@@ -1,6 +1,6 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-include("../Model/BlogModel.php");
+// include("../Model/BlogModel.php");
 class Post extends Connection
 {
     //get all post

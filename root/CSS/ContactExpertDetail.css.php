@@ -6,13 +6,35 @@
     }
 
     .top_image {
-        object-fit: cover;
+        padding-top: 80px;
+        max-width: 100%;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .top_image img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .doctor_image {
+        margin-left: 40px;
+        max-width: 90%;
+        height: 500px;
+    }
+
+    .img_card {
+        width: 95%;
+        height: 255px;
+        object-fit: cover;
     }
 
     .doctor_image img {
-        margin-left: 40px;
-        max-width: 90%;
+        width: 90%;
+        height: 80%;
+        object-fit: cover;
         border-radius: 15px;
     }
 
@@ -64,18 +86,19 @@
         text-decoration: none;
     }
 
-    .checkout {
-        width: 80%;
+    .checkoutButton {
+        border: none;
+        color: white;
+        width: 100%;
         height: 50px;
         background-color: #057dcd;
         color: white;
         border-radius: 50px;
-        display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .checkout:hover {
+    .checkoutButton:hover {
         background: linear-gradient(to right, rgb(111, 166, 235),
                 rgb(85, 188, 210), rgb(188, 203, 201));
     }
@@ -92,10 +115,6 @@
     }
 
     .time {
-        border-radius: 50px;
-        border: 1px solid #057dcd;
-        height: 30px;
-        margin-right: 10px;
         justify-content: center;
         align-items: center;
     }
@@ -108,6 +127,7 @@
         border-radius: 50px;
         border: 1px solid #e12729;
         height: 30px;
+        padding-top: 2px;
     }
 
     .viewMorebtn {
