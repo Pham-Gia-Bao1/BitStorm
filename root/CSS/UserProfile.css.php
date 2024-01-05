@@ -1,14 +1,23 @@
 <style>
   .ig_top {
-    margin-top: -200px;
+
     position: relative;
+    margin-top: -200px;
     width: 85vw;
     height: 400px;
     background-color: #0088cc !important;
     top: 140px;
-    z-index: -2;
+    z-index: -3;
     border-radius: 20px;
+    background-size: cover;
+    background-position: center;
 
+  }
+  #drop_img_btn{
+     position: absolute;
+     right: 200px;
+     top: 100px;
+     z-index: 3;
   }
 
   .avata {
@@ -104,7 +113,7 @@
     justify-content: center;
     padding: 50px;
     padding-bottom: 100px;
-    background-image: url(http://localhost/WEB_PHP/root/Image/Hands%203D%20UI%20-%20Copy@1-1920x869.jpg);
+    /* background-image: url(http://localhost/WEB_PHP/root/Image/Hands%203D%20UI%20-%20Copy@1-1920x869.jpg); */
     background-repeat: no-repeat;
 
 
@@ -275,8 +284,17 @@
 }
 #setAvatarNextButton{
   width: 100%;
-    /* background-color: red; */
-    /* width:  500px !important; */
+}
+.dz-button{
+   width: 98%;
+   /* margin: 0 auto; */
+   height: 250px;
+   border: 2px dashed gray;
+   margin: 5px;
+}
+.box_bookings{
+  border: 1px dashed blue;
+
 }
 
 </style>

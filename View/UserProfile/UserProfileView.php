@@ -7,7 +7,80 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/UserProfile.css.php");
 ?>
 <div id="content">
-  <div class="container-fluid  ig_top">hello</div>
+  <div class="container-fluid  ig_top"></div>
+  <!-- Button trigger modal -->
+  <button id="drop_img_btn" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="fa-solid fa-camera"></i>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Tải ảnh lên</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="simple-panel col-xs-12 pn-flex mb ">
+            <div class="p-16">
+              <div class="row">
+
+                <h2>Thêm ảnh vào đây</h2>
+
+              </div>
+              <div class="row">
+                <form action="#" method="post" enctype="multipart/form-data" class="dropzone cover-dropzone dz-clickable" id="coverDropzoneForm">
+                  <input type="hidden" id="uniqueFilename" name="uniqueFilename" value="">
+
+                  <div class="dz-default dz-message"><button class="dz-button" type="button">Thả ảnh vào đây để upload</button></div>
+                </form>
+
+              </div>
+              <form id="submitform">
+                <input type="hidden" id="guid" name="guid" value="e167237f-3eda-44de-af9d-a8e3937d7cf2">
+                <div class="form-group mt mb">
+                </div>
+              </form>
+              <div class="text-center kfds-lyt-between">
+                <button onclick="$('#changeCoverImageModal').modal('toggle');" class="btn pull-left  ladda-button btn-danger">Bỏ</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const modalBody = document.querySelector("#staticBackdrop .modal-body");
+      const imageURLInput = document.querySelector("#uniqueFilename"); // Lấy input để nhận đường link ảnh
+
+      modalBody.addEventListener("dragover", function(event) {
+        event.preventDefault();
+      });
+
+      modalBody.addEventListener("drop", function(event) {
+        event.preventDefault();
+
+        const file = event.dataTransfer.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          const imageURL = e.target.result;
+          // Cập nhật giá trị của input với đường link của ảnh
+          imageURLInput.value = imageURL;
+          console.log("Đường dẫn của ảnh đã thả vào:", imageURL);
+          console.log("Đường link trong input:", imageURLInput.value);
+        };
+
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+
+
   <div class="avata m-1 p-2 d-flex  align-items-center">
     <img data-bs-toggle="modal" data-bs-target="#exampleModal" id="uploaded-image" class="rounded-circle avata_user" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($name); ?>">
     <h3 id="name_user" class="m-3"><?= htmlspecialchars($name); ?></h3>
@@ -94,10 +167,10 @@ include("../root/CSS/UserProfile.css.php");
                   <span class="kfds-font-size-medium kfds-font-clr-primary">💡</span>
                 </div>
                 <div class="kfds-border-left kfds-pdg-respon-24 kfds-font-clr-dark-op-8">
-                Bạn có thể thay đổi bất cứ lúc nào!
+                  Bạn có thể thay đổi bất cứ lúc nào!
                 </div>
               </div>
-              <button  aria-label="Next" id="setAvatarNextButton" class="btn btn-primary rounded-pill">Áp dụng ảnh</button>
+              <button aria-label="Next" id="setAvatarNextButton" class="btn btn-primary rounded-pill">Áp dụng ảnh</button>
               <!-- <input hidden="" id="hasChangedDefault" value=""> -->
             </form>
           </div>
@@ -106,32 +179,6 @@ include("../root/CSS/UserProfile.css.php");
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <div class="container-fluid d-flex justify-content-center gap-5 setting">
     <div class="card w-25 m-3 d-flex align-items-center justify-content-center p-4" data-bs-toggle="modal" data-bs-target="#Modal_view_infomation">
@@ -161,11 +208,12 @@ include("../root/CSS/UserProfile.css.php");
         </div>
         <!-- Modal info -->
         <div class="modal-body">
+          <!-- BOX 1 -->
           <div class="moddedl_ifomation">
             <div class="img" style="width : 30%">
               <img src="<?= htmlspecialchars($img) ?>" alt="logoutimg" style="width: 100%;" id="img_moddel_setting" class="rounded-circle avata_user">
             </div>
-            <form method="POST" action="login" class="p-3 m-2 gap-5 form w-100">
+            <form method="" action="login" class="p-3 m-2 gap-5 form w-100">
               <div class="form-group p-1 m-1">
                 <label for="username">Tên đăng nhập:</label>
                 <input type="text" class="form-control" id="username" name="username" readonly value="<?= htmlspecialchars($name); ?>">
@@ -183,11 +231,54 @@ include("../root/CSS/UserProfile.css.php");
                       <i class="fas fa-eye"></i>
                     </span>
                   </div>
+                  <script>
+                    function togglePasswordVisibility() {
+                      var passwordInput = document.getElementById('password');
+                      var showPasswordToggle = document.getElementById('show-password-toggle');
 
+                      if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        showPasswordToggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
+                      } else {
+                        passwordInput.type = 'password';
+                        showPasswordToggle.innerHTML = '<i class="fas fa-eye"></i>';
+                      }
+                    }
+
+                    var toggleButton = document.getElementById('show-password-toggle');
+                    toggleButton.addEventListener('click', togglePasswordVisibility);
+                  </script>
                 </div>
               </div>
+              <div class="form-group p-1 m-1">
+                Lịch đã đặt
+              </div>
+              <?php
+              foreach ($bookings as $booking) : ?>
+
+                <div class="form-group p-1 m-1 box_bookings">
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="p-3 m-1">
+                        Người đặt : Bạn
+                      </div>
+                      <div class="bg-light p-3 m-1">
+                        Bác sỹ : <?php echo $booking['expert_name'] ?>
+                      </div>
+                      <div class="bg-light p-3 m-1">
+                        Thời gian : <?php echo htmlspecialchars($posts1->TimePost($booking['create_at_booking'])) ?>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              <?php endforeach; ?>
             </form>
           </div>
+
+
         </div>
       </div>
     </div>
@@ -255,59 +346,19 @@ include("../root/CSS/UserProfile.css.php");
         </div>
         <!-- Modal info -->
         <div class="modal-body body_active_model">
-
-          <div class="d-flex align-items-center m-2 p-1 content_box">
-            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-            <div class="bg-light content_active">
-              <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
-              <p>35 phút trước</p>
+          <?php foreach ($posts as $post) { ?>
+            <div class="d-flex align-items-center m-2 p-1 content_box">
+              <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
+              <div class="bg-light content_active">
+                <h6>Bạn đã đăng thành công bài viết <?php echo htmlspecialchars($post['content_posts']); ?></h6>
+                <p><?php echo htmlspecialchars($posts1->TimePost($post['created_at_post'])); ?></p>
+              </div>
             </div>
-          </div>
-          <div class="d-flex align-items-center m-2 p-1 content_box">
-            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-            <div class="bg-light content_active">
-              <h6>Bạn đã đăng thành công bài viết</h6>
-              <p>35 phút trước</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center m-2 p-1 content_box">
-            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-            <div class="bg-light content_active">
-              <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
-              <p>35 phút trước</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center m-2 p-1 content_box">
-            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-            <div class="bg-light content_active">
-              <h6>Bạn đã đăng thành công bài viết</h6>
-              <p>35 phút trước</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center m-2 p-1 content_box">
-            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-            <div class="bg-light content_active">
-              <h6>Bạn đã đặt được lịch từ bác sĩ Châu vào 10AM - 11AM với giá 200.000 vnđ/lần</h6>
-              <p>35 phút trước</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center m-2 p-1 content_box">
-            <img src="<?= htmlspecialchars($img) ?>" alt="avata_active" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 20px;">
-            <div class="bg-light content_active">
-              <h6>Bạn đã đăng thành công bài viết</h6>
-              <p>35 phút trước</p>
-            </div>
-          </div>
-
-
-
-
+          <?php }; ?>
         </div>
       </div>
     </div>
   </div>
-
-
   <h1 class="heading">Ghi chú</h1>
   <p class="info-text">Nhấn chuột 2 liên tục đểt xóa</p>
   <div class="app" id="app">
