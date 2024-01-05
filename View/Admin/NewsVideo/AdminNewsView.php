@@ -4,13 +4,14 @@ require_once("../Database/database.php");
 ?>
 <div class="main">
     <div class="p-3"></div>
-    <ul class="nav nav-tabs">
-        <li><a href="AdminNews">News</a></li>
-        <li><a href="AdminVideo">Blog</a></li>
-    </ul>
-    <div class="p-3"></div>
-    <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 20px;">Create</button>
-    <!-- Modal -->
+    <div class="container red topBotomBordersOut">
+        <a href="VideoAdmin">Video</a>
+        <a href="AdminNews">News</a>
+        <a href="AdminPodCasts">Podcasts</a>
+    </div>
+    <div class="action d-flex justify-content-end">
+        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#myModal" style="margin-left: 20px;">Create</button>
+    </div>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -54,6 +55,14 @@ require_once("../Database/database.php");
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">N</span>
+            <span class="title-word title-word-2">E</span>
+            <span class="title-word title-word-3">W</span>
+            <span class="title-word title-word-4">S</span>
+        </h2>
     </div>
     <div class="p-3"></div>
     <table class="table table-success table-striped">
@@ -102,10 +111,10 @@ require_once("../Database/database.php");
                     <td><?php echo $new['link'] ?></td>
                     <td>
                         <div class="action d-flex justify-content-end">
-                        <a href="AdminNews?id_update=<?php echo $new['id'] ?>" id="updateLink">
-                            <button data-bs-toggle="modal" data-bs-target="#update_model" type="button" class= "btn btn-warning">Update</button>
-                        </a>
-                        <a href="AdminNews?id=<?php echo $new['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="AdminNews?id_update=<?php echo $new['id'] ?>" id="updateLink">
+                                <button data-bs-toggle="modal" data-bs-target="#update_model" type="button" class="btn btn-warning">Update</button>
+                            </a>
+                            <a href="AdminNews?id=<?php echo $new['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
 
                         <div id="update_model" class="modal fade" role="dialog">

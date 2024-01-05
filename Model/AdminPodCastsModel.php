@@ -1,5 +1,5 @@
 <?php
-require_once("../Controller/AdminVideoController.php");
+require_once("../Controller/AdminPodCastsController.php");
 require("../Database/database.php");
 function db()
 {
@@ -59,30 +59,31 @@ function createVideo($title, $description, $author_id, $youtube_link, $created_a
         return false;
     }
 }
-function updateVideo($id,$title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view)
+function updateVideo($id, $title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view)
 {
     try {
         $db = db();
-        $video = $db->prepare("UPDATE podcasts SET title= :title,description= :description,author_id= :author_id,youtube_link= :youtube_link,created_at= :created_at,image_url= :image_url,type= :type,view= :view WHERE id= :id");
+        $video = $db->prepare("UPDATE podcasts SET title = :title, description = :description, author_id = :author_id, youtube_link = :youtube_link, created_at = :created_at, image_url = :image_url, type = :type, view = :view WHERE id = :id");
         $video->bindParam(":title", $title);
         $video->bindParam(":description", $description);
         $video->bindParam(":author_id", $author_id);
-        $video->bindParam(":youtube_link", $youtube_link);
+        $video->bindParam(":youtube_link", $youtube_link);  
         $video->bindParam(":created_at", $created_at);
         $video->bindParam(":image_url", $image_url);
         $video->bindParam(":type", $type);
         $video->bindParam(":view", $view);
         $video->bindParam(':id', $id, PDO::PARAM_INT);
-        $video->execute();
-        if ($video) {
+        $result = $video->execute();
+        if ($result) {
             return true;
         } else {
             return false;
         }
     } catch (PDOException $e) {
-        echo "Insert failed: " . $e->getMessage();
+        echo "Update failed: " . $e->getMessage();
         return false;
     }
+
 }
 function deleteVideo($id) {
     $db = db();
@@ -100,3 +101,24 @@ function deleteVideo($id) {
         echo "Error updating record " . $stmt->errorCode();
     }
 }
+
+function sortVideo(){
+    $db = db();
+    $sql = "SELECT title FROM podcasts ORDER BY title ASC";
+    $stmt = $db->prepare($sql);
+    if($stmt->execute()){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+if (isset($_POST['action']) && $_POST['action'] === 'sortVideos') {
+    include 'AdminPodCasts';
+    if (sortVideo()) {
+        echo 'Sorting successful!';
+    } else {
+        echo 'Sorting failed!';
+    }
+}
+?>

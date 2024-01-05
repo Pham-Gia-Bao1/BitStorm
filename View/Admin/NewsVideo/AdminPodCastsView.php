@@ -1,18 +1,19 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
-include_once("../Model/AdminVideoModel.php");
-include_once("../Controller/AdminVideoController.php")
+include_once("../Model/AdminPodCastsModel.php");
+include_once("../Controller/AdminPodcastsController.php")
 ?>
 <div class="main">
+    
     <div class="p-3"></div>
-    <ul class="nav nav-tabs">
-        <li><a href="AdminNews">News</a></li>
-        <li><a href="AdminVideo">Blog</a></li>
-    </ul>
-    <div class="p-3"></div>
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal3" style="margin-left: 20px;">Create</button>
-    <!-- Modal -->
+    <div class="container red topBotomBordersOut">
+        <a href="VideoAdmin">Video</a>
+        <a href="AdminNews">News</a>
+        <a href="AdminPodCasts">Podcasts</a>
+    </div>
+    <div class="action d-flex justify-content-end">
+        <button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#myModal3" style="margin-left: 20px;">Create</button>
+    </div>
     <div id="myModal3" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -20,7 +21,7 @@ include_once("../Controller/AdminVideoController.php")
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="AdminVideo">
+                    <form method="post" action="AdminPodcats">
                         <div class="form-group">
                             <label for="usr">Title</label>
                             <input type="text" class="form-control" id="title" name="title">
@@ -60,6 +61,18 @@ include_once("../Controller/AdminVideoController.php")
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">P</span>
+            <span class="title-word title-word-2">O</span>
+            <span class="title-word title-word-3">D</span>
+            <span class="title-word title-word-4">C</span>
+            <span class="title-word title-word-1">A</span>
+            <span class="title-word title-word-2">S</span>
+            <span class="title-word title-word-3">T</span>
+            <span class="title-word title-word-4">S</span>
+        </h2>
     </div>
     <div class="p-2"></div>
     <table class="table table-success table-striped">
@@ -115,9 +128,9 @@ include_once("../Controller/AdminVideoController.php")
                     <td><?php echo $video['view'] ?></td>
                     <td>
                         <div class="action d-flex justify-content-end">
-                            <a href="AdminVideo?id_update=<?php echo $video['id']; ?>">
+                            <a href="AdminPodCasts?id_update=<?php echo $video['id']; ?>">
                                 <button type="button" data-toggle="modal" data-target="update" class="btn btn-warning">Update</button></a>
-                            <a href="AdminVideo?id=<?php echo $video['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="AdminPodCasts?id=<?php echo $video['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -136,8 +149,12 @@ include_once("../Controller/AdminVideoController.php")
         </script>
     <?php endforeach; ?>
     </table>
-    <?php $id = $_GET['id_update'];
-    $videos = showOneVideo($id);
+    <?php
+    if (isset($_GET['id_update'])) {
+
+        $id = $_GET['id_update'];
+        $videos = showOneVideo($id);
+    }
     foreach ($videos as $video) {
     ?>
         <div id="update" class="modal fade" role="dialog">
@@ -148,9 +165,11 @@ include_once("../Controller/AdminVideoController.php")
                     </div>
                     <div class="modal-body">
                         <form method="post" action="AdminVideo">
+                            <input type="hidden" value="<?php echo $id ?>" name="id">
+
                             <div class="form-group">
                                 <label for="usr">id</label>
-                                <input type="text" class="form-control" id="id" name="id" value="<?php echo $video['id'] ?>" disabled>
+                                <input type="text" class="form-control" id="id" name="id_update_video" value="<?php echo $video['id'] ?>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="usr">Title</label>

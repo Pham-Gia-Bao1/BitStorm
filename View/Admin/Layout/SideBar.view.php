@@ -22,7 +22,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="AdminNews">
+                    <a href="AdminPost">
                         <span class="icon">
                             <ion-icon name="newspaper-outline"></ion-icon>
                             
@@ -41,7 +41,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 </li>
 
                 <li>
-                    <a href="AdminData">
+                    <a href="AdminNews">
                         <span class="icon">
                             <ion-icon name="document-text-outline"></ion-icon>  
                         </span>
