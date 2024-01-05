@@ -1,6 +1,6 @@
 <?php
 require_once("../Controller/AdminPodCastsController.php");
-require("../Database/database.php");
+require ("../Controller/Database/database.php");
 function db()
 {
     $host     = 'localhost';

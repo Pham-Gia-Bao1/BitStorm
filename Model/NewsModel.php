@@ -3,7 +3,7 @@
 include_once("../Model/BlogModel.php");
 include_once("../Model/AccountModel.php");
 include_once("../Model/ConnectDataBase.php");
-
+require ("../Controller/Database/database.php");
 class News extends Connection {
     public function get_all_news() {
 

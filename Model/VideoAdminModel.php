@@ -1,6 +1,6 @@
 <?php
 include_once ("../Controller/VideoAdminController.php");
-include_once("../Database/database.php");
+require ("../Controller/Database/database.php");
 function db()
 {
     $host     = 'localhost';

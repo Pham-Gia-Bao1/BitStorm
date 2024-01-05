@@ -71,7 +71,6 @@ include_once("../Model/AdminNewsModel.php");
             $dsn = "mysql:host=$hostname;dbname=$database;charset=utf8mb4";
             $connection = new PDO($dsn, $username, $password);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // dùng like để lấy được vài keywor
             $sth =  $connection->prepare("SELECT * FROM `news` WHERE title LIKE :keyword");
             $sth->bindParam(':keyword', $keyword, PDO::PARAM_STR);
             $sth->execute();

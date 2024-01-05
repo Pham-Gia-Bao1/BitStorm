@@ -1,6 +1,6 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
-require_once("../Database/database.php");
+require_once("../Controller/Database/database.php");
 ?>
 <div class="main">
     <div class="p-3"></div>

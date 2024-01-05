@@ -1,7 +1,7 @@
 
 <?php
 include_once("../Model/ConnectDataBase.php");
-require("../Database/database.php");
+require ("../Controller/Database/database.php");
 
 class AdminNews extends Connection
 {
@@ -21,7 +21,7 @@ class AdminNews extends Connection
         $stmt = $db->prepare("SELECT * FROM news WHERE id = :id");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $news = $stmt->fetch(PDO::FETCH_ASSOC);
         return $news;
     }
     function createNews($title, $content, $descriptions, $image_url, $created_at, $author_id, $link)

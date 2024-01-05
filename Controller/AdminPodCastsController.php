@@ -14,9 +14,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['id'])){
     echo $id;
     $result = updateVideo($id,$title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
     print_r($result);
-    if ($result) {
-        header('Location: AdminPodCasts');
-    }
+    // if ($result) {
+    //     header('Location: AdminPodCasts');
+    // }
 }
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $title = htmlspecialchars($_POST['title']);
@@ -28,9 +28,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $type = htmlspecialchars($_POST['type']);
     $view = htmlspecialchars($_POST['view']);
     $result = createVideo($title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
-    if ($result) {
-        header('Location: AdminPodCasts');
-    }
+    // if ($result) {
+    //     header('Location: AdminPodCasts');
+    // }
 }
 
 if (isset($_GET['id'])) {

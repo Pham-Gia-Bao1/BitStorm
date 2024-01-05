@@ -21,7 +21,7 @@ include_once("../Controller/AdminPodcastsController.php")
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="AdminPodcats">
+                    <form method="post" action="AdminPodCasts">
                         <div class="form-group">
                             <label for="usr">Title</label>
                             <input type="text" class="form-control" id="title" name="title">
@@ -164,7 +164,7 @@ include_once("../Controller/AdminPodcastsController.php")
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="AdminVideo">
+                        <form method="post" action="AdminPodCasts">
                             <input type="hidden" value="<?php echo $id ?>" name="id">
 
                             <div class="form-group">
