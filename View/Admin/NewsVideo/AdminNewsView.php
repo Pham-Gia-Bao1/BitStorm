@@ -130,35 +130,35 @@ require_once("../Controller/Database/database.php");
                                         $new1 = $newAdmin->selectOneNews($id_new);
                                         ?>
                                         <form method="post" action="AdminNews">
-                                            <input type="hidden" value="<?php echo $new1[0]['id'] ?>" name="id_new">
+                                            <input type="hidden" value="<?php echo $new1['id'] ?>" name="id_new">
                                             <!-- post ddeen controller de xu li -->
                                             <div class="form-group">
                                                 <label for="title">Title</label>
-                                                <input type="text" class="form-control" id="title" name="title" value="<?php echo $new1[0]['title'] ?>">
+                                                <input type="text" class="form-control" id="title" name="title" value="<?php echo $new1['title'] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="content">Content</label>
-                                                <input type="text" class="form-control" id="content" name="content" value="<?php echo $new1[0]['content'] ?>">
+                                                <input type="text" class="form-control" id="content" name="content" value="<?php echo $new1['content'] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="descriptions">Descriptions</label>
-                                                <input type="text" class="form-control" id="descriptions" name="descriptions" value="<?php echo $new1[0]['descriptions'] ?>">
+                                                <input type="text" class="form-control" id="descriptions" name="descriptions" value="<?php echo $new1['descriptions'] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="created_at">Created_at</label>
-                                                <input type="text" class="form-control" id="created_at" name="created_at" value="<?php echo $new1[0]['created_at'] ?>">
+                                                <input type="text" class="form-control" id="created_at" name="created_at" value="<?php echo $new1['created_at'] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="image_url">Image</label>
-                                                <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $new1[0]['image_url'] ?>">
+                                                <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $new1['image_url'] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="author_id">Author</label>
-                                                <input type="text" class="form-control" id="author_id" name="author_id" value="<?php echo $new1[0]['author_id'] ?>">
+                                                <input type="text" class="form-control" id="author_id" name="author_id" value="<?php echo $new1['author_id'] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="link">Link</label>
-                                                <input type="text" class="form-control" id="link" name="link" value="<?php echo $new1[0]['link'] ?>">
+                                                <input type="text" class="form-control" id="link" name="link" value="<?php echo $new1['link'] ?>">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Update</button>

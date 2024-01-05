@@ -163,10 +163,6 @@ include_once("../Model/VideoAdminModel.php");
                                         <input type="text" class="form-control" id="duration" name="duration" value=<?php echo $video['duration'] ?>>
                                     </div>
                                     <div class="form-group">
-                                        <label for="usr">Created_at</label>
-                                        <input type="text" class="form-control" id="created_at" name="created_at" value=<?php echo $video['created_at'] ?> disabled>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="usr">Type</label>
                                         <input type="text" class="form-control" id="type" name="type" value=<?php echo $video['type'] ?>>
                                     </div>

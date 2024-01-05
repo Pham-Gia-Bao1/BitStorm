@@ -184,10 +184,6 @@ include_once("../Controller/AdminPodcastsController.php")
                                 <input type="text" class="form-control" id="description" name="description" value="<?php echo $video['description'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="usr">Created_at</label>
-                                <input type="text" class="form-control" id="created_at" name="created_at" value="<?php echo $video['created_at'] ?>">
-                            </div>
-                            <div class="form-group">
                                 <label for="usr">Image</label>
                                 <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $video['image_url'] ?>">
                             </div>
