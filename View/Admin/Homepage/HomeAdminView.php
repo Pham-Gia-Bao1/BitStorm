@@ -221,5 +221,4 @@ include_once("../root/CSS/Admin/SideBar.css.php");
 
 </body>
 <?php
-// include("../root/JS/Admin/SideBar.js.php");
 ?>
