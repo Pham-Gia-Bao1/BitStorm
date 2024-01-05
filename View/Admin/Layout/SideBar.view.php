@@ -25,29 +25,6 @@ include_once("../root/CSS/Admin/Homepage.css.php");
                 </div>
             </div>
         </div>
-        <div class="user">
-            <!-- <h1>hello</h1> -->
-
-            <?php
-            $cookie_name = "User";
-            if (isset($_COOKIE[$cookie_name])) {
-                $account = new Account();
-                $nameAndImg = $account->get_name_and_img_user();
-                $name = $nameAndImg[0];
-                $img = $nameAndImg[1];
-                echo $img;
-            ?>
-                <a href="userprofile">
-
-                    <h4><?php echo $name ?></h4>
-                    <img class="avata1" src="<?php echo $img; ?>">
-                </a>
-
-            <?php } else {  ?>
-                <img class="" src="<?php echo $account->getImg() ?>">
-
-            <?php } ?>
-        </div>
 
 
     </div>
