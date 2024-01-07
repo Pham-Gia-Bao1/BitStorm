@@ -44,9 +44,7 @@ include("../View/Admin/Post/DeletePostAdminView.php");
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </button>
                             
-                            <button class="btn btn-danger deletePostAdminBtn"<?php 
-                            // hướng dẫn cách lấy id post khi click on button
-                            ?> data-bs-toggle="modal" data-bs-target="#deletePostAdminModal">
+                            <button class="btn btn-danger deletePostAdminBtn">
                                 <i class="fa-solid fa-lock"></i>
                             </button>
                         </td>

@@ -50,9 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     Header("Location: AdminPost");
                 }
                 break;
-            case 'delete':
-                // Xử lý logic cập nhật
-                // echo json_encode(['message' => 'Update method called']);
+            case 'deletePost':
+                if(!empty($_POST['postIdDelete'])){
+                    $PostAdmin->deletePost($_POST['postIdDelete']);
+                }
                 break;
             default:
                 // Xử lý mặc định hoặc báo lỗi
