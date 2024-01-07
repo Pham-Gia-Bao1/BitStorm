@@ -5,7 +5,6 @@ include("../root/CSS/BlogDetail.css.php");
 <title>Blog</title>
 
 <main id="main">
-
     <div class="m-5" id="content">
         <!-- phần 1 -->
         <div id="contain_main_video">

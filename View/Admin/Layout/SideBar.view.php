@@ -10,11 +10,6 @@ include_once("../root/CSS/Admin/Homepage.css.php");
 <main>
 
     <div class="topbar">
-
-        <div class="toggle" id="bar">
-            <!-- <i class="fa-solid fa-bars icon_bar"></i> -->
-        </div>
-
         <div class="search bg-danger rounded-circle">
             <div class="input-group rounded-circle">
                 <input type="text" class="form-control" placeholder="Search here">
@@ -25,28 +20,6 @@ include_once("../root/CSS/Admin/Homepage.css.php");
                 </div>
             </div>
         </div>
-        <div class="user">
-            <!-- <h1>hello</h1> -->
-
-            <?php
-            // $cookie_name = "User";
-            // if (isset($_COOKIE[$cookie_name])) {
-            //     $account = new Account();
-            //     $nameAndImg = $account->get_name_and_img_user();
-            //     $name = $nameAndImg[0];
-            //     $img = $nameAndImg[1];
-            //     echo $img;
-            ?>
-                <a href="userprofile">
-
-                    <h4><?php echo $name ?></h4>
-                    <img class="avata1" src="<?php echo $img; ?>">
-                </a>
-
-           
-        </div>
-
-
     </div>
     <div class="navigation">
         <ul class="list-item">
@@ -87,7 +60,7 @@ include_once("../root/CSS/Admin/Homepage.css.php");
             </li>
 
             <li>
-                <a href="AdminData">
+                <a href="AdminNews">
                     <span class="icon">
                         <ion-icon name="document-text-outline"></ion-icon>
                     </span>

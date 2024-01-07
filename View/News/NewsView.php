@@ -1,6 +1,7 @@
 <?php
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/News.css.php");
+include_once("../Model/AdminNewsModel.php");
 ?>
 <div class="section-1">
     <div class="header-photo-1-parent">
@@ -70,7 +71,6 @@ include("../root/CSS/News.css.php");
             $dsn = "mysql:host=$hostname;dbname=$database;charset=utf8mb4";
             $connection = new PDO($dsn, $username, $password);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // dùng like để lấy được vài keywor
             $sth =  $connection->prepare("SELECT * FROM `news` WHERE title LIKE :keyword");
             $sth->bindParam(':keyword', $keyword, PDO::PARAM_STR);
             $sth->execute();
@@ -114,9 +114,9 @@ include("../root/CSS/News.css.php");
 <div class="container">
     <div class="row">
         <h2 class="h2_row">Dành Cho Bạn</h2>
-        <?php  foreach ($news as $new): ?>
-
-        <div class="img-card iCard-style1 col-sm-4">
+        <?php 
+        foreach ($news as $new): ?>
+        <div class="img-card iCard-style1 col-sm-4 ">
             <div class="card-content">
                 <div class="card-image">
                     <img class="card-img-top" src="<?php echo $new['image_url'] ?>" alt="Card image cap">
@@ -126,7 +126,6 @@ include("../root/CSS/News.css.php");
                     <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $new['descriptions'] ?></p>
                     <span class="d-flex">
                         <p class="card-text"><?php echo $new['created_at'] ?></p>
-                        <p class="card-text"><?php echo $new['name_author'] ?></p>
                     </span>
                 </div>
             </div>

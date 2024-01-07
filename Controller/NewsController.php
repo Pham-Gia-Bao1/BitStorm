@@ -1,13 +1,7 @@
 <?php
-require "../Database/database.php";
-include("../Model/NewsModel.php");
+require ("../Controller/Database/database.php");
 include_once("../Model/AccountModel.php");
-
-// $news = new News();
-// $news->get_all_news();
-// print_r(($news));
-
-
-
-require "../View/News/NewsView.php";
+include_once("../Model/AdminNewsModel.php");
+$newAdmin = new AdminNews();
+$news=$newAdmin->selectNews();
 ?>
