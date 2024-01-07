@@ -1,8 +1,8 @@
 <?php
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/NewsDetail.css.php");
-$id = $_GET["id"]; // Lấy ID từ tham số truyền vào
-$news = getNews($id); // Lấy tin tức dựa trên ID
+
+
 if ($news) {
 ?>
 <div class= "p-5"></div>
