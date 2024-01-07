@@ -9,22 +9,18 @@ include_once("../root/CSS/Admin/Homepage.css.php");
 ?>
 <main>
 
-<div class="topbar">
-
-<div class="toggle" id="bar">
-</div>
-
-<div class="search bg-danger rounded-circle">
-    <div class="input-group rounded-circle">
-        <input type="text" class="form-control" placeholder="Search here">
-        <div class="input-group-append">
-            <span class="input-group-text">
-                <ion-icon name="search-outline"></ion-icon>
-            </span>
+    <div class="topbar">
+        <div class="search bg-danger rounded-circle">
+            <div class="input-group rounded-circle">
+                <input type="text" class="form-control" placeholder="Search here">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
     <div class="navigation">
         <ul class="list-item">
             <li>
