@@ -29,13 +29,13 @@ include_once("../root/CSS/Admin/Homepage.css.php");
             <!-- <h1>hello</h1> -->
 
             <?php
-            $cookie_name = "User";
-            if (isset($_COOKIE[$cookie_name])) {
-                $account = new Account();
-                $nameAndImg = $account->get_name_and_img_user();
-                $name = $nameAndImg[0];
-                $img = $nameAndImg[1];
-                echo $img;
+            // $cookie_name = "User";
+            // if (isset($_COOKIE[$cookie_name])) {
+            //     $account = new Account();
+            //     $nameAndImg = $account->get_name_and_img_user();
+            //     $name = $nameAndImg[0];
+            //     $img = $nameAndImg[1];
+            //     echo $img;
             ?>
                 <a href="userprofile">
 
@@ -43,10 +43,7 @@ include_once("../root/CSS/Admin/Homepage.css.php");
                     <img class="avata1" src="<?php echo $img; ?>">
                 </a>
 
-            <?php } else {  ?>
-                <img class="" src="<?php echo $account->getImg() ?>">
-
-            <?php } ?>
+           
         </div>
 
 
