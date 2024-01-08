@@ -134,6 +134,8 @@ include_once("../Model/VideoAdminModel.php");
                             </div>
                             <div class="modal-body">
                                 <form method="post" action="VideoAdmin">
+                                <input type="hidden" name="id" value="<?php echo $video['id']; ?>">
+
                                     <div class="form-group">
                                             <label for="usr">Id</label>
                                             <input type="text" class="form-control" id="title" name="id" value=<?php echo $video['id'] ?> disabled>
@@ -172,7 +174,7 @@ include_once("../Model/VideoAdminModel.php");
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-default">Update</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel" >Cancel</button>
                                     </div>
                                 </form>
                             </div>
