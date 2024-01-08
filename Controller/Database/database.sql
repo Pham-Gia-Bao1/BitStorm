@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS podcasts_categories (
 );
 INSERT INTO podcasts_categories (podcast_id, category_id)
 VALUES (1, 3),
-(1,4)
+(1,4),
 ( 3, 4),
 ( 2, 2),
 (5, 1),
@@ -851,20 +851,9 @@ VALUES
     ('Podcast 4', 'Description 4', 1, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên'),
     ('Podcast 5', 'Description 5', 2, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên');
 
-INSERT INTO users (name, email, password, role, img) VALUES
-    ('Pham Gia Bao', 'bao.pham25@student.passerellesnumeriques.org', 'Bao@123', 1, 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png');
+INSERT INTO users (name, email, password, role_id, img) VALUES
+    ('Pham Gia Bao', 'bao.pham25@student.passerellesnumeriques.org', 'Bao@1234', 1, 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png');
 
-CREATE USER 'Van_Thu'@'localhost' IDENTIFIED BY '12345';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Van_Thu'@'localhost';
-
-CREATE USER 'Viet_My'@'localhost' IDENTIFIED BY '00000';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Viet_My'@'localhost';
-
-CREATE USER 'Bich_Quyen'@'localhost' IDENTIFIED BY '6789';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Bich_Quyen'@'localhost';
-
-FLUSH PRIVILEGES;
--- phần bổ sung sau
 CREATE TABLE comment_podcast
 (
     id INT PRIMARY KEY,
@@ -890,4 +879,14 @@ VALUES
     (8, 'Đang chờ phần phỏng vấn khách mời.', '2023-12-30 16:45:00', 4, 3, 300, 100),
     (9, 'Nên tăng thời lượng podcast lên.', '2023-12-31 11:10:00', 5, 2, 200, 50),
     (10, 'Có thể đưa ra ví dụ cụ thể hơn không?', '2024-01-01 13:20:00', 5, 3, 450, 150);
+CREATE USER 'Van_Thu'@'localhost' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Van_Thu'@'localhost';
 
+CREATE USER 'Viet_My'@'localhost' IDENTIFIED BY '00000';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Viet_My'@'localhost';
+
+CREATE USER 'Bich_Quyen'@'localhost' IDENTIFIED BY '6789';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Bich_Quyen'@'localhost';
+
+FLUSH PRIVILEGES;
+-- phần bổ sung sau
