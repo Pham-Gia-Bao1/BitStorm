@@ -28,8 +28,8 @@ class User extends Connection
     public function createUser($name, $email, $password, $phone_number, $img)
     {
         $this->connect_database();
-        $sql_query = "INSERT INTO users (name, email, password, phone_number, img, role_id) 
-                  VALUES (:name, :email, :password, :phone_number, :img, 2)";
+        $sql_query = "INSERT INTO users (name, email, password, phone_number, img, role_id, status) 
+                  VALUES (:name, :email, :password, :phone_number, :img, 2, 1)";
         $stmt = $this->conn->prepare($sql_query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
@@ -41,16 +41,17 @@ class User extends Connection
         return $success;
     }
 
-    public function updateUser($id, $name, $email, $password, $phone_number, $img)
+    public function updateUser($id, $name, $email, $password, $phone_number, $img, $status)
     {
         $this->connect_database();
-        $sql_query = "UPDATE users SET name = :name, email = :email, password = :password, phone_number = :phone_number, img = :img WHERE id = :id";
+        $sql_query = "UPDATE users SET name = :name, email = :email, password = :password, phone_number = :phone_number, img = :img, status = :status WHERE id = :id";
         $stmt = $this->conn->prepare($sql_query);
         $stmt->bindParam(":name", $name);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":password", $password);
         $stmt->bindParam(":phone_number", $phone_number);
         $stmt->bindParam(":img", $img);
+        $stmt->bindParam(":status", $status);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $this->closeConnection();

@@ -41,6 +41,7 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
                 <th>Số điện thoại</th>
                 <th>Ngày tạo</th>
                 <th>Avatar</th>
+                <th>Trạng thái</th>
                 <th>Action</th>
             </tr>
             <?php foreach ($clients as $client) : ?>
@@ -52,6 +53,14 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
                     <td><?php echo $client['phone_number'] ?></td>
                     <td><?php echo $client['created_at'] ?></td>
                     <td class="userImgContainer"><img src="<?php echo $client['img'] ?>" alt="image" class="userImg"></td>
+                    <td>
+                        <?php if ($client['status'] == 1) {
+                            echo "Hoạt động";
+                        } elseif ($client['status'] == 0) {
+                            echo "Ngưng hoạt động";
+                        }
+                        ?>
+                    </td>
                     <th>
                         <button class="btn btn-primary edit-user-btn"><i class="fa-solid fa-pen-to-square"></i></button>
                     </th>

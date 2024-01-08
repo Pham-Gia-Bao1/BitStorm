@@ -2,8 +2,6 @@
 include_once("../Model/AdminUserModel.php");
 $User = new User();
 $clients = $User->get_all_users();
-// $userID = $_GET['id_user'];
-// $Client = $User->getUser($userID);
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

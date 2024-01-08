@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="#updateUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-            <form action="" method="post">
+        <form action="" method="post">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="updateUserModalLabel">Chỉnh sửa thông tin</h1>
@@ -30,7 +30,12 @@
                         <label for="avatar">Ảnh đại diện:</label>
                         <input type="text" name="imgUser" id="imgUser" class="form-control" aria-describedby="basic-addon1">
                     </div>
-
+                    <label for="specialization">Trạng thái:</label>
+                    <select class="form-select form-select-lg mb-3" name="status" aria-label="status" id="status">
+                        <option selected>Chọn trạng thái</option>
+                        <option value="1">Hoạt động</option>
+                        <option value="0">Khóa tài khoản</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -38,7 +43,7 @@
                 </div>
             </div>
         </form>
-        </div>
+    </div>
 </div>
 <script>
     $(document).ready(function() {
@@ -55,6 +60,7 @@
             $('#userPassword').val(client[3]);
             $('#phoneNumber').val(client[4]);
             $('#imgUser').val(imgSrc);
+            $('#status').val(client[10]);
         });
     });
 </script>
