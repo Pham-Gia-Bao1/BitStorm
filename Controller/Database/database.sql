@@ -1,19 +1,30 @@
-CREATE DATABASE   data_php;
+CREATE DATABASE  IF NOT EXISTS data_php;
 USE data_php;
 -- drop database data_php;
+
+create table  IF NOT EXISTS roles (
+	id int primary key auto_increment,
+    name varchar(100)
+ );
+ INSERT INTO roles (id, name) VALUES
+(1, 'admin'),
+(2, 'client'),
+(3, 'expert');
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
     email VARCHAR(100),
     password VARCHAR(255),
-    role_id INT,
+    role_id INT ,
     img VARCHAR(255),
     address varchar(255),
     phone_number int,
+    FOREIGN KEY (role_id) REFERENCES roles(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
 
 INSERT INTO users (name, email, password, role_id, img, address, phone_number)
 VALUES
@@ -22,11 +33,22 @@ VALUES
     ('Nguyễn Bích Thủy', 'bichthhuy234@gmail.com', 'thuy90@22@#d', 1, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '789 Oak St', '087623231'),
     ('Trần Thị Mỹ Tâm', 'tranthimytam09@gmail.com', 'sdjh%#$%543sjdh', 2, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '321 Pine St', '082362233'),
     ('Lê Văn Thắng', 'thang@gmail.com', 'sdasj%$Shew52', 1, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '012834642');
+CREATE TABLE  IF NOT EXISTS author  (
+    author_id INT PRIMARY KEY,
+    name_author varchar(20),
+    img VARCHAR(255)
+);
+INSERT INTO author (author_id,name_author,img) VALUES
+    (1,"Trần Văn Lực",'https://toplist.vn/images/800px/de-bi-am-anh-boi-ve-be-ngoai-420451.jpg'),
+    (2,'Lê Thị Kim Thoa','https://www.vietnamfineart.com.vn/wp-content/uploads/2023/07/hinh-anh-gai-tay-590x590-1.jpg'),
+    (3,"Huỳnh Tố Nga",'https://haycafe.vn/wp-content/uploads/2022/02/Hi%CC%80nh-a%CC%89nh-ga%CC%81i-xinh-Han-Quoc-to%CC%81c-va%CC%80ng.jpg'),
+    (4,"Phan Văn Lịch",'https://vnn-imgs-a1.vgcloud.vn/cdn.24h.com.vn/upload/1-2020/images/2020-03-15/1584240065-176-dep-trai-8-1583833459-width600height750.jpg'),
+    (5,"Nguyễn Tố Linh",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4AgsnK8DzW5VVXS2hF-0FOBB9krdex14oNBUSRG5gTiVNSCq4zMQDkzYtB6EPznFhGk&usqp=CAU');
 
-
-select * from users ;
-CREATE TABLE experts (
+CREATE TABLE  IF NOT EXISTS experts (
   id INT PRIMARY KEY,
+  role_id INT,
+  FOREIGN KEY (role_id) REFERENCES roles(id), 
   full_name varchar(255),
   gender VARCHAR(10),
   address VARCHAR(255),
@@ -40,20 +62,19 @@ CREATE TABLE experts (
   specialization varchar(255)
 );
 
-INSERT INTO experts (id,full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization) VALUES
-(1, 'Hồ Thị Mỹ Anh', 'Male', '123 Ngô Quyền, Hải Châu, Đà Nẵng.', 'john.doe@example.com', '1234567890', 30, 'Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm và lo âu trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbqu-0Q8CDAeN2O7GL0-IBmyCSTVMQGTBLA&usqp=CAU', 10, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(2, 'Nguyễn Anh Tú','Male', '456 Trần Phú, Thanh Khê, Đà Nẵng.', 'jane.smith@example.com', '9876543210', 35, 'Kinh nghiệm làm việc với các vấn đề tâm lý của trẻ em và gia đình trong 5 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ1yVXix9ieLDoQ9MKtLaWIoF9DNJj-vDMw&usqp=CAU', 15, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(3, 'Phạm Minh Đức','Male', '789 Lê Duẩn, Sơn Trà, Đà Nẵng.', 'michael.johnson@example.com', '4567890123', 40, 'Kinh nghiệm tư vấn tâm lý cá nhân và hôn nhân trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPnzAB_u-HL7U1UT2rWrZOJQRE-UjQ1Y8uLDbQMKOgHjeWpiYjahiiM-9znL55iF2DxLw&usqp=CAU',6,'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(4,'Hoàng Thị Diễm Trang', 'Female', '321 Bạch Đằng, Hòa Vang, Đà Nẵng.', 'emily.davis@example.com', '3210987654', 28, 'Kinh nghiệm trong việc hỗ trợ những người gặp khó khăn trong quá trình luyện phục hồi sau chấn thương trong 3 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTje4oiuXbsZY56QeeuBsPCibkPloH_fJ5TAw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(5,'Huỳnh Thị Hường', 'Male', '654 Nguyễn Văn Linh, Liên Chiểu, Đà Nẵng.', 'robert.wilson@example.com', '7890123456', 32, 'Kinh nghiệm tư vấn tâm lý cho người già và chăm sóc tâm lý cho người cao tuổi trong 8 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxYMnCwfkVOAdxhMtgdabOL6Ikszu_S0RHA&usqp=CAU', 12, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(6, 'Phạm Thị Ngọc Trâm', 'Female', '987 Điện Biên Phủ, Cẩm Lệ, Đà Nẵng.', 'sophia.thompson@example.com', '2109876543', 38, 'Kinh nghiệm làm việc với các vấn đề tự hại và tư vấn sự phục hồi sau tổn thương trong 6 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShgFLJkAiUli_HSho8OnGxmavSEzRTExJVfQ&usqp=CAU', 18, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(7, 'Đặng Quang Minh','Male', '234 Hàn Thuyên, Ngũ Hành Sơn, Đà Nẵng.', 'william.johnson@example.com', '5678901234', 45, 'Kinh nghiệm tư vấn tâm lý trong quá trình giải quyết xung đột gia đình và hỗ trợ hòa giải trong 4 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6k3mVWpBVfnzxxCNtBQ5SHtyBiFACtcDV3w&usqp=CAU', 25, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(8, 'Bùi Thị Lan','Female', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Kinh nghiệm tư vấn tâm lý trong việc quản lý căng thẳng và xử lý áp lực công việc trong 9 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkjSwH73LqDpz7kklerQsP1GfXJ_Nca-5cnmc7u9guB8aNse2C9lgi7mUuMFb9p94XHsc&usqp=CAU', 3, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(9, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Kinh nghiệm tư vấn tâm lý cho người mắc các rối loạn ăn uống và hỗ trợ phục hồi sau rối loạn dinh dưỡng trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMmpSwI8cn27qB_JIBnu9Pykk9l0b8KAJCyA&usqp=CAU', 16, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
-(10, 'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 9, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý");
-select * from experts;
+INSERT INTO experts (id,role_id,full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization) VALUES
+(1,3, 'Hồ Thị Mỹ Anh', 'Male', '123 Ngô Quyền, Hải Châu, Đà Nẵng.', 'john.doe@example.com', '1234567890', 30, 'Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm và lo âu trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbqu-0Q8CDAeN2O7GL0-IBmyCSTVMQGTBLA&usqp=CAU', 10, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(2,3, 'Nguyễn Anh Tú','Male', '456 Trần Phú, Thanh Khê, Đà Nẵng.', 'jane.smith@example.com', '9876543210', 35, 'Kinh nghiệm làm việc với các vấn đề tâm lý của trẻ em và gia đình trong 5 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ1yVXix9ieLDoQ9MKtLaWIoF9DNJj-vDMw&usqp=CAU', 15, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(3,3, 'Phạm Minh Đức','Male', '789 Lê Duẩn, Sơn Trà, Đà Nẵng.', 'michael.johnson@example.com', '4567890123', 40, 'Kinh nghiệm tư vấn tâm lý cá nhân và hôn nhân trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPnzAB_u-HL7U1UT2rWrZOJQRE-UjQ1Y8uLDbQMKOgHjeWpiYjahiiM-9znL55iF2DxLw&usqp=CAU',6,'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(4,3,'Hoàng Thị Diễm Trang', 'Female', '321 Bạch Đằng, Hòa Vang, Đà Nẵng.', 'emily.davis@example.com', '3210987654', 28, 'Kinh nghiệm trong việc hỗ trợ những người gặp khó khăn trong quá trình luyện phục hồi sau chấn thương trong 3 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTje4oiuXbsZY56QeeuBsPCibkPloH_fJ5TAw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(5,3,'Huỳnh Thị Hường', 'Male', '654 Nguyễn Văn Linh, Liên Chiểu, Đà Nẵng.', 'robert.wilson@example.com', '7890123456', 32, 'Kinh nghiệm tư vấn tâm lý cho người già và chăm sóc tâm lý cho người cao tuổi trong 8 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxYMnCwfkVOAdxhMtgdabOL6Ikszu_S0RHA&usqp=CAU', 12, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(6,3, 'Phạm Thị Ngọc Trâm', 'Female', '987 Điện Biên Phủ, Cẩm Lệ, Đà Nẵng.', 'sophia.thompson@example.com', '2109876543', 38, 'Kinh nghiệm làm việc với các vấn đề tự hại và tư vấn sự phục hồi sau tổn thương trong 6 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShgFLJkAiUli_HSho8OnGxmavSEzRTExJVfQ&usqp=CAU', 18, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(7,3,'Đặng Quang Minh','Male', '234 Hàn Thuyên, Ngũ Hành Sơn, Đà Nẵng.', 'william.johnson@example.com', '5678901234', 45, 'Kinh nghiệm tư vấn tâm lý trong quá trình giải quyết xung đột gia đình và hỗ trợ hòa giải trong 4 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6k3mVWpBVfnzxxCNtBQ5SHtyBiFACtcDV3w&usqp=CAU', 25, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(8,3,'Bùi Thị Lan','Female', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Kinh nghiệm tư vấn tâm lý trong việc quản lý căng thẳng và xử lý áp lực công việc trong 9 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkjSwH73LqDpz7kklerQsP1GfXJ_Nca-5cnmc7u9guB8aNse2C9lgi7mUuMFb9p94XHsc&usqp=CAU', 3, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(9,3, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Kinh nghiệm tư vấn tâm lý cho người mắc các rối loạn ăn uống và hỗ trợ phục hồi sau rối loạn dinh dưỡng trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMmpSwI8cn27qB_JIBnu9Pykk9l0b8KAJCyA&usqp=CAU', 16, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý"),
+(10,3, 'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 9, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"bác sĩ tâm lý");
 
-CREATE TABLE calendar (
+CREATE TABLE   IF NOT EXISTS calendar (
   id INT PRIMARY KEY,
   day DATE,
   start_time TIME,
@@ -74,13 +95,9 @@ INSERT INTO calendar (id, day, start_time, end_time, price, describer, expert_id
 (8, '2023-12-31', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 8),
 (9, '2024-01-01', '10:00:00', '12:00:00', 65.000, 'Morning availability', 9),
 (10, '2024-01-01', '15:00:00', '17:00:00', 60.000, 'Afternoon availability', 10);
-select * from calendar;
 CREATE TABLE IF NOT EXISTS posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    auth varchar(100),
-    created_by VARCHAR(50),
-    updated_by VARCHAR(50),
     like_count INT,
     isAnonymous BOOLEAN,
     content TEXT,
@@ -88,10 +105,52 @@ CREATE TABLE IF NOT EXISTS posts (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+INSERT INTO posts (user_id,like_count, isAnonymous, content, created_at, updated_at)
+VALUES (2, 23, 1, 'Bame à, con áp lực với con số. Nó một ngày một lớn. Con không biết phải làm sao nữa. Bame à.', '2023-10-12', '2023-10-12'),
+       (3, 323, 0, 'MẬP TRĂM KÍ LÀ CẢM GIÁC như thế nào?\nLà được nhận những lời trêu đùa từ mọi người?\nLà đứa đi đâu cũng ngại. Lên xe của bạn thì sợ bể lốp. Áo mượn của bạn thì sợ bị rách.\nCác cậu cho cách nào giúp tớ không? Tớ không có nhiều thời gian cũng như chi phí để đến các phòng tập gym.', '2023-10-12', '2023-10-12'),
+       (2, 232, 1, 'Xin chào tất cả các bạn,\nChắc hẳn các bạn đang rất mệt mỏi và áp lực về nhiều thứ, nhưng nếu các bạn mãi tiêu cực như vậy, bạn sẽ cứ thế chôn vùi tương lai tươi đẹp phía trước của mình. Và tôi biết rằng để các bạn có thể tích cực và vui vẻ trở lại rất khó khăn, nhưng hãy cố gắng thực hiện theo các tips này để có thể cải thiện từng chút một nhé.\n', '2023-10-12', '2023-10-12'),
+       (3, 121, 1, 'Xin chào mọi người,\nHôm nay, tôi muốn mở lòng và chia sẻ với các bạn về tình trạng trầm cảm mà tôi đang trải qua. Đôi khi, cuộc sống có thể trở nên khó khăn và cảm giác trầm cảm đã ập đến lấn át tâm trí của tôi.\nTrong những tháng qua, tôi đã phải đối mặt với cuộc chiến với trầm cảm. Cảm giác u ám và mệt mỏi vẫn luôn hiện diện trong cuộc sống hàng ngày của tôi. Đôi khi, nó khiến tôi cảm thấy như một cuộc đấu tranh không có hồi kết. Tôi cảm thấy mất đi sự hứng thú và niềm vui với những điều trước đây tôi thường thích. Cảm xúc này thật khó diễn tả và đôi khi tôi cảm thấy mình bị lạc trong một thế giới tối tăm. Các bạn có đang gặp tình trạng giống tôi không?', '2023-10-12', '2023-10-12');
 
-select * from posts ;
+CREATE TABLE  IF NOT EXISTS comment_posts (
+  id INT PRIMARY KEY auto_increment,
+  content TEXT,
+  author varchar(50),
+  created_at TIMESTAMP,
+  post_id INT,
+  FOREIGN KEY (post_id) REFERENCES posts(id)
+);
 
-CREATE TABLE  podcasts (
+INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
+('Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
+('I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
+('This post is very informative.', 'Michael Johnson', '2023-01-03 08:45:00', 2),
+('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2),
+('I have a question regarding the topic.', 'Robert Wilson', '2023-01-05 09:10:00', 3),
+('Thanks for sharing!', 'Sophia Thompson', '2023-01-06 14:05:00', 3),
+('I enjoyed reading this post.', 'John Doe', '2023-01-07 17:55:00', 4),
+('This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
+('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
+('Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+INSERT INTO categories (id, name)
+VALUES (1, 'động lực'),
+(2, 'thiên nhiên'),
+(3, 'con người'),
+(4, 'sức khỏe'),
+(5, 'tình yêu'),
+(6, 'gia đình'),
+(7, 'bạn bè'),
+(8, 'cảm xúc'),
+(9, 'tính cách'),
+(10, 'niềm tin');
+
+
+CREATE TABLE  IF NOT EXISTS podcasts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
     description TEXT,
@@ -126,28 +185,6 @@ VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là 
 "Stress",
 123,120,3);
 
-select * from podcasts;
-
-
-CREATE TABLE IF NOT EXISTS categories (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50)
-);
-
-INSERT INTO categories (id, name)
-VALUES (1, 'động lực'),
-(2, 'thiên nhiên'),
-(3, 'con người'),
-(4, 'sức khỏe'),
-(5, 'tình yêu'),
-(6, 'gia đình'),
-(7, 'bạn bè'),
-(8, 'cảm xúc'),
-(9, 'tính cách'),
-(10, 'niềm tin');
-
-select * from categories;
-
 CREATE TABLE IF NOT EXISTS podcasts_categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     podcast_id INT,
@@ -157,14 +194,14 @@ CREATE TABLE IF NOT EXISTS podcasts_categories (
 );
 INSERT INTO podcasts_categories (podcast_id, category_id)
 VALUES (1, 3),
+(1,4)
 ( 3, 4),
 ( 2, 2),
 (5, 1),
 (4, 5);
 
-select * from podcasts_categories;
 
-CREATE TABLE  user_preferences (
+CREATE TABLE IF NOT EXISTS user_preferences (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     category_id INT,
@@ -184,10 +221,7 @@ INSERT INTO user_preferences (user_id, category_id) VALUES (4, 4);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 1);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 4);
 
-select * from user_preferences;
-
---
-CREATE TABLE  videos (
+CREATE TABLE  IF NOT EXISTS videos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     youtube_link VARCHAR(255),
     title VARCHAR(255),
@@ -201,7 +235,6 @@ CREATE TABLE  videos (
     dislike_count int
 );
 
-select * from videos;
 INSERT INTO videos (youtube_link, title, author_id, description , duration, type, view, like_count, dislike_count)
 VALUES
 ('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 1,'Description for Video 1',120, 'động lực','23',232,34),
@@ -235,62 +268,33 @@ INSERT INTO video_categories (video_id, category_id) VALUES
 (5, 1),
 (5, 2);
 
-select * from video_categories;
-
-CREATE TABLE comment_videos
-(
-    id INT PRIMARY KEY auto_increment,
-    content TEXT,
-    author varchar(50),
-    created_at TIMESTAMP,
+CREATE TABLE IF NOT EXISTS comment_videos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    content VARCHAR(255),
+    author VARCHAR(100),
+    created_at DATETIME,
     video_id INT,
-    user_id int,
-    like_count int,
-    dislike_count int ,
-    FOREIGN KEY (user_id) REFERENCES users(id),
+    user_id INT,
+    like_count INT,
+    dislike_count INT,
     FOREIGN KEY (video_id) REFERENCES videos(id)
 );
 
-INSERT INTO comment_videos ( content, author, created_at, video_id, user_id, like_count, dislike_count)
+
+INSERT INTO comment_videos (id, content, author, created_at, video_id, user_id, like_count, dislike_count)
 VALUES
-('Great video!', 'John Doe', '2023-01-01 10:00:00', 1, 1, 23, 1),
-('I learned a lot from this video.', 'Jane Smith', '2023-01-02 15:30:00', 1, 3, 212, 3),
-('Could you explain this further?', 'Michael Johnson', '2023-01-03 08:45:00', 2, 2, 323, 32),
-('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2, 4, 43, 4),
-('This video is very informative.', 'Robert Wilson', '2023-01-05 09:10:00', 3, 1, 34, 4),
-('I have a question regarding the topic.', 'Sophia Thompson', '2023-01-06 14:05:00', 3, 5, 56, 12),
-('Thanks for sharing!', 'John Doe', '2023-01-07 17:55:00', 4, 5, 21, 2),
-('I enjoyed watching this video.', 'Jane Smith', '2023-01-08 11:30:00', 4, 2, 98, 4),
-('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 5, 2, 45, 4),
-('I found this video very helpful.', 'Emily Davis', '2023-01-10 16:25:00', 5, 1, 234, 43);
-select * from comment_videos where video_id = 2;
+    (1, 'Great video!', 'John', '2023-12-31 10:15:00', 1, 1, 25, 2),
+    (2, 'Interesting content.', 'Mary', '2023-12-31 12:30:00', 1, 2, 15, 0),
+    (3, 'I disagree with some points.', 'David', '2023-12-31 14:45:00', 1, 3, 8, 5),
+    (4, 'Awesome job!', 'Sarah', '2023-12-31 16:00:00', 2, 1, 32, 1),
+    (5, 'This video changed my perspective.', 'Emma', '2023-12-31 18:15:00', 2, 2, 10, 3),
+    (6, 'Not a fan of the content.', 'Michael', '2024-01-01 09:30:00', 3, 1, 5, 12),
+    (7, 'The presenter did a great job!', 'Sophia', '2024-01-01 11:45:00', 3, 2, 20, 0),
+    (8, 'Too many ads.', 'Daniel', '2024-01-01 14:00:00', 4, 1, 2, 8),
+    (9, 'I learned a lot from this video.', 'Olivia', '2024-01-01 16:15:00', 4, 3, 18, 1),
+    (10, 'The audio quality needs improvement.', 'William', '2024-01-01 18:30:00', 5, 1, 7, 4);
 
-
-CREATE TABLE comment_posts (
-  id INT PRIMARY KEY auto_increment,
-  content TEXT,
-  author varchar(50),
-  created_at TIMESTAMP,
-  post_id INT,
-  FOREIGN KEY (post_id) REFERENCES posts(id)
-);
-
-INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
-('Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
-('I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
-('This post is very informative.', 'Michael Johnson', '2023-01-03 08:45:00', 2),
-('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2),
-('I have a question regarding the topic.', 'Robert Wilson', '2023-01-05 09:10:00', 3),
-('Thanks for sharing!', 'Sophia Thompson', '2023-01-06 14:05:00', 3),
-('I enjoyed reading this post.', 'John Doe', '2023-01-07 17:55:00', 4),
-('This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
-('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
-('Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
-
-select * from comment_posts;
-
-
-CREATE TABLE bookings (
+CREATE TABLE IF NOT EXISTS bookings (
   id INT PRIMARY KEY,
   user_id INT,
   expert_id INT,
@@ -314,24 +318,8 @@ INSERT INTO bookings (id, user_id, expert_id, appointment_time, note, created_at
 (8, 3, 8, '2023-01-08 11:45:00', 'I have questions about data analysis.', '2023-01-08 11:15:00', 'Confirmed', 3),
 (9, 4, 9, '2023-01-09 16:30:00', 'I need guidance on project planning.', '2023-01-09 16:00:00', 'Confirmed', 5),
 (10, 5, 10, '2023-01-10 12:15:00', 'I want to discuss leadership skills.', '2023-01-10 11:45:00', 'Confirmed', 4);
-
-select * from bookings;
-
-
-create table roles (
-	id int primary key,
-    name varchar(100)
- );
- INSERT INTO roles (id, name) VALUES
-(1, 'admin'),
-(2, 'client'),
-(3, 'expert');
-
-select * from roles;
-
-select * from calendar;
 -- Bảng mới
-CREATE TABLE news (
+CREATE TABLE IF NOT EXISTS news (
   id INT PRIMARY KEY auto_increment,
   title VARCHAR(255),
   descriptions TEXT,
@@ -341,7 +329,6 @@ CREATE TABLE news (
   author_id INT,
   link VARCHAR(255),
   FOREIGN KEY (author_id) REFERENCES author(author_id)
-
 );
 
 INSERT INTO news ( title, descriptions ,content, image_url,created_at,author_id, link) VALUES
@@ -834,23 +821,10 @@ TÌM HIỂU THÊM
     '2023/08/17',
     '5',
     'https://luatminhkhue.vn/nhung-cau-noi-hay-ve-su-co-gang-no-luc.aspx'
-)
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-select  * from news;
 -- Bảng mới
-CREATE TABLE new_categories (
+CREATE TABLE IF NOT EXISTS new_categories (
   id INT PRIMARY KEY,
   new_id INT,
   category_id INT,
@@ -868,47 +842,6 @@ INSERT INTO new_categories (id, new_id, category_id) VALUES
 (8,3,4),
 (9,4,1),
 (10,5,3);
--- (6, 1, 1),
--- (7, 2, 1),
--- (8, 3, 5),
--- (9, 4, 5),
--- (10, 5, 5),
--- (11,1,6),
--- (12,2,6),
--- (13,3,7),
--- (14,4,2);
-
--- author table
-CREATE TABLE author (
-    author_id INT PRIMARY KEY,
-    name_author varchar(20),
-    img VARCHAR(255)
-);
-INSERT INTO author (author_id,name_author,img) VALUES
-    (1,"Trần Văn Lực",'https://toplist.vn/images/800px/de-bi-am-anh-boi-ve-be-ngoai-420451.jpg'),
-    (2,'Lê Thị Kim Thoa','https://www.vietnamfineart.com.vn/wp-content/uploads/2023/07/hinh-anh-gai-tay-590x590-1.jpg'),
-    (3,"Huỳnh Tố Nga",'https://haycafe.vn/wp-content/uploads/2022/02/Hi%CC%80nh-a%CC%89nh-ga%CC%81i-xinh-Han-Quoc-to%CC%81c-va%CC%80ng.jpg'),
-    (4,"Phan Văn Lịch",'https://vnn-imgs-a1.vgcloud.vn/cdn.24h.com.vn/upload/1-2020/images/2020-03-15/1584240065-176-dep-trai-8-1583833459-width600height750.jpg'),
-    (5,"Nguyễn Tố Linh",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4AgsnK8DzW5VVXS2hF-0FOBB9krdex14oNBUSRG5gTiVNSCq4zMQDkzYtB6EPznFhGk&usqp=CAU');
-
-
-INSERT INTO users (name, email, password, role_id, img, address, phone_number)
-VALUES
-    ('Nguyễn Sĩ Hùng', 'hungsi@gmail.com', 'Hung@#sd23090', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '123 Đường Trần Phú, Quận Hải Châu, Đà Nẵng, Việt Nam', '093237623'),
-    ('Trần Đức Hùng', 'hung.duc@gmail.com', 'Hung@#$jsdgh6253', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '456 Đường Bạch Đằng, Quận Hòa Vang, Đà Nẵng, Việt Nam', '087623781'),
-    ('Nguyễn Bích Thủy', 'bichthhuy234@gmail.com', 'thuy90@22@#d', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '789 Đường Nguyễn Văn Linh, Quận Sơn Trà, Đà Nẵng, Việt Nam', '087623231'),
-    ('Trần Thị Mỹ Tâm', 'tranthimytam09@gmail.com', 'sdjh%#$%543sjdh', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '321 Đường Ngô Quyền, Quận Liên Chiểu, Đà Nẵng, Việt Nam', '082362233'),
-    ('Lê Văn Thắng', 'thang@gmail.com', 'sdasj%$Shew52', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '987 Đường Nguyễn Hữu Thọ, Quận Cẩm Lệ, Đà Nẵng, Việt Nam', '012834642');
-
-INSERT INTO posts (user_id, auth, created_by, updated_by, like_count, isAnonymous, content, created_at, updated_at)
-VALUES (2, 'pham gia bao', 'pham gia bao', 'pham gia bao', 23, 1, 'Bame à, con áp lực với con số. Nó một ngày một lớn. Con không biết phải làm sao nữa. Bame à.', '2023-10-12', '2023-10-12'),
-       (3, 'vân thư', 'vân thư', 'vân thư', 323, 0, 'MẬP TRĂM KÍ LÀ CẢM GIÁC như thế nào?\nLà được nhận những lời trêu đùa từ mọi người?\nLà đứa đi đâu cũng ngại. Lên xe của bạn thì sợ bể lốp. Áo mượn của bạn thì sợ bị rách.\nCác cậu cho cách nào giúp tớ không? Tớ không có nhiều thời gian cũng như chi phí để đến các phòng tập gym.', '2023-10-12', '2023-10-12'),
-       (2, 'việt mỹ', 'việt mỹ', 'việt mỹ', 232, 1, 'Xin chào tất cả các bạn,\nChắc hẳn các bạn đang rất mệt mỏi và áp lực về nhiều thứ, nhưng nếu các bạn mãi tiêu cực như vậy, bạn sẽ cứ thế chôn vùi tương lai tươi đẹp phía trước của mình. Và tôi biết rằng để các bạn có thể tích cực và vui vẻ trở lại rất khó khăn, nhưng hãy cố gắng thực hiện theo các tips này để có thể cải thiện từng chút một nhé.\n', '2023-10-12', '2023-10-12'),
-       (3, 'bích quyên', 'bích quyên', 'bích quyên', 121, 1, 'Xin chào mọi người,\nHôm nay, tôi muốn mở lòng và chia sẻ với các bạn về tình trạng trầm cảm mà tôi đang trải qua. Đôi khi, cuộc sống có thể trở nên khó khăn và cảm giác trầm cảm đã ập đến lấn át tâm trí của tôi.\nTrong những tháng qua, tôi đã phải đối mặt với cuộc chiến với trầm cảm. Cảm giác u ám và mệt mỏi vẫn luôn hiện diện trong cuộc sống hàng ngày của tôi. Đôi khi, nó khiến tôi cảm thấy như một cuộc đấu tranh không có hồi kết. Tôi cảm thấy mất đi sự hứng thú và niềm vui với những điều trước đây tôi thường thích. Cảm xúc này thật khó diễn tả và đôi khi tôi cảm thấy mình bị lạc trong một thế giới tối tăm. Các bạn có đang gặp tình trạng giống tôi không?', '2023-10-12', '2023-10-12');
-
-select *  from experts limit 6 ;
-
-
 
 INSERT INTO podcasts (title, description, author_id, youtube_link, image_url, type)
 VALUES
@@ -945,8 +878,6 @@ CREATE TABLE comment_podcast
     FOREIGN KEY (podcast_id) REFERENCES podcasts(id)
 );
 
-
-
 INSERT INTO comment_podcast (id, content, created_at, podcast_id, user_id, like_count, dislike_count)
 VALUES
     (1, 'Bài podcast rất hay!', '2023-12-27 10:30:00', 1, 1, 300, 100),
@@ -959,38 +890,4 @@ VALUES
     (8, 'Đang chờ phần phỏng vấn khách mời.', '2023-12-30 16:45:00', 4, 3, 300, 100),
     (9, 'Nên tăng thời lượng podcast lên.', '2023-12-31 11:10:00', 5, 2, 200, 50),
     (10, 'Có thể đưa ra ví dụ cụ thể hơn không?', '2024-01-01 13:20:00', 5, 3, 450, 150);
-CREATE TABLE authors
-(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    img_profile varchar(255)
-);
 
-INSERT INTO authors (name,img_profile) VALUES ('Sun','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Hồ Thị Hoài Anh','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Long Nguyễn','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg');
-
-CREATE TABLE comment_videos (
-    id INT PRIMARY KEY,
-    content VARCHAR(255),
-    author VARCHAR(100),
-    created_at DATETIME,
-    video_id INT,
-    user_id INT,
-    like_count INT,
-    dislike_count INT
-);
-
-INSERT INTO comment_videos (id, content, author, created_at, video_id, user_id, like_count, dislike_count)
-VALUES
-    (1, 'Great video!', 'John', '2023-12-31 10:15:00', 1, 1, 25, 2),
-    (2, 'Interesting content.', 'Mary', '2023-12-31 12:30:00', 1, 2, 15, 0),
-    (3, 'I disagree with some points.', 'David', '2023-12-31 14:45:00', 1, 3, 8, 5),
-    (4, 'Awesome job!', 'Sarah', '2023-12-31 16:00:00', 2, 1, 32, 1),
-    (5, 'This video changed my perspective.', 'Emma', '2023-12-31 18:15:00', 2, 2, 10, 3),
-    (6, 'Not a fan of the content.', 'Michael', '2024-01-01 09:30:00', 3, 1, 5, 12),
-    (7, 'The presenter did a great job!', 'Sophia', '2024-01-01 11:45:00', 3, 2, 20, 0),
-    (8, 'Too many ads.', 'Daniel', '2024-01-01 14:00:00', 4, 1, 2, 8),
-    (9, 'I learned a lot from this video.', 'Olivia', '2024-01-01 16:15:00', 4, 3, 18, 1),
-    (10, 'The audio quality needs improvement.', 'William', '2024-01-01 18:30:00', 5, 1, 7, 4);
-
-    select * from comment_videos;
-    select * from users;
