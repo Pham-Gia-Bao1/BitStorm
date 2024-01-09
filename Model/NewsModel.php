@@ -22,5 +22,12 @@ class News extends Connection {
         $statement->execute([':id' => $id]);
         return $statement->fetch();
     }
+    function showNews(){
+       $db= $this->connect_database();
+       $stmt = $db->prepare("SELECT * FROM news ORDER BY RAND() LIMIT 2");
+       $stmt->execute();
+       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $results;
+    }
 }
 

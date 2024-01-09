@@ -1,23 +1,24 @@
 <?php
 include("../View/LayOut/Header/Header.php");
+
 ?>
 <title>Contact Us</title>
 <?php
 include("../root/CSS/About.css.php");
 ?>
-    <div class="header">
-        <div class="heading" >
-            <div class="container-fluid">
-                <div class="row">
-                  <div class="col-sm-12 text">
+<div class="header">
+    <div class="heading">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 text">
                     <h6 style="color:black;">HOME / CONTACT US</h6>
                     <h3 class="animate-charcter"> Contact Us</h3>
                     <hr>
-                  </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <div class="bodier">
     <section>
         <div class="p-5"></div>
@@ -66,7 +67,7 @@ include("../root/CSS/About.css.php");
                     </div>
                 </form>
                 <div class="p-3"></div>
-                <form action="" >
+                <form action="">
                     <div class="input-field">
                         <input type="text" id="name" required />
                         <label for="name">Tin nhắn</label>
@@ -82,73 +83,39 @@ include("../root/CSS/About.css.php");
     <div class="p-5"></div>
     <div class="container">
         <div id="cards_landscape_wrap-2">
-        <div class="content">
-            <h5>Về Chúng Tôi </h5>
-            <h3>Các Bác Sĩ Chuyên Ngành Tâm Lý</h1>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <a href="ContactExpert">
-                        <div class="card-flyer">
-                            <div class="text-box">
-                                <div class="image-box">
-                                    <img src="https://img.freepik.com/free-photo/portrait-beautiful-young-asian-doctor-asian-woman_74190-10520.jpg?size=626&ext=jpg&uid=R118456395&ga=GA1.1.650210055.1693416336&semt=ais" alt="" />
+            <div class="content">
+                <h5>Về Chúng Tôi </h5>
+                <h3>Các Bác Sĩ Chuyên Ngành Tâm Lý</h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($experts as $ex) : ?>
+                        <div class="col-sm-4">
+                            <a href="ContactExpert?id=<?php $ex['id'] ?>">
+                                <div class="card-flyer">
+                                    <div class="text-box">
+                                        <div class="image-box">
+                                            <img src="<?php echo $ex['profile_picture'] ?>" alt="anh" style="object-fit: cover;" />
+                                        </div>
+                                        <div class="text-container">
+                                            <h6><?php echo $ex['full_name'] ?></h6>
+                                            <p><?php echo $ex['experience'] ?></p>
+                                            <span class="d-flex">
+                                                <p><?php echo $ex['phone_number'] ?>||</p>
+                                                <p><?php echo $ex['count_rating'] ?></p>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="text-container">
-                                    <h6>nguyenvanA@gmail.com</h6>
-                                    <p>Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm lo âu trong 7 năm đã giúp được hơn hàng trăm người thoát khỏi.</p>
-                                    <i class="fa-brands fa-facebook"></i>
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="ContactExpert">
-                        <div class="card-flyer">
-                            <div class="text-box">
-                                <div class="image-box">
-                                    <img src="https://img.freepik.com/free-photo/doctors-day-cute-young-brunette-guy-lab-coat-wearing-glasses-thinking-looking-up_140725-162862.jpg?w=996&t=st=1703642418~exp=1703643018~hmac=898ed322167a963b15a6c4b0cbd0dc68c736175ac9d63859457167f0016e05f4" alt="" />
-                                </div>
-                                <div class="text-container">                                    
-                                    <h6>phamdinhD@outlook.com</h6>
-                                    <p>Kinh nghiệm trong việc hỗ trợ những người gặp khó khăn trong quá trình luyện phục hồi sau chấn thương trong 3 năm.</p>
-                                    <i class="fa-brands fa-facebook"></i>
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="ContactExpert">
-                        <div class="card-flyer">
-                            <div class="text-box">
-                                <div class="image-box">
-                                    <img src="https://img.freepik.com/free-photo/smiling-asian-male-doctor-pointing-upwards_1262-18321.jpg?w=996&t=st=1703642535~exp=1703643135~hmac=5b6d6b7084fcd32cda69109c2402529ec82d67ee60ebcba0f07f34d7ebe9dfe1" alt="" />
-                                </div>
-                                <div class="text-container">
-                                    <h6>tranthiB@yahoo.com</h6>
-                                   <p>Kinh nghiệm tư vấn tâm lý trong việc quản lý căng thẳng và xử lý áp lực công việc trong 9 năm làm việc tại bệnh viện.</p>
-                                   <i class="fa-brands fa-facebook"></i>
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </div>
 <div class="p-5"></div>
-
-
 <?php
-
 include("../View/LayOut/Footer/Footer.php")
-
 ?>

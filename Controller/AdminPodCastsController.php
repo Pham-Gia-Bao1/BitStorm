@@ -10,9 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (isset($_POST['description'])) {
             $description = htmlspecialchars($_POST['description']);
         }
-        if (isset($_POST['created_at'])) {
-            $created_at = htmlspecialchars($_POST['created_at']);
-        }
         if (isset($_POST['youtube_link'])) {
             $youtube_link = htmlspecialchars($_POST['youtube_link']);
         }
@@ -29,16 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $view = htmlspecialchars($_POST['view']);
         }
         $id = htmlspecialchars($_POST['id']);
-        $result = updateVideo($id, $title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
+        $result = updateVideo($id, $title, $description, $author_id, $youtube_link, $image_url, $type, $view);
     } else {
         if (isset($_POST['title'])) {
             $title = htmlspecialchars($_POST['title']);
         }
         if (isset($_POST['description'])) {
             $description = htmlspecialchars($_POST['description']);
-        }
-        if (isset($_POST['created_at'])) {
-            $created_at = htmlspecialchars($_POST['created_at']);
         }
         if (isset($_POST['youtube_link'])) {
             $youtube_link = htmlspecialchars($_POST['youtube_link']);
@@ -55,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (isset($_POST['view'])) {
             $view = htmlspecialchars($_POST['view']);
         }
-        $result = createVideo($title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
+        $result = createVideo($title, $description, $author_id, $youtube_link, $image_url, $type, $view);
     }
 }
 if (isset($_GET['id'])) {
