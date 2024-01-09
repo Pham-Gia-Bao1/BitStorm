@@ -165,12 +165,11 @@ include_once("../Controller/AdminPodcastsController.php")
                     </div>
                     <div class="modal-body">
                         <form method="post" action="AdminPodCasts">
-                            <input type="hidden" value="<?php echo $id ?>" name="id">
-
-                            <div class="form-group">
+                            <input type="hidden" name="id" value="<?php echo $video['id']; ?>">
+                            <!-- <div class="form-group">
                                 <label for="usr">id</label>
                                 <input type="text" class="form-control" id="id" name="id_update_video" value="<?php echo $video['id'] ?>" disabled>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="usr">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" value="<?php echo $video['title'] ?>">

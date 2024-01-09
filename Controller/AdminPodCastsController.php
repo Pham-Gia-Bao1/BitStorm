@@ -1,41 +1,66 @@
-<?php 
+<?php
 include "../root/CSS/Admin/AdminNews.css.php";
 include "../Model/AdminPodCastsModel.php";
-if($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['id'])){
-    $title = htmlspecialchars($_POST['title']);
-    $description = htmlspecialchars($_POST['description']);
-    $created_at = htmlspecialchars($_POST['created_at']);
-    $youtube_link = htmlspecialchars($_POST['youtube_link']);
-    $author_id = htmlspecialchars($_POST['author_id']);
-    $image_url = htmlspecialchars($_POST['image_url']);
-    $type = htmlspecialchars($_POST['type']);
-    $view = htmlspecialchars($_POST['view']);
-    $id = htmlspecialchars($_POST['id']);
-    echo $id;
-    $result = updateVideo($id,$title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
-    print_r($result);
-    // if ($result) {
-    //     header('Location: AdminPodCasts');
-    // }
-}
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    $title = htmlspecialchars($_POST['title']);
-    $description = htmlspecialchars($_POST['description']);
-    $created_at = htmlspecialchars($_POST['created_at']);
-    $youtube_link = htmlspecialchars($_POST['youtube_link']);
-    $author_id = htmlspecialchars($_POST['author_id']);
-    $image_url = htmlspecialchars($_POST['image_url']);
-    $type = htmlspecialchars($_POST['type']);
-    $view = htmlspecialchars($_POST['view']);
-    $result = createVideo($title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
-    // if ($result) {
-    //     header('Location: AdminPodCasts');
-    // }
-}
 
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['id'])) {
+        if (isset($_POST['title'])) {
+            $title = htmlspecialchars($_POST['title']);
+        }
+        if (isset($_POST['description'])) {
+            $description = htmlspecialchars($_POST['description']);
+        }
+        if (isset($_POST['created_at'])) {
+            $created_at = htmlspecialchars($_POST['created_at']);
+        }
+        if (isset($_POST['youtube_link'])) {
+            $youtube_link = htmlspecialchars($_POST['youtube_link']);
+        }
+        if (isset($_POST['author_id'])) {
+            $author_id = htmlspecialchars($_POST['author_id']);
+        }
+        if (isset($_POST['image_url'])) {
+            $image_url = htmlspecialchars($_POST['image_url']);
+        }
+        if (isset($_POST['type'])) {
+            $type = htmlspecialchars($_POST['type']);
+        }
+        if (isset($_POST['view'])) {
+            $view = htmlspecialchars($_POST['view']);
+        }
+        $id = htmlspecialchars($_POST['id']);
+        $result = updateVideo($id, $title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
+    } else {
+        if (isset($_POST['title'])) {
+            $title = htmlspecialchars($_POST['title']);
+        }
+        if (isset($_POST['description'])) {
+            $description = htmlspecialchars($_POST['description']);
+        }
+        if (isset($_POST['created_at'])) {
+            $created_at = htmlspecialchars($_POST['created_at']);
+        }
+        if (isset($_POST['youtube_link'])) {
+            $youtube_link = htmlspecialchars($_POST['youtube_link']);
+        }
+        if (isset($_POST['author_id'])) {
+            $author_id = htmlspecialchars($_POST['author_id']);
+        }
+        if (isset($_POST['image_url'])) {
+            $image_url = htmlspecialchars($_POST['image_url']);
+        }
+        if (isset($_POST['type'])) {
+            $type = htmlspecialchars($_POST['type']);
+        }
+        if (isset($_POST['view'])) {
+            $view = htmlspecialchars($_POST['view']);
+        }
+        $result = createVideo($title, $description, $author_id, $youtube_link, $created_at, $image_url, $type, $view);
+    }
+}
 if (isset($_GET['id'])) {
     $id_delete = $_GET['id'];
-    $result =deleteVideo($id_delete);
+    $result = deleteVideo($id_delete);
     if ($result) {
         header('Location: AdminPodCasts');
         exit();

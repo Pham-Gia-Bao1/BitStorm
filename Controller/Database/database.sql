@@ -1,20 +1,31 @@
-CREATE DATABASE   data_php;
+CREATE DATABASE  IF NOT EXISTS data_php;
 USE data_php;
 -- drop database data_php;
+
+create table  IF NOT EXISTS roles (
+	id int primary key auto_increment,
+    name varchar(100)
+ );
+ INSERT INTO roles (id, name) VALUES
+(1, 'admin'),
+(2, 'client'),
+(3, 'expert');
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
     email VARCHAR(100),
     password VARCHAR(255),
-    role_id INT,
+    role_id INT ,
     img VARCHAR(255),
     address varchar(255),
     phone_number int,
+    FOREIGN KEY (role_id) REFERENCES roles(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	status BOOLEAN NOT NULL
 );
+
 
 INSERT INTO users (name, email, password, role_id, img, address, phone_number,status)
 VALUES
@@ -27,6 +38,8 @@ VALUES
 
 CREATE TABLE experts (
   id INT PRIMARY KEY AUTO_INCREMENT,
+  role_id INT,
+  FOREIGN KEY (role_id) REFERENCES roles(id), 
   full_name varchar(255),
   gender VARCHAR(10),
   address VARCHAR(255),
@@ -41,20 +54,19 @@ CREATE TABLE experts (
   status BOOLEAN NOT NULL
 );
 
-INSERT INTO experts (id,full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status) VALUES
-(1, 'Hồ Thị Mỹ Anh', 'Male', '123 Ngô Quyền, Hải Châu, Đà Nẵng.', 'john.doe@example.com', '1234567890', 30, 'Giảng viên Khoa Tâm lý học, trường ĐH Khoa Học Xã Hội Và Nhân Văn (ĐHQGHN). Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm và lo âu trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbqu-0Q8CDAeN2O7GL0-IBmyCSTVMQGTBLA&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý học",1),
-(2, 'Nguyễn Anh Tú','Male', '456 Trần Phú, Thanh Khê, Đà Nẵng.', 'jane.smith@example.com', '9876543210', 35, 'Chuyên gia tham vấn tâm lý trên nhóm thân chủ là người trưởng thành cho các khó khăn tâm lý về công việc, cuộc sống hôn nhân, các mối liên hệ. Kinh nghiệm tham vấn tâm lý cho nhân viên y tế tham gia chống dịch Covid-19 và người lao động có căng thẳng, rối loạn lo âu, trầm cảm do công việc/các điều kiện cuộc sống.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ1yVXix9ieLDoQ9MKtLaWIoF9DNJj-vDMw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Tiến sĩ Tâm lý học",1),
-(3, 'Phạm Minh Đức','Male', '789 Lê Duẩn, Sơn Trà, Đà Nẵng.', 'michael.johnson@example.com', '4567890123', 40, 'Điều trị các rối loạn tâm thần và tâm lý. Các rối loạn liên quan stress và dạng cơ thể, các rối loạn hành vi và sinh lý, rối loạn cảm xúc, rối loạn tâm thần người già, rối loạn tâm thần trẻ em và vị thành niên, các triệu chứng loạn thần với hoang tưởng, ảo giác, rối loạn hành vi..', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPnzAB_u-HL7U1UT2rWrZOJQRE-UjQ1Y8uLDbQMKOgHjeWpiYjahiiM-9znL55iF2DxLw&usqp=CAU',5,'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
-(4,'Hoàng Thị Diễm Trang', 'Female', '321 Bạch Đằng, Hòa Vang, Đà Nẵng.', 'emily.davis@example.com', '3210987654', 28, 'Tham vấn trị liệu tâm lý cho người trưởng thành, các mối quan hệ trong gia đình, các rối nhiễu tâm lý như trầm cảm, lo âu, rối loạn lưỡng cực, ám ảnh, sợ hãi.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTje4oiuXbsZY56QeeuBsPCibkPloH_fJ5TAw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
-(5,'Huỳnh Thị Hường', 'Male', '654 Nguyễn Văn Linh, Liên Chiểu, Đà Nẵng.', 'robert.wilson@example.com', '7890123456', 32, 'Kinh nghiệm tư vấn tâm lý cho người trưởng thành, học sinh, sinh viên liên quan đến các vấn đề về tình yêu hôn nhân gia đình, học tập và cuộc sống, xung đột trong các mối quan hệ.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf1Pl_hNeFRprpB1CVWpq50tfEEoFDvCK1wXP_1bUX7n3O6h8GzlsoYE0vmqn3wXWaerY&usqp=CAU%27', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
-(6, 'Phạm Thị Ngọc Trâm', 'Female', '987 Điện Biên Phủ, Cẩm Lệ, Đà Nẵng.', 'sophia.thompson@example.com', '2109876543', 38, 'Thực hiện các trường hợp tư vấn tâm lý, trị liệu cho thanh thiếu niên và người trưởng thành có rối nhiễu tâm lý như trầm cảm, rối loạn lo âu  trong vòng 6 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3yXDHKFG-8n9quKfcsGe409t_5m2UG_nQxQ&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
-(7, 'Đặng Quang Minh','Male', '234 Hàn Thuyên, Ngũ Hành Sơn, Đà Nẵng.', 'william.johnson@example.com', '5678901234', 45, 'Tham vấn/trị liêu cho nhóm thân chủ có độ tuổi từ 18 đến 35 về các vấn đề cá nhân và các bậc phụ huynh về các phương pháp làm việc với trẻ em. Nghiên cứu và phát triển những trường hợp gặp khó khăn liên quan đến tâm lý về những kết nối với bản thân, gia đình và xã hội.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6k3mVWpBVfnzxxCNtBQ5SHtyBiFACtcDV3w&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý",1),
-(8, 'Bùi Thị Lan','Female', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Tham vấn cho thanh thiếu niên và người trẻ về các dạng rối loạn, khó khăn liên quan đến cảm xúc (lo âu, căng thẳng, trầm cảm…), khủng hoảng bản sắc, vấn đề giới và phát triển, khó khăn trong kết nối và xây dựng các mối quan hệ (tình bạn, tình yêu, kết nối giữa cha mẹ – con cái).', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkjSwH73LqDpz7kklerQsP1GfXJ_Nca-5cnmc7u9guB8aNse2C9lgi7mUuMFb9p94XHsc&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
-(9, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Thạc sĩ tâm lý tại New York, Mỹ. Có thế mạnh trong việc chẩn đoán, trị liệu phát triển phát đồ, trị liệu cá nhân và nhóm đối với các bệnh nhân trầm cảm, lo âu, stress, OCD, rối loạn nhân cách, rối loạn điều tiết cảm xúc, tự gây tổn thương và tự sát.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBTGIhpDfxhtCb7tSsh6-VgqIO-gNmhRWJmH7tETjTgz-YbB6HDJwgTubhxrLhD1ueVs&usqp=CAU%27', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
-(10, 'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý",1);
-select * from experts;
+INSERT INTO experts (id,role_id,full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status) VALUES
+(1, 3, 'Hồ Thị Mỹ Anh', 'Male', '123 Ngô Quyền, Hải Châu, Đà Nẵng.', 'john.doe@example.com', '1234567890', 30, 'Giảng viên Khoa Tâm lý học, trường ĐH Khoa Học Xã Hội Và Nhân Văn (ĐHQGHN). Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm và lo âu trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbqu-0Q8CDAeN2O7GL0-IBmyCSTVMQGTBLA&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý học",1),
+(2,3, 'Nguyễn Anh Tú','Male', '456 Trần Phú, Thanh Khê, Đà Nẵng.', 'jane.smith@example.com', '9876543210', 35, 'Chuyên gia tham vấn tâm lý trên nhóm thân chủ là người trưởng thành cho các khó khăn tâm lý về công việc, cuộc sống hôn nhân, các mối liên hệ. Kinh nghiệm tham vấn tâm lý cho nhân viên y tế tham gia chống dịch Covid-19 và người lao động có căng thẳng, rối loạn lo âu, trầm cảm do công việc/các điều kiện cuộc sống.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ1yVXix9ieLDoQ9MKtLaWIoF9DNJj-vDMw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Tiến sĩ Tâm lý học",1),
+(3,3, 'Phạm Minh Đức','Male', '789 Lê Duẩn, Sơn Trà, Đà Nẵng.', 'michael.johnson@example.com', '4567890123', 40, 'Điều trị các rối loạn tâm thần và tâm lý. Các rối loạn liên quan stress và dạng cơ thể, các rối loạn hành vi và sinh lý, rối loạn cảm xúc, rối loạn tâm thần người già, rối loạn tâm thần trẻ em và vị thành niên, các triệu chứng loạn thần với hoang tưởng, ảo giác, rối loạn hành vi..', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPnzAB_u-HL7U1UT2rWrZOJQRE-UjQ1Y8uLDbQMKOgHjeWpiYjahiiM-9znL55iF2DxLw&usqp=CAU',5,'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
+(4,3,'Hoàng Thị Diễm Trang', 'Female', '321 Bạch Đằng, Hòa Vang, Đà Nẵng.', 'emily.davis@example.com', '3210987654', 28, 'Tham vấn trị liệu tâm lý cho người trưởng thành, các mối quan hệ trong gia đình, các rối nhiễu tâm lý như trầm cảm, lo âu, rối loạn lưỡng cực, ám ảnh, sợ hãi.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTje4oiuXbsZY56QeeuBsPCibkPloH_fJ5TAw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
+(5,3,'Huỳnh Thị Hường', 'Male', '654 Nguyễn Văn Linh, Liên Chiểu, Đà Nẵng.', 'robert.wilson@example.com', '7890123456', 32, 'Kinh nghiệm tư vấn tâm lý cho người trưởng thành, học sinh, sinh viên liên quan đến các vấn đề về tình yêu hôn nhân gia đình, học tập và cuộc sống, xung đột trong các mối quan hệ.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf1Pl_hNeFRprpB1CVWpq50tfEEoFDvCK1wXP_1bUX7n3O6h8GzlsoYE0vmqn3wXWaerY&usqp=CAU%27', 5,3,'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
+(6,3,'Phạm Thị Ngọc Trâm', 'Female', '987 Điện Biên Phủ, Cẩm Lệ, Đà Nẵng.', 'sophia.thompson@example.com', '2109876543', 38, 'Thực hiện các trường hợp tư vấn tâm lý, trị liệu cho thanh thiếu niên và người trưởng thành có rối nhiễu tâm lý như trầm cảm, rối loạn lo âu  trong vòng 6 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3yXDHKFG-8n9quKfcsGe409t_5m2UG_nQxQ&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
+(7,3,'Đặng Quang Minh','Male', '234 Hàn Thuyên, Ngũ Hành Sơn, Đà Nẵng.', 'william.johnson@example.com', '5678901234', 45, 'Tham vấn/trị liêu cho nhóm thân chủ có độ tuổi từ 18 đến 35 về các vấn đề cá nhân và các bậc phụ huynh về các phương pháp làm việc với trẻ em. Nghiên cứu và phát triển những trường hợp gặp khó khăn liên quan đến tâm lý về những kết nối với bản thân, gia đình và xã hội.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6k3mVWpBVfnzxxCNtBQ5SHtyBiFACtcDV3w&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý",1),
+(8,3, 'Bùi Thị Lan','Female', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Tham vấn cho thanh thiếu niên và người trẻ về các dạng rối loạn, khó khăn liên quan đến cảm xúc (lo âu, căng thẳng, trầm cảm…), khủng hoảng bản sắc, vấn đề giới và phát triển, khó khăn trong kết nối và xây dựng các mối quan hệ (tình bạn, tình yêu, kết nối giữa cha mẹ – con cái).', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkjSwH73LqDpz7kklerQsP1GfXJ_Nca-5cnmc7u9guB8aNse2C9lgi7mUuMFb9p94XHsc&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
+(9,3, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Thạc sĩ tâm lý tại New York, Mỹ. Có thế mạnh trong việc chẩn đoán, trị liệu phát triển phát đồ, trị liệu cá nhân và nhóm đối với các bệnh nhân trầm cảm, lo âu, stress, OCD, rối loạn nhân cách, rối loạn điều tiết cảm xúc, tự gây tổn thương và tự sát.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBTGIhpDfxhtCb7tSsh6-VgqIO-gNmhRWJmH7tETjTgz-YbB6HDJwgTubhxrLhD1ueVs&usqp=CAU%27', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
+(10, 3,'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý",1);
 
-CREATE TABLE calendar (
+CREATE TABLE   IF NOT EXISTS calendar (
   id INT PRIMARY KEY,
   day DATE,
   start_time TIME,
@@ -75,13 +87,9 @@ INSERT INTO calendar (id, day, start_time, end_time, price, describer, expert_id
 (8, '2023-12-31', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 8),
 (9, '2024-01-01', '10:00:00', '12:00:00', 65.000, 'Morning availability', 9),
 (10, '2024-01-01', '15:00:00', '17:00:00', 60.000, 'Afternoon availability', 10);
-select * from calendar;
 CREATE TABLE IF NOT EXISTS posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    auth varchar(100),
-    created_by VARCHAR(50),
-    updated_by VARCHAR(50),
     like_count INT,
     isAnonymous BOOLEAN,
     content TEXT,
@@ -89,10 +97,52 @@ CREATE TABLE IF NOT EXISTS posts (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+INSERT INTO posts (user_id,like_count, isAnonymous, content, created_at, updated_at)
+VALUES (2, 23, 1, 'Bame à, con áp lực với con số. Nó một ngày một lớn. Con không biết phải làm sao nữa. Bame à.', '2023-10-12', '2023-10-12'),
+       (3, 323, 0, 'MẬP TRĂM KÍ LÀ CẢM GIÁC như thế nào?\nLà được nhận những lời trêu đùa từ mọi người?\nLà đứa đi đâu cũng ngại. Lên xe của bạn thì sợ bể lốp. Áo mượn của bạn thì sợ bị rách.\nCác cậu cho cách nào giúp tớ không? Tớ không có nhiều thời gian cũng như chi phí để đến các phòng tập gym.', '2023-10-12', '2023-10-12'),
+       (2, 232, 1, 'Xin chào tất cả các bạn,\nChắc hẳn các bạn đang rất mệt mỏi và áp lực về nhiều thứ, nhưng nếu các bạn mãi tiêu cực như vậy, bạn sẽ cứ thế chôn vùi tương lai tươi đẹp phía trước của mình. Và tôi biết rằng để các bạn có thể tích cực và vui vẻ trở lại rất khó khăn, nhưng hãy cố gắng thực hiện theo các tips này để có thể cải thiện từng chút một nhé.\n', '2023-10-12', '2023-10-12'),
+       (3, 121, 1, 'Xin chào mọi người,\nHôm nay, tôi muốn mở lòng và chia sẻ với các bạn về tình trạng trầm cảm mà tôi đang trải qua. Đôi khi, cuộc sống có thể trở nên khó khăn và cảm giác trầm cảm đã ập đến lấn át tâm trí của tôi.\nTrong những tháng qua, tôi đã phải đối mặt với cuộc chiến với trầm cảm. Cảm giác u ám và mệt mỏi vẫn luôn hiện diện trong cuộc sống hàng ngày của tôi. Đôi khi, nó khiến tôi cảm thấy như một cuộc đấu tranh không có hồi kết. Tôi cảm thấy mất đi sự hứng thú và niềm vui với những điều trước đây tôi thường thích. Cảm xúc này thật khó diễn tả và đôi khi tôi cảm thấy mình bị lạc trong một thế giới tối tăm. Các bạn có đang gặp tình trạng giống tôi không?', '2023-10-12', '2023-10-12');
 
-select * from posts ;
+CREATE TABLE  IF NOT EXISTS comment_posts (
+  id INT PRIMARY KEY auto_increment,
+  content TEXT,
+  author varchar(50),
+  created_at TIMESTAMP,
+  post_id INT,
+  FOREIGN KEY (post_id) REFERENCES posts(id)
+);
 
-CREATE TABLE  podcasts (
+INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
+('Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
+('I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
+('This post is very informative.', 'Michael Johnson', '2023-01-03 08:45:00', 2),
+('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2),
+('I have a question regarding the topic.', 'Robert Wilson', '2023-01-05 09:10:00', 3),
+('Thanks for sharing!', 'Sophia Thompson', '2023-01-06 14:05:00', 3),
+('I enjoyed reading this post.', 'John Doe', '2023-01-07 17:55:00', 4),
+('This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
+('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
+('Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+INSERT INTO categories (id, name)
+VALUES (1, 'động lực'),
+(2, 'thiên nhiên'),
+(3, 'con người'),
+(4, 'sức khỏe'),
+(5, 'tình yêu'),
+(6, 'gia đình'),
+(7, 'bạn bè'),
+(8, 'cảm xúc'),
+(9, 'tính cách'),
+(10, 'niềm tin');
+
+
+CREATE TABLE  IF NOT EXISTS podcasts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
     description TEXT,
@@ -127,28 +177,6 @@ VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là 
 "Stress",
 123,120,3);
 
-select * from podcasts;
-
-
-CREATE TABLE IF NOT EXISTS categories (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50)
-);
-
-INSERT INTO categories (id, name)
-VALUES (1, 'động lực'),
-(2, 'thiên nhiên'),
-(3, 'con người'),
-(4, 'sức khỏe'),
-(5, 'tình yêu'),
-(6, 'gia đình'),
-(7, 'bạn bè'),
-(8, 'cảm xúc'),
-(9, 'tính cách'),
-(10, 'niềm tin');
-
-select * from categories;
-
 CREATE TABLE IF NOT EXISTS podcasts_categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     podcast_id INT,
@@ -158,14 +186,14 @@ CREATE TABLE IF NOT EXISTS podcasts_categories (
 );
 INSERT INTO podcasts_categories (podcast_id, category_id)
 VALUES (1, 3),
+(1,4),
 ( 3, 4),
 ( 2, 2),
 (5, 1),
 (4, 5);
 
-select * from podcasts_categories;
 
-CREATE TABLE  user_preferences (
+CREATE TABLE IF NOT EXISTS user_preferences (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     category_id INT,
@@ -185,10 +213,7 @@ INSERT INTO user_preferences (user_id, category_id) VALUES (4, 4);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 1);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 4);
 
-select * from user_preferences;
-
---
-CREATE TABLE  videos (
+CREATE TABLE  IF NOT EXISTS videos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     youtube_link VARCHAR(255),
     title VARCHAR(255),
@@ -202,7 +227,6 @@ CREATE TABLE  videos (
     dislike_count int
 );
 
-select * from videos;
 INSERT INTO videos (youtube_link, title, author_id, description , duration, type, view, like_count, dislike_count)
 VALUES
 ('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 1,'Description for Video 1',120, 'động lực','23',232,34),
@@ -236,23 +260,20 @@ INSERT INTO video_categories (video_id, category_id) VALUES
 (5, 1),
 (5, 2);
 
-select * from video_categories;
-
-CREATE TABLE comment_videos
-(
-    id INT PRIMARY KEY auto_increment,
-    content TEXT,
-    author varchar(50),
-    created_at TIMESTAMP,
+CREATE TABLE IF NOT EXISTS comment_videos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    content VARCHAR(255),
+    author VARCHAR(100),
+    created_at DATETIME,
     video_id INT,
-    user_id int,
-    like_count int,
-    dislike_count int ,
-    FOREIGN KEY (user_id) REFERENCES users(id),
+    user_id INT,
+    like_count INT,
+    dislike_count INT,
     FOREIGN KEY (video_id) REFERENCES videos(id)
 );
 
-INSERT INTO comment_videos ( content, author, created_at, video_id, user_id, like_count, dislike_count)
+
+INSERT INTO comment_videos (content, author, created_at, video_id, user_id, like_count, dislike_count)
 VALUES
 ('Great video!', 'John Doe', '2023-01-01 10:00:00', 1, 1, 23, 1),
 ('I learned a lot from this video.', 'Jane Smith', '2023-01-02 15:30:00', 1, 3, 212, 3),
@@ -264,7 +285,6 @@ VALUES
 ('I enjoyed watching this video.', 'Jane Smith', '2023-01-08 11:30:00', 4, 2, 98, 4),
 ('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 5, 2, 45, 4),
 ('I found this video very helpful.', 'Emily Davis', '2023-01-10 16:25:00', 5, 1, 234, 43);
-select * from comment_videos where video_id = 2;
 
 
 CREATE TABLE comment_posts (
@@ -291,14 +311,12 @@ INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
 select * from comment_posts;
 
 
-CREATE TABLE bookings (
+CREATE TABLE IF NOT EXISTS bookings (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,
   expert_id INT,
   calendar_id INT,
-  appointment_startTime DATETIME,
-  appointment_endTime DATETIME,
-  note TEXT,
+  note varchar(255),
   created_at DATETIME,
   status VARCHAR(20),
   rating INT,
@@ -307,34 +325,19 @@ CREATE TABLE bookings (
   FOREIGN KEY (calendar_id) REFERENCES calendar(id)
 );
 
-INSERT INTO bookings (id, user_id, expert_id, note, created_at, status, rating) VALUES
-(1, 1, 1, 'Tôi muốn tư vấn về việc trầm cảm học đường.', '2023-01-01 09:30:00', 'Confirmed', 4),
-(2,2, 2, 'Tôi muốn tư vấn về việc bị bạo lực học đường.', '2023-01-02 13:45:00', 'Confirmed', 5),
-(3,3, 3, 'Tôi muốn tư vấn về việc bất đồng ý kiến với ba mẹ.', '2023-01-03 10:45:00', 'Confirmed', 3),
-(4,4, 4, 'Tôi muốn tư vấn về chứng rối loạn lo âu.', '2023-01-04 15:30:00', 'Confirmed', 5),
-(5,5, 5, 'Tôi muốn tư vấn về việc thiếu động lực', '2023-01-05 13:15:00', 'Confirmed', 4),
-(6,1, 6, 'Tôi muốn tư vấn về việc trầm cảm do tan vỡ hôn nhân.', '2023-01-06 09:00:00', 'Confirmed', 5),
-(7,2, 7, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-07 13:30:00', 'Confirmed', 4),
-(8,3, 8, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-08 11:15:00', 'Confirmed', 3),
-(9,4, 9, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-09 16:00:00', 'Confirmed', 5),
-(10,5, 10, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-10 11:45:00', 'Confirmed', 4);
-ALTER TABLE bookings AUTO_INCREMENT=1;
-
-
-create table roles (
-	id int primary key,
-    name varchar(100)
- );
- INSERT INTO roles (id, name) VALUES
-(1, 'admin'),
-(2, 'client'),
-(3, 'expert');
-
-select * from roles;
-
-select * from calendar;
+INSERT INTO bookings (id, user_id, expert_id, note, created_at, status, rating, calendar_id) VALUES
+(1, 1, 1, 'Tôi muốn tư vấn về việc trầm cảm học đường.', '2023-01-01 09:30:00', 'Confirmed', 4,1),
+(2,2, 2, 'Tôi muốn tư vấn về việc bị bạo lực học đường.', '2023-01-02 13:45:00', 'Confirmed', 5,1),
+(3,3, 3, 'Tôi muốn tư vấn về việc bất đồng ý kiến với ba mẹ.', '2023-01-03 10:45:00', 'Confirmed', 3,2),
+(4,4, 4, 'Tôi muốn tư vấn về chứng rối loạn lo âu.', '2023-01-04 15:30:00', 'Confirmed', 5, 5),
+(5,5, 5, 'Tôi muốn tư vấn về việc thiếu động lực', '2023-01-05 13:15:00', 'Confirmed', 4, 4),
+(6,1, 6, 'Tôi muốn tư vấn về việc trầm cảm do tan vỡ hôn nhân.', '2023-01-06 09:00:00', 'Confirmed', 5,6),
+(7,2, 7, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-07 13:30:00', 'Confirmed', 4,8),
+(8,3, 8, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-08 11:15:00', 'Confirmed', 3,10),
+(9,4, 9, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-09 16:00:00', 'Confirmed', 5,9),
+(10,5, 10, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-10 11:45:00', 'Confirmed', 4, 7);
 -- Bảng mới
-CREATE TABLE news (
+CREATE TABLE IF NOT EXISTS news (
   id INT PRIMARY KEY auto_increment,
   title VARCHAR(255),
   descriptions TEXT,
@@ -344,7 +347,6 @@ CREATE TABLE news (
   author_id INT,
   link VARCHAR(255),
   FOREIGN KEY (author_id) REFERENCES author(author_id)
-
 );
 
 INSERT INTO news ( title, descriptions ,content, image_url,created_at,author_id, link) VALUES
@@ -837,23 +839,10 @@ TÌM HIỂU THÊM
     '2023/08/17',
     '5',
     'https://luatminhkhue.vn/nhung-cau-noi-hay-ve-su-co-gang-no-luc.aspx'
-)
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-select  * from news;
 -- Bảng mới
-CREATE TABLE new_categories (
+CREATE TABLE IF NOT EXISTS new_categories (
   id INT PRIMARY KEY,
   new_id INT,
   category_id INT,
@@ -871,47 +860,6 @@ INSERT INTO new_categories (id, new_id, category_id) VALUES
 (8,3,4),
 (9,4,1),
 (10,5,3);
--- (6, 1, 1),
--- (7, 2, 1),
--- (8, 3, 5),
--- (9, 4, 5),
--- (10, 5, 5),
--- (11,1,6),
--- (12,2,6),
--- (13,3,7),
--- (14,4,2);
-
--- author table
-CREATE TABLE author (
-    author_id INT PRIMARY KEY,
-    name_author varchar(20),
-    img VARCHAR(255)
-);
-INSERT INTO author (author_id,name_author,img) VALUES
-    (1,"Trần Văn Lực",'https://toplist.vn/images/800px/de-bi-am-anh-boi-ve-be-ngoai-420451.jpg'),
-    (2,'Lê Thị Kim Thoa','https://www.vietnamfineart.com.vn/wp-content/uploads/2023/07/hinh-anh-gai-tay-590x590-1.jpg'),
-    (3,"Huỳnh Tố Nga",'https://haycafe.vn/wp-content/uploads/2022/02/Hi%CC%80nh-a%CC%89nh-ga%CC%81i-xinh-Han-Quoc-to%CC%81c-va%CC%80ng.jpg'),
-    (4,"Phan Văn Lịch",'https://vnn-imgs-a1.vgcloud.vn/cdn.24h.com.vn/upload/1-2020/images/2020-03-15/1584240065-176-dep-trai-8-1583833459-width600height750.jpg'),
-    (5,"Nguyễn Tố Linh",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4AgsnK8DzW5VVXS2hF-0FOBB9krdex14oNBUSRG5gTiVNSCq4zMQDkzYtB6EPznFhGk&usqp=CAU');
-
-
-INSERT INTO users (name, email, password, role_id, img, address, phone_number)
-VALUES
-    ('Nguyễn Sĩ Hùng', 'hungsi@gmail.com', 'Hung@#sd23090', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '123 Đường Trần Phú, Quận Hải Châu, Đà Nẵng, Việt Nam', '093237623'),
-    ('Trần Đức Hùng', 'hung.duc@gmail.com', 'Hung@#$jsdgh6253', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '456 Đường Bạch Đằng, Quận Hòa Vang, Đà Nẵng, Việt Nam', '087623781'),
-    ('Nguyễn Bích Thủy', 'bichthhuy234@gmail.com', 'thuy90@22@#d', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '789 Đường Nguyễn Văn Linh, Quận Sơn Trà, Đà Nẵng, Việt Nam', '087623231'),
-    ('Trần Thị Mỹ Tâm', 'tranthimytam09@gmail.com', 'sdjh%#$%543sjdh', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '321 Đường Ngô Quyền, Quận Liên Chiểu, Đà Nẵng, Việt Nam', '082362233'),
-    ('Lê Văn Thắng', 'thang@gmail.com', 'sdasj%$Shew52', 3, 'https://www.shutterstock.com/image-photo/man-portrait-doctor-wearing-white-600nw-2278090533.jpg', '987 Đường Nguyễn Hữu Thọ, Quận Cẩm Lệ, Đà Nẵng, Việt Nam', '012834642');
-
-INSERT INTO posts (user_id, auth, created_by, updated_by, like_count, isAnonymous, content, created_at, updated_at)
-VALUES (2, 'pham gia bao', 'pham gia bao', 'pham gia bao', 23, 1, 'Bame à, con áp lực với con số. Nó một ngày một lớn. Con không biết phải làm sao nữa. Bame à.', '2023-10-12', '2023-10-12'),
-       (3, 'vân thư', 'vân thư', 'vân thư', 323, 0, 'MẬP TRĂM KÍ LÀ CẢM GIÁC như thế nào?\nLà được nhận những lời trêu đùa từ mọi người?\nLà đứa đi đâu cũng ngại. Lên xe của bạn thì sợ bể lốp. Áo mượn của bạn thì sợ bị rách.\nCác cậu cho cách nào giúp tớ không? Tớ không có nhiều thời gian cũng như chi phí để đến các phòng tập gym.', '2023-10-12', '2023-10-12'),
-       (2, 'việt mỹ', 'việt mỹ', 'việt mỹ', 232, 1, 'Xin chào tất cả các bạn,\nChắc hẳn các bạn đang rất mệt mỏi và áp lực về nhiều thứ, nhưng nếu các bạn mãi tiêu cực như vậy, bạn sẽ cứ thế chôn vùi tương lai tươi đẹp phía trước của mình. Và tôi biết rằng để các bạn có thể tích cực và vui vẻ trở lại rất khó khăn, nhưng hãy cố gắng thực hiện theo các tips này để có thể cải thiện từng chút một nhé.\n', '2023-10-12', '2023-10-12'),
-       (3, 'bích quyên', 'bích quyên', 'bích quyên', 121, 1, 'Xin chào mọi người,\nHôm nay, tôi muốn mở lòng và chia sẻ với các bạn về tình trạng trầm cảm mà tôi đang trải qua. Đôi khi, cuộc sống có thể trở nên khó khăn và cảm giác trầm cảm đã ập đến lấn át tâm trí của tôi.\nTrong những tháng qua, tôi đã phải đối mặt với cuộc chiến với trầm cảm. Cảm giác u ám và mệt mỏi vẫn luôn hiện diện trong cuộc sống hàng ngày của tôi. Đôi khi, nó khiến tôi cảm thấy như một cuộc đấu tranh không có hồi kết. Tôi cảm thấy mất đi sự hứng thú và niềm vui với những điều trước đây tôi thường thích. Cảm xúc này thật khó diễn tả và đôi khi tôi cảm thấy mình bị lạc trong một thế giới tối tăm. Các bạn có đang gặp tình trạng giống tôi không?', '2023-10-12', '2023-10-12');
-
-select *  from experts limit 6 ;
-
-
 
 INSERT INTO podcasts (title, description, author_id, youtube_link, image_url, type)
 VALUES
@@ -921,20 +869,9 @@ VALUES
     ('Podcast 4', 'Description 4', 1, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên'),
     ('Podcast 5', 'Description 5', 2, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên');
 
-INSERT INTO users (name, email, password, role, img) VALUES
-    ('Pham Gia Bao', 'bao.pham25@student.passerellesnumeriques.org', 'Bao@123', 1, 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png');
+INSERT INTO users (name, email, password, role_id, img) VALUES
+    ('Pham Gia Bao', 'bao.pham25@student.passerellesnumeriques.org', 'Bao@1234', 1, 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png');
 
-CREATE USER 'Van_Thu'@'localhost' IDENTIFIED BY '12345';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Van_Thu'@'localhost';
-
-CREATE USER 'Viet_My'@'localhost' IDENTIFIED BY '00000';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Viet_My'@'localhost';
-
-CREATE USER 'Bich_Quyen'@'localhost' IDENTIFIED BY '6789';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Bich_Quyen'@'localhost';
-
-FLUSH PRIVILEGES;
--- phần bổ sung sau
 CREATE TABLE comment_podcast
 (
     id INT PRIMARY KEY,
@@ -948,8 +885,6 @@ CREATE TABLE comment_podcast
     FOREIGN KEY (podcast_id) REFERENCES podcasts(id)
 );
 
-
-
 INSERT INTO comment_podcast (id, content, created_at, podcast_id, user_id, like_count, dislike_count)
 VALUES
     (1, 'Bài podcast rất hay!', '2023-12-27 10:30:00', 1, 1, 300, 100),
@@ -962,38 +897,14 @@ VALUES
     (8, 'Đang chờ phần phỏng vấn khách mời.', '2023-12-30 16:45:00', 4, 3, 300, 100),
     (9, 'Nên tăng thời lượng podcast lên.', '2023-12-31 11:10:00', 5, 2, 200, 50),
     (10, 'Có thể đưa ra ví dụ cụ thể hơn không?', '2024-01-01 13:20:00', 5, 3, 450, 150);
-CREATE TABLE authors
-(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    img_profile varchar(255)
-);
+CREATE USER 'Van_Thu'@'localhost' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Van_Thu'@'localhost';
 
-INSERT INTO authors (name,img_profile) VALUES ('Sun','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Hồ Thị Hoài Anh','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg'), ('Long Nguyễn','https://www.phanmemninja.com/wp-content/uploads/2023/07/anh-dai-dien-zalo-mac-dinh-11.jpg');
+CREATE USER 'Viet_My'@'localhost' IDENTIFIED BY '00000';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Viet_My'@'localhost';
 
-CREATE TABLE comment_videos (
-    id INT PRIMARY KEY,
-    content VARCHAR(255),
-    author VARCHAR(100),
-    created_at DATETIME,
-    video_id INT,
-    user_id INT,
-    like_count INT,
-    dislike_count INT
-);
+CREATE USER 'Bich_Quyen'@'localhost' IDENTIFIED BY '6789';
+GRANT ALL PRIVILEGES ON data_php.* TO 'Bich_Quyen'@'localhost';
 
-INSERT INTO comment_videos (id, content, author, created_at, video_id, user_id, like_count, dislike_count)
-VALUES
-    (1, 'Great video!', 'John', '2023-12-31 10:15:00', 1, 1, 25, 2),
-    (2, 'Interesting content.', 'Mary', '2023-12-31 12:30:00', 1, 2, 15, 0),
-    (3, 'I disagree with some points.', 'David', '2023-12-31 14:45:00', 1, 3, 8, 5),
-    (4, 'Awesome job!', 'Sarah', '2023-12-31 16:00:00', 2, 1, 32, 1),
-    (5, 'This video changed my perspective.', 'Emma', '2023-12-31 18:15:00', 2, 2, 10, 3),
-    (6, 'Not a fan of the content.', 'Michael', '2024-01-01 09:30:00', 3, 1, 5, 12),
-    (7, 'The presenter did a great job!', 'Sophia', '2024-01-01 11:45:00', 3, 2, 20, 0),
-    (8, 'Too many ads.', 'Daniel', '2024-01-01 14:00:00', 4, 1, 2, 8),
-    (9, 'I learned a lot from this video.', 'Olivia', '2024-01-01 16:15:00', 4, 3, 18, 1),
-    (10, 'The audio quality needs improvement.', 'William', '2024-01-01 18:30:00', 5, 1, 7, 4);
-
-    select * from comment_videos;
-    select * from users;
+FLUSH PRIVILEGES;
+-- phần bổ sung sau

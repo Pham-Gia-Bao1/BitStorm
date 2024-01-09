@@ -59,7 +59,7 @@ function createVideos($youtube_link, $title, $author_id, $description, $duration
 function updateVideos($id,$youtube_link,$title,$author_id,$description,$duration,$type,$view){
     try{
         $db = db();
-        $video = $db ->prepare("UPDATE video SET youtube_link= :youtube_link, title= :title, author_id= :author_id,description= :description, duration= :duration, type =:type, view= :view WHERE id= :id");
+        $video = $db ->prepare("UPDATE videos SET youtube_link= :youtube_link, title= :title, author_id= :author_id,description= :description, duration= :duration, type =:type, view= :view WHERE id= :id");
         $video->bindParam(":youtube_link", $youtube_link);
         $video->bindParam(":title", $title);
         $video->bindParam(":author_id", $author_id);
