@@ -7,7 +7,7 @@
                     <!-- Hàng 1 -->
                     <div class="row footer-col footer-col1 d-flex justify-content-start align-items-center">
 
-                        <img class="logo-footer col-5" src="http://localhost/BitStorm/root/Image/logo_footer.png" alt="Logo">
+                        <img class="logo-footer col-5" src="./root/Image/logo_footer.png"  alt="Logo">
                         <h1 class="mt-2 col-5 group-name-footer">BitStorm</h1>
 
                     </div>

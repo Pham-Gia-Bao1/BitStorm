@@ -28,5 +28,5 @@ $controller = new HomeController();
 $controller->index();
 
 
-include("../View/Home/HomeView.php");
+// include("../View/Home/HomeView.php");
 

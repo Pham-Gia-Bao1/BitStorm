@@ -115,6 +115,8 @@ include_once("../Model/AdminNewsModel.php");
     <div class="row">
         <h2 class="h2_row">Dành Cho Bạn</h2>
         <?php 
+        $newAdmin = new AdminNews();
+        $news=$newAdmin->selectNews();
         foreach ($news as $new): ?>
         <div class="img-card iCard-style1 col-sm-4 ">
             <div class="card-content">
