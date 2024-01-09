@@ -20,7 +20,7 @@ require_once("../Controller/Database/database.php");
                 </div>
                 <div class="modal-body">
                     <form method="post" action="AdminNews">
-                        <div class="form-group">
+                        <div class="form-group">    
                             <label for="usr">Title</label>
                             <input type="text" class="form-control" id="title" name="title">
                         </div>

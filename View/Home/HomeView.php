@@ -1,14 +1,11 @@
 <?php
-
-
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/Home.php");
-
-
+include_once("../Model/HomeModel.php");
 ?>
-<title>home</title>
+<title>Home</title>
 <div class="header">
-    <div class= "container-fluid header_home">
+    <div class="container-fluid header_home">
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-4 main_text">
@@ -16,21 +13,20 @@ include("../root/CSS/Home.php");
                 <h3><b>Chào Mừng</b> Bạn Đến</h3>
                 <h1 class="animate-charcter">BitStorm</h1>
                 <h6>Nơi lắng nghe những tâm sự của bạn</h6>
-                <p class = "p-3"></p>
+                <p class="p-3"></p>
                 <div class="wrap">
                     <button class="button_home">Bắt Đầu Ngay</button>
-                    </div>
+                </div>
                 <p class="p-3"></p>
                 <hr class="hr_home">
             </div>
-            <div class = "col-sm-4">
+            <div class="col-sm-4">
                 <img src="./root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
             </div>
         </div>
     </div>
 </div>
-<div class = "bodier">
-
+<div class="bodier">
     <div class="container-fluid">
         <div class="p-5"></div>
         <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại <span style="color:cadetblue">BitStorm</span> </h4>
@@ -40,8 +36,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="./root/Image/homePage/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="ảnh" class="card-img" width="100px"
-                                height="100px">
+                                <img src="./root/Image/homePage/360_F_187045571_1GPYu7GFoJzKuljKRaeowV20vskm3Hzv.jpg" alt="ảnh" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
                         <div class="card-content">
@@ -53,7 +48,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2ygV4U4CI2tluhj9pOhRHf4MfaEODjJCPg&usqp=CAU" alt="" class="card-img" width="90px" height="90px" style="border-radius: 30%;">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2ygV4U4CI2tluhj9pOhRHf4MfaEODjJCPg&usqp=CAU" alt="" class="card-img" width="90px" height="90px" style="border-radius: 30%;">
                             </div>
                         </div>
                         <div class="card-content">
@@ -65,7 +60,7 @@ include("../root/CSS/Home.php");
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <div class="card-image">
-                                    <img src="./root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
+                                <img src="./root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
 
@@ -107,132 +102,65 @@ include("../root/CSS/Home.php");
             <div class="swiper-pagination"></div>
         </div>
     </div>
-
-    <div class="container-fluid text-center" >
+    <div class="container-fluid text-center">
         <div class="row d-flex gap-5 justify-content-center">
             <div class="col-sm-4 a_home">
-                <hr class="hr_homer">
-                <h6 style="font-size: 30px;">Một số câu chuyện <b> truyền động lực</b></h6>
-                <p>Nam là chàng trai trẻ 25 tuổi đã đấu tranh với chứng rối loạn này trong 10 năm. Bạn hiện đang làm dịch thuật tự do và sinh sống tại Hà Nội. Thời gian Nam sống chung với bệnh trầm cảm không hề dễ dàng nhưng chàng trai ấy đã vượt qua căn bệnh này để trở lại cuộc sống bình thường. Những chia sẻ của Nam và góc nhìn từ chuyên gia tâm lý Phạm Tiến Dũng (Dũng Phạm) về thời gian chiến đấu và chiến thắng trầm cảm có thể tiếp thêm động lực cho bạn hoặc người thân.</p>
-                <hr class="hr_homer">
-                <div class="p-2"></div>
-                <div class="wrappe1r">
-                    <a href="#"><span>Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
-                </div>
+                <?php
+                $newsHome = new Home();
+                $news = $newsHome->selectNews();
+                foreach ($news as $new) :  ?>
+                    <hr class="hr_homer">
+                    <h6 style="font-size: 30px;">Một số câu chuyện <b> truyền động lực</b></h6>
+                    <p style="color: cadetblue;"><?php echo $new['title'] ?></p>
+                    <p><?php echo $new['descriptions'] ?></p>
+                    <hr class="hr_homer">
+                    <div class="p-2"></div>
+                    <div class="wrappe1r">
+                        <a href="NewsDetails?id=<?php echo $new['id'] ?>"><span>Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+                    </div>
             </div>
-
             <div class="col-sm-5">
-                <img src="https://images2.thanhnien.vn/Uploaded/thanhnam/2018_11_24/streaa_WPBI.jpg" alt=""  height="400px" style="border-radius: 10px;padding-top: 20px;">
+                <img <?php echo '<img src="' . $new['image_url'] . '" style= "height:400px;border-radius: 10px;padding-top: 20px;">' ?>>
             </div>
+        <?php endforeach ?>
         </div>
     </div>
     <div class="p-5"></div>
-
-     <div class="container-fluid podcast ">
+    <div class="container-fluid podcast ">
         <p class="p111">Giới Thiệu Cho Bạn</p>
         <h6 style="text-align: center; font-size: 20px;"><b>Một Vài Podcast Tâm Hồn</b></h6>
         <div class="container">
-            <div class="row ">
-                <div class="col-sm-6">
-                    <div class="row justify-content-center ">
-                        <div class="col-sm-6">
-                            <div class="card ">
-                                <img src="./root/Image/homePage/podcast1.jpg" class="card-img-top" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <a href="PodcastDetail?id=1" class="card-body  mx-3">
-                                    <p class="card-text">Chữa lành tâm hồn những người đang âu lo..</p>
-                                    <div class="d-flex">
-
-                                        <i class="fa-solid fa-graduation-cap"></i>
-
-                                        <p style="font-size: 15px; color: gray;">1h30p</p>
-
-                                        <div style="margin-left: auto;color: #FF9933">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
+            <div class="row justify-content-center d-flex">
+                <?php $podcasts = new Home();
+                $pcs = $podcasts->showAllVideo();
+                foreach ($pcs as $pc) :
+                ?>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <img src="<?php echo $pc['image_url'] ?>" class="card-img-top" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
+                            <a href="PodcastDetail?id=<?php echo $pc['id'] ?>" class="card-body  mx-3">
+                                <p class="card-text" style=" white-space: nowrap;overflow: hidden; text-overflow: ellipsis;"><?php echo $pc['title'] ?></p>
+                                <div class="d-flex">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <p style="font-size: 15px; color: gray;"><?php echo $pc['created_at'] ?></p>
+                                    <div style="margin-left: auto;color: #FF9933">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card ">
-                                <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" alt="..." height="164px" style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <a href="PodcastDetail?id=5" class="card-body mx-3">
-                                    <p class="card-text">Hãy cảm ơn cuộc đời vì đã cho bạn sống....</p>
-                                    <div class="d-flex ">
-
-                                        <i class="fa-solid fa-graduation-cap"></i>
-
-                                        <p style="font-size: 15px; color: gray;">1h0p</p>
-
-                                        <div style="margin-left: auto;color: #FF9933">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card ">
-                                <img src="./root/Image/homePage/podcast.jpg" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <a href="PodcastDetail?id=2" class="card-body mx-3">
-                                    <p class="card-text">Cách học sao cho hiệu quả bằng nhiều phương pháp khác nhau..</p>
-                                    <div class="d-flex">
-
-                                        <i class="fa-solid fa-graduation-cap"></i>
-
-                                        <p style="font-size: 15px; color: gray;">1h30p</p>
-
-                                        <div style="margin-left: auto;color: #FF9933">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card ">
-                                <img src="https://cdn.tuoitrethudo.com.vn/stores/news_dataimages/phamthanhtrung/112021/12/05/149ac61a42eeb5c23875c9e23e098829.png?rt=20211112052945" alt="..." style="border-top-left-radius:25px; border-top-right-radius:25px;">
-                                <a href="PodcastDetail?id=1" class="card-body mx-3">
-                                    <p class="card-text">Hãy giúp những người khác để thay đổi bản thân</p>
-                                    <div class="d-flex">
-                                        <i class="fa-solid fa-graduation-cap"></i>
-                                        <p style="font-size: 15px; color: gray;">1h30p</p>
-                                        <div style="margin-left: auto;color: #FF9933">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wrappe1r">
-                    <a href="#"><span>Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
+        <div class="wrappe1r">
+            <a href="#"><span>Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+        </div>
     </div>
-
     <div class="container-fluid choose">
         <p style="color: 0166FF; text-align: center;font-size: 16px;">Tại sao lại lựa chọn chúng tôi</p>
         <h5 style="text-align: center;font-size: 20px;font-weight: bold;">Sự Lựa Chọn Đúng Đắn Dành Cho Bạn</h5>
@@ -246,7 +174,7 @@ include("../root/CSS/Home.php");
                                 <img src="./root/Image/homePage/hinh1.png" alt="ảnh">
                                 <h6>Tư Vấn Online</h6>
                                 <p class="card-text">Được sự hỗ trợ nhiệt tình từ các
-                                chuyên gia trong lĩnh vực tư vấn.</p>
+                                    chuyên gia trong lĩnh vực tư vấn.</p>
                             </div>
                         </div>
                     </div>
@@ -256,7 +184,7 @@ include("../root/CSS/Home.php");
                                 <img src="./root/Image/homePage/Group 1000006529.png" alt="ảnh">
                                 <h6>Xây Dựng Cộng Đồng</h6>
                                 <p class="card-text">Xây dựng một cộng đồng văn mình
-                                để mọi người cùng nhau </p>
+                                    để mọi người cùng nhau </p>
                             </div>
                         </div>
                     </div>
@@ -264,13 +192,13 @@ include("../root/CSS/Home.php");
             </div>
             <div class="col-sm-6">
                 <div class="row">
-                     <div class="col-sm-5">
+                    <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
                                 <img src="./root/Image/homePage/Group 1000006530.png" alt="ảnh">
                                 <h6>Kiểm duyệt thông tin</h6>
                                 <p class="card-text">Có một điều bạn chưa biết
-                                phần kiểm duyệt thông tin khá là hay</p>
+                                    phần kiểm duyệt thông tin khá là hay</p>
                             </div>
                         </div>
                     </div>
@@ -280,7 +208,7 @@ include("../root/CSS/Home.php");
                                 <img src="./root/Image/homePage/Group 1000006531.png" alt="ảnh">
                                 <h6>Hoàn toàn miễn phí</h6>
                                 <p class="card-text">Nhận được sự tư vấn từ mọi người
-                                hoàn toàn miễn phí..</p>
+                                    hoàn toàn miễn phí..</p>
                             </div>
                         </div>
                     </div>
