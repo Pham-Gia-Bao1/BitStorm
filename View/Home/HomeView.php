@@ -220,8 +220,6 @@ include_once("../Model/HomeModel.php");
 </div>
 <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
 <?php
-
-
 include("../root/JS/Home.js.php");
 
 ?>
