@@ -20,7 +20,7 @@ require_once("../Controller/Database/database.php");
                 </div>
                 <div class="modal-body">
                     <form method="post" action="AdminNews">
-                        <div class="form-group">    
+                        <div class="form-group">
                             <label for="usr">Title</label>
                             <input type="text" class="form-control" id="title" name="title">
                         </div>
@@ -42,7 +42,13 @@ require_once("../Controller/Database/database.php");
                         </div>
                         <div class="form-group">
                             <label for="usr">Author</label>
-                            <input type="text" class="form-control" id="author_id" name="author_id">
+                            <select id="author_id" name="author_id">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="usr">Link</label>
@@ -152,9 +158,16 @@ require_once("../Controller/Database/database.php");
                                                 <label for="image_url">Image</label>
                                                 <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $new1['image_url'] ?>">
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="author_id">Author</label>
-                                                <input type="text" class="form-control" id="author_id" name="author_id" value="<?php echo $new1['author_id'] ?>">
+                                                <label for="usr">Author</label>
+                                                <select id="author_id" name="author_id" value="<?php echo $new1['author_id'] ?>">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="link">Link</label>
