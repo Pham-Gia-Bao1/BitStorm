@@ -2,14 +2,14 @@
 // router.php
 
 // Lấy đường dẫn URL sau localhost
-$requestUri = $_SERVER['REQUEST_URI'];
+$requestUri = $_SERVER['REQUEST_URI']; // BitStorm/adminUser
 $baseUrl = 'BitStorm/'; // Đường dẫn gốc của ứng dụng
 
 // Xóa đường dẫn gốc khỏi URL để chỉ lấy phần đường dẫn tương đối
-$relativePath = str_replace($baseUrl, '', $requestUri);
+$relativePath = str_replace($baseUrl, '', $requestUri); // /adminUser
 
 // Tách đường dẫn tương đối thành các phần dựa trên dấu "/"
-$parts = explode('/', $relativePath);
+$parts = explode('/', $relativePath); // [adminUser]
 
 // Kiểm tra xem đường dẫn tương đối có rỗng hay không
 if ($relativePath === '') {
@@ -21,8 +21,9 @@ if ($relativePath === '') {
 }
 
 // Lấy tên controller
-
+//AdminUserController
 $controllerName = ucfirst($parts[0]) . 'Controller'; // Sửa lấy phần tử đầu tiên của $parts
+// Controller/AdminUserController.php
 $controllerPath = 'Controller/' . $controllerName . '.php';
 
 // Kiểm tra xem tệp tin controller có tồn tại không

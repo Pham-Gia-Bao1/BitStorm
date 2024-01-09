@@ -11,7 +11,7 @@ class Expert extends Connection
         TIME_FORMAT(calendar.end_time, '%H:%i') AS end_time, calendar.price
         FROM experts
         JOIN calendar ON experts.id = calendar.expert_id
-        WHERE calendar.day >= :currentDate";
+        WHERE calendar.day >= :currentDate AND experts.status = 1";
         $stst = $this->conn->prepare($sql_query);
         $stst->bindValue(':currentDate', $currentDate, PDO::PARAM_STR);
         $stst->execute();
@@ -34,7 +34,7 @@ class Expert extends Connection
         OR (DATE_FORMAT(calendar.start_time, '%h:%i %p') LIKE :keyword)
         OR (DATE_FORMAT(calendar.end_time, '%h:%i %p') LIKE :keyword)
         OR calendar.day LIKE :keyword)
-        AND calendar.day >= :currentDate";
+        AND calendar.day >= :currentDate AND experts.status = 1";
         $stst = $this->conn->prepare($sql_query);
         $stst->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
         $stst->bindValue(':currentDate', $currentDate, PDO::PARAM_STR);
