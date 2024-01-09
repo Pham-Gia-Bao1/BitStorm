@@ -15,7 +15,7 @@
                         <input type="text" name="name" id="name" class="form-control" aria-describedby="basic-addon1" required>
                     </div>
                     <label for="gender">Giới tính:</label>
-                    <select class="form-select form-select-lg mb-3" name="gender" aria-label="gender" id="gender">
+                    <select class="form-select form-select-lg mb-3" name="gender" aria-label="gender" id="gender" required>
                         <option selected>Chọn giới tính</option>
                         <option value="Male">Nam</option>
                         <option value="Female">Nữ</option>
@@ -42,7 +42,7 @@
                     </div>
                     <label for="avatar">Ảnh đại diện:</label>
                     <div>
-                        <input type="text" name="avatar" id="imgExpert" class="form-control" aria-describedby="basic-addon1">
+                        <input type="text" name="avatar" id="imgExpert" class="form-control" aria-describedby="basic-addon1" required>
                     </div>
                     <label for="avatar">Đánh giá:</label>
                     <div class="input-group mb-3">
@@ -50,14 +50,14 @@
                     </div>
                     <label for="certificate">Chứng chỉ</label>
                     <div>
-                        <input type="text" name="certificate" id="imgCertificate" class="form-control" aria-describedby="basic-addon1">
+                        <input type="text" name="certificate" id="imgCertificate" class="form-control" aria-describedby="basic-addon1" required>
                     </div>
                     <label for="specialization">Chức vụ:</label>
                     <div class="input-group mb-3">
                         <input type="text" name="specialization" id="specialization" class="form-control" aria-describedby="basic-addon1" required>
                     </div>
                     <label for="specialization">Trạng thái:</label>
-                    <select class="form-select form-select-lg mb-3" name="status" aria-label="status" id="status">
+                    <select class="form-select form-select-lg mb-3" name="status" aria-label="status" id="status" required>
                         <option selected>Chọn trạng thái</option>
                         <option value=1>Hoạt động</option>
                         <option value=0>Khóa tài khoản</option>

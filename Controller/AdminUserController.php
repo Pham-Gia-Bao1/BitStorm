@@ -29,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $password = htmlspecialchars($_POST['password']);
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
                     $userImg = htmlspecialchars($_POST['imgUser']);
+                    $status = htmlspecialchars($_POST['status']);
                     $id = $_POST['userId'];
-                    $newClients = $User->updateUser($id, $name, $email, $password, $phoneNumber, $userImg);
+                    $newClients = $User->updateUser($id, $name, $email, $password, $phoneNumber, $userImg, $status);
                     Header("Location: AdminUser");
                 }
                 break;
