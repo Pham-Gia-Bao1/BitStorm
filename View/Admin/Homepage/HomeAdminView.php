@@ -9,210 +9,102 @@ include_once("../root/CSS/Admin/SideBar.css.php");
 <body>
 
     <div class="main">
-        <div>
+        <div class="body-main">
+           
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
-                <div class="card">
+                <div class="card border-3 border-primary">
+                    <div class="cardTop">
+                        <div class="cardName">User</div>
+                        <div class="iconBx">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
                     <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="numbers"><?php echo($countUser['COUNT(*)']);?></div>
                     </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
                 </div>
 
-                <div class="card">
+                <div class="card border-3 border-success">
+                    <div class="cardTop ">
+                        <div class="cardName">Bác sĩ</div>
+                        <div class="iconBx">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                    </div>
                     <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="numbers"><?php echo($countExpert['COUNT(*)'])?></div>
+                        
                     </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
                 </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
+                <div class="card border-3 border-danger">
+                    <div class="cardTop ">
+                        <div class="cardName">Lịch đã đặt</div>
+                        <div class="iconBx">
+                            <i class="fa-regular fa-calendar-days "></i>
+                        </div>
+                    </div>
+                    <div>   
+                        <div class="numbers"><?php echo ($countBooking['COUNT(*)'])?></div>
+                        
                     </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
                 </div>
 
-                <div class="card">
+                <div class="card border-3 border-warning">
+                    <div class="cardTop">
+                        <div class="cardName">Bài đăng</div>
+                        <div class="iconBx">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                    </div>
                     <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
+                        <div class="numbers"><?php echo ($countPost['COUNT(*)'])?></div>
+                        
                     </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
                 </div>
             </div>
 
             <!-- ================ Order Details List ================= -->
             <div class="details">
+                <!-- ================= New Customers ================ -->
+                <div class="chartUseAndExperts">
+                    <div class="cardHeader" id="chartContainer">
+                    </div>
+                </div>
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
+                        <h2>Lịch đã đặt gần đây</h2>
+                        <!-- <a href="#" class="btn">View All</a> -->
                     </div>
 
                     <table>
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
+                                <td>Tên</td>
+                                <td>Bác sĩ</td>
+                                <td>Ngày</td>
+                                <td>Giờ bắt đầu</td>
+                                <td>Giờ kết thúc</td>
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody class="scroll-container">
+                            <?php 
+                            foreach($bookings as $booking):?>
                             <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
+                                <td><?php echo $booking['userName'];?></td>
+                                <td><?php echo $booking['expertName'];?></td>
+                                <td><?php echo $booking['calendarDay'];?></td>
+                                <td><span class="status inProgress"><?php echo $booking['start_time'];?></span></td>
+                                <td><span class="status return "><?php echo $booking['end_time'];?></span></td>
                             </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                            <?php endforeach;?>
                         </tbody>
-                    </table>
-                </div>
-
-                <!-- ================= New Customers ================ -->
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recent Customers</h2>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
                     </table>
                 </div>
             </div>
@@ -220,5 +112,36 @@ include_once("../root/CSS/Admin/SideBar.css.php");
     </div>
 
 </body>
+<?php
+ 
+$dataPoints = array( 
+	array("y" => $countUser['COUNT(*)'], "label" => "Users" ),
+	array("y" => $countExpert['COUNT(*)'], "label" => "Experts" ),
+);
+ 
+?>
+<script>
+window.onload = function() {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Thống kê số lượng người dùng và bác sĩ"
+	},
+	axisY: {
+		title: "quanity people"
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "#,##0.## người",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+chart.render();
+ 
+}
+</script>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <?php
 ?>
