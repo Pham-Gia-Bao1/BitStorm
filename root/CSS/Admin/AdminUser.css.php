@@ -125,4 +125,57 @@
         background-color: #007f4e;
         color: white;
     }
+    td {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px !important;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  /* CSS cho hover */
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  tr:first-child {
+    position: sticky;
+    top: 60px;
+  }
+
+  tr:nth-child(2) {
+    position: sticky;
+    top: 90px;
+  }
+
+
+  .main.active {
+    width: calc(100% - 80px);
+    left: 100px;
+  }
 </style>

@@ -332,4 +332,8 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    .card-img-top {
+        object-fit: cover;
+        height: 150px;
+    }
 </style>
