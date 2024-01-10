@@ -79,7 +79,7 @@ include_once("../Controller/AdminPodcastsController.php")
         </h2>
     </div>
     <div class="p-2"></div>
-    <table class="table table-success table-striped">
+    <table>
         <thead>
             <tr>
                 <th>
@@ -133,7 +133,7 @@ include_once("../Controller/AdminPodcastsController.php")
                     <td>
                         <div class="action d-flex justify-content-end">
                             <a href="AdminPodCasts?id_update=<?php echo $video['id']; ?>">
-                                <button type="button" data-toggle="modal" data-target="update" class="btn btn-warning">Update</button></a>
+                                <button type="button" data-toggle="modal" data-target="update" class="btn btn-primary edit-comment-btn"><i class="fa-solid fa-pen-to-square"></i></button></a>
                             <a href="AdminPodCasts?id=<?php echo $video['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
