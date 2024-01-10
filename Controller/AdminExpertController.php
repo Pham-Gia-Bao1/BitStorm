@@ -38,9 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $id = $_POST['expertId'];
                     $newExperts = $Expert->updateExpert($id, $name, $gender, $address, $email, $phoneNumber, $age, $experience, $expertImg, $rating, $certificate, $specialization, $status);
                     Header("Location: AdminExpert");
-                
-                break;
-            case 'delete':
                 break;
             default:
                 // Xử lý mặc định hoặc báo lỗi
