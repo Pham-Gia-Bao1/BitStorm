@@ -66,27 +66,28 @@ INSERT INTO experts (id,role_id,full_name, gender, address, email, phone_number,
 (9,3, 'Đỗ Hải Nam','Male', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Thạc sĩ tâm lý tại New York, Mỹ. Có thế mạnh trong việc chẩn đoán, trị liệu phát triển phát đồ, trị liệu cá nhân và nhóm đối với các bệnh nhân trầm cảm, lo âu, stress, OCD, rối loạn nhân cách, rối loạn điều tiết cảm xúc, tự gây tổn thương và tự sát.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBTGIhpDfxhtCb7tSsh6-VgqIO-gNmhRWJmH7tETjTgz-YbB6HDJwgTubhxrLhD1ueVs&usqp=CAU%27', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Chuyên gia tâm lý",1),
 (10, 3,'Lê Hoàng Yến', 'Female', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý",1);
 
-CREATE TABLE   IF NOT EXISTS calendar (
+CREATE TABLE calendar (
   id INT PRIMARY KEY,
   day DATE,
   start_time TIME,
   end_time TIME,
-  price DECIMAL(10, 2),
+  price DECIMAL(10, 3),
   describer  TEXT,
   expert_id INT,
   FOREIGN KEY (expert_id) REFERENCES experts(id)
 );
 INSERT INTO calendar (id, day, start_time, end_time, price, describer, expert_id) VALUES
-(1, '2023-12-31', '09:00:00', '11:00:00', 50.000, 'Morning availability', 1),
-(2, '2023-12-31', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 2),
-(3, '2023-12-31', '10:00:00', '12:00:00', 70.000, 'Morning availability', 3),
-(4, '2023-12-31', '15:00:00', '17:00:00', 55.000, 'Afternoon availability', 4),
-(5, '2023-12-31', '11:00:00', '13:00:00', 45.000, 'Morning availability', 5),
-(6, '2023-12-31', '16:00:00', '18:00:00', 70.000, 'Afternoon availability', 6),
-(7, '2023-12-31', '09:00:00', '11:00:00', 50.000, 'Morning availability', 7),
-(8, '2023-12-31', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 8),
-(9, '2024-01-01', '10:00:00', '12:00:00', 65.000, 'Morning availability', 9),
-(10, '2024-01-01', '15:00:00', '17:00:00', 60.000, 'Afternoon availability', 10);
+(1, '2024-01-30', '09:00:00', '11:00:00', 50.000, 'Morning availability', 1),
+(2, '2024-01-30', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 2),
+(3, '2024-01-26', '10:00:00', '12:00:00', 70.000, 'Morning availability', 3),
+(4, '2024-01-26', '15:00:00', '17:00:00', 55.000, 'Afternoon availability', 4),
+(5, '2024-01-27', '11:00:00', '13:00:00', 45.000, 'Morning availability', 5),
+(6, '2024-01-27', '16:00:00', '18:00:00', 70.000, 'Afternoon availability', 6),
+(7, '2024-01-28', '09:00:00', '11:00:00', 50.000, 'Morning availability', 7),
+(8, '2024-01-25', '14:00:00', '16:00:00', 60.000, 'Afternoon availability', 8),
+(9, '2024-01-25', '10:00:00', '12:00:00', 65.000, 'Morning availability', 9),
+(10, '2024-01-25', '15:00:00', '17:00:00', 60.000, 'Afternoon availability', 10);
+select * from calendar;
 CREATE TABLE IF NOT EXISTS posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,

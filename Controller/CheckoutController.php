@@ -8,7 +8,7 @@ $id = $_GET['expert_id'];
 $dataExpert = $DetailExpertModel->getExpertDetail($id);
 $calendarID = $dataExpert['calendar_id'];
 $cookie_name = "User";
-$note = $_POST['note'];
+$note = htmlspecialchars($_POST['note']) ;
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 $currentDateTime = date('H:i:s d/m/Y');
 if (isset($_COOKIE[$cookie_name])){
