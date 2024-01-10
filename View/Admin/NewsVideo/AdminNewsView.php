@@ -71,7 +71,7 @@ require_once("../Controller/Database/database.php");
         </h2>
     </div>
     <div class="p-3"></div>
-    <table class="table table-success table-striped">
+    <table>
         <thead>
             <tr>
                 <th>
@@ -118,7 +118,7 @@ require_once("../Controller/Database/database.php");
                     <td>
                         <div class="action d-flex justify-content-end">
                             <a href="AdminNews?id_update=<?php echo $new['id'] ?>" id="updateLink">
-                                <button data-bs-toggle="modal" data-bs-target="#update_model" type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button data-bs-toggle="modal" data-bs-target="#update_model" type="button" class="btn btn-primary edit-comment-btn"><i class="fa-solid fa-pen-to-square"></i></button>
                             </a>
                             <a href="AdminNews?id=<?php echo $new['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
