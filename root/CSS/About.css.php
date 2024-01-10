@@ -191,7 +191,7 @@
     /*----  Main Style  ----*/
     #cards_landscape_wrap-2 {
         text-align: center;
-        /* background: #F7F7F7; */
+        margin: 15px 7.5px;
     }
 
     #cards_landscape_wrap-2 a {
@@ -201,6 +201,7 @@
 
     #cards_landscape_wrap-2 .card-flyer {
         border-radius: 5px;
+
     }
 
     #cards_landscape_wrap-2 .card-flyer .image-box {
@@ -231,6 +232,14 @@
     #cards_landscape_wrap-2 .card-flyer .text-box {
         text-align: center;
     }
+    #cards_landscape_wrap-2 .card-flyer p {
+
+        max-width: 1000px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
 
     #cards_landscape_wrap-2 .card-flyer .text-box .text-container {
         padding: 30px 18px;
