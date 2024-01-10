@@ -4,6 +4,7 @@ include_once("../Model/AccountModel.php");
 $currentDate = date('Y-m-d'); // Lấy ngày hiện tại
 $ExpertModel = new Expert();
 $data = $ExpertModel-> getExpertsWithCalendar($currentDate);
+// print_r($data);
 $isFinding = False;
 $resultOfSearchExperts = [];
 if (isset($_GET['fdoctor']) && !empty($_GET['fdoctor'])) {
