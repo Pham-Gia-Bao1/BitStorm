@@ -911,5 +911,16 @@ INSERT INTO authors (name, img_profile) VALUES
     ('Phạm Thị D', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg'),
     ('Hoàng Văn E', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg');
 
+create table author (
+		author_id int  primary key,
+        name_author varchar(100),
+        img varchar(255)
+);
 
-
+INSERT INTO author (author_id, name_author, img) VALUES
+    (1, 'Trần Văn lỰc', 'profile1.jpg'),
+    (2, 'Mai Thị Anh', 'profile2.jpg'),
+    (3, 'LLee Thị Kim Thoa', 'profile3.jpg'),
+    (4, 'Huỳnh Tố Nga', 'profile4.jpg'),
+    (5, 'Phạm Văn Lịch', 'profile5.jpg'),
+    (6, 'Nguyễn Văn Linh', 'profile6.jpg');

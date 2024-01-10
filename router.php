@@ -1,5 +1,9 @@
 <?php
 // router.php
+include_once("../Model/UserProfileModel.php");
+$userprofile = new UserProfile();
+$role_id = $userprofile->get_role_id();
+
 
 // Lấy đường dẫn URL sau localhost
 $requestUri = $_SERVER['REQUEST_URI']; // BitStorm/adminUser
@@ -29,7 +33,15 @@ $controllerPath = 'Controller/' . $controllerName . '.php';
 // Kiểm tra xem tệp tin controller có tồn tại không
 if (file_exists($controllerPath)) {
     // Gọi controller
-    require_once $controllerPath;
+    if ($role_id = 2 && strpos($controllerName, 'Admin') === 0) {
+        // Nếu tên controller có chứa từ "Admin" đứng đầu, chuyển hướng hoặc hiển thị thông báo lỗi
+        header("HTTP/1.0 403 Forbidden");
+        echo "Access denied";
+        exit();
+    } else{
+        require_once $controllerPath;
+
+    }
 
     // Tạo đối tượng controller
     $controller = new $controllerName();

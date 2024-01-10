@@ -193,4 +193,18 @@ class Account
         }
         return null;
     }
+    public function get_role_id(){
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+        if (!isset($_SESSION["User"])){
+            $user_name = base64_decode($_COOKIE['User']);
+            $sql = "SELECT users.role_id from users where users.name = :name";
+            $stmt = $conn->prepare($sql);
+            $stmt -> bindParam(':name' ,$user_name);
+            $stmt -> execute();
+            $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $id[0]['role_id'];
+        }
+        return 2;
+    }
 }
