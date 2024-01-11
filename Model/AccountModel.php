@@ -196,9 +196,9 @@ class Account
     public function get_role_id(){
         $blog = new Blog();
         $conn = $blog->connect_database();
-        if (!isset($_SESSION["User"])){
+        if (isset($_COOKIE["User"])){
             $user_name = base64_decode($_COOKIE['User']);
-            $sql = "SELECT users.role_id from users where users.name = :name";
+            $sql = "SELECT role_id from users where users.name = :name";
             $stmt = $conn->prepare($sql);
             $stmt -> bindParam(':name' ,$user_name);
             $stmt -> execute();

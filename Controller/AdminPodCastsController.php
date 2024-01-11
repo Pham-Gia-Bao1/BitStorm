@@ -1,6 +1,9 @@
 <?php
 include "../root/CSS/Admin/AdminNews.css.php";
 include "../Model/AdminPodCastsModel.php";
+include_once("../Model/UserProfileModel.php");
+$userprofile = new UserProfile();
+$role_id = $userprofile->get_role_id();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['id'])) {
@@ -60,4 +63,9 @@ if (isset($_GET['id'])) {
         exit();
     }
 }
-include "../View/Admin/NewsVideo/AdminPodCastsView.php";
+if($role_id == 1){
+    include "../View/Admin/NewsVideo/AdminPodCastsView.php";
+}else{
+
+    header("Location: home");
+}

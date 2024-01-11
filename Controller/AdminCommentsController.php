@@ -3,6 +3,11 @@
 include_once("../Model/BlogModel.php");
 include("../Model/AdminCommentsModel.php");
 include_once("../Model/UserProfileModel.php");
+include_once("../Model/UserProfileModel.php");
+$userprofile = new UserProfile();
+$role_id = $userprofile->get_role_id();
+
+
 // include("../root/Notification/Notification.js.php");
 $productModel = new AdminComment();
 $comments = $productModel->get_all_comments();
@@ -44,4 +49,9 @@ if (isset($_GET['id_coment'])) {
     echo $id_user;
 }
 
-include("../View/Admin/AdminComment/AdminComments.php");
+if($role_id == 1){
+    include("../View/Admin/AdminComment/AdminComments.php");
+}else{
+
+    header("Location: home");
+}
