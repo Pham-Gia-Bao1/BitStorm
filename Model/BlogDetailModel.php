@@ -31,7 +31,7 @@ class BlogDetail extends Connection
     {
         if (isset($id)) {
             $this->connect_database();
-            $sql_query = "SELECT * FROM comment_videos WHERE video_id = :id";
+            $sql_query = "SELECT * FROM comment_videos WHERE video_id = :id order by id DESC";
             $stmt = $this->conn->prepare($sql_query);
             $stmt->bindParam(":id", $id);
             $stmt->execute();
@@ -44,7 +44,7 @@ class BlogDetail extends Connection
     {
         if (isset($id)) {
             $this->connect_database();
-            $sql_query = "SELECT * FROM comment_podcast WHERE podcast_id = :id";
+            $sql_query = "SELECT * FROM comment_podcast WHERE podcast_id = :id order by id DESC";
             $stmt = $this->conn->prepare($sql_query);
             $stmt->bindParam(":id", $id);
             $stmt->execute();
