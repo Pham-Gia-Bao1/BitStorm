@@ -9,17 +9,8 @@ include_once("../root/CSS/Admin/Homepage.css.php");
 ?>
 <main>
 
-    <div class="topbar">
-        <div class="search bg-danger rounded-circle">
-            <div class="input-group rounded-circle">
-                <input type="text" class="form-control" placeholder="Search here">
-                <div class="input-group-append">
-                    <span class="input-group-text">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </span>
-                </div>
-            </div>
-        </div>
+    <div class="topbar d-lex justify-content-between align-items-center">
+
     </div>
     <div class="navigation">
         <ul class="list-item">
@@ -76,6 +67,15 @@ include_once("../root/CSS/Admin/Homepage.css.php");
                     <span class="title">Người dùng</span>
                 </a>
             </li>
+            <li>
+                <a href="Adminbooking">
+                    <span class="icon">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+
+                    </span>
+                    <span class="title">Lịch Đặt</span>
+                </a>
+            </li>
 
 
             <li>
@@ -93,6 +93,27 @@ include_once("../root/CSS/Admin/Homepage.css.php");
                     }
                 }
             </script>
+            <li>
+                <div class="topbar-item">
+                    <?php
+                    include_once("../Model/AccountModel.php");
+
+                    $account = new Account();
+                    $cookie_name = "User";
+                    if (isset($_COOKIE[$cookie_name])) {
+                        $nameAndImg = $account->get_name_and_img_user();
+                        $name = $nameAndImg[0];
+                        $img = $nameAndImg[1];
+                    }  ?>
+
+
+
+                    <a href="userprofile">
+                        <img class="avata1 rounded-circle" src="<?php echo $img; ?>" alt="User Image">
+                    </a>
+
+                </div>
+            </li>
 
 
 

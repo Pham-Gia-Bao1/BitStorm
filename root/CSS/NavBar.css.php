@@ -16,6 +16,7 @@
 
   .avata1 {
     width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 8px;
     cursor: pointer;
@@ -108,7 +109,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 body::-webkit-scrollbar-thumb:active {
   background-color: #006699; /* Màu nền của nút trượt khi active */
-  
+
 }
 
 /* Ẩn thanh cuộn khi không hover */
@@ -116,5 +117,8 @@ body::-webkit-scrollbar-thumb {
   opacity: 0;
   transition: opacity 0.3s ease;
 
+}
+.logo a{
+  color: #007bff !important;
 }
 </style>

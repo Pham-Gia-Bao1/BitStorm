@@ -3,7 +3,7 @@
 include_once("../Model/BlogModel.php");
 include("../Model/AdminCommentsModel.php");
 include_once("../Model/UserProfileModel.php");
-include_once("../Model/UserProfileModel.php");
+
 $userprofile = new UserProfile();
 $role_id = $userprofile->get_role_id();
 

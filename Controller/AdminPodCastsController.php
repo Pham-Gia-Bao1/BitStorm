@@ -2,6 +2,8 @@
 include "../root/CSS/Admin/AdminNews.css.php";
 include "../Model/AdminPodCastsModel.php";
 include_once("../Model/UserProfileModel.php");
+include_once("../Model/AccountModel.php");
+
 $userprofile = new UserProfile();
 $role_id = $userprofile->get_role_id();
 

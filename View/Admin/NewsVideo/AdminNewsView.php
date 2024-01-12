@@ -1,16 +1,41 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
 require_once("../Controller/Database/database.php");
+// include_once("../root/CSS/Admin/AdminComment.css.php");
+
 ?>
+<style>
+     .sub-navbar{
+     position: sticky !important;
+     top: 60px;
+     z-index: 700;
+  }
+</style>
 <div class="main">
     <div class="p-3"></div>
-    <div class="container red topBotomBordersOut">
-        <a href="VideoAdmin">Video</a>
-        <a href="AdminNews">News</a>
-        <a href="AdminPodCasts">Podcasts</a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sub-navbar">
+        <div class="container-fluid">
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="VideoAdmin">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="AdminNews">Tin Tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="AdminPodCasts">Podcast</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="action d-flex justify-content-end">
-        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#myModal" style="margin-left: 20px;">Create</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin: 20px; float : left; position: absolute; left: 0;">Tạo mới </button>
     </div>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -55,14 +80,14 @@ require_once("../Controller/Database/database.php");
                             <input type="text" class="form-control" id="link" name="link">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-default">Create</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="margin-top: 20px;">
         <h2 class="title">
             <span class="title-word title-word-1">N</span>
             <span class="title-word title-word-2">E</span>
@@ -71,36 +96,35 @@ require_once("../Controller/Database/database.php");
         </h2>
     </div>
     <div class="p-3"></div>
-    <table class="table table-success table-striped">
+    <table class="table">
         <thead>
             <tr>
                 <th>
                     <p>Id</p>
                 </th>
                 <th>
-                    <p>Title</p>
+                    <p>Tiêu Đề</p>
                 </th>
                 <th>
-                    <p>Content</p>
+                    <p>Nội dung</p>
                 </th>
                 <th>
-                    <p>Descriptions</p>
+                    <p>Mô tả</p>
                 </th>
                 <th>
-                    <p>Image</p>
+                    <p>Ảnh</p>
                 </th>
                 <th>
-                    <p>Author_id</p>
+                    <p>Id Tác giả</p>
                 </th>
                 <th>
-                    <p>Created_at</p>
+                    <p>Ngày tạo</p>
                 </th>
                 <th>
                     <p>Link</p>
                 </th>
-                <th>
-                    <p>Action</p>
-                </th>
+                <th></th>
+
             </tr>
         </thead>
         <tbody>
@@ -118,7 +142,7 @@ require_once("../Controller/Database/database.php");
                     <td>
                         <div class="action d-flex justify-content-end">
                             <a href="AdminNews?id_update=<?php echo $new['id'] ?>" id="updateLink">
-                                <button data-bs-toggle="modal" data-bs-target="#update_model" type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button data-bs-toggle="modal" data-bs-target="#update_model" type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
                             </a>
                             <a href="AdminNews?id=<?php echo $new['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
@@ -139,28 +163,28 @@ require_once("../Controller/Database/database.php");
                                             <input type="hidden" value="<?php echo $new1['id'] ?>" name="id_new">
                                             <!-- post ddeen controller de xu li -->
                                             <div class="form-group">
-                                                <label for="title">Title</label>
+                                                <label for="title">Tiêu Đề</label>
                                                 <input type="text" class="form-control" id="title" name="title" value="<?php echo $new1['title'] ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="content">Content</label>
+                                                <label for="content">Nội dung</label>
                                                 <input type="text" class="form-control" id="content" name="content" value="<?php echo $new1['content'] ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="descriptions">Descriptions</label>
+                                                <label for="descriptions">Mô tả</label>
                                                 <input type="text" class="form-control" id="descriptions" name="descriptions" value="<?php echo $new1['descriptions'] ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="created_at">Created_at</label>
+                                                <label for="created_at">Ngày tạo</label>
                                                 <input type="text" class="form-control" id="created_at" name="created_at" value="<?php echo $new1['created_at'] ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="image_url">Image</label>
+                                                <label for="image_url">Ảnh</label>
                                                 <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $new1['image_url'] ?>">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="usr">Author</label>
+                                                <label for="usr">Tác giả</label>
                                                 <select id="author_id" name="author_id" value="<?php echo $new1['author_id'] ?>">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -174,8 +198,8 @@ require_once("../Controller/Database/database.php");
                                                 <input type="text" class="form-control" id="link" name="link" value="<?php echo $new1['link'] ?>">
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Update</button>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Bỏ</button>
                                             </div>
                                         </form>
                                     </div>
