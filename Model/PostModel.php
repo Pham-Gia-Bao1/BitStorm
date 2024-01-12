@@ -7,12 +7,9 @@ class Post extends Connection
     public function GetAllPostsAndUserName_Img()
     {
         $this->connect_database();
-        // $query="SELECT posts.*, users.name, users.img, comment_posts.content as comment_content,comment_posts.author as authorComment 
-        // FROM posts 
-        // JOIN users ON posts.user_id = users.id
-        // LEFT JOIN comment_posts ON posts.id = comment_posts.post_id;";
+
         $query =  "SELECT posts.*, users.name, users.img FROM posts
-        JOIN users ON posts.user_id = users.id";
+        JOIN users ON posts.user_id = users.id order by posts.id DESC" ;
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -27,7 +24,7 @@ class Post extends Connection
             $post['comment'] =$comments; //null
         }
         }
-        
+
         return $posts;
     }
     //show comment thương ứng với mỗi post id
@@ -39,7 +36,7 @@ class Post extends Connection
         $stmt->execute();
         $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return ($stmt->rowCount() > 0) ? $comments : null;
-        
+
     }
     // truy vấn tên user thông qua userid
     public function getOneUser($id)
@@ -61,11 +58,11 @@ class Post extends Connection
         $beforeTime = new DateTime($datetime);
         $currentTime = new DateTime($currentTime);
         $Time = $beforeTime->diff($currentTime);
-        
+
         $numberOfDays = $Time->d;
         $numberOfHours = $Time->h;
         $numberOfMinutes = $Time->i;
-        
+
         if ($numberOfDays > 0) {
             return "$numberOfDays ngày trước";
         } elseif ($numberOfHours > 0) {
