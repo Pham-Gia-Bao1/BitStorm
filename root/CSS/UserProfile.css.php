@@ -293,8 +293,17 @@
    margin: 5px;
 }
 .box_bookings{
-  border: 1px dashed blue;
+  border: 1px solid blue;
 
+}
+.title_booking{
+  text-align: center;
+}
+.fa-bookmark{
+   color: #0088cc;
+   width: 200px !important;
+   font-size: 50px;
+   margin-left: 20px;
 }
 
 </style>

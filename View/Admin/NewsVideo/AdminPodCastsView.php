@@ -1,18 +1,61 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
 include_once("../Model/AdminPodCastsModel.php");
-include_once("../Controller/AdminPodcastsController.php")
+include_once("../Controller/AdminPodcastsController.php");
+// include_once("../root/CSS/Admin/AdminComment.css.php");
+
 ?>
+<style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px !important;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+    .sub-navbar{
+     position: sticky !important;
+     top: 60px;
+     z-index: 700;
+  }
+
+</style>
 <div class="main">
-    
+
     <div class="p-3"></div>
-    <div class="container red topBotomBordersOut">
-        <a href="VideoAdmin">Video</a>
-        <a href="AdminNews">News</a>
-        <a href="AdminPodCasts">Podcasts</a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sub-navbar">
+        <div class="container-fluid">
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="VideoAdmin">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="AdminNews">Tin Tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="AdminPodCasts">Podcast</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="action d-flex justify-content-end">
-        <button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#myModal3" style="margin-left: 20px;">Create</button>
+        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal3" style="margin: 20px; float : left; position: absolute; left: 0;">Tạo mới</button>
     </div>
     <div id="myModal3" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -23,27 +66,27 @@ include_once("../Controller/AdminPodcastsController.php")
                 <div class="modal-body">
                     <form method="post" action="AdminPodCasts">
                         <div class="form-group">
-                            <label for="usr">Title</label>
+                            <label for="usr">Tiêu đề</label>
                             <input type="text" class="form-control" id="title" name="title">
                         </div>
                         <div class="form-group">
-                            <label for="usr">youtube_link</label>
+                            <label for="usr">Link youtube</label>
                             <input type="text" class="form-control" id="youtube_link" name="youtube_link">
                         </div>
                         <div class="form-group">
-                            <label for="usr">Descriptions</label>
+                            <label for="usr">Mô tả</label>
                             <input type="text" class="form-control" id="description" name="description">
                         </div>
                         <div class="form-group">
-                            <label for="usr">Image</label>
+                            <label for="usr">Ảnh</label>
                             <input type="text" class="form-control" id="image_url" name="image_url">
                         </div>
                         <div class="form-group">
-                            <label for="usr">Author</label>
+                            <label for="usr">Tác giả</label>
                             <input type="text" class="form-control" id="author_id" name="author_id">
                         </div>
                         <div class="form-group">
-                            <label for="usr">Type</label>
+                            <label for="usr">Kiểu</label>
                             <input type="text" class="form-control" id="type" name="type">
                             <select id="type" name="type" >
                                 <option value="Tình Yêu">Tình Yêu</option>
@@ -55,18 +98,18 @@ include_once("../Controller/AdminPodcastsController.php")
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="usr">View</label>
+                            <label for="usr">Lượt xem</label>
                             <input type="text" class="form-control" id="view" name="view">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-default">Create</button>
+                            <button type="submit" class="btn btn-default">Tạo</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="margin-top: 20px;">
         <h2 class="title">
             <span class="title-word title-word-1">P</span>
             <span class="title-word title-word-2">O</span>
@@ -86,32 +129,31 @@ include_once("../Controller/AdminPodcastsController.php")
                     <p>Id</p>
                 </th>
                 <th>
-                    <p>Title</p>
+                    <p>Tiêu đề</p>
                 </th>
                 <th>
-                    <p>Description</p>
+                    <p>Mô tả</p>
                 </th>
                 <th>
-                    <p>author_id</p>
+                    <p>mã tác giả</p>
                 </th>
                 <th>
-                    <p>youtube_link</p>
+                    <p>link youtube</p>
                 </th>
                 <th>
-                    <p>Created_at</p>
+                    <p>Ngày tạo </p>
                 </th>
                 <th>
-                    <p>Image_url</p>
+                    <p>Ảnh</p>
                 </th>
                 <th>
-                    <p>Type</p>
+                    <p>Kiểu</p>
                 </th>
                 <th>
-                    <p>View</p>
+                    <p>Lượt xem </p>
                 </th>
-                <th>
-                    <p>Action</p>
-                </th>
+                <th></th>
+
             </tr>
         </thead>
 
@@ -171,27 +213,27 @@ include_once("../Controller/AdminPodcastsController.php")
                         <form method="post" action="AdminPodCasts">
                             <input type="hidden" name="id" value="<?php echo $video['id']; ?>">
                             <div class="form-group">
-                                <label for="usr">Title</label>
+                                <label for="usr">Tiêu Đề</label>
                                 <input type="text" class="form-control" id="title" name="title" value="<?php echo $video['title'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="usr">youtube_link</label>
+                                <label for="usr">Link youtube</label>
                                 <input type="text" class="form-control" id="youtube_link" name="youtube_link" value="<?php echo $video['youtube_link'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="usr">Descriptions</label>
+                                <label for="usr">Mô tả</label>
                                 <input type="text" class="form-control" id="description" name="description" value="<?php echo $video['description'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="usr">Image</label>
+                                <label for="usr">Ảnh</label>
                                 <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $video['image_url'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="usr">Author</label>
+                                <label for="usr">Tác giả</label>
                                 <input type="text" class="form-control" id="author_id" name="author_id" disabled value="<?php echo $video['author_id'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="usr">Type</label>
+                                <label for="usr">Kiểu</label>
                                 <select id="type" name="type" value="<?php echo $video['type'] ?>" >
                                 <option value="Tình Yêu">Tình Yêu</option>
                                 <option value="Gia Đình">Gia Đình</option>
@@ -202,12 +244,12 @@ include_once("../Controller/AdminPodcastsController.php")
                             </select>
                             </div>
                             <div class="form-group">
-                                <label for="usr">View</label>
+                                <label for="usr">Lượt xem</label>
                                 <input type="text" class="form-control" id="view" name="view" value="<?php echo $video['view'] ?>">
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-default">Update</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-default">Cập nhật</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Bỏ</button>
                             </div>
                         </form>
                     </div>

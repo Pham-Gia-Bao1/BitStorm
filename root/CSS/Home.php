@@ -10,6 +10,11 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
+        margin-top: 200px !important;
+    }
+    .main-img img{
+        width: 700px;
+        height: 500px;
     }
 
     .hr_home {
@@ -160,7 +165,7 @@
         transition: 0.5s;
         cursor: pointer;
         transition: all .3s ease;
-        
+
     }
     .card a{
         text-decoration: none;
@@ -177,7 +182,7 @@
         flex-direction: column;
         align-items: center;
         padding: 10px 14px;
-       
+
     }
 
     .image-content {

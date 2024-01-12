@@ -229,4 +229,10 @@
   }
 
 }
+.canvasjs-chart-credit{
+  display: none;
+}
+.recentOrders{
+  overflow-y: scroll;
+}
 </style>

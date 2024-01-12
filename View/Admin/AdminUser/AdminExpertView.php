@@ -18,7 +18,7 @@ include("../root/CSS/Admin/AdminUser.css.php");
         </nav>
         <div class="row">
             <div class="col-sm-3 addUserBox">
-                <button class="btn btn-primary addUserBtn" type="submit" name="addUser">Thêm chuyên gia&nbsp;<i class="fa-solid fa-plus"></i></button>
+                <button class="btn btn-primary m-3" type="submit" name="addUser">Thêm chuyên gia&nbsp;<i class="fa-solid fa-plus"></i></button>
                 <?php include("../View/Admin/AdminUser/AddAdminExpert.php"); ?>
             </div>
         </div>
@@ -60,7 +60,7 @@ include("../root/CSS/Admin/AdminUser.css.php");
                             }
                             elseif($expert['status'] == 0) {
                                 echo "Ngưng hoạt động";
-                            } 
+                            }
                         ?>
                     </td>
                     <th>

@@ -39,7 +39,7 @@ VALUES
 CREATE TABLE experts (
   id INT PRIMARY KEY AUTO_INCREMENT,
   role_id INT,
-  FOREIGN KEY (role_id) REFERENCES roles(id), 
+  FOREIGN KEY (role_id) REFERENCES roles(id),
   full_name varchar(255),
   gender VARCHAR(10),
   address VARCHAR(255),
@@ -852,12 +852,12 @@ INSERT INTO new_categories (id, new_id, category_id) VALUES
 (10,5,3);
 
 CREATE TABLE IF NOT EXISTS author(
- author_id INT PRIMARY KEY AUTO_INCREMENT,  
+ author_id INT PRIMARY KEY AUTO_INCREMENT,
  name_author varchar(255),
  img varchar(255)
 );
 
-INSERT INTO author (name_author,img) VALUES 
+INSERT INTO author (name_author,img) VALUES
 ("Trần Văn Lực",""),
 ("Lê Thị Kim Thoa", " "),
 ("Huỳnh Tố Nga", " "),
@@ -901,17 +901,32 @@ VALUES
     (8, 'Đang chờ phần phỏng vấn khách mời.', '2023-12-30 16:45:00', 4, 3, 300, 100),
     (9, 'Nên tăng thời lượng podcast lên.', '2023-12-31 11:10:00', 5, 2, 200, 50),
     (10, 'Có thể đưa ra ví dụ cụ thể hơn không?', '2024-01-01 13:20:00', 5, 3, 450, 150);
-CREATE USER 'Van_Thu'@'localhost' IDENTIFIED BY '12345';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Van_Thu'@'localhost';
 
-CREATE USER 'Viet_My'@'localhost' IDENTIFIED BY '00000';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Viet_My'@'localhost';
+create table authors (
+	id int auto_increment primary key,
+    name varchar(100),
+    img_profile varchar(255)
+);
+INSERT INTO authors (name, img_profile) VALUES
+    ('Nguyễn Văn A', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg'),
+    ('Trần Thị B', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg'),
+    ('Lê Văn C', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg'),
+    ('Phạm Thị D', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg'),
+    ('Hoàng Văn E', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg');
 
-CREATE USER 'Bich_Quyen'@'localhost' IDENTIFIED BY '6789';
-GRANT ALL PRIVILEGES ON data_php.* TO 'Bich_Quyen'@'localhost';
+create table author (
+		author_id int  primary key,
+        name_author varchar(100),
+        img varchar(255)
+);
 
-FLUSH PRIVILEGES;
--- phần bổ sung sau
+INSERT INTO author (author_id, name_author, img) VALUES
+    (1, 'Trần Văn lỰc', 'profile1.jpg'),
+    (2, 'Mai Thị Anh', 'profile2.jpg'),
+    (3, 'LLee Thị Kim Thoa', 'profile3.jpg'),
+    (4, 'Huỳnh Tố Nga', 'profile4.jpg'),
+    (5, 'Phạm Văn Lịch', 'profile5.jpg'),
+    (6, 'Nguyễn Văn Linh', 'profile6.jpg');
 
 
 INSERT INTO experts (id,role_id,full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status) VALUES

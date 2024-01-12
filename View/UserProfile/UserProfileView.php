@@ -260,6 +260,7 @@ include("../root/CSS/UserProfile.css.php");
 
                   <div class="row">
                     <div class="col-md-12">
+                         <i class="fa-solid fa-bookmark"></i>
                       <div class="p-3 m-1">
                         Người đặt : Bạn
                       </div>
@@ -269,10 +270,15 @@ include("../root/CSS/UserProfile.css.php");
                       <div class="bg-light p-3 m-1">
                         Thời gian : <?php echo htmlspecialchars($posts1->TimePost($booking['create_at_booking'])) ?>
                       </div>
+                      <div class="bg-light p-3 m-1">
+                        Ngày : <?php echo $booking['create_at_booking']  ?>
+                      </div>
                     </div>
 
                   </div>
+
                 </div>
+
 
               <?php endforeach; ?>
             </form>

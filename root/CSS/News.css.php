@@ -3,7 +3,7 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 1514px;
+    width: 100vw !important;
     height: 741.4px;
     object-fit: cover;
   }
@@ -13,18 +13,24 @@
     top: 0px;
     left: 0px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 11.84%, rgba(0, 0, 0, 0));
-    width: 1514px;
+    width: 100vw !important;
     height: 741.4px;
+
   }
 
   .c-bo-cng {
     margin: 0;
   }
+  .view-more{
+      position: absolute;
+      bottom: 0;
+      margin-top: 10px;
+  }
 
   .c-bo-cng-container {
     position: absolute;
     top: 328.2px;
-    left: 284.54px;
+    left: 25vw;
     display: inline-block;
     width: 534.11px;
   }
@@ -40,20 +46,21 @@
 
   .header-photo-1-parent {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 1514px;
-    height: 741.4px;
+    width: 100vw !important;
+    background-color:  red;
   }
 
   .section-1-child {
     position: absolute;
     top: 689.58px;
-    left: 283.88px;
+    left : 23vw;
     background-color: #2f70b0;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     width: 946.25px;
     height: 250px;
+  }
+  .group-parent{
+
   }
 
   .gii-tr {
@@ -140,7 +147,7 @@
   .group-parent {
     position: absolute;
     top: 731.56px;
-    left: 335.5px;
+    left: 25vw;
     width: 843px;
     height: 166.05px;
     text-align: center;
@@ -150,7 +157,7 @@
   .group-child {
     position: absolute;
     top: -0.5px;
-    left: -0.5px;
+    left: 75px;
     border-right: 1px solid #fff;
     box-sizing: border-box;
     width: 1px;
@@ -160,7 +167,7 @@
   .group-item {
     position: absolute;
     top: -0.5px;
-    left: 314.92px;
+    left: 25vw;
     border-right: 1px solid #fff;
     box-sizing: border-box;
     width: 1px;
@@ -177,7 +184,7 @@
 
   .section-1 {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 939.58px;
     text-align: left;
     font-size: 50px;
@@ -364,6 +371,7 @@
   .search-box {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .img-container {
@@ -476,6 +484,7 @@
     transition: 0.3s;
     width: 235px;
     margin: 15px 7.5px;
+    padding: 10px;
   }
 
   .card:hover {

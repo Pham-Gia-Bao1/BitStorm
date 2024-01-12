@@ -2,7 +2,7 @@
 include("../View/LayOut/Header/Header.php");
 ?>
 <title>Post</title>
-<?php 
+<?php
 include("../root/CSS/Post.css.php");
 
 ?>
@@ -12,28 +12,30 @@ include("../root/CSS/Post.css.php");
         <div class="row post-bar box_search">
             <div class="col-1">
                 <!--  -->
-                <img src="<?php echo $nameAndImg[1]?>" alt="anh dai dien" id="img" class="w-100" style="border-radius: 50%; height:50px" />
+                <img src="<?php echo $nameAndImg[1]?>" alt="anh dai dien" id="img" class="w-100" style="border-radius: 50%; height:70px" />
             </div>
             <div class="col search">
                 <input type="text" class="search__input" placeholder="Hôm nay, cậu ổn không?" onclick="openModal()">
             </div>
         </div>
-        
-        <?php 
+
+        <?php
 
         foreach($posts as $post):
             if ($post['isAnonymous']){
                 $name=$post['name'];
+                $img = $post['img'];
             }else{
                 $name="Người dùng ẩn danh";
+                $img = "https://cdn-icons-png.flaticon.com/512/3177/3177440.png";
             };
         ?>
-            
+
         <div class="post">
-            
+
             <div class="post-row1">
                     <div class="post-avt me-3">
-                        <img src="https://demoda.vn/wp-content/uploads/2022/03/anh-cute-meo-le-luoi.jpg" alt="anh dai dien" id="img" style="border-radius: 50%; width: 40px; height: 40px;" />
+                        <img src="<?php echo $img?>" alt="anh dai dien" id="img" style="border-radius: 50%; width: 40px; height: 40px;" />
                     </div>
                     <div class="post-name">
                         <p class="name-user"><?php echo $name?></p>
@@ -70,27 +72,25 @@ include("../root/CSS/Post.css.php");
             <!-- lượt tym -->
             <div>
                 <p style="margin-bottom: 0;"><span style="font-weight: 500; margin-bottom: 0;"><?php echo $post['like_count']?></span> lượt thích</p>
-                <p>...</p>
+             
             </div>
             <!--add cmt  -->
-            <?php 
+            <?php
             $comments=$post['comment'];
             if (!empty($comments)):
             ?>
                 <?php foreach ($comments as $comment):?>
                 <div class="post-comment m-2">
-                    <div class="post-comment-avt me-3">
-                        <img src="meow.jpg" alt="" class="avt-post">
-                    </div>
+
                     <div class="post-content-comment">
-                    
+
                         <p class="name-post"><?php echo $comment['author']?></p>
                         <p class="content"><?php echo $comment['content']?></p>
-                    
+
                     </div>
                 </div>
                 <?php endforeach;?>
-            <?php 
+            <?php
             endif;?>
             <!-- end -->
             <div class="input-add-comment" >
