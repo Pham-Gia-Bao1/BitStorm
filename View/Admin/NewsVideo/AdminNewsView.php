@@ -71,7 +71,7 @@ require_once("../Controller/Database/database.php");
         </h2>
     </div>
     <div class="p-3"></div>
-    <table class="table table-success table-striped">
+    <table>
         <thead>
             <tr>
                 <th>
