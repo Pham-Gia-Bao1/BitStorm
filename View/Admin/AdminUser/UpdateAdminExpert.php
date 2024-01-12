@@ -17,8 +17,8 @@
                     <label for="gender">Giới tính:</label>
                     <select class="form-select form-select-lg mb-3" name="gender" aria-label="gender" id="gender" required>
                         <option selected>Chọn giới tính</option>
-                        <option value="Male">Nam</option>
-                        <option value="Female">Nữ</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
                     </select>
                     <label for="address">Địa chỉ:</label>
                     <div class="input-group mb-3">
@@ -42,7 +42,7 @@
                     </div>
                     <label for="avatar">Ảnh đại diện:</label>
                     <div>
-                        <input type="text" name="avatar" id="imgExpert" class="form-control" aria-describedby="basic-addon1" required>
+                        <input class="form-control mb-3" id="userImg" name="imgUser" accept="image/*" required>
                     </div>
                     <label for="avatar">Đánh giá:</label>
                     <div class="input-group mb-3">
@@ -50,7 +50,7 @@
                     </div>
                     <label for="certificate">Chứng chỉ</label>
                     <div>
-                        <input type="text" name="certificate" id="imgCertificate" class="form-control" aria-describedby="basic-addon1" required>
+                        <input class="form-control mb-3" id="CertificateImg" name="CertificateImg" accept="image/*" required>
                     </div>
                     <label for="specialization">Chức vụ:</label>
                     <div class="input-group mb-3">
@@ -59,8 +59,8 @@
                     <label for="specialization">Trạng thái:</label>
                     <select class="form-select form-select-lg mb-3" name="status" aria-label="status" id="status" required>
                         <option selected>Chọn trạng thái</option>
-                        <option value=1>Hoạt động</option>
-                        <option value=0>Khóa tài khoản</option>
+                        <option value="Hoạt động">Hoạt động</option>
+                        <option value="Ngưng hoạt động">Ngưng hoạt động</option>
                     </select>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -94,7 +94,15 @@
             $('#rating').val(expert[9]);
             $('#imgCertificate').val(imgCertificate);
             $('#specialization').val(expert[11]);
-            $('#status').val(expert[12]);
+            $('#status option').each(function() {
+                if ($(this).val() === expert[12]) {
+                    $(this).attr('selected', 'selected');
+                } else {
+                    $(this).removeAttr('selected');
+                }
+            });
+
+
         });
     });
 </script>

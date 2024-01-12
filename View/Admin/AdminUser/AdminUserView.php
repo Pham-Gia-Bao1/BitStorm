@@ -52,7 +52,7 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
                     <td><?php echo $client['password'] ?></td>
                     <td><?php echo $client['phone_number'] ?></td>
                     <td><?php echo $client['created_at'] ?></td>
-                    <td class="userImgContainer"><img src="<?php echo $client['img'] ?>" alt="image" class="userImg"></td>
+                    <td><img src="<?php echo $client['img'] ?>" alt="image" class="userImg"></td>
                     <td>
                         <?php if ($client['status'] == 1) {
                             echo "Hoạt động";
@@ -69,5 +69,11 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
         </table>
     </div>
 </body>
-<?php
-?>
+<style>
+    .table th:nth-child(7),
+    .table td:nth-child(7) {
+        max-width: 120px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+</style>

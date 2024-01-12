@@ -24,7 +24,7 @@ if (isset($_COOKIE[$cookie_name])){
         $userBooking = $userBooking->createBooking($userID, $id, $calendarID, $note);
         echo "<script> 
               alert ('Đặt lịch thành công'); 
-              window.location.href = 'home';
+              window.location.href = 'userProfile';
           </script>";
         exit(); // Đảm bảo dừng việc thực thi script sau lệnh header
     } 

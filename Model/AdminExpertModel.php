@@ -18,7 +18,7 @@ class Expert extends Connection
         try {
             $stmt = $this->conn->prepare("INSERT INTO experts (
                 full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status ) 
-                VALUES (:full_name, :gender, :address, :email, :phone_number, :age, :experience,:profile_picture, :count_rating, :certificate, :specialization, 1)");
+                VALUES (:full_name, :gender, :address, :email, :phone_number, :age, :experience,:profile_picture, :count_rating, :certificate, :specialization, 'Hoạt động')");
 
             $stmt->bindParam(':full_name', $full_name);
             $stmt->bindParam(':gender', $gender);

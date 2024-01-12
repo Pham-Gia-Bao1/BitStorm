@@ -54,15 +54,7 @@ include("../root/CSS/Admin/AdminUser.css.php");
                     <td><?php echo $expert['count_rating'] ?></td>
                     <td class="Certificate"><img class="CertificateImg" src="<?php echo $expert['certificate'] ?>" alt="image"></td>
                     <td><?php echo $expert['specialization'] ?></td>
-                    <td>
-                        <?php if($expert['status']==1){
-                            echo "Hoạt động";
-                            }
-                            elseif($expert['status'] == 0) {
-                                echo "Ngưng hoạt động";
-                            } 
-                        ?>
-                    </td>
+                    <td> <?php echo $expert['status'] ?> </td>
                     <th>
                         <button class="btn btn-primary edit-expert-btn"><i class="fa-solid fa-pen-to-square"></i></button>
                     </th>
@@ -76,11 +68,19 @@ include("../View/Admin/AdminUser/UpdateAdminExpert.php");
 
 ?>
 <style>
+    /* .table th,
+    .table td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    } */
+
     .table th:nth-child(8),
     .table td:nth-child(8) {
         max-width: 150px;
         overflow: hidden;
         white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .table th:nth-child(5),
@@ -88,6 +88,7 @@ include("../View/Admin/AdminUser/UpdateAdminExpert.php");
         max-width: 100px;
         overflow: hidden;
         white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .table th:nth-child(4),
@@ -95,6 +96,7 @@ include("../View/Admin/AdminUser/UpdateAdminExpert.php");
         max-width: 100px;
         overflow: hidden;
         white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .table th:nth-child(9),

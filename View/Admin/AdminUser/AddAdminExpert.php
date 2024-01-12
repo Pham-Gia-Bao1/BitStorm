@@ -39,7 +39,7 @@
                         <input type="text" name="experience" class="form-control" aria-describedby="basic-addon1" required>
                     </div>
                     <label for="avatar">Ảnh đại diện:</label>
-                    <input type="file" class="form-control mb-3" id="avatar" name="imgUser" accept="image/*" required>
+                    <input type="file" class="form-control mb-3" id="imgUser" name="imgUser" accept="image/*" required>
                     <label for="avatar">Đánh giá:</label>
                     <div class="input-group mb-3">
                         <input type="number" name="rating" class="form-control" aria-describedby="basic-addon1" required>

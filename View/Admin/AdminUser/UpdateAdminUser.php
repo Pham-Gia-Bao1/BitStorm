@@ -28,7 +28,7 @@
                     </div>
                     <div>
                         <label for="avatar">Ảnh đại diện:</label>
-                        <input type="text" name="imgUser" id="imgUser" class="form-control" aria-describedby="basic-addon1">
+                        <input type="file" class="form-control mb-3" id="avatar" name="imgUser" accept="image/*">
                     </div>
                     <label for="specialization">Trạng thái:</label>
                     <select class="form-select form-select-lg mb-3" name="status" aria-label="status" id="status">

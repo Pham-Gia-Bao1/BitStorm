@@ -1,4 +1,5 @@
 <?php
+include_once("../Model/UserProfileModel.php");
 include_once("../Model/AdminExpertModel.php");
 $Expert = new Expert();
 $experts = $Expert->get_all_experts();
@@ -14,11 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
                     $age = htmlspecialchars($_POST['age']);
                     $experience = htmlspecialchars($_POST['experience']);
-                    $expertImg = htmlspecialchars($_POST['avatar']);
                     $rating = htmlspecialchars($_POST['rating']);
-                    $certificate = htmlspecialchars($_POST['certificate']);
+                    // $certificate = htmlspecialchars($_POST['certificate']);
                     $specialization = htmlspecialchars($_POST['specialization']);
-                    $newExperts = $Expert->createExpert($name, $gender, $address, $email, $phoneNumber, $age, $experience, $expertImg, $rating, $certificate, $specialization);
+                    if (isset($_POST['imgUser'])) {
+                        $expertImg = htmlspecialchars($_POST['imgUser']);
+                        $newExpertImg = "http://localhost/BitStorm/root/Image/" . $expertImg;
+                    }
+                    if (isset($_POST['certificate'])) {
+                        $certificateImg = htmlspecialchars($_POST['certificate']);
+                        $newCertificateImg = "http://localhost/BitStorm/root/Image/" . $certificateImg;
+                    } 
+                    $newExperts = $Expert->createExpert($name, $gender, $address, $email, $phoneNumber, $age, $experience, $newExpertImg, $rating, $newCertificateImg, $specialization);
                     Header("Location: AdminExpert");
                 
             break;
@@ -30,13 +38,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
                     $age = htmlspecialchars($_POST['age']);
                     $experience = htmlspecialchars($_POST['experience']);
-                    $expertImg = htmlspecialchars($_POST['avatar']);
+                    // $expertImg = htmlspecialchars($_POST['avatar']);
                     $rating = htmlspecialchars($_POST['rating']);
-                    $certificate = htmlspecialchars($_POST['certificate']);
+                    // $certificate = htmlspecialchars($_POST['certificate']);
                     $specialization = htmlspecialchars($_POST['specialization']);
                     $status = htmlspecialchars($_POST['status']);
                     $id = $_POST['expertId'];
-                    $newExperts = $Expert->updateExpert($id, $name, $gender, $address, $email, $phoneNumber, $age, $experience, $expertImg, $rating, $certificate, $specialization, $status);
+                    if (isset($_POST['imgUser'])) {
+                        $expertImg = htmlspecialchars($_POST['imgUser']);
+                        $newExpertImg = "http://localhost/BitStorm/root/Image/" . $expertImg;
+                    }
+                    if (isset($_POST['CertificateImg'])) {
+                        $certificateImg = htmlspecialchars($_POST['CertificateImg']);
+                        $newCertificateImg = "http://localhost/BitStorm/root/Image/" . $certificateImg;
+                    } 
+                    $newExperts = $Expert->updateExpert($id, $name, $gender, $address, $email, $phoneNumber, $age, $experience, $newExpertImg, $rating, $newCertificateImg, $specialization, $status);
                     Header("Location: AdminExpert");
                 break;
             default:
