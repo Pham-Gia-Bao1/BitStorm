@@ -3,7 +3,7 @@ include("../View/Admin/Layout/SideBar.view.php");
 include("../root/CSS/Admin/AdminComment.css.php");
 include_once("../root/CSS/Admin/Homepage.css.php");
 include_once("../root/CSS/Admin/SideBar.css.php");
-include("../root/JS/Notification.js.php");
+// include("../root/JS/Notification.js.php");
 ?>
 
 <body>
@@ -113,7 +113,7 @@ include("../root/JS/Notification.js.php");
                                     </div>
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="">Thông tin video</h5>
+                                            <h5 class="modal-title text-primary" id="">Thông tin video</h5>
                                         </div>
 
                                         <div class="modal-body gap-4">

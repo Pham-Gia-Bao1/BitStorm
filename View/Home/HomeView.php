@@ -20,7 +20,7 @@ include_once("../Model/HomeModel.php");
                 <p class="p-3"></p>
                 <hr class="hr_home">
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 main-img">
                 <img src="./root/Image/homePage/kisspng-physician-diabetes-mellitus-computer-disease-preve-doctor-and-computer-5a99b82dcadc58 1.png" alt="ảnh" height="500px">
             </div>
         </div>
@@ -29,7 +29,7 @@ include_once("../Model/HomeModel.php");
 <div class="bodier">
     <div class="container-fluid">
         <div class="p-5"></div>
-        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại <span style="color:cadetblue">BitStorm</span> </h4>
+        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại <span style="color:#279EFF">BitStorm</span> </h4>
         <div class="slide-container swiper p-5">
             <div class="slide-content p-3">
                 <div class="card-wrapper swiper-wrapper">

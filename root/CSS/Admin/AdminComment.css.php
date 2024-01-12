@@ -53,13 +53,21 @@
         border: 0 !important;
     }
 
-    .topbar {
-        width: 100%;
 
-    }
 
     .main.active {
     width: calc(100% - 80px);
     left: 100px;
+  }
+  .sub-navbar{
+     position: sticky !important;
+     top: 60px;
+     z-index: 700;
+  }
+  .sub-navbar ul li{
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .sub-navbar ul li:hover{
+    border-bottom: 1px solid blue;
   }
 </style>

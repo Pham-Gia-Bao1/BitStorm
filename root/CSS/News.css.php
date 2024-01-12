@@ -3,7 +3,7 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 1514px;
+    width: 100vw !important;
     height: 741.4px;
     object-fit: cover;
   }
@@ -13,18 +13,24 @@
     top: 0px;
     left: 0px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 11.84%, rgba(0, 0, 0, 0));
-    width: 1514px;
+    width: 100vw !important;
     height: 741.4px;
+
   }
 
   .c-bo-cng {
     margin: 0;
   }
+  .view-more{
+      position: absolute;
+      bottom: 0;
+      margin-top: 10px;
+  }
 
   .c-bo-cng-container {
     position: absolute;
     top: 328.2px;
-    left: 284.54px;
+    left: 25vw;
     display: inline-block;
     width: 534.11px;
   }
@@ -40,20 +46,21 @@
 
   .header-photo-1-parent {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 1514px;
-    height: 741.4px;
+    width: 100vw !important;
+    background-color:  red;
   }
 
   .section-1-child {
     position: absolute;
     top: 689.58px;
-    left: 283.88px;
+    left : 23vw;
     background-color: #2f70b0;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     width: 946.25px;
     height: 250px;
+  }
+  .group-parent{
+
   }
 
   .gii-tr {
@@ -140,7 +147,7 @@
   .group-parent {
     position: absolute;
     top: 731.56px;
-    left: 335.5px;
+    left: 25vw;
     width: 843px;
     height: 166.05px;
     text-align: center;
@@ -150,7 +157,7 @@
   .group-child {
     position: absolute;
     top: -0.5px;
-    left: -0.5px;
+    left: 75px;
     border-right: 1px solid #fff;
     box-sizing: border-box;
     width: 1px;
@@ -160,7 +167,7 @@
   .group-item {
     position: absolute;
     top: -0.5px;
-    left: 314.92px;
+    left: 25vw;
     border-right: 1px solid #fff;
     box-sizing: border-box;
     width: 1px;
@@ -177,7 +184,7 @@
 
   .section-1 {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 939.58px;
     text-align: left;
     font-size: 50px;
@@ -323,8 +330,8 @@
     font-size: 10px;
     font-family: sans-serif;
     text-decoration: none;
-    /* color: #333; */
-    /* border: 1px solid #333; */
+    color: #333;
+    border: 1px solid #333;
     letter-spacing: 2px;
     text-align: center;
     position: relative;
@@ -364,6 +371,7 @@
   .search-box {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .img-container {
@@ -476,6 +484,7 @@
     transition: 0.3s;
     width: 235px;
     margin: 15px 7.5px;
+    padding: 10px;
   }
 
   .card:hover {
@@ -484,11 +493,11 @@
     cursor: pointer;
   }
 
-  .card .img {
+  .image_card {
     max-width: 220px;
     height: 220px;
     display: inline-block;
-
+    object-fit:cover;
   }
 
   #slide-left-container,
@@ -524,61 +533,62 @@
     transform: rotate(45deg);
     margin-left: 22%;
   }
+
   .mask-group-icon {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 272px;
-        height: 170px;
-        object-fit: cover;
-    }
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 272px;
+    height: 170px;
+    object-fit: cover;
+  }
 
-    .placeholder-parent {
-        position: absolute;
-        top: 10px;
-        left: 184px;
-        width: 78px;
-        height: 22px;
-        text-align: center;
-        color: #fff;
-    }
+  .placeholder-parent {
+    position: absolute;
+    top: 10px;
+    left: 184px;
+    width: 78px;
+    height: 22px;
+    text-align: center;
+    color: #fff;
+  }
 
-    .danh-sch-10 {
-        position: absolute;
-        top: 7px;
-        left: 287px;
-        font-size: 18px;
-        line-height: 27px;
-        display: inline-block;
-        font-family: 'IBM Plex Serif';
-        width: 380px;
-        height: 71px;
-    }
+  .danh-sch-10 {
+    position: absolute;
+    top: 7px;
+    left: 287px;
+    font-size: 18px;
+    line-height: 27px;
+    display: inline-block;
+    font-family: 'IBM Plex Serif';
+    width: 380px;
+    height: 71px;
+  }
 
-    .tr-nh-c {
-        position: absolute;
-        top: 71px;
-        left: 288px;
-        font-size: 16px;
-        line-height: 163.41%;
-        font-family: 'Nunito Sans';
-        display: inline-block;
-        width: 380px;
-        height: 68px;
-        white-space: nowrap;
-        width: 380px;
-        text-overflow: ellipsis;
-        overflow: hidden;
+  .tr-nh-c {
+    position: absolute;
+    top: 71px;
+    left: 288px;
+    font-size: 16px;
+    line-height: 163.41%;
+    font-family: 'Nunito Sans';
+    display: inline-block;
+    width: 380px;
+    height: 68px;
+    white-space: nowrap;
+    width: 380px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
-    }
+  }
 
-    .mask-group-parent {
-        position: relative;
-        width: 100%;
-        height: 170px;
-        text-align: left;
-        font-size: 12px;
-        color: #2a2a2a;
-        font-family: Poppins;
-    }
+  .mask-group-parent {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    text-align: left;
+    font-size: 12px;
+    color: #2a2a2a;
+    font-family: Poppins;
+  }
 </style>

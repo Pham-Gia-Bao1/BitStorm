@@ -3,7 +3,11 @@ include_once("../Model/UserProfileModel.php");
 include_once("../Model/AdminUserModel.php");
 $User = new User();
 $clients = $User->get_all_users();
+include_once("../Model/UserProfileModel.php");
 $userprofile = new UserProfile();
+$role_id = $userprofile->get_role_id();
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
@@ -53,5 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-?>
-<?php include("../View/Admin/AdminUser/AdminUserView.php"); ?>
+
+if ($role_id == 1) {
+    include("../View/Admin/AdminUser/AdminUserView.php");
+} else {
+    header("Location: home");
+}

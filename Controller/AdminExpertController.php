@@ -1,5 +1,9 @@
 <?php
 include_once("../Model/UserProfileModel.php");
+
+$userprofile = new UserProfile();
+$role_id = $userprofile->get_role_id();
+
 include_once("../Model/AdminExpertModel.php");
 $Expert = new Expert();
 $experts = $Expert->get_all_experts();
@@ -62,5 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-?>
-<?php include("../View/Admin/AdminUser/AdminExpertView.php"); ?>
+if ($role_id == 1) {
+    include("../View/Admin/AdminUser/AdminExpertView.php");
+} else {
+
+    header("Location: home");
+}

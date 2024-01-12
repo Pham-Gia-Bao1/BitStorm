@@ -9,75 +9,12 @@
   transition: 0.5s;
   margin-top: 50px;
 }
-
-
-.topbar {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
+/* ===============SET LAYOUT========== */
+.body-main{
+  display: grid;
+  gap: 10px;
+  /* padding: 10px; */
 }
-
-.toggle {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5rem;
-  cursor: pointer;
-}
-
-.search {
-  position: relative;
-  width: 400px;
-  margin: 0 10px;
-}
-
-.search label {
-  position: relative;
-  width: 100%;
-}
-
-.search label input {
-  width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  font-size: 18px;
-  outline: none;
-  border: 1px solid var(--black2);
-}
-
-.search label ion-icon {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-size: 1.2rem;
-}
-
-.user {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.user img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* ======================= Cards ====================== */
 .cardBox {
   position: relative;
@@ -85,13 +22,18 @@
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
+  grid-gap: 20px;
 }
 
+.cardTop{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .cardBox .card {
   position: relative;
   background: var(--white);
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
@@ -103,12 +45,13 @@
   position: relative;
   font-weight: 500;
   font-size: 2.5rem;
-  color: var(--blue);
+  color: var(--blue) ;
+  text-align: center;
 }
 
 .cardBox .card .cardName {
   color: var(--black2);
-  font-size: 1.1rem;
+  font-size: 2rem;
   margin-top: 5px;
 }
 
@@ -132,7 +75,7 @@
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 50% 50%;
   grid-gap: 30px;
   /* margin-top: 10px; */
 }
@@ -140,13 +83,18 @@
 .details .recentOrders {
   position: relative;
   display: grid;
-  min-height: 500px;
+  min-height: 400px;
   background: var(--white);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
-
+.scroll-container {
+    max-height: 100px; /* Chiều cao tối đa cho 7 hàng, thay đổi theo yêu cầu của bạn */
+    overflow-y: auto;
+    width: 400px; /* Chiều rộng cố định cho phần tử */
+    border: 1px solid #ccc; /* Để biểu thị rõ kích thước của vùng cuộn */
+  }
 .details .cardHeader {
   display: flex;
   justify-content: space-between;
@@ -190,12 +138,6 @@
 .details .recentOrders table tr td:last-child {
   text-align: end;
 }
-.details .recentOrders table tr td:nth-child(2) {
-  text-align: end;
-}
-.details .recentOrders table tr td:nth-child(3) {
-  text-align: center;
-}
 .status.delivered {
   padding: 2px 4px;
   background: #8de02c;
@@ -229,49 +171,6 @@
   font-weight: 500;
 }
 
-.recentCustomers {
-  position: relative;
-  display: grid;
-  min-height: 500px;
-  padding: 20px;
-  background: var(--white);
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-}
-.recentCustomers .imgBx {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  overflow: hidden;
-}
-.recentCustomers .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.recentCustomers table tr td {
-  padding: 12px 10px;
-}
-.recentCustomers table tr td h4 {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.2rem;
-}
-.recentCustomers table tr td h4 span {
-  font-size: 14px;
-  color: var(--black2);
-}
-.recentCustomers table tr:hover {
-  background: var(--blue);
-  color: var(--white);
-}
-.recentCustomers table tr:hover td h4 span {
-  color: var(--white);
-}
 
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
@@ -329,5 +228,11 @@
     z-index: 10001;
   }
 
+}
+.canvasjs-chart-credit{
+  display: none;
+}
+.recentOrders{
+  overflow-y: scroll;
 }
 </style>

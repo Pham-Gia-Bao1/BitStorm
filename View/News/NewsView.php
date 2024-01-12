@@ -4,9 +4,10 @@ include("../root/CSS/News.css.php");
 include_once("../Model/AdminNewsModel.php");
 ?>
 <div class="section-1">
-  <div class="header-photo-1-parent">
+  <div class="header-photo-1-parent container-fluid">
     <img class="header-photo-1" alt="" src="./root/Image/news/attractive-girl-hat-reads-book-nature-sunset.jpg">
     <div class="header-photo-2">
+
     </div>
     <b class="c-bo-cng-container">
       <p class="c-bo-cng">Đọc Báo Cùng </p>
@@ -82,7 +83,7 @@ include_once("../Model/AdminNewsModel.php");
                 <div class="col-sm-6">
                 <div class="mask-group-parent">
                     <img class="mask-group-icon" alt="ảnh"  src="<?php echo $row->image_url ?>" >
-                  <p> <b class="danh-sch-10"><?php echo $row->title ?></b></p> 
+                  <p> <b class="danh-sch-10"><?php echo $row->title ?></b></p>
                     <div class="tr-nh-c"><p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $row->descriptions ?></p></div>
                 </div>
                 </div>
@@ -121,7 +122,7 @@ include_once("../Model/AdminNewsModel.php");
             <img src="<?php echo $new['image_url'] ?>" alt="Card image cap" class="image_card">
             <h5 class="card-text" style="font-weight: bold;"><?php echo $new['title'] ?></h5>
             <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $new['descriptions'] ?></p>
-            <a href="NewsDetails?id=<?php echo $new['id']; ?>" title="Read Full" class="wrappe1r"><span>Xem Thêm</span></a>
+            <a href="NewsDetails?id=<?php echo $new['id']; ?>" title="Read Full" class="wrappe1r view-more"><span>Xem Thêm</span></a>
           </div>
         <?php endforeach ?>
       </div>

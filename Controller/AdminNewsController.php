@@ -1,4 +1,8 @@
 <?php
+include_once("../Model/UserProfileModel.php");
+$userprofile = new UserProfile();
+$role_id = $userprofile->get_role_id();
+
 include_once "../root/CSS/Admin/AdminNews.css.php";
 include_once "../Model/AdminNewsModel.php";
 $newAdmin = new AdminNews();
@@ -32,7 +36,7 @@ if (isset($_POST['created_at']) && isset($_POST['descriptions']) && isset($_POST
         header('Location: AdminNews');
     }
 }
-// update 
+// update
 
 // delete
 if (isset($_GET['id'])) {
@@ -43,4 +47,9 @@ if (isset($_GET['id'])) {
         exit();
     }
 }
-include_once "../View/Admin/NewsVideo/AdminNewsView.php";
+if($role_id == 1){
+    include_once "../View/Admin/NewsVideo/AdminNewsView.php";
+}else{
+
+    header("Location: home");
+}
