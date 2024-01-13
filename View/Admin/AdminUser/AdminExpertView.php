@@ -1,6 +1,6 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
-include("../root/CSS/Admin/AdminUser.css.php");
+include("../root/CSS/Admin/AdminExpert.css.php");
 ?>
 
 <body>
@@ -67,65 +67,3 @@ include("../root/CSS/Admin/AdminUser.css.php");
 include("../View/Admin/AdminUser/UpdateAdminExpert.php");
 
 ?>
-<style>
-    /* .table th,
-    .table td {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    } */
-
-    .table th:nth-child(8),
-    .table td:nth-child(8) {
-        max-width: 150px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    .table th:nth-child(5),
-    .table td:nth-child(5) {
-        max-width: 100px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    .table th:nth-child(4),
-    .table td:nth-child(4) {
-        max-width: 100px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    .table th:nth-child(9),
-    .table td:nth-child(9) {
-        max-width: 150px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .table th:nth-child(11),
-    .table td:nth-child(11) {
-        max-width: 100px;
-    }
-
-    .table td.Certificate {
-        max-height: 100px;
-        overflow: hidden;
-    }
-
-    .table td.Certificate img {
-        width: 100%;
-        height: auto;
-    }
-
-    .table th:nth-child(13),
-    .table td:nth-child(13) {
-        max-width: 80px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-</style>

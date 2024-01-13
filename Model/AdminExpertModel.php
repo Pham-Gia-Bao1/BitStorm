@@ -16,9 +16,9 @@ class Expert extends Connection
     public function createExpert($full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization)
     {
         try {
-            $stmt = $this->conn->prepare("INSERT INTO experts (
+            $stmt = $this->conn->prepare("INSERT INTO experts (role_id,
                 full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status ) 
-                VALUES (:full_name, :gender, :address, :email, :phone_number, :age, :experience,:profile_picture, :count_rating, :certificate, :specialization, 'Hoạt động')");
+                VALUES (3,:full_name, :gender, :address, :email, :phone_number, :age, :experience,:profile_picture, :count_rating, :certificate, :specialization, 'Hoạt động')");
 
             $stmt->bindParam(':full_name', $full_name);
             $stmt->bindParam(':gender', $gender);
