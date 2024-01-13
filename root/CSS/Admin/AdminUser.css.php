@@ -100,7 +100,7 @@
         width: 150px;
     }
 
-    .addUserBtn {
+    /* .addUserBtn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -108,7 +108,7 @@
         margin-bottom: 10px;
         height: 40px;
         border-radius: 50px !important;
-    }
+    } */
 
     .addUserBox {
         display: flex;

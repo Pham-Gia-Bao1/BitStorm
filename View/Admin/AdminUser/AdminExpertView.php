@@ -18,7 +18,7 @@ include("../root/CSS/Admin/AdminUser.css.php");
         </nav>
         <div class="row">
             <div class="col-sm-3 addUserBox">
-                <button class="btn btn-primary m-3" type="submit" name="addUser">Thêm chuyên gia&nbsp;<i class="fa-solid fa-plus"></i></button>
+                <button class="btn addUserBtn btn-primary m-3" type="submit" name="addUser">Thêm chuyên gia&nbsp;<i class="fa-solid fa-plus"></i></button>
                 <?php include("../View/Admin/AdminUser/AddAdminExpert.php"); ?>
             </div>
         </div>
@@ -101,7 +101,7 @@ include("../View/Admin/AdminUser/UpdateAdminExpert.php");
 
     .table th:nth-child(9),
     .table td:nth-child(9) {
-        max-width: 100px;
+        max-width: 150px;
         overflow: hidden;
         white-space: nowrap;
     }
@@ -119,5 +119,13 @@ include("../View/Admin/AdminUser/UpdateAdminExpert.php");
     .table td.Certificate img {
         width: 100%;
         height: auto;
+    }
+
+    .table th:nth-child(13),
+    .table td:nth-child(13) {
+        max-width: 80px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 </style>
