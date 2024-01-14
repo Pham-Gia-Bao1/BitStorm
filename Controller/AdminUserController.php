@@ -1,4 +1,5 @@
 <?php
+include_once("../Model/UserProfileModel.php");
 include_once("../Model/AdminUserModel.php");
 $User = new User();
 $clients = $User->get_all_users();
@@ -18,23 +19,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $email = htmlspecialchars($_POST['email']);
                     $password = htmlspecialchars($_POST['password']);
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
-                    $userImg = htmlspecialchars($_POST['imgUser']);
-                    // $id = $_POST['userId'];
-                    $newClients = $User->createUser($name, $email, $password, $phoneNumber, $userImg);
+                    if (isset($_POST['imgUser'])) {
+                        $userImg = htmlspecialchars($_POST['imgUser']);
+                        $new_url_img = "http://localhost/BitStorm/root/Image/" . $userImg;
+                    } elseif(!isset($_POST['imgUser'])) {
+                        $new_url_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz7ba1XOuyY45MmrAnDLYLxv0QA16N4cGBtQ&usqp=CAU";
+                    }
+                 
+                    $newClients = $User->createUser($name, $email, $password, $phoneNumber, $new_url_img);
                     Header("Location: AdminUser");
                 }
                 break;
             case 'updateUser':
-
                 if (!empty($_POST['userId']) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phoneNumber'])) {
                     $name = htmlspecialchars($_POST['name']);
                     $email = htmlspecialchars($_POST['email']);
                     $password = htmlspecialchars($_POST['password']);
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
-                    $userImg = htmlspecialchars($_POST['imgUser']);
                     $status = htmlspecialchars($_POST['status']);
                     $id = $_POST['userId'];
-                    $newClients = $User->updateUser($id, $name, $email, $password, $phoneNumber, $userImg, $status);
+                    if (isset($_POST['imgUser'])) {
+                        $userImg = htmlspecialchars($_POST['imgUser']);
+                        $new_url_img = "http://localhost/BitStorm/root/Image/" . $userImg;
+                    } elseif (!isset($_POST['imgUser'])) {
+                        $new_url_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz7ba1XOuyY45MmrAnDLYLxv0QA16N4cGBtQ&usqp=CAU";
+                    }
+                    $newClients = $User->updateUser($id, $name, $email, $password, $phoneNumber, $new_url_img, $status);
                     Header("Location: AdminUser");
                 }
                 break;

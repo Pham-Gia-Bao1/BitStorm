@@ -29,7 +29,7 @@ class User extends Connection
     {
         $this->connect_database();
         $sql_query = "INSERT INTO users (name, email, password, phone_number, img, role_id, status) 
-                  VALUES (:name, :email, :password, :phone_number, :img, 2, 1)";
+                  VALUES (:name, :email, :password, :phone_number, :img, 2, 'Hoạt động')";
         $stmt = $this->conn->prepare($sql_query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);

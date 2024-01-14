@@ -49,7 +49,7 @@
                 <div class="col-sm-6 checkout mt-2">
                     <form action="" method="post">
                         <button type="submit" class="checkoutButton" name="userID">
-                            <a id="checkoutBtn" class="mr-1" <?php if (isset($_COOKIE[$cookie_name])) : ?> href="Checkout?expert_id=${expert.id}" <?php endif ?> >Đi đến trang thanh toán </a> <i class="fa-solid fa-arrow-right"></i>
+                            <a id="checkoutBtn" class="mr-1" <?php if (isset($_COOKIE[$cookie_name])) : ?> href="Checkout?expert_id=${expert.id}" <?php endif ?> >Đi đến trang đặt lịch </a> <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </form>
                 </div>
