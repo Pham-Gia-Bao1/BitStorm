@@ -13,7 +13,14 @@ include("../root/CSS/ContactExpert.css.php");
         <form action="ContactExpert" method="get" id="myForm">
             <div class="row">
                 <div class="col-sm-9 ml-5">
-                    <input type="text" class="form-control" name="fdoctor" id="doctor" value="" placeholder="Tên bác sĩ hoặc vấn đề bạn đang gặp phải...">
+                    <div class="box_search">
+                        <div class="w-100 p-0 form_search">
+                            <button class="box_search_icon" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            <input type="text" name="fdoctor" id="doctor" class="input_search" placeholder="Tìm kiếm tên bác sĩ hoặc vấn đề bạn đang gặp phải...">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-2 mb-2">
                     <button type="submit" class="fdoctor_button" id="searchDoctor">Search</button>
@@ -107,18 +114,18 @@ include("../root/CSS/ContactExpert.css.php");
     </div>
 
     <div class="text-center mt-5">
-        <h2 class="comment fw-bold">Một số bình luận của người dùng</h2>
+        <h3 class="comment fw-bold">Một số bình luận của người dùng</h3>
     </div>
-    <div class="row mt-5 pl-5 pr-5">
-        <div class="col-md-4">
+    <div class="row mt-5 pl-5 d-flex justify-content-center pr-5">
+        <div class="col-md-3">
             <div class="testimonial-card">
                 <img src="./root/Image/contactExpert/userimage1.jpg" alt="Client 1" class="img-fluid">
                 <p class="client-quote mt-1">Từ khi tôi sử dụng BitStorm và sử dụng trang web này thì tôi
-                    thấy cuộc sống tôi đã tốt hơn nhiều so với trước đây. BitStorm thật tuyệt vời</p>
+                    thấy cuộc sống tôi đã tốt hơn nhiều so với trước đây. BitStorm thật tuyệt.</p>
                 <img src="./root/Image/contactExpert/stars.png" alt="stars">
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="testimonial-card">
                 <img src="./root/Image/contactExpert/userimage.png" alt="Client 1" class="img-fluid">
                 <p class="client-quote mt-1">Trước đây tôi không thể mở lòng với bất kì ai, nhưng từ khi được sự tư vấn tâm lý
@@ -127,7 +134,7 @@ include("../root/CSS/ContactExpert.css.php");
                 <img src="./root/Image/contactExpert/stars.png" alt="stars">
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="testimonial-card">
                 <img src="./root/Image/contactExpert/userimage2.png" alt="Client 1" class="img-fluid">
                 <p class="client-quote mt-1">Tôi đã căng thẳng hơn 1 năm rồi nhưng không có ai lắng nghe tôi chia sẻ
@@ -136,6 +143,8 @@ include("../root/CSS/ContactExpert.css.php");
             </div>
         </div>
     </div>
+
+    
     <div class="row viewNumber mt-5 mb-5">
         <div class="col-sm-4">
             <h2 class="mt-3 number">+3500</h2>

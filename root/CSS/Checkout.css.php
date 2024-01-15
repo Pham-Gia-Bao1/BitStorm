@@ -43,10 +43,7 @@
     }
 
     .btn-warning {
-        width: 70% !important;
+        width: 90% !important;
     }
 
-    /* .userInformation {
-        background-color: #f7f7e8;
-    } */
 </style>

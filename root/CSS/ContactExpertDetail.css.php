@@ -20,7 +20,7 @@
     }
 
     .doctor_image {
-        margin-left: 40px;
+        margin-left: 120px;
         max-width: 90%;
         height: 500px;
     }
@@ -65,7 +65,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 15px;
     }
 
     .feeDetail {
@@ -94,8 +93,11 @@
         background-color: #057dcd;
         color: white;
         border-radius: 50px;
-        justify-content: center;
+        display: flex;
         align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 20px;
     }
 
     .checkoutButton:hover {
@@ -172,5 +174,22 @@
     .viewMorebtn a {
         color: white;
         text-decoration: none;
+    }
+
+    .email_text {
+        color: #1e3d58;
+    }
+
+    .email {
+        color: #939ca3;
+    }
+
+    .expertTime {
+        color: #939ca3;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 50px !important;
     }
 </style>
