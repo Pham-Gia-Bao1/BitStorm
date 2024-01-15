@@ -13,11 +13,12 @@
         align-items: center;
     }
 
-    .img_card{
+    .img_card {
         width: 95%;
         height: 255px;
         object-fit: cover;
-    } 
+    }
+
     .findDoctor_container {
         background-color: #dee6e9;
         border-radius: 16px;
@@ -208,8 +209,30 @@
         text-decoration: none;
     }
 
-    /* .boxCard {
-        height: 80vh;
-        overflow-y: hidden;
-    } */
+    .box_search input {
+        width: 80%;
+        display: inline;
+        border: none;
+    }
+
+    .box_search input {
+        outline: 2px solid rgb(255, 255, 255) !important;
+    }
+
+    .box_search button {
+        width: 10%;
+        display: inline;
+        border: none;
+        background: none;
+        color: rgb(0, 0, 0);
+    }
+
+    .box_search {
+        background-color: white;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        border-radius: 30px;
+        padding: 10px;
+    }
 </style>

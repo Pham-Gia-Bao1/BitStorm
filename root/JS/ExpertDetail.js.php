@@ -26,31 +26,49 @@
     function renderDetailExpert() {
 
         cardExperts.innerHTML = `
-            <div class="col-sm-4 doctor_image p-lg-2">
+            <div class="col-sm-4 doctor_image">
                 <img src="${expert.profile_picture}" alt="image">
             </div>
             <div class="col-sm-5 container_content">
                 <h2>${expert.specialization} ${expert.full_name}</h2>
                 <p>${expert.experience} </p>
-                <?php $rate = $data['count_rating'] ?>
-                <p class="fw-bolder rating">
-                     ${generateStarRating(expert.count_rating)}
-                </p>
                 <div class="row">
+                    <div class="col-sm-3">
+                        <p class="fw-bold email">Địa chỉ email:</p>
+                    </div>
+                    <div class="col-sm-1">
+                        <p class="fw-bold email_text">${expert.email}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="fw-bold email">Số điện thoại:</p>
+                    </div>
+                    <div class="col-sm-1">
+                        <p class="fw-bold email_text">0${expert.phone_number}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 mt-2 expertTime">
+                        Khung thời gian rảnh
+                    </div>
                     <div class="col-sm-3 detailTime">
                          ${formattedStartTime} - ${formattedEndTime}
                     </div>
                     <div class="col-sm-3 detailTime">
                         ${expert.day}
                     </div>
-
                 </div>
+                <?php $rate = $data['count_rating'] ?>
+                <p class="fw-bolder rating mt-2">
+                     ${generateStarRating(expert.count_rating)}
+                </p>
                 <div class="row mt-5 d-flex justify-content-center align-content-center">
-                <div class="col-sm-6 checkout mt-2">
+                <div class="col-sm-12 checkout">
                     <form action="" method="post">
-                        <button type="submit" class="checkoutButton" name="userID">
-                            <a id="checkoutBtn" class="mr-1" <?php if (isset($_COOKIE[$cookie_name])) : ?> href="Checkout?expert_id=${expert.id}" <?php endif ?> >Đi đến trang đặt lịch </a> <i class="fa-solid fa-arrow-right"></i>
-                        </button>
+                       <a type="submit" class="checkoutButton" name="userID" id="checkoutBtn" <?php if (isset($_COOKIE[$cookie_name])) : ?> href="Checkout?expert_id=${expert.id}" <?php endif ?>>
+                            Đi đến trang đặt lịch <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
                     </form>
                 </div>
                 </div>
