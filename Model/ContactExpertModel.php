@@ -11,7 +11,7 @@ class Expert extends Connection
         TIME_FORMAT(calendar.end_time, '%H:%i') AS end_time, calendar.price
         FROM experts
         JOIN calendar ON experts.id = calendar.expert_id
-        WHERE calendar.day >= :currentDate AND experts.status = 'Hoạt động'";
+        WHERE calendar.day >= :currentDate";
         $stst = $this->conn->prepare($sql_query);
         $stst->bindValue(':currentDate', $currentDate, PDO::PARAM_STR);
         $stst->execute();

@@ -17,7 +17,7 @@
         width: 95%;
         height: 255px;
         object-fit: cover;
-    } 
+    }
     .findDoctor_container {
         background-color: #dee6e9;
         border-radius: 16px;
@@ -84,13 +84,7 @@
 
     }
 
-    .viewMorebtn:hover {
-        width: 100%;
-        border: none;
-        background: linear-gradient(to right, rgb(111, 166, 235),
-                rgb(85, 188, 210), rgb(188, 203, 201));
-    }
-
+    
     .card_container {
         margin-left: 20px;
     }
@@ -144,6 +138,19 @@
         justify-content: center;
         align-items: center;
         border: none;
+    }
+    #box_all_expert{
+        height: 505px ;
+        display: flex !important;
+        flex-wrap: wrap;
+        width: 95% !important;
+        margin: 0 auto;
+        gap: 30px;
+        justify-content: center;
+        padding-top: 40px;
+        overflow: hidden;
+        padding-bottom: 20px;
+
     }
 
     .viewAll:hover {
