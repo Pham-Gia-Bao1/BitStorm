@@ -100,22 +100,6 @@
         width: 150px;
     }
 
-    /* .addUserBtn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        height: 40px;
-        border-radius: 50px !important;
-    } */
-
-    .addUserBox {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     .closeBtn {
         background-color: #d74a49;
         color: white;
@@ -125,57 +109,49 @@
         background-color: #007f4e;
         color: white;
     }
-    td {
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .main {
-    position: absolute;
-    width: calc(100% - 300px);
-    left: 300px;
-    min-height: 100vh;
-    background: var(--white);
-    transition: 0.5s;
-  }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 12px !important;
-  }
+    .table th:nth-child(8),
+    .table td:nth-child(8) {
+        max-width: 150px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 
-  th,
-  td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-  }
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        max-width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 
-  th {
-    background-color: #f2f2f2;
-  }
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        max-width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 
-  /* CSS cho hover */
-  tr:hover {
-    background-color: #f5f5f5;
-  }
+    .table th:nth-child(9),
+    .table td:nth-child(9) {
+        max-width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 
-  tr:first-child {
-    position: sticky;
-    top: 60px;
-  }
+    .table th:nth-child(11),
+    .table td:nth-child(11) {
+        max-width: 100px;
+    }
 
-  tr:nth-child(2) {
-    position: sticky;
-    top: 90px;
-  }
+    .table td.Certificate {
+        max-height: 100px;
+        overflow: hidden;
+    }
 
-
-  .main.active {
-    width: calc(100% - 80px);
-    left: 100px;
-  }
+    .table td.Certificate img {
+        width: 100%;
+        height: auto;
+    }
 </style>

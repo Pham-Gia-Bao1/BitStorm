@@ -28,13 +28,13 @@
                     </div>
                     <div>
                         <label for="avatar">Ảnh đại diện:</label>
-                        <input type="text" name="imgUser" id="imgUser" class="form-control" aria-describedby="basic-addon1">
+                        <input type="file" class="form-control mb-3" id="avatar" name="imgUser" accept="image/*">
                     </div>
                     <label for="specialization">Trạng thái:</label>
                     <select class="form-select form-select-lg mb-3" name="status" aria-label="status" id="status">
                         <option selected>Chọn trạng thái</option>
-                        <option value="1">Hoạt động</option>
-                        <option value="0">Khóa tài khoản</option>
+                        <option value="Hoạt động">Hoạt động</option>
+                        <option value="Ngưng hoạt động">Ngưng hoạt động</option>
                     </select>
                 </div>
                 <div class="modal-footer">
@@ -54,13 +54,15 @@
                 return $(this).text();
             }).get();
             var imgSrc = $tr.find(".userImg").attr("src");
+            console.log(client);
+            console.log(client[7]);
             $('#userId').val(client[0]);
             $('#userName').val(client[1]);
             $('#userEmail').val(client[2]);
             $('#userPassword').val(client[3]);
             $('#phoneNumber').val(client[4]);
             $('#imgUser').val(imgSrc);
-            $('#status').val(client[10]);
+            $('#status option[value="' + client[7].trim() + '"]').prop('selected', true);
         });
     });
 </script>

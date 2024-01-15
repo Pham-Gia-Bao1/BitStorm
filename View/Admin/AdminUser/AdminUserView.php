@@ -19,8 +19,8 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
             </div>
         </nav>
         <div class="row">
-            <div class="col-sm-3 addUserBox">
-                <button class="btn btn-primary m-3" type="submit" name="addUser">Thêm người dùng&nbsp;<i class="fa-solid fa-plus"></i></button>
+            <div class="col-sm-3">
+                <button class="btn btn-primary m-3 addUserBtn" type="submit" name="addUser">Thêm người dùng&nbsp;<i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
 
@@ -44,15 +44,8 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
                     <td><?php echo $client['password'] ?></td>
                     <td><?php echo $client['phone_number'] ?></td>
                     <td><?php echo $client['created_at'] ?></td>
-                    <td class="userImgContainer"><img src="<?php echo $client['img'] ?>" alt="image" class="userImg"></td>
-                    <td>
-                        <?php if ($client['status'] == 1) {
-                            echo "Hoạt động";
-                        } elseif ($client['status'] == 0) {
-                            echo "Ngưng hoạt động";
-                        }
-                        ?>
-                    </td>
+                    <td><img src="<?php echo $client['img'] ?>" alt="image" class="userImg"></td>
+                    <td> <?php echo $client['status']  ?> </td>
                     <th>
                         <button class="btn btn-primary edit-user-btn"><i class="fa-solid fa-pen-to-square"></i></button>
                     </th>
@@ -61,5 +54,11 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
         </table>
     </div>
 </body>
-<?php
-?>
+<style>
+    .table th:nth-child(7),
+    .table td:nth-child(7) {
+        max-width: 120px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+</style>

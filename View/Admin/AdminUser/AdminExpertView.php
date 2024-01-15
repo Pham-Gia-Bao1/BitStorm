@@ -1,6 +1,6 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
-include("../root/CSS/Admin/AdminUser.css.php");
+include("../root/CSS/Admin/AdminExpert.css.php");
 ?>
 
 <body>
@@ -18,7 +18,7 @@ include("../root/CSS/Admin/AdminUser.css.php");
         </nav>
         <div class="row">
             <div class="col-sm-3 addUserBox">
-                <button class="btn btn-primary m-3" type="submit" name="addUser">Thêm chuyên gia&nbsp;<i class="fa-solid fa-plus"></i></button>
+                <button class="btn addUserBtn btn-primary m-3" type="submit" name="addUser">Thêm chuyên gia&nbsp;<i class="fa-solid fa-plus"></i></button>
                 <?php include("../View/Admin/AdminUser/AddAdminExpert.php"); ?>
             </div>
         </div>
@@ -54,15 +54,7 @@ include("../root/CSS/Admin/AdminUser.css.php");
                     <td><?php echo $expert['count_rating'] ?></td>
                     <td class="Certificate"><img class="CertificateImg" src="<?php echo $expert['certificate'] ?>" alt="image"></td>
                     <td><?php echo $expert['specialization'] ?></td>
-                    <td>
-                        <?php if($expert['status']==1){
-                            echo "Hoạt động";
-                            }
-                            elseif($expert['status'] == 0) {
-                                echo "Ngưng hoạt động";
-                            }
-                        ?>
-                    </td>
+                    <td> <?php echo $expert['status'] ?> </td>
                     <th>
                         <button class="btn btn-primary edit-expert-btn"><i class="fa-solid fa-pen-to-square"></i></button>
                     </th>
@@ -75,47 +67,3 @@ include("../root/CSS/Admin/AdminUser.css.php");
 include("../View/Admin/AdminUser/UpdateAdminExpert.php");
 
 ?>
-<style>
-    .table th:nth-child(8),
-    .table td:nth-child(8) {
-        max-width: 150px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .table th:nth-child(5),
-    .table td:nth-child(5) {
-        max-width: 100px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .table th:nth-child(4),
-    .table td:nth-child(4) {
-        max-width: 100px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .table th:nth-child(9),
-    .table td:nth-child(9) {
-        max-width: 100px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .table th:nth-child(11),
-    .table td:nth-child(11) {
-        max-width: 100px;
-    }
-
-    .table td.Certificate {
-        max-height: 100px;
-        overflow: hidden;
-    }
-
-    .table td.Certificate img {
-        width: 100%;
-        height: auto;
-    }
-</style>
