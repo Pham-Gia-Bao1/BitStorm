@@ -42,6 +42,13 @@ include("../root/CSS/Checkout.css.php");
                 </div>
                 <div class="row">
                     <div class="col-sm-5">
+                        <p class="mt-2 fw-bold">Số điện thoại chuyên gia</p>
+                    </div>
+                    <div class="col-sm-6 mt-2"><?php echo "0". $dataExpert['phone_number'] ?></div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-sm-5">
                         <p class="mt-1 fw-bold">Thời gian gặp</p>
                     </div>
                     <div class="col-sm-6 mt-1">
@@ -54,7 +61,7 @@ include("../root/CSS/Checkout.css.php");
                 <p> <?php echo $dataExpert['experience'] ?> </p>
                 <div class="line"></div>
                 <h4 class="code mt-2">Click vào nút dưới này để xác lịch gặp</h4>
-                <div class="pl-5 mt-4">
+                <div class="mt-4 ml-2">
                     <button type="submit" class="btn btn-warning">Xác nhận</button>
                 </div>
             </div>
