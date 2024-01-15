@@ -207,4 +207,19 @@ class Account
         }
         return 2;
     }
+    public function compare_user_name($user_name) {
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+        $sql = "SELECT * FROM users WHERE users.name = :name";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":name", $user_name);
+        $stmt->execute();
+        $data = $stmt->fetchAll(); // Sử dụng fetchAll() thay vì fetch() để lấy tất cả các dòng kết quả
+
+        if (count($data) > 1) {
+            return true; // Trả về true nếu số dòng kết quả lớn hơn 1
+        }
+
+        return false; // Trả về false nếu số dòng kết quả là 0 hoặc 1
+    }
 }

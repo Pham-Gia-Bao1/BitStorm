@@ -6,6 +6,11 @@ class log_in
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $account = new Account();
+            if ($account->compare_user_name($_POST['username']));
+            {
+                $name_error = "Tên đã tồn tại";
+                
+            }
             $name = $this->sanitizeInput($_POST['username']);
             $email = $this->sanitizeInput($_POST['email']);
             $password = $this->sanitizeInput($_POST['password']);
@@ -19,7 +24,6 @@ class log_in
             } else {
                 echo '<script>alert("Đăng nhập thất bại!");</script>';
                 header("Location: home");
-
             }
         }
     }

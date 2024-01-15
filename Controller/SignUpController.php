@@ -5,6 +5,7 @@ class SignUpController
 {
     public function signUp()
     {
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $account = new Account();
             $password_again = $this->sanitizeInput($_POST['password_again']);
@@ -12,11 +13,7 @@ class SignUpController
             $email = $this->sanitizeInput($_POST['email']);
             $password =  $this->sanitizeInput($_POST['password']);
             $role_id = $this->sanitizeInput($_POST['input_role']);
-            // echo $role_id;
-
             $isValid = $this->validateForm($name, $email, $password,$role_id);
-
-
             if ($isValid) {
                 // Check if user already exists
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {

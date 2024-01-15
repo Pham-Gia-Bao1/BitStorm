@@ -250,37 +250,7 @@ include("../root/CSS/UserProfile.css.php");
                   </script>
                 </div>
               </div>
-              <div class="form-group p-1 m-1">
-                Lịch đã đặt
-              </div>
-              <?php
-              foreach ($bookings as $booking) : ?>
-
-                <div class="form-group p-1 m-1 box_bookings">
-
-                  <div class="row">
-                    <div class="col-md-12">
-                         <i class="fa-solid fa-bookmark"></i>
-                      <div class="p-3 m-1">
-                        Người đặt : Bạn
-                      </div>
-                      <div class="bg-light p-3 m-1">
-                        Bác sỹ : <?php echo $booking['expert_name'] ?>
-                      </div>
-                      <div class="bg-light p-3 m-1">
-                        Thời gian : <?php echo htmlspecialchars($posts1->TimePost($booking['create_at_booking'])) ?>
-                      </div>
-                      <div class="bg-light p-3 m-1">
-                        Ngày : <?php echo $booking['create_at_booking']  ?>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-              <?php endforeach; ?>
+              
             </form>
           </div>
 
@@ -365,6 +335,7 @@ include("../root/CSS/UserProfile.css.php");
       </div>
     </div>
   </div>
+  <?php include_once("../View/UserProfile/ProfileExpertView.php") ?>
   <h1 class="heading">Ghi chú</h1>
   <p class="info-text">Nhấn chuột 2 liên tục đểt xóa</p>
   <div class="app" id="app">

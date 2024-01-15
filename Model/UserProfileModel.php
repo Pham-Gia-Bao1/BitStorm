@@ -67,7 +67,7 @@ class UserProfile extends Account
         if (isset($id)) {
             $blog = new Blog();
             $conn = $blog->connect_database();
-            $sql = "SELECT  users.name as user_name, experts.full_name as expert_name, bookings.created_at as create_at_booking  from bookings join users on users.id = bookings.user_id join experts on experts.id = bookings.expert_id where users.id = :id order by create_at_booking asc ;";
+            $sql = "SELECT  *,users.name as user_name, experts.full_name as expert_name, bookings.created_at as create_at_booking  from bookings join users on users.id = bookings.user_id join experts on experts.id = bookings.expert_id where users.id = :id order by create_at_booking DESC ;";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -79,4 +79,6 @@ class UserProfile extends Account
         }
         return null;
     }
+   
+
 }

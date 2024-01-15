@@ -165,7 +165,7 @@
             <div id="progress-bar">
                 <div class="step">
                     <p>
-                        Password Length
+                        8 kí tự
                     </p>
                     <div class="bullet">
                         <span>1</span>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="step">
                     <p>
-                        Uppercase Letter
+                        Viết hoa
                     </p>
                     <div class="bullet">
                         <span>2</span>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="step">
                     <p>
-                        Numeric Digit
+                        Số
                     </p>
                     <div class="bullet" id="step3">
                         <span>3</span>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="step">
                     <p>
-                        Special Character
+                        Kí tự đặc biệt
                     </p>
                     <div class="bullet">
                         <span>4</span>
@@ -233,8 +233,8 @@
             <div class="form-group">
                 <input type="radio" id="client" class="input_role" name="input_role" value= "2">
                 <label for="client" class="button_role rounded-pill" id="label_role_client">Người nhận tư vấn</label>
-                <input type="radio" id="doctor" class="input_role" name="input_role" value="3">
-                <label for="doctor" class="button_role rounded-pill" id="label_role_doctor">Người tư vấn</label>
+                <!-- <input type="radio" id="doctor" class="input_role" name="input_role" value="3">
+                <label for="doctor" class="button_role rounded-pill" id="label_role_doctor">Người tư vấn</label> -->
             </div>
 
             <button type="submit" class="btn btn-primary btn_login">Đăng Ký Ngay</button>
