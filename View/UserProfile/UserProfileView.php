@@ -250,7 +250,7 @@ include("../root/CSS/UserProfile.css.php");
                   </script>
                 </div>
               </div>
-              
+
             </form>
           </div>
 
@@ -259,6 +259,16 @@ include("../root/CSS/UserProfile.css.php");
       </div>
     </div>
   </div>
+  <?php include_once("../Model/UserProfileModel.php");
+  $userprofile = new UserProfile();
+  $role_id = $userprofile->get_role_id();
+  $name = base64_decode($_COOKIE['User']);
+  $expert = $userprofile->get_info_expert($name);
+  // print_r($expert);
+  echo  $expert['email'];
+
+  ?>
+
   <!-- Modal setting -->
   <div class="modal fade model_nav" id="Modal_view_setting">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -268,7 +278,6 @@ include("../root/CSS/UserProfile.css.php");
           <h5 class="modal-title text-primary main_title_model_info" id="loginModalLabel">Chỉnh sửa thông tin cá nhân</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-
         <div class="modal-body">
           <div class="moddedl_ifomation">
             <div class="img" style="width : 30%">
@@ -294,6 +303,30 @@ include("../root/CSS/UserProfile.css.php");
                   </div>
                 </div>
               </div>
+              <div class="form-group p-1 m-1  d-flex gap-3">
+                <div class="mb-3 w-50">
+                  <label for="gender" class="form-label">Giới tính</label>
+                  <input type="text" class="form-control" id="gender" name="gender_setting" value="<?= htmlspecialchars($expert['gender']); ?>">
+                </div>
+                <div class="mb-3 w-50">
+                  <label for="age" class="form-label">Tuổi</label>
+                  <input type="text" class="form-control" id="age" name="age_setting" value="<?= htmlspecialchars($expert['age']); ?>">
+                </div>
+              </div>
+              <div class="form-group p-1 m-1">
+                <label for="address">Địa chỉ</label>
+                <input type="text" class="form-control" id="address" name="address_setting" value="<?= htmlspecialchars($expert['address']); ?>">
+              </div>
+              <div class="form-group p-1 m-1">
+                <label for="phone_number">Số điện thoại</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number_setting" value="<?= htmlspecialchars($expert['phone_number']); ?>">
+              </div>
+              <div class="form-group p-1 m-1">
+                <label for="experience">Kinh Nghiệm</label>
+                <input type="text" class="form-control" id="experience" name="experience_setting" value="<?= htmlspecialchars($expert['experience']); ?>">
+              </div>
+
+
             </div>
           </div>
         </div>
@@ -310,6 +343,7 @@ include("../root/CSS/UserProfile.css.php");
       </form>
     </div>
   </div>
+
 
   <!-- model hoạt động -->
   <div class="modal fade model_nav" id="Modal_active_infomation">

@@ -15,7 +15,7 @@ include("../root/CSS/Post.css.php");
                 <img src="<?php echo $nameAndImg[1]?>" alt="anh dai dien" id="img" class="w-100" style="border-radius: 50%; height:70px" />
             </div>
             <div class="col search">
-                <input type="text" class="search__input" placeholder="Hôm nay, cậu ổn không?" onclick="openModal()">
+                <input type="text" class="search__input" readonly placeholder="Hôm nay, cậu ổn không?" onclick="openModal()">
             </div>
         </div>
 
@@ -72,7 +72,7 @@ include("../root/CSS/Post.css.php");
             <!-- lượt tym -->
             <div>
                 <p style="margin-bottom: 0;"><span style="font-weight: 500; margin-bottom: 0;"><?php echo $post['like_count']?></span> lượt thích</p>
-             
+
             </div>
             <!--add cmt  -->
             <?php

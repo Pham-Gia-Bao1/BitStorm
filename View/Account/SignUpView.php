@@ -233,8 +233,8 @@
             <div class="form-group">
                 <input type="radio" id="client" class="input_role" name="input_role" value= "2">
                 <label for="client" class="button_role rounded-pill" id="label_role_client">Người nhận tư vấn</label>
-                <!-- <input type="radio" id="doctor" class="input_role" name="input_role" value="3">
-                <label for="doctor" class="button_role rounded-pill" id="label_role_doctor">Người tư vấn</label> -->
+                <input type="radio" id="doctor" class="input_role" name="input_role" value="3">
+                <label for="doctor" class="button_role rounded-pill" id="label_role_doctor">Người tư vấn</label>
             </div>
 
             <button type="submit" class="btn btn-primary btn_login">Đăng Ký Ngay</button>

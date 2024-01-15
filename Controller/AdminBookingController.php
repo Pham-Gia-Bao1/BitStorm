@@ -4,7 +4,7 @@ include("../Model/AdminCommentsModel.php");
 include_once("../Model/UserProfileModel.php");
 include_once("../Model/AdminBookings.php");
 include_once("../View/Admin/Layout/SideBar.view.php");
-
+$userprofile = new UserProfile();
 $role_id = $userprofile->get_role_id();
 $bookings = new AdminBooking();
 $all_bookings = $bookings->get_all_bookings();

@@ -5,7 +5,7 @@ class SignUpController
 {
     public function signUp()
     {
-        
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $account = new Account();
             $password_again = $this->sanitizeInput($_POST['password_again']);
@@ -13,11 +13,15 @@ class SignUpController
             $email = $this->sanitizeInput($_POST['email']);
             $password =  $this->sanitizeInput($_POST['password']);
             $role_id = $this->sanitizeInput($_POST['input_role']);
+
             $isValid = $this->validateForm($name, $email, $password,$role_id);
             if ($isValid) {
                 // Check if user already exists
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     if ($password == $password_again) {
+                        if($role_id == 3){
+                            $account->add_expert($role_id,$name,null,null,$email,null,null,null,$account->getImg(),5,null,'Chuyên gia tâm lý','Hoạt động');
+                        }
                         $result = $account->signUpAccount($name, $password, $email,$role_id);
                         if ($result) {
                             $new_user_name = base64_encode($name);

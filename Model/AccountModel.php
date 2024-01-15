@@ -50,15 +50,16 @@ class Account
         $this->img = $img;
     }
 
-    public function test_input($data) {
+    public function test_input($data)
+    {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
-      }
+    }
 
     // Sign up function
-    public static function signUpAccount($username, $password, $email,$role_id)
+    public static function signUpAccount($username, $password, $email, $role_id)
     {
         if (!empty($username) && !empty($password) && !empty($email)) {
             $account = new Account($username, $password, $email);
@@ -89,7 +90,7 @@ class Account
         return false;
     }
     // Login function
-    public static function login($name,$email, $password)
+    public static function login($name, $email, $password)
     {
         if (!empty($email) && !empty($password)) {
             $blog = new Blog();
@@ -179,35 +180,38 @@ class Account
         $blog->closeConnection();
         return $result;
     }
-    public function get_id(){
+    public function get_id()
+    {
         $blog = new Blog();
         $conn = $blog->connect_database();
-        if (!isset($_SESSION["User"])){
+        if (!isset($_SESSION["User"])) {
             $user_name = base64_decode($_COOKIE['User']);
             $sql = "SELECT users.id from users where name = :name";
             $stmt = $conn->prepare($sql);
-            $stmt -> bindParam(':name' ,$user_name);
-            $stmt -> execute();
+            $stmt->bindParam(':name', $user_name);
+            $stmt->execute();
             $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $id[0]['id'];
         }
         return null;
     }
-    public function get_role_id(){
+    public function get_role_id()
+    {
         $blog = new Blog();
         $conn = $blog->connect_database();
-        if (isset($_COOKIE["User"])){
+        if (isset($_COOKIE["User"])) {
             $user_name = base64_decode($_COOKIE['User']);
             $sql = "SELECT role_id from users where users.name = :name";
             $stmt = $conn->prepare($sql);
-            $stmt -> bindParam(':name' ,$user_name);
-            $stmt -> execute();
+            $stmt->bindParam(':name', $user_name);
+            $stmt->execute();
             $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $id[0]['role_id'];
         }
         return 2;
     }
-    public function compare_user_name($user_name) {
+    public function compare_user_name($user_name)
+    {
         $blog = new Blog();
         $conn = $blog->connect_database();
         $sql = "SELECT * FROM users WHERE users.name = :name";
@@ -221,5 +225,40 @@ class Account
         }
 
         return false; // Trả về false nếu số dòng kết quả là 0 hoặc 1
+    }
+    public function add_expert($role_id, $full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization, $status)
+    {
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+
+        $sql = "INSERT INTO experts (role_id, full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status) VALUES (:role_id, :full_name, :gender, :address, :email, :phone_number, :age, :experience, :profile_picture, :count_rating, :certificate, :specialization, :status)";
+        $stmt = $conn->prepare($sql);
+
+        // Bind parameters
+        $stmt->bindParam(":role_id", $role_id);
+        $stmt->bindParam(":full_name", $full_name);
+        $stmt->bindParam(":gender", $gender);
+        $stmt->bindParam(":address", $address);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":phone_number", $phone_number);
+        $stmt->bindParam(":age", $age);
+        $stmt->bindParam(":experience", $experience);
+        $stmt->bindParam(":profile_picture", $profile_picture);
+        $stmt->bindParam(":count_rating", $count_rating);
+        $stmt->bindParam(":certificate", $certificate);
+        $stmt->bindParam(":specialization", $specialization);
+        $stmt->bindParam(":status", $status);
+
+        // Execute the query
+        $stmt->execute();
+
+        // Check the number of affected rows
+        $rowCount = $stmt->rowCount();
+
+        if ($rowCount > 0) {
+            return true;
+        }
+
+        return false;
     }
 }

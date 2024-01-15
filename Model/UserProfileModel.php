@@ -63,7 +63,8 @@ class UserProfile extends Account
         }
         return null;
     }
-    public function get_bookings($id){
+    public function get_bookings($id)
+    {
         if (isset($id)) {
             $blog = new Blog();
             $conn = $blog->connect_database();
@@ -79,6 +80,17 @@ class UserProfile extends Account
         }
         return null;
     }
-   
-
+    public function get_info_expert($name)
+    {
+        if (isset($name)) {
+            $blog = new Blog();
+            $conn = $blog->connect_database();
+            $query = "SELECT * FROM experts WHERE full_name = :name";
+            $statement = $conn->prepare($query);
+            $statement->bindParam(':name', $name);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+    }
 }
