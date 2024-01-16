@@ -180,6 +180,70 @@ class Account
         $blog->closeConnection();
         return $result;
     }
+    public function updateExpert($id, $role_id, $full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization, $status) {
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+
+        // Update query
+        $sql = "UPDATE experts SET
+                role_id = :role_id,
+                full_name = :full_name,
+                gender = :gender,
+                address = :address,
+                email = :email,
+                phone_number = :phone_number,
+                age = :age,
+                experience = :experience,
+                profile_picture = :profile_picture,
+                count_rating = :count_rating,
+                certificate = :certificate,
+                specialization = :specialization,
+                status = :status
+                WHERE id = :id";  // Remove 'experts.' before 'id'
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":role_id", $role_id);
+        $stmt->bindParam(":full_name", $full_name);
+        $stmt->bindParam(":gender", $gender);
+        $stmt->bindParam(":address", $address);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":phone_number", $phone_number);
+        $stmt->bindParam(":age", $age);
+        $stmt->bindParam(":experience", $experience);
+        $stmt->bindParam(":profile_picture", $profile_picture);
+        $stmt->bindParam(":count_rating", $count_rating);
+        $stmt->bindParam(":certificate", $certificate);
+        $stmt->bindParam(":specialization", $specialization);
+        $stmt->bindParam(":status", $status);
+        $stmt->bindParam(":id", $id);  // Add binding for 'id'
+        $stmt->execute();
+        return true;
+    }
+
+    public function get_id_expert()
+    {
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+
+        if (!isset($_SESSION["User"])) {
+            $user_name = base64_decode($_COOKIE['User']);
+
+            $sql = "SELECT id FROM experts WHERE full_name = :name"; // Corrected the column name
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':name', $user_name);
+            $stmt->execute();
+
+            $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Check if a record was found
+            if (!empty($id)) {
+                return $id[0]['id'];
+            }
+        }
+
+        return null;
+    }
+
     public function get_id()
     {
         $blog = new Blog();

@@ -54,7 +54,6 @@
 <!-- card -->
 <div class="all_card d-flex justify-content-center align-items-center flex-wrap" style="width: 80vw; margin: 0 auto">
     <?php foreach ($bookings as $booking) : ?>
-
         <div class="card mb-3 m-4" style="width: 30vw;">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -62,12 +61,10 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body d-flex justify-content-center align-items-center flex-column">
-
                         <p class="card-text">Người Đặt : <?php echo $booking['user_name'] ?> </p>
                         <p class="card-text"><small class="text-muted"> Thời gian : <?php echo htmlspecialchars($posts1->TimePost($booking['create_at_booking'])) ?></small></p>
                         <p class="card-text"><small class="text-muted"> Ngày : <?php echo $booking['create_at_booking']  ?></small></p>
                         <p class="card-text">Chuyên Gia : <?php echo $booking['expert_name'] ?> </p>
-
                     </div>
                 </div>
             </div>
