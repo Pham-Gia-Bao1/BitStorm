@@ -13,11 +13,12 @@
     background-position: center;
 
   }
-  #drop_img_btn{
-     position: absolute;
-     right: 200px;
-     top: 100px;
-     z-index: 3;
+
+  #drop_img_btn {
+    position: absolute;
+    right: 200px;
+    top: 100px;
+    z-index: 3;
   }
 
   .avata {
@@ -32,9 +33,10 @@
     margin-top: 0px;
     transition: all 0.2s ease;
     cursor: pointer;
-    outline:  2px solid white;
-    outline-offset: 5px; /* Thay đổi giá trị outline-offset để điều chỉnh khoảng cách giữa đường viền và hình ảnh */
-}
+    outline: 2px solid white;
+    outline-offset: 5px;
+    /* Thay đổi giá trị outline-offset để điều chỉnh khoảng cách giữa đường viền và hình ảnh */
+  }
 
 
   /* .avata img:hover {
@@ -192,7 +194,8 @@
     padding: 10px;
 
   }
-  .content_active h6{
+
+  .content_active h6 {
     color: #0088cc;
   }
 
@@ -210,100 +213,184 @@
     cursor: pointer;
     /* border-radius: 20px; */
   }
+
   .body_active_model {
-  /* Các thuộc tính khác */
-  overflow: auto; /* Hiển thị thanh cuộn khi nội dung vượt quá kích thước của phần tử */
-}
-#Modal_active_infomation{
-  padding: 20px !important;
-  /* height: 500px !important; */
-}
+    /* Các thuộc tính khác */
+    overflow: auto;
+    /* Hiển thị thanh cuộn khi nội dung vượt quá kích thước của phần tử */
+  }
 
-/* Kiểu cho thanh cuộn dọc */
-.body_active_model::-webkit-scrollbar {
-  width: 10px; /* Độ rộng của thanh cuộn */
-  background-color: #f0f0f0; /* Màu nền của thanh cuộn */
-  border-radius: 4px; /* Bo tròn các góc của thanh cuộn */
-}
+  #Modal_active_infomation {
+    padding: 20px !important;
+    /* height: 500px !important; */
+  }
 
-.body_active_model::-webkit-scrollbar-thumb {
-  background-color: white; /* Màu nền của nút trượt */
-  border-radius: 4px; /* Bo tròn các góc của nút trượt */
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+  /* Kiểu cho thanh cuộn dọc */
+  .body_active_model::-webkit-scrollbar {
+    width: 10px;
+    /* Độ rộng của thanh cuộn */
+    background-color: #f0f0f0;
+    /* Màu nền của thanh cuộn */
+    border-radius: 4px;
+    /* Bo tròn các góc của thanh cuộn */
+  }
 
-.body_active_model::-webkit-scrollbar-thumb:hover {
-  background-color: #0088cc; /* Màu nền của nút trượt khi hover */
-}
+  .body_active_model::-webkit-scrollbar-thumb {
+    background-color: white;
+    /* Màu nền của nút trượt */
+    border-radius: 4px;
+    /* Bo tròn các góc của nút trượt */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 
-.body_active_model::-webkit-scrollbar-thumb:active {
-  background-color: #006699; /* Màu nền của nút trượt khi active */
-}
+  .body_active_model::-webkit-scrollbar-thumb:hover {
+    background-color: #0088cc;
+    /* Màu nền của nút trượt khi hover */
+  }
 
-/* Ẩn thanh cuộn khi không hover */
-.body_active_model::-webkit-scrollbar-thumb {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+  .body_active_model::-webkit-scrollbar-thumb:active {
+    background-color: #006699;
+    /* Màu nền của nút trượt khi active */
+  }
 
-.body_active_model:hover::-webkit-scrollbar-thumb {
-  opacity: 1; /* Hiển thị nút trượt khi hover vào phần tử */
-}
-.box_title{
-   /* background-color: red; */
-   width: 100% !important;
-   padding: 25px;
-}
+  /* Ẩn thanh cuộn khi không hover */
+  .body_active_model::-webkit-scrollbar-thumb {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
-.box_model{
-  border-radius: 30px;
-}
-.btn_choise{
-   width: 100%;
-   text-align: center;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 10px;
-}
-#input_file{
-  display: none;
-}
-.upload-demo,#form{
-  /* background-color: #006699; */
-  flex-direction: column;
-  text-align: center;
-  margin: 0 auto;
-}
-.cr-image{
-   background-color: #0088cc !important;
-   margin-top: -30px;
-   object-fit: cover;
-   outline:  2px solid blue;
+  .body_active_model:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+    /* Hiển thị nút trượt khi hover vào phần tử */
+  }
+
+
+
+
+  /* Kiểu cho thanh cuộn dọc */
+  .modal-body::-webkit-scrollbar {
+    width: 10px;
+    /* Độ rộng của thanh cuộn */
+    background-color: #f0f0f0;
+    /* Màu nền của thanh cuộn */
+    border-radius: 4px;
+    /* Bo tròn các góc của thanh cuộn */
+  }
+
+  .modal-body::-webkit-scrollbar-thumb {
+    background-color: white;
+    /* Màu nền của nút trượt */
+    border-radius: 4px;
+    /* Bo tròn các góc của nút trượt */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .modal-body::-webkit-scrollbar-thumb:hover {
+    background-color: #0088cc;
+    /* Màu nền của nút trượt khi hover */
+  }
+
+  .modal-body::-webkit-scrollbar-thumb:active {
+    background-color: #006699;
+    /* Màu nền của nút trượt khi active */
+  }
+
+  /* Ẩn thanh cuộn khi không hover */
+  .modal-body::-webkit-scrollbar-thumb {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-body:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+    /* Hiển thị nút trượt khi hover vào phần tử */
+  }
+  .modal-body{
+    overflow-x: hidden !important;
+  }
+
+
+
+  .box_title {
+    /* background-color: red; */
+    width: 100% !important;
+    padding: 25px;
+  }
+
+  .box_model {
+    border-radius: 30px;
+  }
+
+  .btn_choise {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #input_file {
+    display: none;
+  }
+
+  .upload-demo,
+  #form {
+    /* background-color: #006699; */
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .cr-image {
+    background-color: #0088cc !important;
+    margin-top: -30px;
+    object-fit: cover;
+    outline: 2px solid blue;
     outline-offset: 5px;
-}
-#setAvatarNextButton{
-  width: 100%;
-}
-.dz-button{
-   width: 98%;
-   /* margin: 0 auto; */
-   height: 250px;
-   border: 2px dashed gray;
-   margin: 5px;
-}
-.box_bookings{
-  border: 1px solid blue;
+  }
 
-}
-.title_booking{
-  text-align: center;
-}
-.fa-bookmark{
-   color: #0088cc;
-   width: 200px !important;
-   font-size: 50px;
-   margin-left: 20px;
-}
+  #setAvatarNextButton {
+    width: 100%;
+  }
+
+  .dz-button {
+    width: 98%;
+    /* margin: 0 auto; */
+    height: 250px;
+    border: 2px dashed gray;
+    margin: 5px;
+  }
+
+  .box_bookings {
+    border: 1px solid blue;
+
+  }
+
+  .title_booking {
+    text-align: center;
+  }
+
+  .fa-bookmark {
+    color: #0088cc;
+    width: 200px !important;
+    font-size: 50px;
+    margin-left: 20px;
+  }
+
+  .box_item1 {
+    position: relative;
+    padding: 20px;
+  }
+
+  #certificate,#profile_picture {
+    position: absolute;
+    bottom: 30px;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .label_file{
+     margin-top: 20px;
+  }
 
 </style>

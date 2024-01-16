@@ -93,4 +93,23 @@ class UserProfile extends Account
             return $result;
         }
     }
+
+    public function add_calendar_for_expert($id, $day, $start_time, $end_time, $price, $describer) {
+        if (isset($id)) {
+            $blog = new Blog();
+            $conn = $blog->connect_database();
+            $query = "INSERT INTO calendar (day, start_time, end_time, price, describer, expert_id) VALUES (:day, :start_time, :end_time, :price, :describer, :expert_id)";
+            $statement = $conn->prepare($query);
+            $statement->bindParam(':day', $day);
+            $statement->bindParam(':start_time', $start_time);
+            $statement->bindParam(':end_time', $end_time);
+            $statement->bindParam(':price', $price);
+            $statement->bindParam(':describer', $describer);
+            $statement->bindParam(':expert_id', $id); // Assuming $id is the expert_id
+            $statement->execute();
+            return true; // Indicate success
+        } else {
+            return false; // Indicate failure
+        }
+    }
 }

@@ -45,6 +45,16 @@ if(isset($_POST['role_id'])){
                 $certificate = $_POST['certificate_picture_setting'];
                 $specialization = $_POST['specialization_setting'];
                 $status = $_POST['status_setting'];
+                if (isset($_POST['certificate_picture_setting'])) {
+                    $imageURL123 = $_POST['certificate_picture_setting'];
+                    $new_url_img123 = "http://localhost/BitStorm/root/Image/" . $imageURL123;
+                    $certificate = $new_url_img123;
+                }
+                if (isset($_POST['profile_picture_setting'])) {
+                    $new_url_img1 = "http://localhost/BitStorm/root/Image/" . $profile_picture;
+                    $userprofile->change_avatar($new_url_img1);
+                    $profile_picture = $new_url_img1;
+                }
                 $userprofile->updateUserInfo($name, $pass, $email);
                 $result  = $userprofile->updateExpert($expert_id,$role_id, $name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization, $status);
             if ($result) {
@@ -55,6 +65,9 @@ if(isset($_POST['role_id'])){
                 $name = base64_decode($_COOKIE['User']);
                 $expert = $userprofile->get_info_expert($name);
             }
+            $nameAndImg = $userprofile->get_name_and_img_user();
+            $name = $nameAndImg[0] ?? '';
+            $img = $nameAndImg[1] ?? '';
             header("Location: userprofile");
         }
     } else{
@@ -73,6 +86,23 @@ if(isset($_POST['role_id'])){
         }
         header("Location: userprofile");
     }
+}
+
+if(isset($_POST['day']) && isset($_POST['start_time'])){
+    $day = $_POST['day'];
+    $start_time = $_POST['start_time'];
+    $end_time = $_POST['end_time'];
+    $price = $_POST['price'];
+    $describer = $_POST['describer'];
+    $expert_id = $_POST['expert_id'];
+    $userprofile->add_calendar_for_expert($expert_id,$day,$start_time,$end_time,$price,$describer);
+    $nameAndImg = $userprofile->get_name_and_img_user();
+    $name = $nameAndImg[0] ?? '';
+    $img = $nameAndImg[1] ?? '';
+    $name = base64_decode($_COOKIE['User']);
+    $expert = $userprofile->get_info_expert($name);
+    header("Location: userprofile");
+
 }
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

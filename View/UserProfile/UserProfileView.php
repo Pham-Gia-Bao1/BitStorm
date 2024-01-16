@@ -7,38 +7,38 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/UserProfile.css.php");
 ?>
 <div id="content">
-    <div class="container-fluid  ig_top"></div>
+  <div class="container-fluid  ig_top"></div>
   <!-- Button trigger modal -->
   <button id="drop_img_btn" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      <i class="fa-solid fa-camera"></i>
+    <i class="fa-solid fa-camera"></i>
   </button>
   <!-- Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Tải ảnh lên</h5>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Tải ảnh lên</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="simple-panel col-xs-12 pn-flex mb ">
-              <div class="p-16">
-                <div class="row">
-                  <h2>Thêm ảnh vào đây</h2>
+          <div class="simple-panel col-xs-12 pn-flex mb ">
+            <div class="p-16">
+              <div class="row">
+                <h2>Thêm ảnh vào đây</h2>
               </div>
               <div class="row">
-                  <form action="#" method="post" enctype="multipart/form-data" class="dropzone cover-dropzone dz-clickable" id="coverDropzoneForm">
-                    <input type="hidden" id="uniqueFilename" name="uniqueFilename" value="">
+                <form action="#" method="post" enctype="multipart/form-data" class="dropzone cover-dropzone dz-clickable" id="coverDropzoneForm">
+                  <input type="hidden" id="uniqueFilename" name="uniqueFilename" value="">
                   <div class="dz-default dz-message"><button class="dz-button" type="button">Thả ảnh vào đây để upload</button></div>
                 </form>
               </div>
               <form id="submitform">
-                  <input type="hidden" id="guid" name="guid" value="e167237f-3eda-44de-af9d-a8e3937d7cf2">
+                <input type="hidden" id="guid" name="guid" value="e167237f-3eda-44de-af9d-a8e3937d7cf2">
                 <div class="form-group mt mb">
-                  </div>
+                </div>
               </form>
               <div class="text-center kfds-lyt-between">
-                  <button onclick="$('#changeCoverImageModal').modal('toggle');" class="btn pull-left  ladda-button btn-danger">Bỏ</button>
+                <button onclick="$('#changeCoverImageModal').modal('toggle');" class="btn pull-left  ladda-button btn-danger">Bỏ</button>
               </div>
             </div>
           </div>
@@ -48,21 +48,20 @@ include("../root/CSS/UserProfile.css.php");
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const modalBody = document.querySelector("#staticBackdrop .modal-body");
+      const modalBody = document.querySelector("#staticBackdrop .modal-body");
       const imageURLInput = document.querySelector("#uniqueFilename"); // Lấy input để nhận đường link ảnh
       modalBody.addEventListener("dragover", function(event) {
-          event.preventDefault();
+        event.preventDefault();
       });
       modalBody.addEventListener("drop", function(event) {
-          event.preventDefault();
+        event.preventDefault();
         const file = event.dataTransfer.files[0];
         const reader = new FileReader();
         reader.onload = function(e) {
-            const imageURL = e.target.result;
+          const imageURL = e.target.result;
           // Cập nhật giá trị của input với đường link của ảnh
           imageURLInput.value = imageURL;
-          console.log("Đường dẫn của ảnh đã thả vào:", imageURL);
-          console.log("Đường link trong input:", imageURLInput.value);
+
         };
         reader.readAsDataURL(file);
       });
@@ -78,11 +77,11 @@ include("../root/CSS/UserProfile.css.php");
       <div class="modal-content">
         <div class="modal-body">
           <div class="col-xs-12 d-flex justify-content-between box_title">
-            <div class="modal-h2">Profile Picture</div>
+            <div class="modal-h2">Ảnh đại diện</div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="col-xs-12 d-flex justify-content-between box_title">
-            <button class="rounded-pill mb btn kfds-font-bold kfds-btn-tertiary-light kfds-srf-rounded bg-light btn_choise" onclick="$('.upload-btn').click();"><i class="far fa-image"></i><span class="kfds-left-mrgn-8">Choose Image...</span> </button>
+            <button class="rounded-pill mb btn kfds-font-bold kfds-btn-tertiary-light kfds-srf-rounded bg-light btn_choise" onclick="$('.upload-btn').click();"><i class="far fa-image"></i><span class="kfds-left-mrgn-8">Chọn ảnh...</span> </button>
           </div>
           <div class="col-xs-12 d-flex justify-content-between box_title">
             <form action="userprofile" id="form" method="post">
@@ -99,7 +98,7 @@ include("../root/CSS/UserProfile.css.php");
                     var ctx = canvas.getContext('2d'); // Lấy context 2D của canvas
                     var img = new Image(); // Tạo một đối tượng hình ảnh
                     img.onload = function() {
-                        ctx.drawImage(img, 0, 0, 210, 210); // Vẽ hình ảnh lên canvas
+                      ctx.drawImage(img, 0, 0, 210, 210); // Vẽ hình ảnh lên canvas
                     };
                     img.src = imgSrc; // Đặt nguồn hình ảnh cho đối tượng hình ảnh
                   </script>
@@ -112,13 +111,13 @@ include("../root/CSS/UserProfile.css.php");
               <script>
                 // Lắng nghe sự kiện thay đổi của input file
                 document.getElementById('input_file').addEventListener('change', function(e) {
-                    var file = e.target.files[0]; // Lấy tệp tin đầu tiên từ sự kiện
+                  var file = e.target.files[0]; // Lấy tệp tin đầu tiên từ sự kiện
                   if (file) {
-                      var reader = new FileReader(); // Tạo một FileReader object
+                    var reader = new FileReader(); // Tạo một FileReader object
                     reader.onload = function(event) {
-                        var img = new Image(); // Tạo một đối tượng hình ảnh
+                      var img = new Image(); // Tạo một đối tượng hình ảnh
                       img.onload = function() {
-                          var canvas = document.createElement('canvas'); // Tạo canvas
+                        var canvas = document.createElement('canvas'); // Tạo canvas
                         var ctx = canvas.getContext('2d');
                         canvas.width = 210; // Thiết lập kích thước canvas tùy ý
                         canvas.height = 210;
@@ -205,13 +204,13 @@ include("../root/CSS/UserProfile.css.php");
                   </div>
                   <script>
                     function togglePasswordVisibility() {
-                        var passwordInput = document.getElementById('password');
+                      var passwordInput = document.getElementById('password');
                       var showPasswordToggle = document.getElementById('show-password-toggle');
                       if (passwordInput.type === 'password') {
-                          passwordInput.type = 'text';
+                        passwordInput.type = 'text';
                         showPasswordToggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
                       } else {
-                          passwordInput.type = 'password';
+                        passwordInput.type = 'password';
                         showPasswordToggle.innerHTML = '<i class="fas fa-eye"></i>';
                       }
                     }
@@ -220,6 +219,51 @@ include("../root/CSS/UserProfile.css.php");
                   </script>
                 </div>
               </div>
+              <?php
+              if ($role_id ==  3) : ?>
+                <div class="form-group p-1 m-1  d-flex gap-3">
+                  <div class="mb-3 w-50">
+                    <label for="gender" class="form-label">Giới tính</label>
+                    <input type="text" class="form-control" id="gender" name="gender_setting" value="<?= htmlspecialchars($expert['gender']); ?>" required readonly>
+                  </div>
+                  <div class="mb-3 w-50">
+                    <label for="age" class="form-label">Tuổi</label>
+                    <input type="text" class="form-control" id="age" name="age_setting" value="<?= htmlspecialchars($expert['age']); ?>" required readonly>
+                  </div>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="address">Địa chỉ</label>
+                  <input type="text" class="form-control" id="address" name="address_setting" value="<?= htmlspecialchars($expert['address']); ?>" required readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="phone_number">Số điện thoại</label>
+                  <input type="text" class="form-control" id="phone_number" name="phone_number_setting" value="<?= htmlspecialchars($expert['phone_number']); ?>" required readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="experience">Kinh Nghiệm</label>
+                  <input type="text" class="form-control" id="experience" name="experience_setting" value="<?= htmlspecialchars($expert['experience']); ?>" required readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="profile_picture">Ảnh đại diện</label>
+                  <input type="text" class="form-control" id="profile_picture" name="profile_picture_setting" value="<?= htmlspecialchars($img); ?>" readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="count_rating">Đánh giá</label>
+                  <input type="text" class="form-control" id="count_rating" name="count_rating_setting" value="<?= htmlspecialchars($expert['count_rating']); ?>" readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="certificate">Chứng chỉ</label>
+                  <input type="text" class="form-control" id="certificate" name="certificate_picture_setting" value="<?= htmlspecialchars($expert['certificate']); ?>" readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="specialization">Ngành nghề</label>
+                  <input type="text" class="form-control" id="specialization" name="specialization_setting" value="<?= htmlspecialchars($expert['specialization']); ?>" required readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="status">Trạng thái hoạt động</label>
+                  <input type="text" class="form-control" id="status" name="status_setting" value="<?= htmlspecialchars($expert['status']); ?>" required readonly>
+                </div>
+              <?php endif; ?>
             </form>
           </div>
         </div>
@@ -262,49 +306,104 @@ include("../root/CSS/UserProfile.css.php");
                 </div>
               </div>
               <?php
-              if($role_id ==  3) : ?>
-              <div class="form-group p-1 m-1  d-flex gap-3">
-                <div class="mb-3 w-50">
-                  <label for="gender" class="form-label">Giới tính</label>
-                  <input type="text" class="form-control" id="gender" name="gender_setting" value="<?= htmlspecialchars($expert['gender']); ?>"  required>
+              if ($role_id ==  3) : ?>
+                <div class="form-group p-1 m-1  d-flex gap-3">
+                  <div class="mb-3 w-50">
+                    <label for="gender" class="form-label">Giới tính</label>
+                    <select class="form-select" id="gender" name="gender_setting" required>
+                      <option value="male" <?= ($expert['gender'] == 'male') ? 'selected' : ''; ?>>Nam</option>
+                      <option value="female" <?= ($expert['gender'] == 'female') ? 'selected' : ''; ?>>Nữ</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3 w-50">
+                    <label for="age" class="form-label">Tuổi</label>
+                    <input type="text" class="form-control" id="age" name="age_setting" value="<?= htmlspecialchars($expert['age']); ?>" required>
+                  </div>
                 </div>
-                <div class="mb-3 w-50">
-                  <label for="age" class="form-label">Tuổi</label>
-                  <input type="text" class="form-control" id="age" name="age_setting" value="<?= htmlspecialchars($expert['age']); ?>"  required>
+                <div class="form-group p-1 m-1">
+                  <label for="address">Địa chỉ</label>
+                  <input type="text" class="form-control" id="address" name="address_setting" value="<?= htmlspecialchars($expert['address']); ?>" required>
                 </div>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="address">Địa chỉ</label>
-                <input type="text" class="form-control" id="address" name="address_setting" value="<?= htmlspecialchars($expert['address']); ?>" required>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="phone_number">Số điện thoại</label>
-                <input type="text" class="form-control" id="phone_number" name="phone_number_setting" value="<?= htmlspecialchars($expert['phone_number']); ?>" required>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="experience">Kinh Nghiệm</label>
-                <input type="text" class="form-control" id="experience" name="experience_setting" value="<?= htmlspecialchars($expert['experience']); ?>" required>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="profile_picture">Ảnh đại diện</label>
-                <input type="text" class="form-control" id="profile_picture" name="profile_picture_setting" value="<?= htmlspecialchars($img); ?>" readonly>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="count_rating">Đánh giá</label>
-                <input type="text" class="form-control" id="count_rating" name="count_rating_setting" value="<?= htmlspecialchars($expert['count_rating']); ?>" readonly>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="certificate">Chứng chỉ</label>
-                <input type="text" class="form-control" id="certificate" name="certificate_picture_setting" value="<?= htmlspecialchars($expert['certificate']); ?>" readonly>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="specialization">Ngành nghề</label>
-                <input type="text" class="form-control" id="specialization" name="specialization_setting" value="<?= htmlspecialchars($expert['specialization']); ?>" required>
-              </div>
-              <div class="form-group p-1 m-1">
-                <label for="status">Trạng  thái hoạt động</label>
-                <input type="text" class="form-control" id="status" name="status_setting" value="<?= htmlspecialchars($expert['status']); ?>" required>
-              </div>
+                <div class="form-group p-1 m-1">
+                  <label for="phone_number">Số điện thoại</label>
+                  <input type="text" class="form-control" id="phone_number" name="phone_number_setting" value="<?= htmlspecialchars($expert['phone_number']); ?>" required>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="experience">Kinh Nghiệm</label>
+                  <input type="text" class="form-control" id="experience" name="experience_setting" value="<?= htmlspecialchars($expert['experience']); ?>" required>
+                </div>
+
+                <div class="form-group p-1 m-1">
+                  <label for="count_rating">Đánh giá</label>
+                  <input type="text" class="form-control" id="count_rating" name="count_rating_setting" value="<?= htmlspecialchars($expert['count_rating']); ?>" readonly>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="specialization">Ngành nghề</label>
+                  <input type="text" class="form-control" id="specialization" name="specialization_setting" value="<?= htmlspecialchars($expert['specialization']); ?>" required>
+                </div>
+                <div class="form-group p-1 m-1">
+                  <label for="status">Trạng thái hoạt động</label>
+                  <input type="text" class="form-control" id="status" name="status_setting" value="<?= htmlspecialchars($expert['status']); ?>" required>
+                </div>
+                <div class="form-group d-flex justify-content-center align-items-center">
+
+                  <div class="form-group p-4 m-1 bg-light box_item1">
+                    <label for="certificate">Chứng chỉ</label>
+                    <div class="old_img bg-light" style="width : 200px; height: 200px;">
+                      <img id="new_img" style="width: 100%;" src="<?php echo htmlspecialchars($expert['certificate']); ?>" alt="<?= htmlspecialchars($expert['certificate']); ?>">
+                    </div>
+                    <label for="certificate" class="btn btn-primary w-100 label_file">Tải lên</label>
+                    <input type="file" class="form-control" id="certificate" required name="certificate_picture_setting" value="<?= htmlspecialchars($expert['certificate']); ?>" readonly onchange="previewImage(this);">
+
+                    <script>
+                      function previewImage(input) {
+                        var fileInput = input;
+                        var imgElement = document.getElementById('new_img');
+
+                        if (fileInput.files && fileInput.files[0]) {
+                          var reader = new FileReader();
+
+                          reader.onload = function(e) {
+                            imgElement.src = e.target.result;
+                          };
+
+                          reader.readAsDataURL(fileInput.files[0]);
+                        }
+                        console.log(imgElement.src)
+                      }
+
+                      function previewImage1(input) {
+                        var preview = document.getElementById('previewImage12');
+                        var file = input.files[0];
+                        var reader = new FileReader();
+
+                        reader.onloadend = function() {
+                          preview.src = reader.result;
+                        };
+
+                        if (file) {
+                          reader.readAsDataURL(file);
+                        } else {
+                          preview.src = ""; // Clear the image if no file is selected
+                        }
+                      }
+                    </script>
+                  </div>
+
+                  <div class="form-group p-4 m-1 box_item1 bg-light">
+
+                    <label for="profile_picture">Ảnh đại diện</label>
+                    <div class="old_img bg-light" style="width: 200px; height: 200px;">
+                      <img id="previewImage12" style="width: 100%;" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($img); ?>">
+                    </div>
+                    <label for="profile_picture" class="btn btn-primary w-100 label_file">Tải lên</label>
+                    <input type="file" class="form-control" id="profile_picture" name="profile_picture_setting" value="<?= htmlspecialchars($img); ?>" readonly onchange="previewImage1(this);">
+
+                  </div>
+
+                </div>
+
               <?php endif; ?>
             </div>
           </div>
@@ -346,7 +445,12 @@ include("../root/CSS/UserProfile.css.php");
       </div>
     </div>
   </div>
-  <?php include_once("../View/UserProfile/ProfileExpertView.php") ?>
+  <?php
+  if ($role_id == 2) {
+    include_once("../View/UserProfile/ProfileExpertView.php");
+  } else {
+    include_once("../View/UserProfile/ModelAddCalendarView.php");
+  } ?>
   <h1 class="heading">Ghi chú</h1>
   <p class="info-text">Nhấn chuột 2 liên tục đểt xóa</p>
   <div class="app" id="app">
