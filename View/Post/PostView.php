@@ -80,11 +80,12 @@ include("../root/CSS/Post.css.php");
             if (!empty($comments)):
             ?>
                 <?php foreach ($comments as $comment):?>
+                        <?php  $user_comment=$Post->getOneUser($comment['user_id']);?>
                 <div class="post-comment m-2">
-
+                    <img class="rounded-circle me-3 avatar_comment" src="<?php echo $user_comment['img']?>" alt="Profile Picture" width="50" height="50">
                     <div class="post-content-comment">
-
-                        <p class="name-post"><?php echo $comment['author']?></p>
+                        
+                        <p class="name-post"><b><?php echo $user_comment['name']?></b></p>
                         <p class="content"><?php echo $comment['content']?></p>
 
                     </div>
@@ -93,12 +94,21 @@ include("../root/CSS/Post.css.php");
             <?php
             endif;?>
             <!-- end -->
-            <div class="input-add-comment" >
-                <input type="hidden" name="comment_id" value="<?php echo $post['id']?>">
-              <input placeholder="" class="input-field input_comment" type="text">
-              <label for="input-field" class="input-label">Bình luận</label>
-              <span class="input-highlight"></span>
-            </div>
+            <form id="commentPostForm" method="post" action="" class="d-flex align-items-center border-white justify-content-between" onsubmit="validateForm()">
+                    <img class="rounded-circle me-3 avatar_comment" src="<?php echo $nameAndImg[1]?>" alt="Profile Picture" width="50" height="50">
+                    <input type="hidden" name="action" value="createComment">
+                    <input type="hidden" name="post_id" value="<?php echo $post['id']?>">
+                    <div class="input-group m-2">
+                        <input type="text" class="form-control custom-input" name="content" required placeholder="Thêm bình luận">
+                        <div class="input-group-append">
+                            <button class="btn-primary add_comment" type="submit">Thêm bình luận</button>
+                        </div>
+                    </div>
+                    
+                    <!-- <input type="text" id="commentInput" class="form-control custom-input m-2 input" required placeholder="Thêm bình luận" name="content">
+                    <button type="submit" class="btn-primary add_comment">Thêm Bình luận</button> -->
+            </form>
+            
 
         </div>
         <?php endforeach;?>
