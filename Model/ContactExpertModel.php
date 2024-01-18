@@ -6,7 +6,7 @@ class Expert extends Connection
     public function getExpertsWithCalendar($currentDate)
     {
         $this->connect_database();
-        $sql_query = "SELECT experts.*, calendar.day,
+        $sql_query = "SELECT experts.*, calendar.day,calendar.status as  status_calendar,
         TIME_FORMAT(calendar.start_time, '%H:%i') AS start_time,
         TIME_FORMAT(calendar.end_time, '%H:%i') AS end_time, calendar.price
         FROM experts
@@ -46,4 +46,4 @@ class Expert extends Connection
 
 }
 
-?>
+

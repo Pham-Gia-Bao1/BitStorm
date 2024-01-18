@@ -89,10 +89,10 @@ include("../root/CSS/ContactExpert.css.php");
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-1 pl-2 ml-3 mt-2 actives" <?php if ($expert['status'] == 'Ngưng hoạt động') { ?> style="background-color: red;" <?php } ?>></div>
+                                    <div class="col-sm-1 pl-2 ml-3 mt-2 actives" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động') { ?> style="background-color: red;" <?php } ?>></div>
                                     <div class="col-sm-10">
-                                        <button class="viewMorebtn"  <?php if ($expert['status'] == 'Ngưng hoạt động') { ?> style="background-color: #EEF5FF !important;  cursor: default !important; " <?php } ?>>
-                                            <a asp-controller="ContactExpert" asp-action="Details" <?php if ($expert['status'] == 'Ngưng hoạt động') { ?> href="ContactExpert" <?php }else {?> href="ContactExpertDetail?id=<?php echo $expert['id']; }; ?>">
+                                        <button class="viewMorebtn"  <?php  if ($expert['status_calendar'] == 'Ngưng hoạt động' || $expert['status_calendar'] == "pending") { ?> style="background-color: #EEF5FF !important;  cursor: default !important; " <?php } ?>>
+                                            <a asp-controller="ContactExpert" asp-action="Details" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động') { ?> href="ContactExpert" <?php }else {?> href="ContactExpertDetail?id=<?php echo $expert['id']; }; ?>">
                                                 Xem thêm
                                             </a>
                                         </button>
@@ -161,7 +161,7 @@ include("../root/CSS/ContactExpert.css.php");
         </div>
     </div>
 
-    
+
     <div class="row viewNumber mt-5 mb-5">
         <div class="col-sm-4">
             <h2 class="mt-3 number">+3500</h2>

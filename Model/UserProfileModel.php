@@ -28,6 +28,19 @@ class UserProfile extends Account
         $blog->closeConnection();
         return $result;
     }
+    public function change_avatar_expert($newAvatarUrl)
+    {
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+        $username = base64_decode($_COOKIE['User']);
+        $sql = "UPDATE experts SET profile_picture = :newAvatarUrl WHERE full_name = :username";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':newAvatarUrl', $newAvatarUrl);
+        $stmt->bindParam(':username', $username);
+        $result = $stmt->execute();
+        $blog->closeConnection();
+        return $result;
+    }
     public function get_name_pass_email_user()
     {
         $blog = new Blog();
@@ -94,17 +107,19 @@ class UserProfile extends Account
         }
     }
 
-    public function add_calendar_for_expert($id, $day, $start_time, $end_time, $price, $describer) {
+    public function add_calendar_for_expert($id, $day, $start_time, $end_time, $price, $describer, $status)
+    {
         if (isset($id)) {
             $blog = new Blog();
             $conn = $blog->connect_database();
-            $query = "INSERT INTO calendar (day, start_time, end_time, price, describer, expert_id) VALUES (:day, :start_time, :end_time, :price, :describer, :expert_id)";
+            $query = "INSERT INTO calendar (day, start_time, end_time, price, describer, expert_id,status) VALUES (:day, :start_time, :end_time, :price, :describer, :expert_id,:status)";
             $statement = $conn->prepare($query);
             $statement->bindParam(':day', $day);
             $statement->bindParam(':start_time', $start_time);
             $statement->bindParam(':end_time', $end_time);
             $statement->bindParam(':price', $price);
             $statement->bindParam(':describer', $describer);
+            $statement->bindParam(':status', $status);
             $statement->bindParam(':expert_id', $id); // Assuming $id is the expert_id
             $statement->execute();
             return true; // Indicate success
@@ -112,4 +127,40 @@ class UserProfile extends Account
             return false; // Indicate failure
         }
     }
+
+    public function get_calendar_by_id_expert($id_expert)
+    {
+        if (isset($id_expert)) {
+            $blog = new Blog();
+            $conn = $blog->connect_database();
+            $query = "SELECT * from calendar where expert_id = :id";
+            $statement = $conn->prepare($query);
+            $statement->bindParam(":id", $id_expert);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        }
+        return null;
+    }
+    public function get_booking_expert($id_expert)
+    {
+        if (!isset($id_expert) || empty($id_expert)) {
+            return null;
+        }
+
+        $blog = new Blog();
+        $conn = $blog->connect_database();
+        // Sử dụng biến ràng buộc để tránh SQL injection
+        $query = 'SELECT *, users.name as user_name
+                  FROM bookings
+                  INNER JOIN calendar ON calendar.id = bookings.calendar_id
+                  INNER JOIN users ON users.id = bookings.user_id
+                  WHERE calendar.status = "Ngưng hoạt động" AND calendar.expert_id = :id';
+        $statement = $conn->prepare($query);
+        $statement->bindParam(":id", $id_expert);  // Chắc chắn rằng id_expert là một số nguyên
+        $statement->execute();
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
 }

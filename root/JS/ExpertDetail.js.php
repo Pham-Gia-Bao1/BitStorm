@@ -66,7 +66,10 @@
                 <div class="row mt-5 d-flex justify-content-center align-content-center">
                 <div class="col-sm-12 checkout">
                     <form action="" method="post">
-                       <a type="submit" class="checkoutButton" name="userID" id="checkoutBtn" <?php if (isset($_COOKIE[$cookie_name])) : ?> href="Checkout?expert_id=${expert.id}" <?php endif ?>>
+                       <a type="submit" class="checkoutButton" name="userID" id="checkoutBtn" <?php include_once("../Model/UserProfileModel.php");
+                                                                                                $userprofile = new UserProfile();
+                                                                                                $role_id = $userprofile->get_role_id();
+                                                                                                if (isset($_COOKIE[$cookie_name]) && $role_id == 2) { ?> href="Checkout?expert_id=${expert.id}" <?php }; ?>>
                             Đi đến trang đặt lịch <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </form>
@@ -101,12 +104,12 @@
                             <div class="row mb-3">
                                 <div class="col time d-flex">
                                      <span class="time_icon">
-                                        <i class="fas fa-clock aclock"> 
+                                        <i class="fas fa-clock aclock">
                                             <?php echo " " ?> ${formattedStartTime} - ${formattedEndTime}
                                         </i>
                                 </span>
                                 </div>
-                               
+
                             </div>
                             <div class="row">
                                 <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
