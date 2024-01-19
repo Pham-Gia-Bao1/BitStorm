@@ -7,7 +7,6 @@ class Post extends Connection
     public function GetAllPostsAndUserName_Img()
     {
         $this->connect_database();
-
         $query =  "SELECT posts.*, users.name, users.img FROM posts
         JOIN users ON posts.user_id = users.id order by posts.id DESC" ;
         $stmt = $this->conn->prepare($query);
@@ -24,7 +23,6 @@ class Post extends Connection
             $post['comment'] =$comments; //null
         }
         }
-
         return $posts;
     }
     //show comment thương ứng với mỗi post id
@@ -36,7 +34,6 @@ class Post extends Connection
         $stmt->execute();
         $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return ($stmt->rowCount() > 0) ? $comments : null;
-
     }
     // truy vấn tên user thông qua userid
     public function getOneUser($id)
@@ -72,7 +69,6 @@ class Post extends Connection
         }
 
     }
-
     public function CreatePost($post)
     {
         $conn = $this->connect_database();
@@ -84,7 +80,6 @@ class Post extends Connection
         $stmt->bindParam(':content', $post['content']);
         $stmt->execute();
         $this->closeConnection();
-
     }
     //get id
     public function get_id($username)
@@ -101,6 +96,15 @@ class Post extends Connection
     }
     //lượt like
     public function countLike($idPost){
-
+    }
+    public function createComment($postId, $content, $user_id ){
+        $conn = $this->connect_database();
+        $sql = "INSERT INTO comment_posts (user_id,content,post_id) VALUES (:userid,:content,:postid)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':userid',$postId);
+        $stmt->bindParam(':postid', $postId);
+        $stmt->bindParam(':content', $content);
+        $stmt->execute();
+        $this->closeConnection();
     }
 }
