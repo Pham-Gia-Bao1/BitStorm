@@ -20,6 +20,7 @@ $expert_id = $userprofile->get_id_expert();
 $expert_id123 = $userprofile->get_id_expert();
 $calendars = $userprofile->get_calendar_by_id_expert($expert_id);
 $old_bookings = $userprofile->get_bookings($expert_id123);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['image_url'])) {
         $imageURL = $_POST['image_url'];
@@ -98,7 +99,6 @@ if(isset($_POST['day']) && isset($_POST['start_time'])){
     $end_time = $_POST['end_time'];
     $price = $_POST['price'];
     $describer = $_POST['describer'];
-
     $status = $_POST['status'];
     $userprofile->add_calendar_for_expert($expert_id,$day,$start_time,$end_time,$price,$describer,$status);
     $nameAndImg = $userprofile->get_name_and_img_user();

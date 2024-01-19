@@ -410,9 +410,9 @@ include("../root/CSS/UserProfile.css.php");
         </div>
         <div class="modal-footer d-flex justify-content-between">
           <div>
-            <!-- <button class="btn btn-danger">
+            <button class="btn btn-danger">
                 <a href="http://localhost/WEB_PHP/Logout" class="text-light">Log Out</a>
-            </button> -->
+            </button>
           </div>
           <div><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
             <button type="submit" class="btn btn-primary">Lưu</button>
