@@ -46,6 +46,15 @@
     </div>
 </div>
 <script>
+    const CLOUD_NAME = "dugeyusti";
+    const PRESET_NAME = "expert_upload";
+    const FOLDER_NAME = "BitStorm";
+    const urls = [];
+    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+    const formData = new FormData();
+    formData.append("upload_preset", PRESET_NAME);
+    formData.append("folder", FOLDER_NAME);
+
     $(document).ready(function() {
         $('.edit-user-btn').on('click', function() {
             $('#updateUserModal').modal('show');
