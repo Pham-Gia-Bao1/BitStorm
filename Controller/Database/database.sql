@@ -64,9 +64,6 @@ INSERT INTO experts (id, role_id, full_name, gender, address, email, phone_numbe
 (8, 3, 'Bùi Thị Lan', 'Nữ', '567 Yên Bái, Cẩm Lệ, Đà Nẵng.', 'olivia.brown@example.com', '9012345678', 26, 'Tham vấn cho thanh thiếu niên và người trẻ về các dạng rối loạn, khó khăn liên quan đến cảm xúc (lo âu, căng thẳng, trầm cảm…), khủng hoảng bản sắc, vấn đề giới và phát triển, khó khăn trong kết nối và xây dựng các mối quan hệ (tình bạn, tình yêu, kết nối giữa cha mẹ – con cái).', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkjSwH73LqDpz7kklerQsP1GfXJ_Nca-5cnmc7u9guB8aNse2C9lgi7mUuMFb9p94XHsc&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg', "Chuyên gia tâm lý", 'Hoạt động'),
 (9, 3, 'Đỗ Hải Nam', 'Nam', '890 Trường Sa, Hòa Hải, Đà Nẵng.', 'james.anderson@example.com', '4321098765', 33, 'Thạc sĩ tâm lý tại New York, Mỹ. Có thế mạnh trong việc chẩn đoán, trị liệu phát triển phát đồ, trị liệu cá nhân và nhóm đối với các bệnh nhân trầm cảm, lo âu, stress, OCD, rối loạn nhân cách, rối loạn điều tiết cảm xúc, tự gây tổn thương và tự sát.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBTGIhpDfxhtCb7tSsh6-VgqIO-gNmhRWJmH7tETjTgz-YbB6HDJwgTubhxrLhD1ueVs&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg', "Chuyên gia tâm lý", 'Hoạt động'),
 (10, 3,'Lê Hoàng Yến', 'Nữ', '432 Lý Thường Kiệt, Sơn Trà, Đà Nẵng.', 'emma.johnson@example.com', '8765432109', 29, 'Kinh nghiệm tư vấn tâm lý cho người sống với bệnh tật và hỗ trợ tâm lý cho người chăm sóc trong 10 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRFkCfodOJ-NCXUvucU_M-1J-O7kpEpSPmmr948YC4X_hZ1MHJgAIw3DSTaP0WNSmRa60&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg',"Bác sĩ tâm lý",'Hoạt động');
-
-
-
 CREATE TABLE calendar (
   id INT PRIMARY KEY,
   day DATE,
@@ -104,33 +101,30 @@ VALUES (2, 23, 1, 'Bame à, con áp lực với con số. Nó một ngày một 
        (3, 323, 0, 'MẬP TRĂM KÍ LÀ CẢM GIÁC như thế nào?\nLà được nhận những lời trêu đùa từ mọi người?\nLà đứa đi đâu cũng ngại. Lên xe của bạn thì sợ bể lốp. Áo mượn của bạn thì sợ bị rách.\nCác cậu cho cách nào giúp tớ không? Tớ không có nhiều thời gian cũng như chi phí để đến các phòng tập gym.', '2023-10-12', '2023-10-12'),
        (2, 232, 1, 'Xin chào tất cả các bạn,\nChắc hẳn các bạn đang rất mệt mỏi và áp lực về nhiều thứ, nhưng nếu các bạn mãi tiêu cực như vậy, bạn sẽ cứ thế chôn vùi tương lai tươi đẹp phía trước của mình. Và tôi biết rằng để các bạn có thể tích cực và vui vẻ trở lại rất khó khăn, nhưng hãy cố gắng thực hiện theo các tips này để có thể cải thiện từng chút một nhé.\n', '2023-10-12', '2023-10-12'),
        (3, 121, 1, 'Xin chào mọi người,\nHôm nay, tôi muốn mở lòng và chia sẻ với các bạn về tình trạng trầm cảm mà tôi đang trải qua. Đôi khi, cuộc sống có thể trở nên khó khăn và cảm giác trầm cảm đã ập đến lấn át tâm trí của tôi.\nTrong những tháng qua, tôi đã phải đối mặt với cuộc chiến với trầm cảm. Cảm giác u ám và mệt mỏi vẫn luôn hiện diện trong cuộc sống hàng ngày của tôi. Đôi khi, nó khiến tôi cảm thấy như một cuộc đấu tranh không có hồi kết. Tôi cảm thấy mất đi sự hứng thú và niềm vui với những điều trước đây tôi thường thích. Cảm xúc này thật khó diễn tả và đôi khi tôi cảm thấy mình bị lạc trong một thế giới tối tăm. Các bạn có đang gặp tình trạng giống tôi không?', '2023-10-12', '2023-10-12');
-
 CREATE TABLE  IF NOT EXISTS comment_posts (
   id INT PRIMARY KEY auto_increment,
   content TEXT,
-  author varchar(50),
+  user_id int,
+  FOREIGN KEY (user_id) REFERENCES users(id),
   created_at TIMESTAMP,
   post_id INT,
   FOREIGN KEY (post_id) REFERENCES posts(id)
 );
-
-INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
-('Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
-('I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
-('This post is very informative.', 'Michael Johnson', '2023-01-03 08:45:00', 2),
-('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2),
-('I have a question regarding the topic.', 'Robert Wilson', '2023-01-05 09:10:00', 3),
-('Thanks for sharing!', 'Sophia Thompson', '2023-01-06 14:05:00', 3),
-('I enjoyed reading this post.', 'John Doe', '2023-01-07 17:55:00', 4),
-('This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
-('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
-('Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
-
+INSERT INTO comment_posts ( content, user_id, created_at, post_id) VALUES
+('Great post!', 1 , '2023-01-01 10:00:00', 1),
+('I agree with your points.', 2, '2023-01-02 15:30:00', 1),
+('This post is very informative.', 2, '2023-01-03 08:45:00', 2),
+('Nice work!', 3, '2023-01-04 12:20:00', 2),
+('I have a question regarding the topic.',1, '2023-01-05 09:10:00', 3),
+('Thanks for sharing!',5, '2023-01-06 14:05:00', 3),
+('I enjoyed reading this post.', 1, '2023-01-07 17:55:00', 4),
+('This post provided valuable insights.', 4, '2023-01-08 11:30:00', 4),
+('Can you provide more examples?', 2, '2023-01-09 13:40:00', 1),
+('Good job!', 3, '2023-01-10 16:25:00', 4);
 CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50)
 );
-
 INSERT INTO categories (id, name)
 VALUES (1, 'động lực'),
 (2, 'thiên nhiên'),
@@ -142,8 +136,6 @@ VALUES (1, 'động lực'),
 (8, 'cảm xúc'),
 (9, 'tính cách'),
 (10, 'niềm tin');
-
-
 CREATE TABLE  IF NOT EXISTS podcasts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
@@ -157,7 +149,6 @@ CREATE TABLE  IF NOT EXISTS podcasts (
     like_count int,
     dislike_count int
 );
-
 INSERT INTO podcasts (title, description, author_id, youtube_link, created_at, image_url, type, view,like_count , dislike_count)
 VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là Sun. Các bạn đang lắng nghe Sunhuyn Podcast. Nếu có những ngày cảm thấy chênh vênh hãy quay về đây và yêu lấy chính mình. Cùng lắng nghe và thấu hiểu.', 1, 'https://www.youtube.com/embed/pZTjXtkPam0?si=wnP82s0G_dOnVRFt', '2023-08-08', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Tình yêu', 100,342,12),
 ('Cách để đối diện với tiêu cực và vượt qua nó cùng Khánh Vy | ĐCNNTK #10', 'Đắp Chăn Nằm Nghe Tun Kể là series podcast đầu tiên của Tun, nơi Tun và các bạn có thể trải lòng với nhau về những điều mệt mỏi trong cuộc sống, cùng cho nhau những lời khuyên hay ho, cùng chữa lành những tổn thương, đổ vỡ để trái tim tụi mình một lần nữa được ngập tràn yêu thương.', 3, 'https://www.youtube.com/embed/bdK95yNhIP0?si=EjvSPZ0F9ZxxE-43', '2022-04-09', 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png', 'Gia đình', 309,2373,43),
@@ -178,7 +169,6 @@ VALUES ('#60 Gửi trái tim tan vỡ của tôi', 'Chào các bạn, mình là 
 "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
 "Stress",
 123,120,3);
-
 CREATE TABLE IF NOT EXISTS podcasts_categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     podcast_id INT,
@@ -193,8 +183,6 @@ VALUES (1, 3),
 ( 2, 2),
 (5, 1),
 (4, 5);
-
-
 CREATE TABLE IF NOT EXISTS user_preferences (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -202,7 +190,6 @@ CREATE TABLE IF NOT EXISTS user_preferences (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
-
 -- drop table user_preferences;
 INSERT INTO user_preferences (user_id, category_id) VALUES (1, 1);
 INSERT INTO user_preferences (user_id, category_id) VALUES (1, 2);
@@ -214,7 +201,6 @@ INSERT INTO user_preferences (user_id, category_id) VALUES (4, 2);
 INSERT INTO user_preferences (user_id, category_id) VALUES (4, 4);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 1);
 INSERT INTO user_preferences (user_id, category_id) VALUES (5, 4);
-
 CREATE TABLE  IF NOT EXISTS videos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     youtube_link VARCHAR(255),
@@ -228,7 +214,6 @@ CREATE TABLE  IF NOT EXISTS videos (
     like_count int,
     dislike_count int
 );
-
 INSERT INTO videos (youtube_link, title, author_id, description , duration, type, view, like_count, dislike_count)
 VALUES
 ('https://www.youtube.com/embed/vTJdVE_gjI0?si=_lpmC8RRqEKdQv4x', 'Video 1', 1,'Description for Video 1',120, 'động lực','23',232,34),
@@ -242,7 +227,6 @@ VALUES
 ('https://www.youtube.com/embed/EEYBOJaDBGQ?si=EKsqI0iwmzDzmzQG', 'Video 6',3, 'Description for Video 6', 120, 'thiên nhiên','321',4566,43),
 ('https://www.youtube.com/embed/Au6LqK1UH8g?si=cHkDbSidgVhSVAEP', 'Video 4',2, 'Description for Video 4',120, 'động lực','763',564,67),
 ('https://www.youtube.com/embed/18mSyyOQua0?si=Hl7vG1-x1fUjKfAV', 'Video 5', 1,'Description for Video 5',120, 'gia đình','776',898,12);
-
 CREATE TABLE IF NOT EXISTS video_categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     video_id INT,
@@ -261,7 +245,6 @@ INSERT INTO video_categories (video_id, category_id) VALUES
 (4, 3),
 (5, 1),
 (5, 2);
-
 CREATE TABLE IF NOT EXISTS comment_videos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     content VARCHAR(255),
@@ -273,8 +256,6 @@ CREATE TABLE IF NOT EXISTS comment_videos (
     dislike_count INT,
     FOREIGN KEY (video_id) REFERENCES videos(id)
 );
-
-
 INSERT INTO comment_videos (content, author, created_at, video_id, user_id, like_count, dislike_count)
 VALUES
 ('Great video!', 'John Doe', '2023-01-01 10:00:00', 1, 1, 23, 1),
@@ -287,8 +268,6 @@ VALUES
 ('I enjoyed watching this video.', 'Jane Smith', '2023-01-08 11:30:00', 4, 2, 98, 4),
 ('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 5, 2, 45, 4),
 ('I found this video very helpful.', 'Emily Davis', '2023-01-10 16:25:00', 5, 1, 234, 43);
-
-
 CREATE TABLE comment_posts (
   id INT PRIMARY KEY auto_increment,
   content TEXT,
@@ -297,7 +276,6 @@ CREATE TABLE comment_posts (
   post_id INT,
   FOREIGN KEY (post_id) REFERENCES posts(id)
 );
-
 INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
 ('Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
 ('I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
@@ -309,10 +287,6 @@ INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
 ('This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
 ('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
 ('Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
-
-select * from comment_posts;
-
-
 CREATE TABLE IF NOT EXISTS bookings (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,
@@ -326,7 +300,6 @@ CREATE TABLE IF NOT EXISTS bookings (
   FOREIGN KEY (expert_id) REFERENCES experts(id),
   FOREIGN KEY (calendar_id) REFERENCES calendar(id)
 );
-
 INSERT INTO bookings (id, user_id, expert_id, note, created_at, status, rating, calendar_id) VALUES
 (1, 1, 1, 'Tôi muốn tư vấn về việc trầm cảm học đường.', '2023-01-01 09:30:00', 'Confirmed', 4,1),
 (2,2, 2, 'Tôi muốn tư vấn về việc bị bạo lực học đường.', '2023-01-02 13:45:00', 'Confirmed', 5,1),
@@ -350,7 +323,6 @@ CREATE TABLE IF NOT EXISTS news (
   link VARCHAR(255),
   FOREIGN KEY (author_id) REFERENCES author(author_id)
 );
-
 INSERT INTO news ( title, descriptions ,content, image_url,created_at,author_id, link) VALUES
 ('TÁC HẠI CỦA THỨC KHUYA ĐỐI VỚI SỨC KHỎE ÍT NGƯỜI BIẾT',
 'Thức khuya liên tục là một trong những yếu tố gây ra các ảnh hưởng xấu đối với sức khỏe! Vậy các tác hại của thức khuya là gì? Cùng xem ngay những chia sẻ liên quan đến hậu quả của việc thức khuya trong bài viết dưới đây nhé!',
@@ -842,7 +814,6 @@ TÌM HIỂU THÊM
     '5',
     'https://luatminhkhue.vn/nhung-cau-noi-hay-ve-su-co-gang-no-luc.aspx'
 );
-
 -- Bảng mới
 CREATE TABLE IF NOT EXISTS new_categories (
   id INT PRIMARY KEY,
@@ -862,21 +833,17 @@ INSERT INTO new_categories (id, new_id, category_id) VALUES
 (8,3,4),
 (9,4,1),
 (10,5,3);
-
 CREATE TABLE IF NOT EXISTS author(
  author_id INT PRIMARY KEY AUTO_INCREMENT,
  name_author varchar(255),
  img varchar(255)
 );
-
 INSERT INTO author (name_author,img) VALUES
 ("Trần Văn Lực",""),
 ("Lê Thị Kim Thoa", " "),
 ("Huỳnh Tố Nga", " "),
 ("Phan Văn Lịch", " "),
 ("Nguyễn Tố Linh", " ");
-
-
 INSERT INTO podcasts (title, description, author_id, youtube_link, image_url, type)
 VALUES
     ('Podcast 1', 'Description 1', 1, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'động lực'),
@@ -884,10 +851,8 @@ VALUES
     ('Podcast 3', 'Description 3', 3, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'gia đình'),
     ('Podcast 4', 'Description 4', 1, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên'),
     ('Podcast 5', 'Description 5', 2, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên');
-
 INSERT INTO users (name, email, password, role_id, img) VALUES
     ('Pham Gia Bao', 'bao.pham25@student.passerellesnumeriques.org', 'Bao@1234', 1, 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png');
-
 CREATE TABLE comment_podcast
 (
     id INT PRIMARY KEY,
@@ -900,7 +865,6 @@ CREATE TABLE comment_podcast
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (podcast_id) REFERENCES podcasts(id)
 );
-
 INSERT INTO comment_podcast (id, content, created_at, podcast_id, user_id, like_count, dislike_count)
 VALUES
     (1, 'Bài podcast rất hay!', '2023-12-27 10:30:00', 1, 1, 300, 100),
@@ -913,7 +877,6 @@ VALUES
     (8, 'Đang chờ phần phỏng vấn khách mời.', '2023-12-30 16:45:00', 4, 3, 300, 100),
     (9, 'Nên tăng thời lượng podcast lên.', '2023-12-31 11:10:00', 5, 2, 200, 50),
     (10, 'Có thể đưa ra ví dụ cụ thể hơn không?', '2024-01-01 13:20:00', 5, 3, 450, 150);
-
 create table authors (
 	id int auto_increment primary key,
     name varchar(100),
@@ -925,13 +888,11 @@ INSERT INTO authors (name, img_profile) VALUES
     ('Lê Văn C', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg'),
     ('Phạm Thị D', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg'),
     ('Hoàng Văn E', 'https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg');
-
 create table author (
 		author_id int  primary key,
         name_author varchar(100),
         img varchar(255)
 );
-
 INSERT INTO author (author_id, name_author, img) VALUES
     (1, 'Trần Văn lỰc', 'profile1.jpg'),
     (2, 'Mai Thị Anh', 'profile2.jpg'),
