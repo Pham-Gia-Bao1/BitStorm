@@ -26,7 +26,6 @@ if (isset($_COOKIE[$cookie_name])) {
     $user = $Post->getOneUser($userID);
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userBooking = new Checkout();
-        $userBooking = $userBooking->createBooking($userID, $id, $calendarID, $note);
         echo "<script> alert ('Đặt lịch thành công'); window.location.href = 'userProfile'; </script>";
         $mail = new PHPMailer(true);
         try {
@@ -46,6 +45,9 @@ if (isset($_COOKIE[$cookie_name])) {
             $randomMeetLink = generateRandomGoogleMeetLink();
             $mail->Body = 'Here is your Google Meet link: <a href="' . $randomMeetLink . '">' . $randomMeetLink . '</a>';
             $result = $mail->send();
+            if($result){
+                $userBooking = $userBooking->createBooking($userID, $id, $calendarID, $note,$randomMeetLink);
+            }
 
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;

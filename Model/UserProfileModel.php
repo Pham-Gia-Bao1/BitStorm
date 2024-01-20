@@ -81,7 +81,24 @@ class UserProfile extends Account
         if (isset($id)) {
             $blog = new Blog();
             $conn = $blog->connect_database();
-            $sql = "SELECT  *,users.name as user_name, experts.full_name as expert_name, bookings.created_at as create_at_booking  from bookings join users on users.id = bookings.user_id join experts on experts.id = bookings.expert_id where users.id = :id order by create_at_booking DESC ;";
+            $sql = "SELECT  *,users.name as user_name, experts.full_name as expert_name,bookings.link_room as link_room_booking, bookings.created_at as create_at_booking  from bookings join users on users.id = bookings.user_id join experts on experts.id = bookings.expert_id where users.id = :id order by create_at_booking DESC ;";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if ($result > 1) {
+                return $result;
+            }
+            return null;
+        }
+        return null;
+    }
+    public function get_bookings_experts($id)
+    {
+        if (isset($id)) {
+            $blog = new Blog();
+            $conn = $blog->connect_database();
+            $sql = "SELECT  *,users.name as user_name, experts.full_name as expert_name, bookings.link_room as link_room_booking,bookings.created_at as create_at_booking  from bookings join users on users.id = bookings.user_id join experts on experts.id = bookings.expert_id where experts.id = :id order by create_at_booking DESC ;";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();

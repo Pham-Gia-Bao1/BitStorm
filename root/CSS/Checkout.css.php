@@ -10,7 +10,7 @@
     }
 
     .input {
-        width: 70%;
+        width: 100%;
         border: 1px solid #d7d0cd;
         border-radius: 5px;
         height: 35px;
@@ -22,14 +22,14 @@
     }
 
     .inputNote {
-        width: 70%;
+        width: 100%;
         border: 1px solid #d7d0cd;
         border-radius: 5px;
         height: 100px;
     }
 
     .inputNote {
-        width: 70%;
+        width: 100%;
     }
 
     .text {

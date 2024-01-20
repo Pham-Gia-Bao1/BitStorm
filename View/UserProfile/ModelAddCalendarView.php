@@ -89,13 +89,13 @@
         </div>
         <div class="col-md-8">
           <div class="card-body d-flex justify-content-center align-items-center flex-column">
-          
+
             <p class="card-text">Người đặt : <?php echo $old_booking['name'] ?> </p>
 
             <p class="card-text"><small class="text-muted">bắt đầu từ: <?php echo htmlspecialchars($old_booking['create_at_booking']) ?></small></p>
             <p class="card-text"><small class="text-muted"> Trạng thái : <?php echo $old_booking['status']  ?></small></p>
-            <p class="card-text"><small class="text-muted">Vấn ddeef: <?php echo $old_booking['note']  ?></small></p>
-
+            <p class="card-text"><small class="text-muted">Vấn đề: <?php echo $old_booking['note']  ?></small></p>
+            <p class="card-text"><small class="text-muted">Mã Phòng <?php echo $old_booking['link_room_booking']  ?></small></p>
           </div>
         </div>
       </div>

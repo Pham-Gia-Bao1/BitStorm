@@ -460,6 +460,8 @@ include("../root/CSS/UserProfile.css.php");
   include("../root/JS/UserProfile.js.php");
   ?>
 </div>
+
+
 <?php
 include("../View/LayOut/Footer/Footer.php");
 ?>
