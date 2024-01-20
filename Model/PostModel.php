@@ -101,7 +101,7 @@ class Post extends Connection
         $conn = $this->connect_database();
         $sql = "INSERT INTO comment_posts (user_id,content,post_id) VALUES (:userid,:content,:postid)";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':userid',$postId);
+        $stmt->bindParam(':userid', $user_id);
         $stmt->bindParam(':postid', $postId);
         $stmt->bindParam(':content', $content);
         $stmt->execute();
