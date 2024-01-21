@@ -900,3 +900,36 @@ INSERT INTO author (author_id, name_author, img) VALUES
     (4, 'Huỳnh Tố Nga', 'profile4.jpg'),
     (5, 'Phạm Văn Lịch', 'profile5.jpg'),
     (6, 'Nguyễn Văn Linh', 'profile6.jpg');
+CREATE TABLE IF NOT EXISTS like_posts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    post_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (post_id) REFERENCES posts(id)
+);
+insert into like_posts(user_id,post_id) values (1,1),(1,2),(1,3),(1,4),(3,1),(4,1),(4,2),(4,3),(5,3);
+-- update likeCount
+DELIMITER //
+CREATE TRIGGER IF NOT EXISTS updateLikeCount
+AFTER INSERT ON like_posts
+FOR EACH ROW
+BEGIN
+    UPDATE Posts
+    SET like_count = like_count + 1
+    WHERE id = NEW.post_id;
+END;
+//
+DELIMITER ;
+-- giảm giá trị khi khóa like
+DELIMITER //
+CREATE TRIGGER IF NOT EXISTS decreaseLikeCount
+AFTER DELETE ON like_posts
+FOR EACH ROW
+BEGIN
+    UPDATE Posts
+    SET like_count = like_count - 1
+    WHERE id = OLD.post_id;
+END;
+//
+DELIMITER ;
