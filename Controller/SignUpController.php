@@ -23,6 +23,7 @@ class SignUpController
                         if ($result) {
                             $new_user_name = base64_encode($name);
                             setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
+                            $_SESSION['sesscess'] = true;
                             echo '<script>alert("Đăng Ký thành công!");</script>';
                             echo '<script>window.location.href = "home";</script>';
                             exit;
@@ -42,6 +43,7 @@ class SignUpController
                     exit;
                 }
             } else {
+                $_SESSION['error'] = true;
                 echo '<script>alert("Dữ liệu không hợp lệ!");</script>';
                 echo '<script>window.location.href = "home";</script>';
                 exit;

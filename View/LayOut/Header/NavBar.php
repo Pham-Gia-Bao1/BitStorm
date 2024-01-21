@@ -38,10 +38,10 @@ include("../root/JS/NavBar.js.php");
       ?>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <button class="btn-login btn-header login" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng Nhập</button>
+            <button class="btn-login btn-header login rounded-pill" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng Nhập</button>
           </li>
           <li class="nav-item">
-            <button class="btn-register btn-header signup" data-bs-toggle="modal" data-bs-target="#signup">Đăng Ký</button>
+            <button class="btn-register btn-header signup rounded-pill" data-bs-toggle="modal" data-bs-target="#signup">Đăng Ký</button>
           </li>
         </ul>
       <?php } else { ?>
@@ -96,7 +96,7 @@ if (!isset($_COOKIE[$cookie_name])) {
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+          <h5 class="modal-title " id="loginModalLabel">Đăng nhập</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
@@ -131,8 +131,8 @@ if (!isset($_COOKIE[$cookie_name])) {
             <img src="http://localhost/BitStorm/root/Image/logoutimage.svg" alt="logoutimg" style="width: 100%;">
           </div>
           <div class="modal-footer">
-            <a href="Logout" class="btn btn-danger" data-bs-dismiss="modal" onclick="window.location.href=this.href;">Rời đi</a>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ở lại</button>
+            <a href="Logout" class="btn btn-danger rounded-pill" data-bs-dismiss="modal" onclick="window.location.href=this.href;">Rời đi</a>
+            <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal">Ở lại</button>
           </div>
         </div>
       </div>

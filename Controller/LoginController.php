@@ -6,24 +6,25 @@ class log_in
     public function log_in()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $password_error = "";
+
             $account = new Account();
-            if ($account->compare_user_name($_POST['username']));
-            {
-                $name_error = "Tên đã tồn tại";
-            }
-            $name = $this->sanitizeInput($_POST['username']);
-            $email = $this->sanitizeInput($_POST['email']);
-            $password = $this->sanitizeInput($_POST['password']);
-            $result = $account->login($name, $email, $password);
-            if ($result) {
-                $new_user_name = base64_encode($name);
-                setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-                $_SESSION['sesscess'] = true;
-                header("Location: home");
-                exit;
-            } else {
-                echo '<script>alert("Đăng nhập thất bại!");</script>';
-                header("Location: home");
+           
+            if(isset($_POST['username']) && isset($_POST['email'])){
+                $name = $this->sanitizeInput($_POST['username']);
+                $email = $this->sanitizeInput($_POST['email']);
+                $password = $this->sanitizeInput($_POST['password']);
+                $result = $account->login($name, $email, $password);
+                if ($result) {
+                    $new_user_name = base64_encode($name);
+                    setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
+                    $_SESSION['sesscess'] = true;
+                    header("Location: home");
+                    exit;
+                } else {
+                    $_SESSION['error'] = true;
+                    header("Location: home");
+                }
             }
         }
     }

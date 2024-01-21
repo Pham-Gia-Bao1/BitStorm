@@ -201,18 +201,18 @@
         <form method="post" action="http://localhost/BitStorm/SignUp" class="form" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="username">Họ và Tên:</label>
-                <input type="text" class="form-control" id="usernameInput" name="username" required maxlength="50" pattern="^[a-zA-Z0-9\s]+$">
+                <input type="text" class="form-control rounded-pill" id="usernameInput" name="username" required maxlength="50" pattern="^[a-zA-Z0-9\s]+$">
                 <small id="usernameError" class="text-danger"></small>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="emailInput" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+                <input type="email" class="form-control rounded-pill" id="emailInput" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
                 <small id="emailError" class="text-danger"></small>
             </div>
             <div class="form-group">
                 <label for="password">Mật Khẩu:</label>
                 <div class="password-container">
-                    <input type="password" class="form-control" id="passwordInput" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$">
+                    <input type="password" class="form-control rounded-pill" id="passwordInput" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$">
                     <!-- <input type="password" class="form-control" id="passwordInputAgain" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$"> -->
                     <i id="password-toggle1" class="password-toggle fas fa-eye-slash"></i>
                 </div>
@@ -221,7 +221,7 @@
             <div class="form-group">
                 <label for="password">Nhập lại Mật Khẩu:</label>
                 <div class="password-container">
-                    <input type="password" class="form-control" id="passwordInputAgain" name="password_again" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$">
+                    <input type="password" class="form-control rounded-pill" id="passwordInputAgain" name="password_again" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$">
                     <i id="password-toggle" class="password-toggle fas fa-eye-slash"></i>
                 </div>
                 <small id="passwordErrorAgain" class="text-danger"></small>
@@ -232,7 +232,7 @@
                 <input type="radio" id="doctor" class="input_role" name="input_role" value="3">
                 <label for="doctor" class="button_role rounded-pill" id="label_role_doctor">Người tư vấn</label>
             </div>
-            <button type="submit" class="btn btn-primary btn_login">Đăng Ký Ngay</button>
+            <button type="submit" class="btn btn-primary btn_login rounded-pill">Đăng Ký Ngay</button>
         </form>
     </div>
     <script>
@@ -288,10 +288,7 @@
                 passwordError.textContent = "Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ cái hoa, một chữ số và một ký tự đặc biệt!";
                 return false;
             }
-            // if (!passwordPattern_again.test(password)) {
-            //     passwordError_again.textContent = "Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ cái hoa, một chữ số và một ký tự đặc biệt!";
-            //     return false;
-            // }
+
             if (password !== password_again) {
                 passwordError_again.textContent = "Mật khẩu không khớp!";
                 return false;

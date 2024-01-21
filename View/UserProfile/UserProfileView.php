@@ -381,12 +381,12 @@ include("../root/CSS/UserProfile.css.php");
         </div>
         <div class="modal-footer d-flex justify-content-between">
           <div>
-            <button class="btn btn-danger">
-              <a href="Logout" class="text-light">Log Out</a>
+            <button class="btn btn-danger rounded-pill">
+              <a href="Logout" class="text-light rounded-pill">Đăng xuất</a>
             </button>
           </div>
-          <div><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-            <button type="submit" class="btn btn-primary">Lưu</button>
+          <div><button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Đóng</button>
+            <button type="submit" class="btn btn-primary rounded-pill">Lưu</button>
           </div>
         </div>
       </form>

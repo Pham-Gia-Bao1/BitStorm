@@ -91,17 +91,23 @@ class Account
     }
     public static function login($name, $email, $password)
     {
-        if (!empty($email) && !empty($password)) {
+        if (isset($email) && isset($password)) {
             $blog = new Blog();
             $conn = $blog->connect_database();
-            $sql = "SELECT users.id FROM users WHERE users.name = :name and users.email = :email AND users.password = :password";
+            $sql = "SELECT users.id,users.password as pass FROM users WHERE users.name = :name and users.email = :email AND users.password = :password";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->execute();
+            $result = $stmt->fetch((PDO::FETCH_ASSOC));
             $blog->closeConnection();
-            return true;
+            if($result['pass'] == $password){
+                return true;
+            }else{
+                return false;
+            }
+
         }
         return false;
     }
@@ -255,19 +261,21 @@ class Account
         }
         return 2;
     }
-    public function compare_user_name($user_name)
-    {
+    public function compare_user_password($password,$name)
+    {   $passwordPattern = '/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$/';
         $blog = new Blog();
         $conn = $blog->connect_database();
-        $sql = "SELECT * FROM users WHERE users.name = :name";
+        $sql = "SELECT users.password FROM users WHERE users.password = :password and users.name = :name";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":name", $user_name);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":name", $name);
         $stmt->execute();
-        $data = $stmt->fetchAll(); // Sử dụng fetchAll() thay vì fetch() để lấy tất cả các dòng kết quả
-        if (count($data) > 1) {
-            return true; // Trả về true nếu số dòng kết quả lớn hơn 1
+        $data = $stmt->fetch();
+        if(preg_match($passwordPattern,$data)){
+            return true;
+        }else{
+            return false;
         }
-        return false; // Trả về false nếu số dòng kết quả là 0 hoặc 1
     }
     public function add_expert($role_id, $full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization, $status)
     {

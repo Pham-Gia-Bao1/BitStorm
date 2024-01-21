@@ -26,6 +26,7 @@
     z-index: 999;
     background-color:ivory !important;
     height: 80px !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .navbar-brand {
     color:cadetblue;

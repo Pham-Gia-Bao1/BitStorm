@@ -1,4 +1,11 @@
 <?php
+session_start();
+include('../root/Funtion/Funtion.php');
+if(isset($_SESSION['sesscess'])){
+    showSuccessMessage();
+}elseif(isset($_SESSION['error'])){
+    showError();
+}
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/Home.php");
 include_once("../Model/HomeModel.php");
