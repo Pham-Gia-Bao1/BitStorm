@@ -2,6 +2,8 @@
 include("../View/Admin/Layout/SideBar.view.php");
 include("../root/CSS/Admin/AdminExpert.css.php");
 ?>
+<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 
 <body>
     <title>Admin expert</title>
