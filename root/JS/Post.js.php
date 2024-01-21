@@ -4,6 +4,7 @@
             var postId = $(this).data('post-id');
             $.ajax({
                 url: 'Post',
+                type:'POST',
                 data: {
                     action: 'likePost',
                     postId: postId,
