@@ -1,6 +1,5 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-
 class AdminBooking extends Blog
 {
     public function get_all_bookings()
@@ -13,7 +12,6 @@ class AdminBooking extends Blog
         $this->closeConnection();
         return $bookings;
     }
-
     public function update_booking($id, $user_id, $expert_id, $calendar_id, $note, $created_at, $status, $rating)
     {
         $this->connect_database();
@@ -31,8 +29,6 @@ class AdminBooking extends Blog
         $this->closeConnection();
         return true;
     }
-
-
     public function delete_booking($id){
          $this->connect_database();
          $sql_query = "DELETE FROM bookings WHERE id = :id";

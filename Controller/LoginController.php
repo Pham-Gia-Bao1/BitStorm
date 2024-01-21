@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("../Model/AccountModel.php");
 class log_in
 {
@@ -9,7 +10,6 @@ class log_in
             if ($account->compare_user_name($_POST['username']));
             {
                 $name_error = "Tên đã tồn tại";
-                
             }
             $name = $this->sanitizeInput($_POST['username']);
             $email = $this->sanitizeInput($_POST['email']);
@@ -18,7 +18,7 @@ class log_in
             if ($result) {
                 $new_user_name = base64_encode($name);
                 setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-                echo '<script>alert("Đăng nhập thành công!");</script>';
+                $_SESSION['sesscess'] = true;
                 header("Location: home");
                 exit;
             } else {

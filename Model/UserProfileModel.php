@@ -123,7 +123,6 @@ class UserProfile extends Account
             return $result;
         }
     }
-
     public function add_calendar_for_expert($id, $day, $start_time, $end_time, $price, $describer, $status)
     {
         if (isset($id)) {
@@ -144,7 +143,6 @@ class UserProfile extends Account
             return false; // Indicate failure
         }
     }
-
     public function get_calendar_by_id_expert($id_expert)
     {
         if (isset($id_expert)) {
@@ -167,7 +165,6 @@ class UserProfile extends Account
 
         $blog = new Blog();
         $conn = $blog->connect_database();
-        // Sử dụng biến ràng buộc để tránh SQL injection
         $query = 'SELECT *, users.name as user_name
                   FROM bookings
                   INNER JOIN calendar ON calendar.id = bookings.calendar_id

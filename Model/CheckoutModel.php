@@ -1,9 +1,7 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-
 class Checkout extends Connection
 {
-
     public function createBooking($userID, $expertID, $calendarID, $note, $link_room)
     {
         $this->connect_database();

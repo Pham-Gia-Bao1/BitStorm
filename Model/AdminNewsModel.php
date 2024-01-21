@@ -2,10 +2,8 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
 require ("../Controller/Database/database.php");
-
 class AdminNews extends Connection
 {
-
     function selectNews()
     {
         $db = $this->connect_database();

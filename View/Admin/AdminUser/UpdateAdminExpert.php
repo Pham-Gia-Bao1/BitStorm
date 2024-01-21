@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div class="modal fade" id="updateExpertModal" tabindex="-1" aria-labelledby="#updateUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <form action="" method="post">
@@ -98,5 +97,4 @@
 
         });
     });
-    
 </script>

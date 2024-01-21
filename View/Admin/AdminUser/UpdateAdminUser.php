@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="#updateUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <form action="" method="post">

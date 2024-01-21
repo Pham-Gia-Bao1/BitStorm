@@ -20,7 +20,6 @@ $expert_id = $userprofile->get_id_expert();
 $expert_id123 = $userprofile->get_id_expert();
 $calendars = $userprofile->get_calendar_by_id_expert($expert_id);
 $old_bookings = $userprofile->get_bookings_experts($expert_id123);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['image_url'])) {
         $imageURL = $_POST['image_url'];

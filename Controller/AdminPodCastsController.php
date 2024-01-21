@@ -3,10 +3,8 @@ include "../root/CSS/Admin/AdminNews.css.php";
 include "../Model/AdminPodCastsModel.php";
 include_once("../Model/UserProfileModel.php");
 include_once("../Model/AccountModel.php");
-
 $userprofile = new UserProfile();
 $role_id = $userprofile->get_role_id();
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['id'])) {
         if (isset($_POST['title'])) {
@@ -68,6 +66,5 @@ if (isset($_GET['id'])) {
 if($role_id == 1){
     include "../View/Admin/NewsVideo/AdminPodCastsView.php";
 }else{
-
     header("Location: home");
 }

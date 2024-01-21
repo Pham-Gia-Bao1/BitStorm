@@ -5,29 +5,23 @@
     let resultOfSuggestExperts = document.querySelector('.card_container');
     var startTimeParts = expert.start_time.split(':');
     var endTimeParts = expert.end_time.split(':');
-
     var startTime = new Date();
     startTime.setHours(parseInt(startTimeParts[0], 10));
     startTime.setMinutes(parseInt(startTimeParts[1], 10));
-
     var endTime = new Date();
     endTime.setHours(parseInt(endTimeParts[0], 10));
     endTime.setMinutes(parseInt(endTimeParts[1], 10));
-
-    // Định dạng thời gian
     var options = {
-        hour: '2-digit',
+            hour: '2-digit',
     };
     var formattedStartTime = startTime.toLocaleTimeString('en-US', options);
     var formattedEndTime = endTime.toLocaleTimeString('en-US', options);
     renderDetailExpert();
     suggestExperts();
-
     function renderDetailExpert() {
-
-        cardExperts.innerHTML = `
-            <div class="col-sm-4 doctor_image">
-                <img src="${expert.profile_picture}" alt="image">
+            cardExperts.innerHTML = `
+                <div class="col-sm-4 doctor_image">
+                    <img src="${expert.profile_picture}" alt="image">
             </div>
             <div class="col-sm-5 container_content">
                 <h2>${expert.specialization} ${expert.full_name}</h2>
@@ -77,26 +71,23 @@
                 </div>
             </div>
         `;
-
         function generateStarRating(countRating) {
-            let stars = '';
-            for (let i = 0; i < countRating; i++) {
-                stars += ' &#9733;';
+                let stars = '';
+                for (let i = 0; i < countRating; i++) {
+                    stars += ' &#9733;';
             }
             return stars;
-
         }
     }
-
     function suggestExperts() {
-        let count = 0;
-        experts.forEach((experts) => {
-            if (count < 4 && experts.id !== expert.id) {
-                resultOfSuggestExperts.innerHTML += `
-                <div class="col-sm-3 mt-4">
-                    <div class="card mb-1" style="width: 17rem;">
-                        <div class="text-center">
-                            <img class="img_card" src="${experts.profile_picture}" class="card-img-top" alt="image">
+            let count = 0;
+            experts.forEach((experts) => {
+                if (count < 4 && experts.id !== expert.id) {
+                    resultOfSuggestExperts.innerHTML += `
+                    <div class="col-sm-3 mt-4">
+                        <div class="card mb-1" style="width: 17rem;">
+                            <div class="text-center">
+                                <img class="img_card" src="${experts.profile_picture}" class="card-img-top" alt="image">
                         </div>
                         <div class="card-body text-center">
                             <h5 class="fw-bold">${experts.full_name}</h5>
@@ -109,7 +100,6 @@
                                         </i>
                                 </span>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>

@@ -86,7 +86,6 @@ function deleteVideos($id) {
     $stmt->bindParam(':id', $id);
     if ($stmt->execute()) {
         if ($stmt->rowCount() > 0) {
-            echo "<script>alert('Successfullly')</script>";
             return true;
         } else {
             return false;

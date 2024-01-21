@@ -1,5 +1,4 @@
 <?php
-
 include("../View/Admin/Layout/SideBar.view.php");
 include("../root/CSS/Admin/AdminComment.css.php");
 include_once("../root/CSS/Admin/Homepage.css.php");
@@ -7,11 +6,8 @@ include_once("../root/CSS/Admin/SideBar.css.php");
 ?>
 
 <body>
-
     <div class="main">
         <div class="body-main">
-           
-            <!-- ======================= Cards ================== -->
             <div class="cardBox">
                 <div class="card border-3 border-primary">
                     <div class="cardTop">
@@ -21,11 +17,9 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                         </div>
                     </div>
                     <div>
-                        <div class="numbers"><?php echo($countUser['COUNT(*)']);?></div>
+                        <div class="numbers"><?php echo ($countUser['COUNT(*)']); ?></div>
                     </div>
-
                 </div>
-
                 <div class="card border-3 border-success">
                     <div class="cardTop ">
                         <div class="cardName">Bác sĩ</div>
@@ -34,12 +28,9 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                         </div>
                     </div>
                     <div>
-                        <div class="numbers"><?php echo($countExpert['COUNT(*)'])?></div>
-                        
+                        <div class="numbers"><?php echo ($countExpert['COUNT(*)']) ?></div>
                     </div>
-
                 </div>
-
                 <div class="card border-3 border-danger">
                     <div class="cardTop ">
                         <div class="cardName">Lịch đã đặt</div>
@@ -47,13 +38,10 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                             <i class="fa-regular fa-calendar-days "></i>
                         </div>
                     </div>
-                    <div>   
-                        <div class="numbers"><?php echo ($countBooking['COUNT(*)'])?></div>
-                        
+                    <div>
+                        <div class="numbers"><?php echo ($countBooking['COUNT(*)']) ?></div>
                     </div>
-
                 </div>
-
                 <div class="card border-3 border-warning">
                     <div class="cardTop">
                         <div class="cardName">Bài đăng</div>
@@ -62,16 +50,11 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                         </div>
                     </div>
                     <div>
-                        <div class="numbers"><?php echo ($countPost['COUNT(*)'])?></div>
-                        
+                        <div class="numbers"><?php echo ($countPost['COUNT(*)']) ?></div>
                     </div>
-
                 </div>
             </div>
-
-            <!-- ================ Order Details List ================= -->
             <div class="details">
-                <!-- ================= New Customers ================ -->
                 <div class="chartUseAndExperts">
                     <div class="cardHeader" id="chartContainer">
                     </div>
@@ -79,9 +62,7 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Lịch đã đặt gần đây</h2>
-                        <!-- <a href="#" class="btn">View All</a> -->
                     </div>
-
                     <table>
                         <thead>
                             <tr>
@@ -92,55 +73,49 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                                 <td>Giờ kết thúc</td>
                             </tr>
                         </thead>
-
                         <tbody class="scroll-container">
-                            <?php 
-                            foreach($bookings as $booking):?>
-                            <tr>
-                                <td><?php echo $booking['userName'];?></td>
-                                <td><?php echo $booking['expertName'];?></td>
-                                <td><?php echo $booking['calendarDay'];?></td>
-                                <td><span class="status inProgress"><?php echo $booking['start_time'];?></span></td>
-                                <td><span class="status return "><?php echo $booking['end_time'];?></span></td>
-                            </tr>
-                            <?php endforeach;?>
+                            <?php
+                            foreach ($bookings as $booking) : ?>
+                                <tr>
+                                    <td><?php echo $booking['userName']; ?></td>
+                                    <td><?php echo $booking['expertName']; ?></td>
+                                    <td><?php echo $booking['calendarDay']; ?></td>
+                                    <td><span class="status inProgress"><?php echo $booking['start_time']; ?></span></td>
+                                    <td><span class="status return "><?php echo $booking['end_time']; ?></span></td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 <?php
- 
-$dataPoints = array( 
-	array("y" => $countUser['COUNT(*)'], "label" => "Users" ),
-	array("y" => $countExpert['COUNT(*)'], "label" => "Experts" ),
+$dataPoints = array(
+    array("y" => $countUser['COUNT(*)'], "label" => "Users"),
+    array("y" => $countExpert['COUNT(*)'], "label" => "Experts"),
 );
- 
 ?>
 <script>
-window.onload = function() {
- 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title:{
-		text: "Thống kê số lượng người dùng và bác sĩ"
-	},
-	axisY: {
-		title: "quanity people"
-	},
-	data: [{
-		type: "column",
-		yValueFormatString: "#,##0.## người",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-	}]
-});
-chart.render();
- 
-}
+    window.onload = function() {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Thống kê số lượng người dùng và bác sĩ"
+            },
+            axisY: {
+                title: "quanity people"
+            },
+            data: [{
+                type: "column",
+                yValueFormatString: "#,##0.## người",
+                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart.render();
+    }
 </script>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <?php

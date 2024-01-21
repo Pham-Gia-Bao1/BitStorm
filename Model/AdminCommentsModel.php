@@ -1,6 +1,5 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-
 class AdminComment extends Blog{
     public function get_all_comments(){
         // $this->connect_database();
@@ -22,7 +21,6 @@ class AdminComment extends Blog{
         $this->closeConnection();
         return $comment;
     }
-
     public function update_comments_video($id, $content, $create_at, $video_id, $user_id, $like_count, $dislike_count) {
         $this->connect_database();
         $sql_query = "UPDATE comment_videos SET content = :content, created_at = :create_at, video_id = :video_id, user_id = :user_id, like_count = :like_count, dislike_count = :dislike_count WHERE id = :id";
@@ -38,7 +36,6 @@ class AdminComment extends Blog{
         $this->closeConnection();
         return true;
     }
-
     public function delete_comment($arr){
         $this->connect_database();
         if (!empty($arr)) {
@@ -53,7 +50,6 @@ class AdminComment extends Blog{
             return false;
         }
     }
-
     public function get_all_comments_podcasts(){
         $this->connect_database();
         $sql_query = "SELECT *,users.name as username ,comment_podcast.id as id_comment,comment_podcast.like_count as like_count_comment , comment_podcast.dislike_count as dislike_count_comment from comment_podcast inner join podcasts on podcasts.id = comment_podcast.podcast_id inner join users on users.id = comment_podcast.user_id order by id_comment ;";
@@ -63,8 +59,7 @@ class AdminComment extends Blog{
         $this->closeConnection();
         return $comments;
     }
-
-    public function get_one_comment_podcast($id){
+        public function get_one_comment_podcast($id){
         $this->connect_database();
         $sql_query = "SELECT *,users.name as username ,comment_podcast.id as id_comment,comment_podcast.like_count as like_count_comment , comment_podcast.dislike_count as dislike_count_comment from comment_podcast inner join podcasts on podcasts.id = comment_podcast.podcast_id inner join users on users.id = comment_podcast.user_id order by id_comment where comment_podcast.id =:id";
         $stmt = $this->conn->prepare($sql_query);
@@ -74,7 +69,6 @@ class AdminComment extends Blog{
         $this->closeConnection();
         return $comment;
     }
-
     public function update_comments_podcast($id, $content, $create_at, $video_id, $user_id, $like_count, $dislike_count) {
         $this->connect_database();
         $sql_query = "UPDATE comment_podcast SET content = :content, created_at = :create_at, video_id = :video_id, user_id = :user_id, like_count = :like_count, dislike_count = :dislike_count WHERE id = :id";
@@ -90,7 +84,6 @@ class AdminComment extends Blog{
         $this->closeConnection();
         return true;
     }
-
     public function delete_comment_podcast($id){
         $this->connect_database();
         if (!empty($arr)) {

@@ -15,7 +15,6 @@ include("../root/CSS/ContactExpertDetail.css.php");
         <div class="text-center">
             <h4 class="fw-bold">Một số chuyên gia khác có thể bạn quan tâm</h4>
             <div class="row mt-4 card_container">
-
             </div>
         </div>
     </div>

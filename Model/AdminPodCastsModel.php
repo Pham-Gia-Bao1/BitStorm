@@ -66,7 +66,7 @@ function updateVideo($id, $title, $description, $author_id, $youtube_link, $imag
         $video->bindParam(":title", $title);
         $video->bindParam(":description", $description);
         $video->bindParam(":author_id", $author_id);
-        $video->bindParam(":youtube_link", $youtube_link);  
+        $video->bindParam(":youtube_link", $youtube_link);
         $video->bindParam(":image_url", $image_url);
         $video->bindParam(":type", $type);
         $video->bindParam(":view", $view);
@@ -99,5 +99,3 @@ function deleteVideo($id) {
         echo "Error updating record " . $stmt->errorCode();
     }
 }
-
-?>

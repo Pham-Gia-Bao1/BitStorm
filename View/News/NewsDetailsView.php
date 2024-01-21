@@ -1,8 +1,6 @@
 <?php
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/NewsDetail.css.php");
-
-
 if ($news) {
 ?>
     <div class="p-5"></div>
@@ -21,17 +19,19 @@ if ($news) {
         <div class="p-3"></div>
         <h6><b>Gợi Ý Dành Cho Bạn</b></h6>
         <div class="container">
-            <?php foreach ($reconmmentNewsDetails as $n ):?>
-            <div class="row d-flex">
-                <div class="col-sm-6">
-                <div class="mask-group-parent">
-                    <img class="mask-group-icon" alt="ảnh" src="<?php echo $n['image_url']?>">
-                  <p> <b class="danh-sch-10"><?php echo $n['title'] ?></b></p> 
-                    <div class="tr-nh-c"><?php echo $n['descriptions'] ?></div>
+            <?php foreach ($reconmmentNewsDetails as $n) : ?>
+                <div class="row d-flex">
+                    <div class="col-sm-6">
+                        <div class="mask-group-parent">
+                            <a href="NewsDetails?id=<?php echo $n['id']; ?>" style="text-decoration-line: none;color:black;">
+                                <img class="mask-group-icon" alt="ảnh" src="<?php echo $n['image_url'] ?>">
+                                <p> <b class="danh-sch-10"><?php echo $n['title'] ?></b></p>
+                                <div class="tr-nh-c"><?php echo $n['descriptions'] ?></div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div class="p-2"></div>
+                <div class="p-2"></div>
             <?php endforeach ?>
         </div>
     </div>
@@ -39,6 +39,5 @@ if ($news) {
 } else {
     echo "Không tìm thấy tin tức";
 }
-
 include("../View/LayOut/Footer/Footer.php");
 ?>

@@ -9,7 +9,6 @@ $role_id = $userprofile->get_role_id();
 $bookings = new AdminBooking();
 $all_bookings = $bookings->get_all_bookings();
 if(isset($_POST['sttInput'])){
-
      $id = $_POST['sttInput'];
      $user_id = $_POST['customerInput'];
      $expert_id = $_POST['expertInput'];
@@ -22,11 +21,9 @@ if(isset($_POST['sttInput'])){
    if($result){
     header("Location: Adminbooking");
    }
-
 }
 if($role_id == 1){
   include("../View/Admin/AdminBooking/AdminBookingView.php");
 }else{
-
   header("Location: home");
 }

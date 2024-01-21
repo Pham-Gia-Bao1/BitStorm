@@ -13,14 +13,14 @@ if (isset($_COOKIE[$cookie_name])) {
         if (($_POST['action'])=="createComment"){
             $user_id=$Post->get_id($nameAndImg[0]);
             $post_id=htmlspecialchars($_POST['post_id']);
-            $content =htmlspecialchars($_POST['content']); 
+            $content =htmlspecialchars($_POST['content']);
             $Post->CreateComment($post_id,$content,$user_id);
             header("Location: Post");
         }elseif (($_POST['action'])=="createPost"){
             $isAnonymous= isset($_POST['isAnonymous'])?($_POST['isAnonymous']):1;
             $id=$Post->get_id($nameAndImg[0]);
             $likeCount=0;
-            $content =htmlspecialchars(trim($_POST['content'])) ;       
+            $content =htmlspecialchars(trim($_POST['content'])) ;
             $post=[
                 "userid" => $id,
                 "isAnonymous"=>$isAnonymous,
@@ -30,7 +30,7 @@ if (isset($_COOKIE[$cookie_name])) {
             $Post->CreatePost($post);
             header("Location: Post");
         }
-       
+
     }
     include("../View/Post/PostView.php");
 }else {

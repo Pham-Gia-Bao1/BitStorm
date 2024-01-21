@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (isset($_POST['certificate'])) {
                         $certificateImg = htmlspecialchars($_POST['certificate']);
                         $newCertificateImg = "http://localhost/BitStorm/root/Image/" . $certificateImg;
-                    } 
+                    }
                     $newExperts = $Expert->createExpert($name, $gender, $address, $email, $phoneNumber, $age, $experience, $newExpertImg, $rating, $newCertificateImg, $specialization);
                     Header("Location: AdminExpert");
-                
+
             break;
             case 'updateExpert':
                     $name = htmlspecialchars($_POST['name']);
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (isset($_POST['CertificateImg'])) {
                         $certificateImg = htmlspecialchars($_POST['CertificateImg']);
                         $newCertificateImg = "http://localhost/BitStorm/root/Image/" . $certificateImg;
-                    } 
+                    }
                     $newExperts = $Expert->updateExpert($id, $name, $gender, $address, $email, $phoneNumber, $age, $experience, $newExpertImg, $rating, $newCertificateImg, $specialization, $status);
                     Header("Location: AdminExpert");
                 break;

@@ -19,7 +19,6 @@ class Expert extends Connection
         $this->closeConnection();
         return $expertsWithCalendar;
     }
-
     public function searchExperts($keyword, $currentDate)
     {
         $this->connect_database();

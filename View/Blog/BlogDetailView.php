@@ -3,10 +3,8 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/BlogDetail.css.php");
 ?>
 <title>Blog</title>
-
 <main id="main">
     <div class="m-5" id="content">
-        <!-- phần 1 -->
         <div id="contain_main_video">
             <div class="video-container">
                 <iframe id="video" src="<?= htmlspecialchars($video[0]['youtube_link']) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -15,7 +13,6 @@ include("../root/CSS/BlogDetail.css.php");
         <div class="name">
             <h2 class="text-primary"><?= htmlspecialchars($video[0]['title']) ?></h2>
         </div>
-        <!-- phần 2 -->
         <div class="d-flex justify-content-between align-items-center my-5" id="option_of_video">
             <div class="text-muted d-flex gap-3">
                 <p class="view bg-light p-2"><?php echo htmlspecialchars($video[0]['view']) ?> views</p>
@@ -23,11 +20,7 @@ include("../root/CSS/BlogDetail.css.php");
             <div class="d-flex justify-content-between align-items-center gap-3">
                 <p class="btn btn-light"><i class="far fa-thumbs-up"></i> <?php echo htmlspecialchars($video[0]['like_count']) ?></p>
                 <p class="btn btn-light"><i class="far fa-thumbs-down"></i><?php echo htmlspecialchars($video[0]['dislike_count']) ?></p>
-                <!-- Thẻ p để kích hoạt modal -->
-                <!-- Thẻ p để kích hoạt modal -->
                 <p class="btn btn-light" data-toggle="modal" data-target="#videoModal"><i class="fas fa-share"></i> Chia sẻ</p>
-
-                <!-- Modal -->
                 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content" id="modal-content">
@@ -38,27 +31,18 @@ include("../root/CSS/BlogDetail.css.php");
                                 </button>
                             </div>
                             <div class="modal-body gap-3">
-                                <!-- Hiển thị link video tại đây -->
                                 <div class="d-flex gap-2 m-4">
                                     <input type="text" class="form-control w-100" id="videoLinkInput" readonly value="<?php echo htmlspecialchars($video[0]['youtube_link']) ?>">
                                     <button class="btn-primary" onclick="copyLink()">Copy</button>
                                 </div>
                                 <script>
                                     function copyLink() {
-                                        /* Tạo một phần tử input để chứa liên kết */
                                         var linkInput = document.getElementById("videoLinkInput");
-
-                                        /* Chọn nội dung của phần tử input */
                                         linkInput.select();
-
-                                        /* Sao chép nội dung đã chọn vào clipboard */
                                         document.execCommand("copy");
-
-                                        /* Thông báo sao chép thành công */
                                         alert("Đã sao chép liên kết: " + linkInput.value);
                                     }
                                 </script>
-                                <!-- Nút chia sẻ -->
                                 <div class="share-buttons gap-2 m-4">
                                     <a href="mailto:?subject=Chia sẻ video&body=Đây là link video: <?php echo htmlspecialchars($video[0]['youtube_link']) ?>" class="btn btn-primary"><i class="fas fa-envelope"></i> Email</a>
                                     <a href="https://zalo.me/?text=<?php echo urlencode($video[0]['youtube_link']) ?>" class="btn btn-primary"><i class="fab fa-zalo"></i> Zalo</a>
@@ -72,12 +56,10 @@ include("../root/CSS/BlogDetail.css.php");
                     </div>
                 </div>
                 <p class="btn btn-light" id="downloadBtn"><i class="fas fa-download"></i> Tải xuống</p>
-                <!-- <p class="btn btn-light"><i class="far fa-copy"></i> CLIP</p> -->
                 <p class="btn btn-light"><i class="far fa-save"></i> Lưu </p>
             </div>
         </div>
     </div>
-    <!-- phần 3 -->
     <div class="d-flex justify-content-between align-items-center my-3 offical">
         <div class="d-flex m-3">
             <img src="<?= $author[0]['img_profile'] ?>" alt="" class="rounded-circle" width=50 height=50>
@@ -86,11 +68,8 @@ include("../root/CSS/BlogDetail.css.php");
             </div>
         </div>
     </div>
-    <!-- phần 4 -->
     <h4 class="m-5 decription_video"><?= htmlspecialchars($video[0]['description']) ?></h4>
     <h5 class="m-5"><?php echo htmlspecialchars($video[0]['view']) ?> Lượt xem </h5>
-    <!-- phần 5 -->
-
     <div class="comment-list my-3 m-3 bg-light" id="comment-list">
         <div class="card mb-3">
             <div class="card-body border-white">
@@ -103,7 +82,6 @@ include("../root/CSS/BlogDetail.css.php");
                 } else {
                     $check_video = false;
                 }
-
                 ?>
                 <form id="commentForm" method="get" action="comment" class="d-flex align-items-start border-white justify-content-between" onsubmit="validateForm()">
                     <img class="rounded-circle me-3 avatar_comment" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Profile Picture" width="50" height="50">
@@ -112,11 +90,9 @@ include("../root/CSS/BlogDetail.css.php");
                     <input type="text" id="commentInput" class="form-control custom-input m-2 input" required placeholder="Thêm bình luận" name="content">
                     <button type="submit" class="btn-primary add_comment">Thêm Bình luận</button>
                 </form>
-
                 <script>
                     function validateForm() {
                         var userCookie = '<?php echo isset($_COOKIE["User"]) ? "true" : "false"; ?>';
-
                         if (userCookie === "false") {
                             alert("Bạn chưa đăng nhập");
                             return false; // Ngăn người dùng gửi form nếu chưa đăng nhập
@@ -124,9 +100,7 @@ include("../root/CSS/BlogDetail.css.php");
                         return true; // Cho phép gửi form nếu đã đăng nhập
                     }
                 </script>
-
             </div>
-
         </div>
         <?php foreach ($comments as $comment) {
         ?>
@@ -157,48 +131,32 @@ include("../root/CSS/BlogDetail.css.php");
                         </div>
                         <script>
                             function increaseLikeCount(commentId) {
-                                // Gửi yêu cầu AJAX để tăng lượt thích
                                 var xhr = new XMLHttpRequest();
                                 xhr.open("POST", "Comment", true);
                                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                                 xhr.onreadystatechange = function() {
                                     if (xhr.readyState === 4 && xhr.status === 200) {
-                                        // In ra phản hồi từ CommentController
                                         console.log(xhr.responseText);
-                                        // Cập nhật số lượng lượt thích trên giao diện
                                         var likeCountElement = document.querySelector('.like-count');
                                         likeCountElement.innerHTML = xhr.responseText;
                                     }
                                 };
-                                // Tạo dữ liệu yêu cầu
-                                // var data = "action=increment_like&comment_id=" + commentId;
                                 console.log(data)
-                                // Tạo dữ liệu yêu cầu
                                 var data = "action=increment_like&comment_id=" + commentId;
-
-                                // Gửi yêu cầu AJAX
                                 xhr.send(data);
                             }
-
                             function increaseDislikeCount(commentId) {
-                                // Gửi yêu cầu AJAX để tăng lượt không thích
                                 var xhr = new XMLHttpRequest();
                                 xhr.open("POST", "Comment", true);
                                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                                 xhr.onreadystatechange = function() {
                                     if (xhr.readyState === 4 && xhr.status === 200) {
-                                        // In ra phản hồi từ CommentController
                                         console.log(xhr.responseText);
-                                        // Cập nhật số lượng lượt không thích trên giao diện
                                         var dislikeCountElement = document.querySelector('.didlike');
                                         dislikeCountElement.innerHTML = xhr.responseText;
                                     }
                                 };
-
-                                // Tạo dữ liệu yêu cầu
                                 var data = "action=increment_dislike&comment_id=" + commentId;
-
-                                // Gửi yêu cầu AJAX
                                 xhr.send(data);
                             }
                         </script>
@@ -206,21 +164,16 @@ include("../root/CSS/BlogDetail.css.php");
                 </div>
             </div>
         <?php } ?>
-
     </div>
     <button class="border-0 p-2 rounded-3 view_more" id="view_more">
         Xem thêm
         <i class="fa-solid fa-chevron-down text-primary"></i>
-
     </button>
     <button class="border-0 p-2 rounded-3 view_more" id="view_lest">
         Ẩn
         <i class="fa-solid fa-chevron-up text-primary"></i>
-
     </button>
     <?php include_once('../root/JS/BlogDetail.js.php') ?>
-
-    <!-- phần 6 -->
     <div class="d-flex gap-4 flex-wrap justify-content-center list_product">
         <?php foreach ($data['products'] as $product) { ?>
             <a href="<?php if ($check) {
@@ -236,7 +189,6 @@ include("../root/CSS/BlogDetail.css.php");
                 </div>
             </a>
         <?php } ?>
-
     </div>
 </main>
 <?php

@@ -2,12 +2,10 @@
 include_once("../Model/UserProfileModel.php");
 $userprofile = new UserProfile();
 $role_id = $userprofile->get_role_id();
-
 include_once "../root/CSS/Admin/AdminNews.css.php";
 include_once "../Model/AdminNewsModel.php";
 $newAdmin = new AdminNews();
 $news = $newAdmin->selectNews();
-
 if (isset($_POST['title'], $_POST['content'], $_POST['descriptions'], $_POST['image_url'], $_POST['created_at'], $_POST['author_id'], $_POST['link']) && !empty($_POST['id_new'])) {
     $title = $_POST['title'];
     $content = $_POST['content'];
@@ -36,9 +34,6 @@ if (isset($_POST['created_at']) && isset($_POST['descriptions']) && isset($_POST
         header('Location: AdminNews');
     }
 }
-// update
-
-// delete
 if (isset($_GET['id'])) {
     $id_delete = $_GET['id'];
     $result = $newAdmin->deleteNews($id_delete);
@@ -50,6 +45,5 @@ if (isset($_GET['id'])) {
 if($role_id == 1){
     include_once "../View/Admin/NewsVideo/AdminNewsView.php";
 }else{
-
     header("Location: home");
 }

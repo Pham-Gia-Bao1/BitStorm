@@ -89,7 +89,6 @@ class Account
         }
         return false;
     }
-    // Login function
     public static function login($name, $email, $password)
     {
         if (!empty($email) && !empty($password)) {
@@ -108,9 +107,7 @@ class Account
     }
     public function logOut()
     {
-        // Remove the User cookie
         setcookie("User", "", time() - 3600, "/"); // Setting an expired time in the past deletes the cookie
-        // Reload the page
         header("Location: home");
         exit;
     }
@@ -149,18 +146,13 @@ class Account
     {
         $blog = new Blog();
         $conn = $blog->connect_database();
-        // Lấy tên người dùng từ cookie
         $username = base64_decode($_COOKIE['User']);
-        // Cập nhật đường dẫn hình đại diện mới trong cơ sở dữ liệu
         $sql = "UPDATE users SET img = :newAvatarUrl WHERE name = :username";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':newAvatarUrl', $newAvatarUrl);
         $stmt->bindParam(':username', $username);
         $result = $stmt->execute();
-
-        // Đóng kết nối đến cơ sở dữ liệu
         $blog->closeConnection();
-
         return $result;
     }
     public function updateUserInfo($newName, $newPassword, $newEmail)
@@ -183,8 +175,6 @@ class Account
     public function updateExpert($id, $role_id, $full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization, $status) {
         $blog = new Blog();
         $conn = $blog->connect_database();
-
-        // Update query
         $sql = "UPDATE experts SET
                 role_id = :role_id,
                 full_name = :full_name,
@@ -200,7 +190,6 @@ class Account
                 specialization = :specialization,
                 status = :status
                 WHERE id = :id";  // Remove 'experts.' before 'id'
-
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":role_id", $role_id);
         $stmt->bindParam(":full_name", $full_name);
@@ -219,31 +208,23 @@ class Account
         $stmt->execute();
         return true;
     }
-
     public function get_id_expert()
     {
         $blog = new Blog();
         $conn = $blog->connect_database();
-
         if (!isset($_SESSION["User"])) {
             $user_name = base64_decode($_COOKIE['User']);
-
             $sql = "SELECT id FROM experts WHERE full_name = :name"; // Corrected the column name
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':name', $user_name);
             $stmt->execute();
-
             $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            // Check if a record was found
             if (!empty($id)) {
                 return $id[0]['id'];
             }
         }
-
         return null;
     }
-
     public function get_id()
     {
         $blog = new Blog();
@@ -283,22 +264,17 @@ class Account
         $stmt->bindParam(":name", $user_name);
         $stmt->execute();
         $data = $stmt->fetchAll(); // Sử dụng fetchAll() thay vì fetch() để lấy tất cả các dòng kết quả
-
         if (count($data) > 1) {
             return true; // Trả về true nếu số dòng kết quả lớn hơn 1
         }
-
         return false; // Trả về false nếu số dòng kết quả là 0 hoặc 1
     }
     public function add_expert($role_id, $full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization, $status)
     {
         $blog = new Blog();
         $conn = $blog->connect_database();
-
         $sql = "INSERT INTO experts (role_id, full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status) VALUES (:role_id, :full_name, :gender, :address, :email, :phone_number, :age, :experience, :profile_picture, :count_rating, :certificate, :specialization, :status)";
         $stmt = $conn->prepare($sql);
-
-        // Bind parameters
         $stmt->bindParam(":role_id", $role_id);
         $stmt->bindParam(":full_name", $full_name);
         $stmt->bindParam(":gender", $gender);
@@ -312,17 +288,11 @@ class Account
         $stmt->bindParam(":certificate", $certificate);
         $stmt->bindParam(":specialization", $specialization);
         $stmt->bindParam(":status", $status);
-
-        // Execute the query
         $stmt->execute();
-
-        // Check the number of affected rows
         $rowCount = $stmt->rowCount();
-
         if ($rowCount > 0) {
             return true;
         }
-
         return false;
     }
 }

@@ -3,16 +3,12 @@ include("../View/Admin/Layout/SideBar.view.php");
 include_once("../Controller/VideoAdminController.php");
 include_once("../Model/VideoAdminModel.php");
 include_once("../root/CSS/Admin/AdminComment.css.php");
-
 ?>
 <title>AdminVideo</title>
-
 <div class='main'>
     <div class="p-3"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sub-navbar">
         <div class="container-fluid">
-
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -24,16 +20,12 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="AdminPodCasts">Podcast</a>
                     </li>
-
-
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="action d-flex justify-content-end">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal" style="margin: 20px; float : left; position: absolute; left: 0;">Create</button>
-        <!-- Modal -->
     </div>
     <div class="container" style="margin-top: 20px;">
         <h2 class="title">
@@ -115,7 +107,6 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
             </tr>
         </thead>
         <tbody>
-
             <?php
             $videos = displayAllVideo();
             foreach ($videos as $video) {
@@ -155,7 +146,6 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
                             <div class="modal-body">
                                 <form method="post" action="VideoAdmin">
                                     <input type="hidden" name="id" value="<?php echo $video['id']; ?>">
-
                                     <div class="form-group">
                                         <label for="usr">Id</label>
                                         <input type="text" class="form-control" id="title" name="id" value=<?php echo $video['id'] ?> disabled>

@@ -8,11 +8,9 @@ include("../root/CSS/UserProfile.css.php");
 ?>
 <div id="content">
   <div class="container-fluid  ig_top"></div>
-  <!-- Button trigger modal -->
   <button id="drop_img_btn" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     <i class="fa-solid fa-camera"></i>
   </button>
-  <!-- Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -59,9 +57,7 @@ include("../root/CSS/UserProfile.css.php");
         const reader = new FileReader();
         reader.onload = function(e) {
           const imageURL = e.target.result;
-          // Cập nhật giá trị của input với đường link của ảnh
           imageURLInput.value = imageURL;
-
         };
         reader.readAsDataURL(file);
       });
@@ -71,7 +67,6 @@ include("../root/CSS/UserProfile.css.php");
     <img data-bs-toggle="modal" data-bs-target="#exampleModal" id="uploaded-image" class="rounded-circle avata_user" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($name); ?>">
     <h3 id="name_user" class="m-3"><?= htmlspecialchars($name); ?></h3>
   </div>
-  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -106,10 +101,8 @@ include("../root/CSS/UserProfile.css.php");
                   </div>
                   <div class="cr-overlay" style="width: 218.001px; height: 218.001px; top: -0.0005035px; left: -0.0004882px;"></div>
                 </div>
-                <!-- <div class="cr-slider-wrap"><input class="cr-slider" type="range" step="0.0001" aria-label="zoom" min="1.0000" max="1.5000" aria-valuenow="1.0381"></div> -->
               </div>
               <script>
-                // Lắng nghe sự kiện thay đổi của input file
                 document.getElementById('input_file').addEventListener('change', function(e) {
                   var file = e.target.files[0]; // Lấy tệp tin đầu tiên từ sự kiện
                   if (file) {
@@ -134,7 +127,6 @@ include("../root/CSS/UserProfile.css.php");
                   }
                 });
               </script>
-              <!-- <input type="hidden" id="imagebase64" name="imagebase64"> -->
               <div class="p-16 grey-container kfds-lyt-row-respon kfds-btm-mrgn-24 kfds-srf-rounded-8">
                 <div class="kfds-right-mrgn-24">
                   <span class="kfds-font-size-medium kfds-font-clr-primary">💡</span>
@@ -144,7 +136,6 @@ include("../root/CSS/UserProfile.css.php");
                 </div>
               </div>
               <button aria-label="Next" id="setAvatarNextButton" class="btn btn-primary rounded-pill">Áp dụng ảnh</button>
-              <!-- <input hidden="" id="hasChangedDefault" value=""> -->
             </form>
           </div>
         </div>
@@ -168,18 +159,14 @@ include("../root/CSS/UserProfile.css.php");
       <p>Chỉnh sửa thông tin, vấn đề của mình, đăng xuất..</p>
     </div>
   </div>
-  <!-- The Modal -->
   <div class="modal fade model_nav" id="Modal_view_infomation">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
-        <!-- Modal Header -->
         <div class="modal-header">
           <h5 class="modal-title text-primary main_title_model_info" id="loginModalLabel">Thông tin cá nhân</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <!-- Modal info -->
         <div class="modal-body">
-          <!-- BOX 1 -->
           <div class="moddedl_ifomation">
             <div class="img" style="width : 30%">
               <img src="<?= htmlspecialchars($img) ?>" alt="logoutimg" style="width: 100%;" id="img_moddel_setting" class="rounded-circle avata_user">
@@ -270,11 +257,9 @@ include("../root/CSS/UserProfile.css.php");
       </div>
     </div>
   </div>
-  <!-- Modal setting -->
   <div class="modal fade model_nav" id="Modal_view_setting">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <form method="post" action="userprofile" class="modal-content">
-        <!-- Modal Header -->
         <div class="modal-header">
           <h5 class="modal-title text-primary main_title_model_info" id="loginModalLabel">Chỉnh sửa thông tin cá nhân</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -315,7 +300,6 @@ include("../root/CSS/UserProfile.css.php");
                       <option value="female" <?= ($expert['gender'] == 'female') ? 'selected' : ''; ?>>Nữ</option>
                     </select>
                   </div>
-
                   <div class="mb-3 w-50">
                     <label for="age" class="form-label">Tuổi</label>
                     <input type="text" class="form-control" id="age" name="age_setting" value="<?= htmlspecialchars($expert['age']); ?>" required>
@@ -333,7 +317,6 @@ include("../root/CSS/UserProfile.css.php");
                   <label for="experience">Kinh Nghiệm</label>
                   <input type="text" class="form-control" id="experience" name="experience_setting" value="<?= htmlspecialchars($expert['experience']); ?>" required>
                 </div>
-
                 <div class="form-group p-1 m-1">
                   <label for="count_rating">Đánh giá</label>
                   <input type="text" class="form-control" id="count_rating" name="count_rating_setting" value="<?= htmlspecialchars($expert['count_rating']); ?>" readonly>
@@ -347,7 +330,6 @@ include("../root/CSS/UserProfile.css.php");
                   <input type="text" class="form-control" id="status" name="status_setting" value="<?= htmlspecialchars($expert['status']); ?>" required>
                 </div>
                 <div class="form-group d-flex justify-content-center align-items-center">
-
                   <div class="form-group p-4 m-1 bg-light box_item1">
                     <label for="certificate">Chứng chỉ</label>
                     <div class="old_img bg-light" style="width : 200px; height: 200px;">
@@ -355,19 +337,15 @@ include("../root/CSS/UserProfile.css.php");
                     </div>
                     <label for="certificate" class="btn btn-primary w-100 label_file">Tải lên</label>
                     <input type="file" class="form-control" id="certificate" required name="certificate_picture_setting" value="<?= htmlspecialchars($expert['certificate']); ?>" readonly onchange="previewImage(this);">
-
                     <script>
                       function previewImage(input) {
                         var fileInput = input;
                         var imgElement = document.getElementById('new_img');
-
                         if (fileInput.files && fileInput.files[0]) {
                           var reader = new FileReader();
-
                           reader.onload = function(e) {
                             imgElement.src = e.target.result;
                           };
-
                           reader.readAsDataURL(fileInput.files[0]);
                         }
                         console.log(imgElement.src)
@@ -377,11 +355,9 @@ include("../root/CSS/UserProfile.css.php");
                         var preview = document.getElementById('previewImage12');
                         var file = input.files[0];
                         var reader = new FileReader();
-
                         reader.onloadend = function() {
                           preview.src = reader.result;
                         };
-
                         if (file) {
                           reader.readAsDataURL(file);
                         } else {
@@ -390,20 +366,15 @@ include("../root/CSS/UserProfile.css.php");
                       }
                     </script>
                   </div>
-
                   <div class="form-group p-4 m-1 box_item1 bg-light">
-
                     <label for="profile_picture">Ảnh đại diện</label>
                     <div class="old_img bg-light" style="width: 200px; height: 200px;">
                       <img id="previewImage12" style="width: 100%;" src="<?= htmlspecialchars($img); ?>" alt="<?= htmlspecialchars($img); ?>">
                     </div>
                     <label for="profile_picture" class="btn btn-primary w-100 label_file">Tải lên</label>
                     <input type="file" class="form-control" id="profile_picture" name="profile_picture_setting" value="<?= htmlspecialchars($img); ?>" readonly onchange="previewImage1(this);">
-
                   </div>
-
                 </div>
-
               <?php endif; ?>
             </div>
           </div>
@@ -411,7 +382,7 @@ include("../root/CSS/UserProfile.css.php");
         <div class="modal-footer d-flex justify-content-between">
           <div>
             <button class="btn btn-danger">
-                <a href="http://localhost/WEB_PHP/Logout" class="text-light">Log Out</a>
+              <a href="Logout" class="text-light">Log Out</a>
             </button>
           </div>
           <div><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -421,16 +392,13 @@ include("../root/CSS/UserProfile.css.php");
       </form>
     </div>
   </div>
-  <!-- model hoạt động -->
   <div class="modal fade model_nav" id="Modal_active_infomation">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
-        <!-- Modal Header -->
         <div class="modal-header">
           <h5 class="modal-title text-primary main_title_model_info" id="loginModalLabel">Lịch sử hoạt động </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <!-- Modal info -->
         <div class="modal-body body_active_model">
           <?php foreach ($posts as $post) { ?>
             <div class="d-flex align-items-center m-2 p-1 content_box">
@@ -460,8 +428,6 @@ include("../root/CSS/UserProfile.css.php");
   include("../root/JS/UserProfile.js.php");
   ?>
 </div>
-
-
 <?php
 include("../View/LayOut/Footer/Footer.php");
 ?>

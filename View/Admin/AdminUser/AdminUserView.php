@@ -23,7 +23,6 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
                 <button class="btn btn-primary m-3 addUserBtn" type="submit" name="addUser">Thêm người dùng&nbsp;<i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
-
         <table class="table table-hover table-striped ">
             <tr>
                 <th>STT</th>

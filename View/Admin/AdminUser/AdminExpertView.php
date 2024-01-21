@@ -22,7 +22,6 @@ include("../root/CSS/Admin/AdminExpert.css.php");
                 <?php include("../View/Admin/AdminUser/AddAdminExpert.php"); ?>
             </div>
         </div>
-
         <table class="table table-hover table-striped ">
             <tr>
                 <th>STT</th>
@@ -65,5 +64,4 @@ include("../root/CSS/Admin/AdminExpert.css.php");
 </body>
 <?php
 include("../View/Admin/AdminUser/UpdateAdminExpert.php");
-
 ?>

@@ -1,6 +1,5 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-
 class Expert extends Connection
 {
     public function get_all_experts()
@@ -12,14 +11,12 @@ class Expert extends Connection
         $experts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $experts;
     }
-
     public function createExpert($full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization)
     {
         try {
             $stmt = $this->conn->prepare("INSERT INTO experts (role_id,
-                full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status ) 
+                full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status )
                 VALUES (3,:full_name, :gender, :address, :email, :phone_number, :age, :experience,:profile_picture, :count_rating, :certificate, :specialization, 'Hoạt động')");
-
             $stmt->bindParam(':full_name', $full_name);
             $stmt->bindParam(':gender', $gender);
             $stmt->bindParam(':address', $address);
@@ -38,7 +35,6 @@ class Expert extends Connection
             return false;
         }
     }
-
     public function updateExpert($id, $full_name, $gender, $address, $email, $phone_number, $age, $experience, $profile_picture, $count_rating, $certificate, $specialization, $status)
     {
         try {
@@ -48,9 +44,7 @@ class Expert extends Connection
                 profile_picture = :profile_picture, count_rating = :count_rating,
                 certificate = :certificate, specialization = :specialization, status = :status
                 WHERE id = :id";
-   
             $stmt = $this->conn->prepare($update_query);
-
             $stmt->bindParam(':full_name', $full_name);
             $stmt->bindParam(':gender', $gender);
             $stmt->bindParam(':address', $address);
