@@ -47,7 +47,7 @@
                     <br>
                     <label for="avatar">Ảnh đại diện:</label>
                     <div>
-                        <input type="file" class="mb-1" id="imgUpdateExpert" name="imgUpdateExpert" data-height="200" onchange="getUrlImgUpdateExpert()" accept="image/*"/>
+                        <input type="file" class="mb-1" id="imgUpdateExpert" name="imgUpdateExpert" data-height="200" onchange="getUrlImgUpdateExpert()" accept="image/*" />
                         <br>
                         <img src="" id="previewExpertImg" alt="image" width="150px">
                         <input type="hidden" name="updateAvatarExpert" id="updateAvatarExpert">
@@ -58,7 +58,7 @@
                     </div>
                     <label for="certificate">Chứng chỉ</label>
                     <div>
-                        <input type="file" class="mb-1" id="updateCertImg" name="updateCertImg" data-height="200" onchange="getUrlImgUpdateCertificate()" accept="image/*"/>
+                        <input type="file" class="mb-1" id="updateCertImg" name="updateCertImg" data-height="200" onchange="getUrlImgUpdateCertificate()" accept="image/*" />
                         <br>
                         <img src="" id="previewCertImg" alt="image" width="150px">
                         <input type="hidden" name="updateCertificate" id="updateCertificate">
@@ -137,8 +137,6 @@
             console.error("Lỗi khi tải từ Cloudinary:", error);
         }
     }
-    var a = document.getElementById('previewCertImg').src;
-    console.log(a);
     $(document).ready(function() {
         $('.edit-expert-btn').on('click', function() {
             $('#updateExpertModal').modal('show');
@@ -188,10 +186,12 @@
 
         function checkExperienceExpertLength() {
             var inputValue = $('#experienceExpert').val();
-            var charCount = inputValue.length; // Sử dụng length để đếm số ký tự
+            var charCount = inputValue.length;
+            // Sử dụng length để đếm số ký tự
+            console.log(charCount);
             var errorSpan = $('#ExperienceExpertError');
-            if (charCount < 100 || charCount > 255) {
-                errorSpan.text('Nội dung phải có từ 100 đến 255 ký tự.');
+            if (charCount < 100 || charCount > 500) {
+                errorSpan.text('Nội dung phải có độ dài từ 100 đến 500 ký tự.');
                 check = false;
             } else {
                 errorSpan.text(null);
