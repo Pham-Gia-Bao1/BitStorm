@@ -1,4 +1,12 @@
 <?php
+include('../root/Funtion/Funtion.php');
+if(isset($_SESSION['sesscess'])){
+    session_start();
+    showSuccessMessage();
+}elseif(isset($_SESSION['error'])){
+    session_start();
+    showError();
+}
 include("../View/LayOut/Header/Header.php");
 include("../root/CSS/Home.php");
 include_once("../Model/HomeModel.php");
@@ -29,7 +37,7 @@ include_once("../Model/HomeModel.php");
 <div class="bodier">
     <div class="container-fluid">
         <div class="p-5"></div>
-        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại <span style="color:#279EFF">BitStorm</span> </h4>
+        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại  <span style="color:#279EFF">BitStorm</span> </h4>
         <div class="slide-container swiper p-5">
             <div class="slide-content p-3">
                 <div class="card-wrapper swiper-wrapper">
@@ -63,7 +71,6 @@ include_once("../Model/HomeModel.php");
                                 <img src="./root/Image/homePage/blogger.png" alt="" class="card-img" width="100px" height="100px">
                             </div>
                         </div>
-
                         <div class="card-content">
                             <h2 class="name">Blog</h2>
                             <p class="description">Nơi để đọc những bài viết, những video truyền độc lực từ nhiều nguồn khác nhau. Thông qua nhưng câu chuyenej đó thì nhóm cũng có thể giúp một phần nào đó để chữ lành tâm hồn của bạn.</p>
@@ -93,7 +100,6 @@ include_once("../Model/HomeModel.php");
                             <p class="description">Ở đây chúng tôi sẽ nói về app này, bên cạnh đó có thể giới thiệu cho bạn một số bác sĩ tâm lí nổi tiếng không tốn chi phí. Chúng tôi cũng có thể giúp bạn tìm những workshop về chủ đề về sức khỏe tâm thần để giới thiệu cho bạn.</p>
                             <a href="About">Đi đến trang liên hệ</a>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -221,10 +227,9 @@ include_once("../Model/HomeModel.php");
 <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
 <?php
 include("../root/JS/Home.js.php");
-
 ?>
 <?php
-
 include("../View/LayOut/Footer/Footer.php");
+session_destroy();
 
 ?>

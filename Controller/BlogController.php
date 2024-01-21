@@ -8,9 +8,6 @@ class BlogController
         $productModel = new Blog();
         $data['products'] = $productModel->getProducts();
         $data['podcasts'] = $productModel->getPodcast();
-        // print_r($data['products']);
-    
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             if (isset($_GET['opption'])) {
                 $option = htmlspecialchars($_GET['opption']);
@@ -33,7 +30,6 @@ class BlogController
                         break;
                 }
             }
-            // Kiểm tra nếu có giá trị tìm kiếm
             if (isset($_GET['search']) && !empty($_GET['search'])) {
                 $searchTerm = htmlspecialchars($_GET['search']);
                 $data['products'] = $productModel->find($searchTerm);

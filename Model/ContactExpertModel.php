@@ -6,12 +6,12 @@ class Expert extends Connection
     public function getExpertsWithCalendar($currentDate)
     {
         $this->connect_database();
-        $sql_query = "SELECT experts.*, calendar.day,
+        $sql_query = "SELECT experts.*, calendar.day,calendar.status as  status_calendar,
         TIME_FORMAT(calendar.start_time, '%H:%i') AS start_time,
         TIME_FORMAT(calendar.end_time, '%H:%i') AS end_time, calendar.price
         FROM experts
         JOIN calendar ON experts.id = calendar.expert_id
-        WHERE calendar.day >= :currentDate AND experts.status = 'Hoạt động'";
+        WHERE calendar.day >= :currentDate";
         $stst = $this->conn->prepare($sql_query);
         $stst->bindValue(':currentDate', $currentDate, PDO::PARAM_STR);
         $stst->execute();
@@ -19,7 +19,6 @@ class Expert extends Connection
         $this->closeConnection();
         return $expertsWithCalendar;
     }
-
     public function searchExperts($keyword, $currentDate)
     {
         $this->connect_database();
@@ -46,4 +45,4 @@ class Expert extends Connection
 
 }
 
-?>
+

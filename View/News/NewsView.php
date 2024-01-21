@@ -7,7 +7,6 @@ include_once("../Model/AdminNewsModel.php");
   <div class="header-photo-1-parent container-fluid">
     <img class="header-photo-1" alt="" src="./root/Image/news/attractive-girl-hat-reads-book-nature-sunset.jpg">
     <div class="header-photo-2">
-
     </div>
     <b class="c-bo-cng-container">
       <p class="c-bo-cng">Đọc Báo Cùng </p>
@@ -50,7 +49,6 @@ include_once("../Model/AdminNewsModel.php");
   </div>
 </div>
 <div class="p-3"></div>
-
 <div class="search-box">
   <form method="POST" action="">
     <input class="search-input" type="text" placeholder="Search something.." name="keyword" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>">
@@ -79,24 +77,26 @@ include_once("../Model/AdminNewsModel.php");
       ?>
             <div class="container">
               <a href="NewsDetails?id=<?php echo $row->id ?>">
-              <div class="row d-flex">
-                <div class="col-sm-6">
-                <div class="mask-group-parent">
-                    <img class="mask-group-icon" alt="ảnh"  src="<?php echo $row->image_url ?>" >
-                  <p> <b class="danh-sch-10"><?php echo $row->title ?></b></p>
-                    <div class="tr-nh-c"><p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $row->descriptions ?></p></div>
+                <div class="row d-flex">
+                  <div class="col-sm-6">
+                    <div class="mask-group-parent">
+                      <img class="mask-group-icon" alt="ảnh" src="<?php echo $row->image_url ?>">
+                      <p> <b class="danh-sch-10"><?php echo $row->title ?></b></p>
+                      <div class="tr-nh-c">
+                        <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $row->descriptions ?></p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-            </div>
               </a>
-            <div class="p-2"></div>
-        </div>
+              <div class="p-2"></div>
+            </div>
       <?php
           }
           if ($sth->rowCount() === 0) {
             echo "<div class='img-container'>
-                <img src= './root/Image/news/error.png' class='img'>
-            </div>";
+                  <img src= './root/Image/news/error.png' class='img'>
+              </div>";
             echo "<p style= 'font-weight:bold;text-align:center;'>Xin Lỗi Bạn ! Nội Dung Bạn Tìm Không Có Trong BitStorm</p>";
           }
         } catch (PDOException $e) {
@@ -106,7 +106,6 @@ include_once("../Model/AdminNewsModel.php");
       ?>
     </div>
   </div>
-
   <h2 class="h2_row">Dành Cho Bạn</h2>
   <div class="container">
     <div id="slide-left-container">
@@ -119,10 +118,12 @@ include_once("../Model/AdminNewsModel.php");
         $news = $newAdmin->selectNews();
         foreach ($news as $new) : ?>
           <div class="card">
-            <img src="<?php echo $new['image_url'] ?>" alt="Card image cap" class="image_card">
-            <h5 class="card-text" style="font-weight: bold;"><?php echo $new['title'] ?></h5>
-            <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $new['descriptions'] ?></p>
-            <a href="NewsDetails?id=<?php echo $new['id']; ?>" title="Read Full" class="wrappe1r view-more"><span>Xem Thêm</span></a>
+            <a href="NewsDetails?id=<?php echo $new['id']; ?>" style="text-decoration-line: none;color:black;">
+              <img src="<?php echo $new['image_url'] ?>" alt="Card image cap" class="image_card">
+              <h5 class="card-text" style="font-weight: bold;"><?php echo $new['title'] ?></h5>
+              <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $new['descriptions'] ?></p>
+              <span>Xem Thêm</span>
+            </a>
           </div>
         <?php endforeach ?>
       </div>
@@ -133,11 +134,11 @@ include_once("../Model/AdminNewsModel.php");
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+
   <body>
     <?php
     include("../root/JS/News.js.php");
     ?>
-
     <?php
     include("../View/LayOut/Footer/Footer.php");
     ?>

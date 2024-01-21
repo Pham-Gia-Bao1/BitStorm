@@ -3,7 +3,6 @@ include("../View/LayOut/Header/Header.php");
 include("../root/CSS/ContactExpert.css.php");
 ?>
 <title>Kết nối chuyên gia</title>
-
 <div class="container-fluid">
     <div class="text-center">
         <img class="top_image mb-3" src="./root/Image/contactExpert/doctors.png" alt="image">
@@ -66,53 +65,65 @@ include("../root/CSS/ContactExpert.css.php");
                     <img src="https://st.chungta.vn/v303/chungta/images/graphics/404.svg" alt="image">
                 </div>
             <?php else : ?>
-                <h4 class="mb-3 fw-bold">Những chuyên gia top đầu: </h4>
+                <h4 class="mb-3 fw-bold m-4">Những chuyên gia top đầu: </h4>
                 <?php $count = 0; ?>
-                <?php foreach ($data as $expert) : ?>
-                    <?php if ($count < 4) : ?>
-                        <div class="col-sm-3 mt-4">
-                            <div class="card mb-1" style="width: 17rem;">
-                                <div class="text-center">
-                                    <img class="img_card" src="<?php echo $expert['profile_picture']; ?>" class="card-img-top" alt="image">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
-                                    <p><?php echo $expert['specialization']; ?></p>
-                                    <div class="row mb-3">
-                                        <div class="col time d-flex">
-                                            <span class="time_icon">
-                                                <i class="fas fa-clock aclock">
-                                                    <?php echo " " . date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time'])) ?>
-                                                </i>
-                                            </span>
-                                        </div>
-
+                <div id='box_all_expert'>
+                    <?php foreach ($data as $expert) : ?>
+                        <div class="card mb-1" style="width: 17rem;">
+                            <div class="text-center">
+                                <img class="img_card" src="<?php echo $expert['profile_picture']; ?>" class="card-img-top" alt="image">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold"><?php echo $expert['full_name']; ?></h5>
+                                <p><?php echo $expert['specialization']; ?></p>
+                                <div class="row mb-3">
+                                    <div class="col time d-flex">
+                                        <span class="time_icon">
+                                            <i class="fas fa-clock aclock">
+                                                <?php echo " " . date('h A', strtotime($expert['start_time'])) . ' - ' . date('h A', strtotime($expert['end_time'])) ?>
+                                            </i>
+                                        </span>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
-                                        <div class="col-sm-10">
-                                            <button class="viewMorebtn">
-                                                <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail?id=<?= $expert['id'] ?>">
-                                                    Xem thêm
-                                                </a>
-                                            </button>
-                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-1 pl-2 ml-3 mt-2 actives" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động') { ?> style="background-color: red;" <?php } ?>></div>
+                                    <div class="col-sm-10">
+                                        <button class="viewMorebtn" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động' || $expert['status_calendar'] == "pending") { ?> style="background-color: #EEF5FF !important;  cursor: default !important; " <?php } ?>>
+                                            <a asp-controller="ContactExpert" asp-action="Details" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động') { ?> href="ContactExpert" <?php } else { ?> href="ContactExpertDetail?id=<?php echo $expert['id'];
+                                                                                                                                                                                                                                    }; ?>">
+                                                Xem thêm
+                                            </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <?php endif; ?>
-                    <?php $count++; ?>
-                <?php endforeach; ?>
+                    <?php $count++;
+                    endforeach; ?>
+                </div>
                 <div class="row btn-view mt-5">
-                    <button type="submit" class="viewAll text-center" id="viewAll">
+                    <button class="viewAll text-center" id="viewAll">
                         Xem tất cả
                     </button>
+                    <button class="viewAll text-center" id="viewLess" style="display:none">
+                        Ẩn bớt
+                    </button>
+                    <script>
+                        document.getElementById('viewAll').addEventListener('click', function() {
+                            document.getElementById('box_all_expert').style.height = "auto";
+                            document.getElementById("viewAll").style.display = "none";
+                            document.getElementById("viewLess").style.display = "block";
+                        });
+                        document.getElementById('viewLess').addEventListener('click', function() {
+                            document.getElementById('box_all_expert').style.height = "505px";
+                            document.getElementById("viewAll").style.display = "block";
+                            document.getElementById("viewLess").style.display = "none";
+                        });
+                    </script>
                 </div>
             <?php endif; ?>
         </div>
     </div>
-
     <div class="text-center mt-5">
         <h3 class="comment fw-bold">Một số bình luận của người dùng</h3>
     </div>
@@ -143,8 +154,6 @@ include("../root/CSS/ContactExpert.css.php");
             </div>
         </div>
     </div>
-
-    
     <div class="row viewNumber mt-5 mb-5">
         <div class="col-sm-4">
             <h2 class="mt-3 number">+3500</h2>
@@ -160,8 +169,6 @@ include("../root/CSS/ContactExpert.css.php");
         </div>
     </div>
 </div>
-
 <?php
-include("../root/JS/ContactExpert.js.php");
 include("../View/LayOut/Footer/Footer.php");
 ?>

@@ -74,7 +74,6 @@
     }
     $(document).ready(function() {
         $('.addUserBtn').on('click', function() {
-            // Hiển thị modal
             $('#addUserModal').modal('show');
             $('.dropify').dropify();
 

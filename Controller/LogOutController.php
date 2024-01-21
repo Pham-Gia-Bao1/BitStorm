@@ -9,4 +9,3 @@ class LogOut{
 }
 $log_out = new LogOut();
 $log_out->log_out();
-?>

@@ -10,10 +10,10 @@ include("../root/CSS/Post.css.php");
     <div class="row card-post">
         <div class="row post-bar box_search">
             <div class="col-1">
-                <img src="<?php echo $nameAndImg[1]?>" alt="anh dai dien" id="img" class="w-100" style="border-radius: 50%; height:70px" />
+                <img src="<?php echo $nameAndImg[1] ?>" alt="anh dai dien" id="img" class="w-100" style="border-radius: 50%; height:70px" />
             </div>
             <div class="col search">
-                <input type="text" class="search__input" placeholder="Hôm nay, cậu ổn không?" onclick="openModal()">
+                <input type="text" class="search__input" readonly placeholder="Hôm nay, cậu ổn không?" onclick="openModal()">
             </div>
         </div>
         <?php
@@ -21,15 +21,15 @@ include("../root/CSS/Post.css.php");
             if ($post['isAnonymous']){
                 $name=$post['name'];
                 $img = $post['img'];
-            }else{
-                $name="Người dùng ẩn danh";
+            } else {
+                $name = "Người dùng ẩn danh";
                 $img = "https://cdn-icons-png.flaticon.com/512/3177/3177440.png";
             };
         ?>
         <div class="post">
             <div class="post-row1">
                     <div class="post-avt me-3">
-                        <img src="<?php echo $img?>" alt="anh dai dien" id="img" style="border-radius: 50%; width: 40px; height: 40px;" />
+                        <img src="<?php echo $img ?>" alt="anh dai dien" id="img" style="border-radius: 50%; width: 40px; height: 40px;" />
                     </div>
                     <div class="post-name">
                         <p class="name-user"><?php echo $name?></p>
@@ -90,7 +90,7 @@ include("../root/CSS/Post.css.php");
             <form id="commentPostForm" method="post" action="" class="d-flex align-items-center border-white justify-content-between" onsubmit="validateForm()">
                     <img class="rounded-circle me-3 avatar_comment" src="<?php echo $nameAndImg[1]?>" alt="Profile Picture" width="50" height="50">
                     <input type="hidden" name="action" value="createComment">
-                    <input type="hidden" name="post_id" value="<?php echo $post['id']?>">
+                    <input type="hidden" name="post_id" value="<?php echo $post['id'] ?>">
                     <div class="input-group m-2">
                         <input type="text" class="form-control custom-input" name="content" required placeholder="Thêm bình luận">
                         <div class="input-group-append">
@@ -103,8 +103,8 @@ include("../root/CSS/Post.css.php");
     </div>
 </div>
 <?php
-    include("CreatePostView.php");
-    include("../root/JS/Post.js.php");
+include("CreatePostView.php");
+include("../root/JS/Post.js.php");
 ?>
 <?php
 include("../View/LayOut/Footer/Footer.php");

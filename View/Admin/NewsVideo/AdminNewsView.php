@@ -1,22 +1,36 @@
 <?php
 include("../View/Admin/Layout/SideBar.view.php");
 require_once("../Controller/Database/database.php");
-// include_once("../root/CSS/Admin/AdminComment.css.php");
-
 ?>
 <style>
-     .sub-navbar{
-     position: sticky !important;
-     top: 60px;
-     z-index: 700;
-  }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px !important;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .sub-navbar {
+        position: sticky !important;
+        top: 60px;
+        z-index: 700;
+    }
 </style>
 <div class="main">
     <div class="p-3"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sub-navbar">
         <div class="container-fluid">
-
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -28,8 +42,6 @@ require_once("../Controller/Database/database.php");
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="AdminPodCasts">Podcast</a>
                     </li>
-
-
                 </ul>
             </div>
         </div>
@@ -124,7 +136,6 @@ require_once("../Controller/Database/database.php");
                     <p>Link</p>
                 </th>
                 <th></th>
-
             </tr>
         </thead>
         <tbody>
@@ -146,7 +157,6 @@ require_once("../Controller/Database/database.php");
                             </a>
                             <a href="AdminNews?id=<?php echo $new['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
-
                         <div id="update_model" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -161,7 +171,6 @@ require_once("../Controller/Database/database.php");
                                         ?>
                                         <form method="post" action="AdminNews">
                                             <input type="hidden" value="<?php echo $new1['id'] ?>" name="id_new">
-                                            <!-- post ddeen controller de xu li -->
                                             <div class="form-group">
                                                 <label for="title">Tiêu Đề</label>
                                                 <input type="text" class="form-control" id="title" name="title" value="<?php echo $new1['title'] ?>">
@@ -182,7 +191,6 @@ require_once("../Controller/Database/database.php");
                                                 <label for="image_url">Ảnh</label>
                                                 <input type="text" class="form-control" id="image_url" name="image_url" value="<?php echo $new1['image_url'] ?>">
                                             </div>
-
                                             <div class="form-group">
                                                 <label for="usr">Tác giả</label>
                                                 <select id="author_id" name="author_id" value="<?php echo $new1['author_id'] ?>">
@@ -206,7 +214,6 @@ require_once("../Controller/Database/database.php");
                                 </div>
                             </div>
                         </div>
-
                         <script>
                             $(document).ready(function() {
                                 const urlParams = new URLSearchParams(window.location.search);

@@ -1,7 +1,6 @@
-<?php 
+<?php
 include_once ("../Controller/AboutController.php");
 include_once ("../Model/ConnectDataBase.php");
-
 class About extends Connection {
     public function showExpert(){
         $db = $this->connect_database();

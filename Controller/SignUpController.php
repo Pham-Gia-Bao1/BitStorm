@@ -1,84 +1,100 @@
 <?php
+session_start();
 include_once("../Model/AccountModel.php");
-
 class SignUpController
 {
+    public $name_error = "";
+    public $email_error = "";
+    public $password_error = "";
+    public $password_again_error = "";
+
+    public $role_id_error = "";
+
+    private function validateForm($name, $email, $password, $role_id)
+    {
+        $isValid = true; // Assume the form is initially valid
+
+        // Validate name
+        if (empty($name) || !preg_match('/^[a-zA-Z0-9\s]+$/', $name)) {
+            $this->name_error = 'Invalid username format. Only letters, numbers, and spaces are allowed.';
+            $isValid = false;
+        }
+
+        // Validate email
+        if (empty($email) || !preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]+$/', $email)) {
+            $this->email_error = 'Invalid email format.';
+            $isValid = false;
+        }
+
+        // Validate password
+        if (empty($password) || !preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$/', $password)) {
+            $this->password_error = 'Password must have at least 8 characters, including an uppercase letter, a digit, and a special character.';
+            $isValid = false;
+        }
+
+        // Validate password again
+        $password_again = $this->sanitizeInput($_POST['password_again']);
+        if (empty($password_again) || $password_again !== $password) {
+            $this->password_again_error = 'Passwords do not match.';
+            $isValid = false;
+        }
+
+        // Validate role_id (assuming $role_id should be either '2' or '3')
+        if (!in_array($role_id, ['2', '3'])) {
+            $this->role_id_error = 'Invalid role ID.';
+            $isValid = false;
+        }
+
+        return $isValid;
+    }
     public function signUp()
     {
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
             $account = new Account();
             $password_again = $this->sanitizeInput($_POST['password_again']);
             $name = $this->sanitizeInput($_POST['username']);
             $email = $this->sanitizeInput($_POST['email']);
             $password =  $this->sanitizeInput($_POST['password']);
             $role_id = $this->sanitizeInput($_POST['input_role']);
-            // echo $role_id;
-
-            $isValid = $this->validateForm($name, $email, $password,$role_id);
-
-
+            $isValid = $this->validateForm($name, $email, $password, $role_id);
             if ($isValid) {
-                // Check if user already exists
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     if ($password == $password_again) {
-                        $result = $account->signUpAccount($name, $password, $email,$role_id);
+                        if ($role_id == 3) {
+                            $account->add_expert($role_id, $name, null, null, $email, null, null, null, $account->getImg(), 5, null, 'Chuyên gia tâm lý', 'Hoạt động');
+                        }
+                        $result = $account->signUpAccount($name, $password, $email, $role_id);
                         if ($result) {
                             $new_user_name = base64_encode($name);
                             setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-                            echo '<script>alert("Đăng Ký thành công!");</script>';
-                            echo '<script>window.location.href = "home";</script>';
+                            $_SESSION['sesscess'] = true;
 
+                            echo '<script>window.location.href = "home";</script>';
                             exit;
                         } else {
-                            echo '<script>alert("Đăng Ký lỗi!");</script>';
-                            echo '<script>window.location.href = "home";</script>';
-
+                             $_SESSION['error'] = true;
                             exit;
                         }
                     } else {
-                        echo '<script>alert("Mật khẩu không khớp!");</script>';
-                        echo '<script>window.location.href = "home";</script>';
+                         $_SESSION['error'] = true;
                         exit;
                     }
                 } else {
-                    echo '<script>alert("Email không hợp lệ!");</script>';
-                    echo '<script>window.location.href = "home";</script>';
+                     $_SESSION['error'] = true;
                     exit;
                 }
             } else {
-                echo '<script>alert("Dữ liệu không hợp lệ!");</script>';
-                echo '<script>window.location.href = "home";</script>';
+                $_SESSION['error'] = true;
                 exit;
             }
         }
 
         include("../../BitStorm/View/Account/SignUpView.php");
+
     }
 
-    private function validateForm($username, $email, $password,$role_id)
-    {
-        $usernamePattern = '/^[a-zA-Z0-9\s]+$/';
-        $passwordPattern = '/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$/';
-        $emailPattern = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
-
-        if (isset($username) && isset($password) && isset($email)) {
-
-            if (!preg_match($usernamePattern, $username)) {
-                return false;
-            }
-
-            if (!preg_match($emailPattern, $email)) {
-                return false;
-            }
-
-            if (!preg_match($passwordPattern, $password)) {
-                return false;
-            }
-
-            return true;
-        }
-        return false;
-    }
     private function sanitizeInput($input)
     {
         $sanitizedInput = trim($input);
@@ -89,3 +105,4 @@ class SignUpController
 
 $signUpController = new SignUpController();
 $signUpController->signUp();
+

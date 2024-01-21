@@ -21,14 +21,12 @@
             white-space: nowrap;
         }
 
-
         th {
             background-color: #f2f2f2;
         }
     </style>
     <title>admin comment</title>
     <div class="main" id="main">
-
         <table style="margin-top: 12px;">
             <tr id="title_field" style="z-index: 90; padding-left:10px;">
                 <th>STT</th>
@@ -41,8 +39,8 @@
                 <th>Đánh giá</th>
                 <th></th>
             </tr>
-
-            <?php $count = 1; foreach ($all_bookings as $booking) :  ?>
+            <?php $count = 1;
+            foreach ($all_bookings as $booking) :  ?>
                 <tr>
                     <td><?php echo $count ?></td>
                     <td><?php echo $booking['user_id'] ?></td>
@@ -61,9 +59,7 @@
                         if (isset($_GET['update_success']) && $_GET['update_success'] == 'true') {
                             echo '<div class="alert alert-success" role="alert">Update successful!</div>';
                         }
-
                         ?>
-
                         <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -110,13 +106,10 @@
                                                 <button type="submit" class="btn btn-primary">Cập nhật</button>
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                         <script>
                             $(document).ready(function() {
                                 var id_booking = getUrlParameter('id');
@@ -124,7 +117,6 @@
                                     $('#dataModal').modal('show');
                                 }
                             });
-
                             $('#dataModal').on('hidden.bs.modal', function() {
                                 window.location.href = 'Adminbooking';
                             });
@@ -137,9 +129,9 @@
                             }
                         </script>
                         <?php     ?>
-
                     </td>
                 </tr>
-            <?php $count++; endforeach; ?>
+            <?php $count++;
+            endforeach; ?>
         </table>
     </div>

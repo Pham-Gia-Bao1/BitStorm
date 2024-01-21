@@ -3,16 +3,13 @@ include("../View/Admin/Layout/SideBar.view.php");
 include("../root/CSS/Admin/AdminComment.css.php");
 include_once("../root/CSS/Admin/Homepage.css.php");
 include_once("../root/CSS/Admin/SideBar.css.php");
-// include("../root/JS/Notification.js.php");
 ?>
-
 <body>
     <title>admin comment</title>
     <div class="main" id="main">
         <table>
             <tr id="title_field">
                 <th></th>
-
                 <th>STT</th>
                 <th>Nội dung</th>
                 <th>Ngày tạo</th>
@@ -43,8 +40,8 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                             redirectToAdminComments();
                         }
                     }
+
                     function redirectToAdminComments() {
-                        // Đoạn mã xử lý chuyển hướng đến trang AdminComments
                         window.location.href = 'AdminComments';
                     }
                 </script>
@@ -81,19 +78,14 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                         $id = $_GET['id_user'];
                         $info1 = $productModel->get_one_coments_video($id);
                     } ?>
-                    <!-- model view -->
                     <div class="modal fade model_nav" id="view_model">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                             <div class="modal-content">
-
-                                <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="loginModalLabel">Xem thông tin chi tiết</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
-                                <!-- Modal body -->
                                 <div class="modal-body d-flex ">
-
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title text-primary">Thông tin người bình luận </h5>
@@ -105,8 +97,6 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                                                     <input type="text" readonly class="form-control input_info_name" value="Name : <?= $info1['username'] ?>">
                                                     <p class="form-control input_info_name">Email : <?= $info1['email'] ?></p>
                                                     <p class="form-control input_info_name">Địa Chỉ : <?= $info1['address'] ?></p>
-                                                    <!-- <p class="form-control input_info_name">Số điện thoại : <?= $info1['phone_number'] ?></p> -->
-
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +105,6 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                                         <div class="modal-header">
                                             <h5 class="modal-title text-primary" id="">Thông tin video</h5>
                                         </div>
-
                                         <div class="modal-body gap-4">
                                             <div class="d-flex justify-content-center align-items-center">
                                                 <iframe src="<?= $info1['youtube_link'] ?>" frameborder="0"></iframe>
@@ -125,7 +114,6 @@ include_once("../root/CSS/Admin/SideBar.css.php");
                                             <p class="form-control input_info_name">Giới thiệu : <?= $info1['description'] ?></p>
                                             <p class="form-control input_info_name">Lượt thích : <?= $info1['like_count_comment'] ?></p>
                                             <p class="form-control input_info_name">Lượt không thích : <?= $info1['dislike_count_comment'] ?></p>
-
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +124,6 @@ include_once("../root/CSS/Admin/SideBar.css.php");
     </tr>
 <?php $count++;
             endforeach ?>
-
 <style>
     .selected {
         background-color: #B4D4FF;
@@ -172,33 +159,27 @@ include_once("../root/CSS/Admin/SideBar.css.php");
         if (checkboxes.checked) {
             document.getElementById('delete_btn').style.backgroundColor = "blue";
         }
-
         return checkedValues;
     }
-    // Sử dụng hàm getCheckedValues để lấy giá trị của các checkbox đã được chọn
     function redirectToAdminComments() {
         var checkedValues = getCheckedValues();
         var url = 'AdminComments?id_delete=' + (checkedValues);
         window.location.href = url;
     }
 </script>
-<!-- Thêm các hàng dữ liệu khác tương tự cho các comments khác -->
 </table>
 <script>
-    // Gọi hàm để hiển thị modal khi trang được tải
     $(document).ready(function() {
         var id = getUrlParameter('id');
         if (id) {
             $('#update_model').modal('show');
         }
     });
-
     $(document).ready(function() {
         $('#update_model').on('hidden.bs.modal', function() {
             window.location.href = 'AdminComments';
         });
     });
-    // Hàm để lấy tham số từ URL
     function getUrlParameter(name) {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -206,7 +187,6 @@ include_once("../root/CSS/Admin/SideBar.css.php");
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 </script>
-<!-- model add -->
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -216,12 +196,10 @@ if (isset($_GET['id'])) {
 <div class="modal fade model_nav" id="update_model">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
-            <!-- Modal Header -->
             <div class="modal-header">
                 <h5 class="modal-title text-primary" id="loginModalLabel">Chỉnh sửa bình luận </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <!-- Modal body -->
             <div class="modal-body">
                 <form action="AdminComments" method="get">
                     <div class="input-group mb-3">
@@ -229,25 +207,18 @@ if (isset($_GET['id'])) {
                             <span class="input-group-text w-25">STT</span>
                             <input required type="text" class="form-control" id="id_comment" value="<?= $info['id_comment'] ?>" name="id_comment">
                         </div>
-
                         <div class="input-group mb-3">
                             <span class="input-group-text w-25">Nội dung</span>
                             <input required type="text" class="form-control" value="<?= htmlspecialchars($info['content']) ?>" id="content_comment" name="content">
                         </div>
-
                         <div class="input-group mb-3">
                             <span class="input-group-text w-25">Ngày tạo</span>
                             <input required type="text" class="form-control" value="<?= htmlspecialchars($info['created_at']) ?>" name="date">
-
                         </div>
-
-
-                        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
                         <script>
                             document.getElementById("showCalendarBtn").addEventListener('click', function() {
                                 var calendarEl = document.getElementById('calendar');
                                 calendarEl.style.display = 'block';
-
                                 var calendar = new FullCalendar.Calendar(calendarEl, {
                                     initialView: 'dayGridMonth',
                                     selectable: true,
@@ -256,7 +227,6 @@ if (isset($_GET['id'])) {
                                         calendar.unselect();
                                     }
                                 });
-
                                 calendar.render();
                             });
                         </script>
@@ -268,7 +238,6 @@ if (isset($_GET['id'])) {
                                     <option value="<?= htmlspecialchars($id['id']) ?>"><?= htmlspecialchars($id['id']) ?></option>
                                 <?php endforeach; ?>
                             </select>
-
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text w-25">Mã người bình luận</span>
@@ -295,6 +264,5 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </div>
-
 </main>
 </body>

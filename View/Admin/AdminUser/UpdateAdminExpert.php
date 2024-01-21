@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div class="modal fade" id="updateExpertModal" tabindex="-1" aria-labelledby="#updateUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <form action="" method="post" id="updateExpert">
@@ -159,7 +158,7 @@
             $('#status option[value="' + expert[12].trim() + '"]').prop('selected', true);
             $('.dropify').dropify();
         });
-        //validate form 
+        //validate form
         $('#experienceExpert').on('input', function() {
             checkExperienceExpertLength();
         });

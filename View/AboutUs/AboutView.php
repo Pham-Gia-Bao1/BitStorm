@@ -1,6 +1,5 @@
 <?php
 include("../View/LayOut/Header/Header.php");
-
 ?>
 <title>Contact Us</title>
 <?php
@@ -37,12 +36,11 @@ include("../root/CSS/About.css.php");
                     <h6>Thời Gian</h6>
                     <p>Thứ Hai - Chủ Nhật 7am - 21pm</p>
                     <h6>Email</h6>
-                    <p>tinh123@gmail.com</p>
+                    <p>BitStorm@gmail.com</p>
                     <h6>Các Nền Tảng Khác</h6>
                     <p>www.facebook.com</p>
                     <p>www.intagram.com</p>
                 </div>
-
             </div>
         </div>
     </section>

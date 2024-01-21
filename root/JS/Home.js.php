@@ -1,53 +1,47 @@
 <script>
      var swiper = new Swiper(".slide-content", {
-    slidesPerView: 3,
-    spaceBetween: 25,
-    loop: true,
-    centerSlide: 'true',
-    fade: 'true',
-    grabCursor: 'true',
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: 'true',
+        fade: 'true',
+        grabCursor: 'true',
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true,
     },
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
     },
-
     breakpoints: {
-        0: {
-            slidesPerView: 1,
+            0: {
+                slidesPerView: 1,
         },
         520: {
-            slidesPerView: 2,
+                slidesPerView: 2,
         },
         950: {
-            slidesPerView: 3,
+                slidesPerView: 3,
         },
     },
 });
-
-
 $('#recipeCarousel').carousel({
-    interval: 10000
+        interval: 10000
 })
-
 $('.carousel .carousel-item').each(function () {
-    var minPerSlide = 3;
-    var next = $(this).next();
-    if (!next.length) {
-        next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
-
-    for (var i = 0; i < minPerSlide; i++) {
-        next = next.next();
+        var minPerSlide = 3;
+        var next = $(this).next();
         if (!next.length) {
             next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+    for (var i = 0; i < minPerSlide; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
         }
-
         next.children(':first-child').clone().appendTo($(this));
     }
 });

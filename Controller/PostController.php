@@ -9,17 +9,7 @@ if (isset($_COOKIE[$cookie_name])) {
     $account = new Account();
     $nameAndImg=$account->get_name_and_img_user();
     $userId=$Post->get_id($nameAndImg[0]);
-    // if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['postId']) && isset($_GET['isLiked'])) {
-    //     $postId = $_GET['postId'];
-    //     $isLiked = $_GET['isLiked']; // true/false
-    //     if ($isLiked){
-    //         $Post->deleteOneLike($postId,$userId);
 
-    //     }else{
-    //         $Post->addOneLike($postId,$userId);
-    //     }
-    // }
-    // xử lí đăng bài
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if (($_POST['action'])=="likePost") {
             $postId = $_POST['postId'];
@@ -37,13 +27,13 @@ if (isset($_COOKIE[$cookie_name])) {
         };
         if (($_POST['action'])=="createComment"){
             $post_id=htmlspecialchars($_POST['post_id']);
-            $content =htmlspecialchars($_POST['content']); 
+            $content =htmlspecialchars($_POST['content']);
             $Post->CreateComment($post_id,$content,$userId);
             header("Location: Post");
         }elseif (($_POST['action'])=="createPost"){
             $isAnonymous= isset($_POST['isAnonymous'])?($_POST['isAnonymous']):1;
             $likeCount=0;
-            $content =htmlspecialchars(trim($_POST['content'])) ;       
+            $content =htmlspecialchars(trim($_POST['content'])) ;
             $post=[
                 "userid" => $userId,
                 "isAnonymous"=>$isAnonymous,
@@ -53,12 +43,12 @@ if (isset($_COOKIE[$cookie_name])) {
             $Post->CreatePost($post);
             header("Location: Post");
         }
-       
+
     }
-    
+
     include("../View/Post/PostView.php");
 }else {
-        echo "<script> alert ('Vui lòng đăng nhập') </script>";
+        echo "<script> alert ('Vui lòng đăng nhập'); window.location.href = 'home'; </script>";
+
     };
 
-?>

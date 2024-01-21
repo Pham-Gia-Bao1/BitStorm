@@ -1,6 +1,5 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-
 class User extends Connection
 {
     public function get_all_users()
@@ -12,7 +11,6 @@ class User extends Connection
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $users;
     }
-
     public function getUser($id)
     {
         $this->connect_database();
@@ -24,11 +22,10 @@ class User extends Connection
         $this->closeConnection();
         return $users;
     }
-
     public function createUser($name, $email, $password, $phone_number, $img)
     {
         $this->connect_database();
-        $sql_query = "INSERT INTO users (name, email, password, phone_number, img, role_id, status) 
+        $sql_query = "INSERT INTO users (name, email, password, phone_number, img, role_id, status)
                   VALUES (:name, :email, :password, :phone_number, :img, 2, 'Hoạt động')";
         $stmt = $this->conn->prepare($sql_query);
         $stmt->bindParam(':name', $name);
@@ -40,7 +37,6 @@ class User extends Connection
         $this->closeConnection();
         return $success;
     }
-
     public function updateUser($id, $name, $email, $password, $phone_number, $img, $status)
     {
         $this->connect_database();
@@ -57,6 +53,4 @@ class User extends Connection
         $this->closeConnection();
         return true;
     }
-
-
 }

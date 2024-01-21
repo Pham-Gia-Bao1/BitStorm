@@ -10,7 +10,6 @@
                 <div class="modal-body">
                     <input type="hidden" class="form-control" name="action" value="createPostAdmin">
                     <input type="hidden" class="form-control" name="updateIdPost" id="createIdPost">
-                    
                     <div class="form-group">
                         <label for="" class="col-form-label">UserID</label>
                         <select class="custom-select" name="createUserIdPost" id="createUserIdPost">

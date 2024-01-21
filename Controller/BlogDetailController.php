@@ -2,7 +2,6 @@
 include_once("../Model/BlogDetailModel.php");
 include_once("../Model/BlogModel.php");
 include_once("../Model/AccountModel.php");
-
 if ($_SERVER['REQUEST_METHOD'] === "GET" && isset($_SERVER['REQUEST_METHOD'])) {
     $account = new Account();
     $blog = new Blog();
@@ -18,5 +17,4 @@ if ($_SERVER['REQUEST_METHOD'] === "GET" && isset($_SERVER['REQUEST_METHOD'])) {
     $author = $blogDetail->get_author($id);
 
 }
-
 include("../View/Blog/BlogDetailView.php");

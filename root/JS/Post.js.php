@@ -4,11 +4,13 @@
             var postId = $(this).data('post-id');
             $.ajax({
                 url: 'Post',
+                type : 'POST',
                 data: {
                     action: 'likePost',
                     postId: postId,
                 },
                 success: function(response) {
+                    console.log(response);
                     $('#like-count-' + postId).text(response);
                 }
             });

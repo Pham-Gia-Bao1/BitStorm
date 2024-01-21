@@ -112,10 +112,8 @@
 div.container {
     font-family: Raleway;
     margin: 0 auto;
-    /* padding: 10em 3em; */
     text-align: center;
   }
-
   div.container a {
     color:dodgerblue;
     text-decoration: none;
@@ -126,7 +124,6 @@ div.container {
     z-index: 0;
     cursor: pointer;
   }
-
   div.topBotomBordersOut a:before,
   div.topBotomBordersOut a:after {
     position: absolute;
@@ -138,7 +135,6 @@ div.container {
     opacity: 0;
     transition: all 0.3s;
   }
-
   div.topBotomBordersOut a:before {
     top: 0px;
     transform: translateY(10px);

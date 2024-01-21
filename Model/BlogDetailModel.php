@@ -1,5 +1,4 @@
 <?php
-
 include_once("../Model/ConnectDataBase.php");
 class BlogDetail extends Connection
 {
@@ -14,7 +13,6 @@ class BlogDetail extends Connection
         $this->closeConnection();
         return $video;
     }
-
     public function get_one_podcast($id)
     {
         $this->connect_database();
@@ -26,7 +24,6 @@ class BlogDetail extends Connection
         $this->closeConnection();
         return $video;
     }
-
     public function get_comment_video_for_user($id)
     {
         if (isset($id)) {
@@ -53,7 +50,6 @@ class BlogDetail extends Connection
         }
         return null;
     }
-
     public function get_author($video_id)
     {
         if (isset($video_id)) {
@@ -98,11 +94,9 @@ class BlogDetail extends Connection
             $sql_query = "INSERT INTO comment_podcast (content, created_at, podcast_id, user_id, like_count, dislike_count)
                           VALUES (:content, :created_at, :video_id, :user_id, :like_count, :dislike_count)";
             $stmt = $this->conn->prepare($sql_query);
-            // $author = null;
             $like_count = 0;
             $dislike_count = 0;
             $stmt->bindParam(":content", $content);
-            // $stmt->bindParam(":author", $author);
             $stmt->bindParam(":created_at", $date_time);
             $stmt->bindParam(":video_id", $video_id);
             $stmt->bindParam(":user_id", $user_id);
@@ -113,18 +107,13 @@ class BlogDetail extends Connection
         }
         return false;
     }
-
     public function increment_like($commentId) {
         $this->connect_database();
-
-        // Kiểm tra xem commentId đã được truyền vào hay chưa
         if (isset($commentId)) {
-            // Truy vấn cập nhật lượt thích
             $sql = "UPDATE comment_videos SET like_count = like_count + 1 WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":id", $commentId);
             $stmt->execute();
-            // Truy vấn để lấy số lượng lượt thích đã được cập nhật
             $sql = "SELECT *  FROM comment_videos WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":id", $commentId);
@@ -136,14 +125,11 @@ class BlogDetail extends Connection
     }
 
     public function decrement_like($comment_id) {
-        // Kiểm tra xem commentId đã được truyền vào hay chưa
         if (isset($comment_id)) {
-            // Truy vấn cập nhật lượt thích
             $sql = "UPDATE comment_podcast SET like_count = like_count - 1 WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":id", $comment_id);
             $stmt->execute();
-            // Truy vấn để lấy số lượng lượt thích đã được cập nhật
             $sql = "SELECT like_count FROM comment_podcast WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":id", $comment_id);

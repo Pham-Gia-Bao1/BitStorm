@@ -2,8 +2,6 @@
 include("../View/Admin/Layout/SideBar.view.php");
 include_once("../Model/AdminPodCastsModel.php");
 include_once("../Controller/AdminPodcastsController.php");
-// include_once("../root/CSS/Admin/AdminComment.css.php");
-
 ?>
 <style>
       table {
@@ -11,7 +9,6 @@ include_once("../Controller/AdminPodcastsController.php");
         width: 100%;
         font-size: 12px !important;
     }
-
     th,
     td {
         text-align: left;
@@ -19,7 +16,6 @@ include_once("../Controller/AdminPodcastsController.php");
         border-bottom: 1px solid #ddd;
         cursor: pointer;
     }
-
     th {
         background-color: #f2f2f2;
     }
@@ -28,15 +24,11 @@ include_once("../Controller/AdminPodcastsController.php");
      top: 60px;
      z-index: 700;
   }
-
 </style>
 <div class="main">
-
     <div class="p-3"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sub-navbar">
         <div class="container-fluid">
-
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -48,8 +40,6 @@ include_once("../Controller/AdminPodcastsController.php");
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="AdminPodCasts">Podcast</a>
                     </li>
-
-
                 </ul>
             </div>
         </div>
@@ -153,10 +143,8 @@ include_once("../Controller/AdminPodcastsController.php");
                     <p>Lượt xem </p>
                 </th>
                 <th></th>
-
             </tr>
         </thead>
-
         <tbody>
             <?php
             $videos = showAllVideo();
@@ -197,7 +185,6 @@ include_once("../Controller/AdminPodcastsController.php");
     </table>
     <?php
     if (isset($_GET['id_update'])) {
-
         $id = $_GET['id_update'];
         $videos = showOneVideo($id);
     }
