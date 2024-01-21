@@ -19,14 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $email = htmlspecialchars($_POST['email']);
                     $password = htmlspecialchars($_POST['password']);
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
-                    if (isset($_POST['imgUser'])) {
-                        $userImg = htmlspecialchars($_POST['imgUser']);
-                        $new_url_img = "http://localhost/BitStorm/root/Image/" . $userImg;
-                    } elseif(!isset($_POST['imgUser'])) {
-                        $new_url_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz7ba1XOuyY45MmrAnDLYLxv0QA16N4cGBtQ&usqp=CAU";
-                    }
-                 
-                    $newClients = $User->createUser($name, $email, $password, $phoneNumber, $new_url_img);
+                    $imgName = $_POST['addAvatar'];
+                    $newClients = $User->createUser($name, $email, $password, $phoneNumber, $imgName);
                     Header("Location: AdminUser");
                 }
                 break;
@@ -38,13 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
                     $status = htmlspecialchars($_POST['status']);
                     $id = $_POST['userId'];
-                    if (isset($_POST['imgUser'])) {
-                        $userImg = htmlspecialchars($_POST['imgUser']);
-                        $new_url_img = "http://localhost/BitStorm/root/Image/" . $userImg;
-                    } elseif (!isset($_POST['imgUser'])) {
-                        $new_url_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz7ba1XOuyY45MmrAnDLYLxv0QA16N4cGBtQ&usqp=CAU";
-                    }
-                    $newClients = $User->updateUser($id, $name, $email, $password, $phoneNumber, $new_url_img, $status);
+                    $imgName = $_POST['avatar'];
+                    $newClients = $User->updateUser($id, $name, $email, $password, $phoneNumber, $imgName, $status);
                     Header("Location: AdminUser");
                 }
                 break;

@@ -4,6 +4,8 @@ include("../root/CSS/Admin/AdminUser.css.php");
 include("../View/Admin/AdminUser/UpdateAdminUser.php");
 include("../View/Admin/AdminUser/AddAdminUser.php");
 ?>
+<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 
 <body>
     <title>Admin user</title>
@@ -44,7 +46,9 @@ include("../View/Admin/AdminUser/AddAdminUser.php");
                     <td><?php echo $client['password'] ?></td>
                     <td><?php echo $client['phone_number'] ?></td>
                     <td><?php echo $client['created_at'] ?></td>
-                    <td><img src="<?php echo $client['img'] ?>" alt="image" class="userImg"></td>
+                    <td>
+                        <img src="<?php echo $client['img']; ?>" alt="userImg" width="50" height="50" class="userImg">
+                    </td>
                     <td> <?php echo $client['status']  ?> </td>
                     <th>
                         <button class="btn btn-primary edit-user-btn"><i class="fa-solid fa-pen-to-square"></i></button>

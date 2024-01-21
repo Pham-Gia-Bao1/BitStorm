@@ -9,27 +9,34 @@
                 <div class="modal-body">
                     <input type="hidden" name="action" value="createUser">
                     <label for="username">Họ và tên người dùng:</label>
-                    <div class="input-group mb-3">
-                        <input type="text" name="name" id="usernameInput" class="form-control" aria-describedby="basic-addon1" maxlength="50" minlength="3" pattern="^[\p{L}\s]+$" required>
+                    <div class="input-group mb-1">
+                        <input type="text" name="name" id="usernameInput" class="form-control" aria-describedby="basic-addon1" pattern="[\p{L}\s]+" required>
                     </div>
-                    <small id="usernameError" class="text-danger"></small>
+                    <small id="userNameError" class="text-danger"></small>
+                    <br>
                     <label for="username">Địa chỉ email:</label>
                     <div class="input-group mb-3">
-                        <input type="email" name="email" id="emailInput" class="form-control" aria-describedby="basic-addon1" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required>
+                        <input type="email" name="email" id="emailInput" class="form-control" aria-describedby="basic-addon1" required>
                     </div>
-                    <small id="emailError" class="text-danger"></small>
                     <label for="username">Password:</label>
-                    <div class="input-group mb-3">
-                        <input type="text" name="password" id="passwordInput" class="form-control" aria-describedby="basic-addon1" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$" required>
+                    <div class="input-group mb-1">
+                        <input type="password" name="password" id="passwordInput" class="form-control" aria-describedby="basic-addon1" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="checkPassword">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
-                    <small id="passwordError" class="text-danger"></small>
+                    <small id="passwordUserError" class="text-danger"></small>
+                    <br>
                     <label for="username">Số điện thoại:</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="phoneNumber" id="phoneNumberInput" class="form-control" aria-describedby="basic-addon1" required pattern="^[0-9]{10,12}$">
+                        <input type="text" name="phoneNumber" id="phoneNumberInput" class="form-control" aria-describedby="basic-addon1" pattern="[0-9]{10}" required>
                     </div>
-                    <small id="phoneNumberError" class="text-danger"></small>
                     <label for="avatar">Ảnh đại diện:</label>
-                    <input type="file" class="form-control" id="avatar" name="imgUser" accept="image/*">
+                    <!-- Trong form add -->
+                    <input type="file" class="dropify mb-3" id="avatarCreate" name="addImgUser" data-height="200" onchange="getUrlImg()" accept="image/*" required />
+                    <input type="hidden" name="addAvatar" id="addUserAvatar">
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn closeBtn" data-dismiss="modal">Thêm</button>
@@ -39,61 +46,104 @@
     </form>
 </div>
 <script>
+    // Sửa đổi hàm getUrlImg thành async
+    async function getUrlImg() {
+        const CLOUD_NAME = "dugeyusti";
+        const PRESET_NAME = "expert_upload";
+        const FOLDER_NAME = "BitStorm";
+        const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+        const formData = new FormData();
+        formData.append("upload_preset", PRESET_NAME);
+        formData.append("folder", FOLDER_NAME);
+        const file = document.querySelector('#avatarCreate').files[0];
+        formData.append("file", file);
+        const options = {
+            method: "POST",
+            body: formData,
+        };
+
+        try {
+            console.log(file);
+            const res = await fetch(api, options);
+            const data = await res.json();
+            console.log(data);
+            document.querySelector('#addUserAvatar').value = data.secure_url;
+        } catch (error) {
+            console.error("Lỗi khi tải từ Cloudinary:", error);
+        }
+    }
     $(document).ready(function() {
         $('.addUserBtn').on('click', function() {
             // Hiển thị modal
             $('#addUserModal').modal('show');
+            $('.dropify').dropify();
+
+            $('#createUser').on('submit', function(event) {
+                if (checkNameLength() && checkPassword()) {
+                    console.log(checkPassword);
+                    $(this).submit();
+                } else {
+                    alert('Bạn phải điền form đúng theo yêu cầu trước khi submit!.');
+                    event.preventDefault();
+                }
+            });
+
+            $('#usernameInput').on('input', function() {
+                checkNameLength();
+            });
+            $('#passwordInput').on('input', function() {
+                checkPassword();
+            });
+
+            function checkNameLength() {
+                var inputValue = $('#usernameInput').val();
+                var charCount = inputValue.length;
+                var spaceCount = (inputValue.match(/\s/g) || []).length; // Đếm số dấu cách trong chuỗi
+                var errorSpan = $('#userNameError');
+                if (charCount < 3 || charCount > 30 || spaceCount < 1) {
+                    errorSpan.text('Làm ơn điền cụ thể họ và tên của bạn!');
+                    check = false;
+                } else {
+                    errorSpan.text(null);
+                    check = true;
+                }
+                return check;
+            }
+
+            function checkPassword() {
+                var password = $('#passwordInput').val();
+                var passwordError = $('#passwordUserError');
+                var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (passwordPattern.test(password)) {
+                    passwordError.text('');
+                    check = true;
+                } else {
+                    passwordError.text('Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số, và ký tự đặc biệt.');
+                    check = false;
+                }
+                return check;
+            }
+            $('#checkPassword').on('click', function() {
+                // Lấy phần tử input mật khẩu
+                var passwordInput = $('#passwordInput');
+                // Kiểm tra trạng thái hiện tại của input mật khẩu
+                var passwordType = passwordInput.attr('type');
+                // Nếu đang ẩn mật khẩu, hiển thị
+                if (passwordType === 'password') {
+                    passwordInput.attr('type', 'text');
+                    $('#checkPassword i').removeClass('fa-eye').addClass('fa-eye-slash');
+                }
+                // Nếu đang hiển thị mật khẩu, ẩn
+                else {
+                    passwordInput.attr('type', 'password');
+                    $('#checkPassword i').removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
         });
-
-        $('#createUser').submit(function(event) {
-            if (!validateForm()) {
-                // Ngăn chặn form được submit nếu có lỗi
-                event.preventDefault();
-            }
-        });
-
-        function validateForm() {
-            var username = document.getElementById("usernameInput").value;
-            var email = document.getElementById("emailInput").value;
-            var password = document.getElementById("passwordInput").value;
-            var phoneNumber = document.getElementById("phoneNumberInput").value;
-
-            var usernamePattern = /^[\p{L}\s]+$/;
-            var passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$/;
-            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            var usernameError = document.getElementById("usernameError");
-            var emailError = document.getElementById("EmailError");
-            var passwordError = document.getElementById("passwordError");
-            var phoneNumberError = document.getElementById("phoneNumberError");
-
-            usernameError.innerHTML = "";
-            emailError.innerHTML = "";
-            passwordError.innerHTML = "";
-            phoneNumberError.innerHTML = "";
-
-            if (!usernamePattern.test(username)) {
-                usernameError.innerHTML = "Tên người dùng phải chứa chữ cái và khoảng trắng!";
-                return false;
-            }
-
-            if (!emailPattern.test(email)) {
-                emailError.innerHTML = "Email không hợp lệ!";
-                return false;
-            }
-
-            if (!passwordPattern.test(password)) {
-                passwordError.innerHTML = "Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ cái hoa, một chữ số và một ký tự đặc biệt!";
-                return false;
-            }
-
-            // Bổ sung kiểm tra cho số điện thoại nếu cần thiết
-            if (!/^[0-9]{10,12}$/.test(phoneNumber)) {
-                phoneNumberError.innerHTML = "Số điện thoại không hợp lệ!";
-                return false;
-            }
-
-            return true;
-        }
     });
 </script>
+<style>
+    .dropify-message p {
+        font-size: small;
+    }
+</style>
