@@ -154,8 +154,8 @@
             var inputValue = $('#experience').val();
             var charCount = inputValue.length; // Sử dụng length để đếm số ký tự
             var errorSpan = $('#experienceError');
-            if (charCount < 100 || charCount > 255) {
-                errorSpan.text('Nội dung phải có từ 100 đến 255 ký tự.');
+            if (charCount < 100 || charCount > 500) {
+                errorSpan.text('Nội dung phải có từ 100 đến 500 ký tự.');
                 check = false;
             } else {
                 errorSpan.text(null);
