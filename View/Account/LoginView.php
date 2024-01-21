@@ -47,6 +47,5 @@
             <small id="passwordError" class="text-danger"></small>
         </div>
         <button type="submit" class="btn btn-primary p-2 m-2 login_btn rounded-pill"> Đăng nhập </button>
-
     </form>
 </div>

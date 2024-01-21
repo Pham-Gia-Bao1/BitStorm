@@ -72,9 +72,11 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
                         <div class="form-group">
                             <label for="usr">Thể loại</label>
                             <select name="type" value="type">
-                                <option value="Tình Yêu">Tình Yêu</option>
-                                <option value="Gia Đình">Gia Đình</option>
-                                <option value="Bạn Bè">Bạn Bè"</option>
+                                <option value="tình yêu">Tình Yêu</option>
+                                <option value="gia đình">Gia Đình</option>
+                                <option value="bạn bè">Bạn Bè</option>
+                                <option value="động lực">Động lực</option>
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -132,12 +134,14 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
                     </td>
                 <?php  } ?>
                 <?php
-                if (isset($_POST['id_update'])) {
-                    $id = $_POST['id_update'];
+                if (isset($_GET['id_update'])) {
+                    $id = $_GET['id_update'];
                     $video = displayOneVideo($id);
+
                 }
                 ?>
                 <div id="update_model" class="modal fade" role="dialog">
+                    <?php  ?>
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -148,19 +152,19 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
                                     <input type="hidden" name="id" value="<?php echo $video['id']; ?>">
                                     <div class="form-group">
                                         <label for="usr">Id</label>
-                                        <input type="text" class="form-control" id="title" name="id" value=<?php echo $video['id'] ?> disabled>
+                                        <input type="text" class="form-control" id="title" name="id" value="<?php echo $video['id'] ?>" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label for="usr">Link youtube</label>
-                                        <input type="text" class="form-control" id="youtube_link" name="youtube_link" value=<?php echo $video['youtube_link'] ?>>
+                                        <input type="text" class="form-control" id="youtube_link" name="youtube_link" value="<?php echo $video['youtube_link'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="usr">Tiêu đề</label>
-                                        <input type="text" class="form-control" id="title" name="title" value=<?php echo $video['title'] ?>>
+                                        <input type="text" class="form-control w-100" id="title" name="title" value="<?php echo $video['title'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="author">Mã Tác giả</label>
-                                        <select name="author_id" value=<?php echo $video['author_id'] ?>>
+                                        <select name="author_id" value="<?php echo $video['author_id'] ?>">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -168,19 +172,19 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
                                     </div>
                                     <div class="form-group">
                                         <label for="usr">Mô tả</label>
-                                        <input type="text" class="form-control" id="description" name="description" value=<?php echo $video['description'] ?>>
+                                        <input type="text" class="form-control" id="description" name="description" value="<?php echo $video['description'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="usr">Khoảng thời gian</label>
-                                        <input type="text" class="form-control" id="duration" name="duration" value=<?php echo $video['duration'] ?>>
+                                        <input type="text" class="form-control" id="duration" name="duration" value="<?php echo $video['duration'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="usr">Kiểu</label>
-                                        <input type="text" class="form-control" id="type" name="type" value=<?php echo $video['type'] ?>>
+                                        <input type="text" class="form-control" id="type" name="type" value="<?php echo $video['type'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="usr">Lượt xem</label>
-                                        <input type="text" class="form-control" id="view" name="view" value=<?php echo $video['view'] ?>>
+                                        <input type="text" class="form-control" id="view" name="view" value="<?php echo $video['view'] ?>">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Cập Nhật</button>

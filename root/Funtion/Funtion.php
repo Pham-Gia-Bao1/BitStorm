@@ -20,6 +20,7 @@ function showError() {
     echo '<script>
         Swal.fire({
             title: "Thất bại",
+            text: "Something went wrong!",
             icon: "error"
         });
     </script>';
@@ -27,4 +28,4 @@ function showError() {
     unset($_SESSION['error']);
 }
 
-
+    

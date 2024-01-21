@@ -9,7 +9,7 @@ class log_in
             $password_error = "";
 
             $account = new Account();
-           
+
             if(isset($_POST['username']) && isset($_POST['email'])){
                 $name = $this->sanitizeInput($_POST['username']);
                 $email = $this->sanitizeInput($_POST['email']);

@@ -120,14 +120,7 @@ include("../root/CSS/BlogDetail.css.php");
                                 <p class="me-3 mb-0 tỉme"><?php echo $comment['created_at'] ?></p>
                             </div>
                             <p class="mb-2"><?php echo $comment['content'] ?></p>
-                            <div class="comment-actions d-flex">
-                                <button class="btn btn-light me-3 like-count" onclick="increaseLikeCount(<?php echo $comment['id']; ?>)">
-                                    <i class="far fa-thumbs-up p-1 like like-count"></i><?php echo $comment['like_count']; ?>
-                                </button>
-                                <button class="btn btn-light" onclick="increaseDislikeCount(<?php echo $comment['id']; ?>)">
-                                    <i class="far fa-thumbs-down p-1 didlike"></i> <?php echo $comment['dislike_count']; ?>
-                                </button>
-                            </div>
+                            <!--  -->
                         </div>
                         <script>
                             function increaseLikeCount(commentId) {

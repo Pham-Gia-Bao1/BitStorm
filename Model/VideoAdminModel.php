@@ -28,11 +28,13 @@ function displayAllVideo()
 function displayOneVideo($id)
 {
     $db = db();
-    $video = $db->prepare("SELECT *FROM video id = :id");
+    $video = $db->prepare("SELECT * FROM videos WHERE id = :id");
     $video->bindParam(":id", $id);
-    $videos = $video->fetchAll(PDO::FETCH_ASSOC);
+    $video->execute();  // You were missing this line
+    $videos = $video->fetch(PDO::FETCH_ASSOC);
     return $videos;
 }
+
 function createVideos($youtube_link, $title, $author_id, $description, $duration, $type, $view)
 {
     try {

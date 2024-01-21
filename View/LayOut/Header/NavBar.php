@@ -7,14 +7,14 @@ include("../root/JS/NavBar.js.php");
 <nav class="navbar navbar-expand-md">
   <div class="container">
     <img src="./root/Image/logo_header.png" alt="Logo" class="logo">
-    <a class="navbar-brand" href="#">BitStorm</a>
+    <a class="navbar-brand" href="home">BitStorm</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="Home">Trang Chủ</a>
+        <li class="nav-item d-flex justify-content-center align-items-center">
+          <a class="nav-link d-flex justify-content-center align-items-center gap-2" href="Home"> <i style="color: #40A2D8;" class="fa-solid fa-house"></i>Trang Chủ</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="ContactExpert">Chuyên Gia</a>
@@ -31,6 +31,7 @@ include("../root/JS/NavBar.js.php");
         <li class="nav-item">
           <a class="nav-link" href="About">Liên Hệ</a>
         </li>
+
       </ul>
       <?php
       $cookie_name = "User";

@@ -121,17 +121,21 @@ class Account
     {
         $blog = new Blog();
         $conn = $blog->connect_database();
-        $username = base64_decode($_COOKIE['User']);
-        $sql = "SELECT name, img FROM users WHERE name=:username";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
-        $name_and_img = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($name_and_img, $row['name']);
-            array_push($name_and_img, $row['img']);
+        if(isset($_COOKIE['User'])){
+            $username = base64_decode($_COOKIE['User']);
+            $sql = "SELECT name, img FROM users WHERE name=:username";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->execute();
+            $name_and_img = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                array_push($name_and_img, $row['name']);
+                array_push($name_and_img, $row['img']);
+            }
+            return $name_and_img; // mảng có length = 2
+
         }
-        return $name_and_img; // mảng có length = 2
+        // return null;
     }
     public function get_name_and_img_user_by_id($id)
     {

@@ -5,7 +5,7 @@
 
     .all_card {
         background-color: #EEF5FF;
-        height: 600px;
+        height: auto;
         overflow-y: scroll;
         padding: 30px;
         border-radius: 20px;

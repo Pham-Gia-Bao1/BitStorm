@@ -1,9 +1,10 @@
 <?php
-session_start();
 include('../root/Funtion/Funtion.php');
 if(isset($_SESSION['sesscess'])){
+    session_start();
     showSuccessMessage();
 }elseif(isset($_SESSION['error'])){
+    session_start();
     showError();
 }
 include("../View/LayOut/Header/Header.php");
@@ -36,7 +37,7 @@ include_once("../Model/HomeModel.php");
 <div class="bodier">
     <div class="container-fluid">
         <div class="p-5"></div>
-        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại <span style="color:#279EFF">BitStorm</span> </h4>
+        <h4 style="text-align: center; padding-bottom: 10px;font-weight: bold;">Một Số Dịch Vụ Tại  <span style="color:#279EFF">BitStorm</span> </h4>
         <div class="slide-container swiper p-5">
             <div class="slide-content p-3">
                 <div class="card-wrapper swiper-wrapper">
@@ -229,4 +230,6 @@ include("../root/JS/Home.js.php");
 ?>
 <?php
 include("../View/LayOut/Footer/Footer.php");
+session_destroy();
+
 ?>

@@ -101,4 +101,7 @@ body::-webkit-scrollbar-thumb {
 .logo a{
     color: #007bff !important;
 }
+#myModal{
+  z-index: 9999;
+}
 </style>

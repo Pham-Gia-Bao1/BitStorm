@@ -10,7 +10,7 @@ include("../root/CSS/Post.css.php");
     <div class="row card-post">
         <div class="row post-bar box_search">
             <div class="col-1">
-                <img src="<?php echo $nameAndImg[1]?>" alt="anh dai dien" id="img" class="w-100" style="border-radius: 50%; height:70px" />
+                <img src="<?php echo $nameAndImg[1] ?>" alt="anh dai dien" id="img" class="w-100" style="border-radius: 50%; height:70px" />
             </div>
             <div class="col search">
                 <input type="text" class="search__input" readonly placeholder="Hôm nay, cậu ổn không?" onclick="openModal()">

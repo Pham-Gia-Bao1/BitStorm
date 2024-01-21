@@ -9,17 +9,7 @@ if (isset($_COOKIE[$cookie_name])) {
     $account = new Account();
     $nameAndImg=$account->get_name_and_img_user();
     $userId=$Post->get_id($nameAndImg[0]);
-    // if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['postId']) && isset($_GET['isLiked'])) {
-    //     $postId = $_GET['postId'];
-    //     $isLiked = $_GET['isLiked']; // true/false
-    //     if ($isLiked){
-    //         $Post->deleteOneLike($postId,$userId);
 
-    //     }else{
-    //         $Post->addOneLike($postId,$userId);
-    //     }
-    // }
-    // xử lí đăng bài
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if (($_POST['action'])=="likePost") {
             $postId = $_POST['postId'];
@@ -58,7 +48,7 @@ if (isset($_COOKIE[$cookie_name])) {
 
     include("../View/Post/PostView.php");
 }else {
-        echo "<script> alert ('Vui lòng đăng nhập') </script>";
+        echo "<script> alert ('Vui lòng đăng nhập'); window.location.href = 'home'; </script>";
+
     };
 
-?>

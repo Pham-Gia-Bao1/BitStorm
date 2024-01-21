@@ -3,6 +3,9 @@ include_once("../Model/UserProfileModel.php");
 include_once("../Model/AccountModel.php");
 include_once("../Model/PostModel.php");
 $userprofile = new UserProfile();
+if(!isset($_COOKIE['User'])){
+    header("Location: home");
+}
 $posts1 = new Post();
 $nameAndImg = $userprofile->get_name_and_img_user();
 $name = $nameAndImg[0] ?? '';
@@ -111,4 +114,9 @@ if(isset($_POST['day']) && isset($_POST['start_time'])){
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include("../View/UserProfile/UserProfileView.php");
+
+if($role_id == 1 || $role_id == 2){
+    include("../View/UserProfile/UserProfileView.php");
+}else{
+    header("Location: home");
+}

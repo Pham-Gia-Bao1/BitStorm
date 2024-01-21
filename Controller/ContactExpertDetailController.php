@@ -13,6 +13,6 @@ $cookie_name = "User";
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     if (!isset($_COOKIE[$cookie_name])) {
       "<script> alert('Vui lòng đăng nhập trước khi đặt lịch hẹn');";
-        Header("Location: AdminUser");
+        header("Location: AdminUser");
     }
 }

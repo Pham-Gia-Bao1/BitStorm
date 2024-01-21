@@ -414,9 +414,9 @@ include("../root/CSS/UserProfile.css.php");
     </div>
   </div>
   <?php
-  if ($role_id == 2) {
+  if ($role_id != 3) {
     include_once("../View/UserProfile/ProfileExpertView.php");
-  } else {
+  } elseif($role_id == 3) {
     include_once("../View/UserProfile/ModelAddCalendarView.php");
   } ?>
   <h1 class="heading">Ghi chú</h1>

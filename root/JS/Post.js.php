@@ -10,6 +10,7 @@
                     postId: postId,
                 },
                 success: function(response) {
+                    console.log(response);
                     $('#like-count-' + postId).text(response);
                 }
             });
