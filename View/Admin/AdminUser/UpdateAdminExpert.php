@@ -47,7 +47,7 @@
                     <br>
                     <label for="avatar">Ảnh đại diện:</label>
                     <div>
-                        <input type="file" class="mb-1" id="imgUpdateExpert" name="imgUpdateExpert" data-height="200" onchange="getUrlImgUpdateExpert()" accept="image/*" required />
+                        <input type="file" class="mb-1" id="imgUpdateExpert" name="imgUpdateExpert" data-height="200" onchange="getUrlImgUpdateExpert()" accept="image/*"/>
                         <br>
                         <img src="" id="previewExpertImg" alt="image" width="150px">
                         <input type="hidden" name="updateAvatarExpert" id="updateAvatarExpert">
@@ -58,7 +58,7 @@
                     </div>
                     <label for="certificate">Chứng chỉ</label>
                     <div>
-                        <input type="file" class="mb-1" id="updateCertImg" name="updateCertImg" data-height="200" onchange="getUrlImgUpdateCertificate()" accept="image/*" required />
+                        <input type="file" class="mb-1" id="updateCertImg" name="updateCertImg" data-height="200" onchange="getUrlImgUpdateCertificate()" accept="image/*"/>
                         <br>
                         <img src="" id="previewCertImg" alt="image" width="150px">
                         <input type="hidden" name="updateCertificate" id="updateCertificate">

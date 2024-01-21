@@ -37,7 +37,7 @@
                     <div>
                         <label for="avatar">Ảnh đại diện:</label>
                         <br>
-                        <input type="file" class="mb-1" id="avatar" name="imgUser" data-height="200" onchange="getUrlUpdateUserImg()" accept="image/*" required />
+                        <input type="file" class="mb-1" id="avatar" name="imgUser" data-height="200" onchange="getUrlUpdateUserImg()" accept="image/*"/>
                         <img src="" id="previewUser" alt="" width="200px">
                         <input type="hidden" name="avatar" id="userAvatar">
                     </div>
