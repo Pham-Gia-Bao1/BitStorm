@@ -1,4 +1,19 @@
 <script>
+    $(document).ready(function() {
+        $('.like-post').click(function() {
+            var postId = $(this).data('post-id');
+            $.ajax({
+                url: 'Post',
+                data: {
+                    action: 'likePost',
+                    postId: postId,
+                },
+                success: function(response) {
+                    $('#like-count-' + postId).text(response);
+                }
+            });
+        });
+    });
     function openModal() {
 
         document.getElementById("modalPost").style.display = "block";
