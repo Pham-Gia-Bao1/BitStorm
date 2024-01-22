@@ -21,9 +21,9 @@
                     </div>
                     <label for="password">Password:</label>
                     <div class="input-group mb-1">
-                        <input type="text" name="password" id="userPassword" class="form-control" aria-describedby="basic-addon1" required>
+                        <input type="password" name="password" id="updateUserPassword" class="form-control" aria-describedby="basic-addon1" required>
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="userPassword">
+                            <button class="btn btn-outline-secondary" type="button" id="hideUserPassword">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -37,7 +37,8 @@
                     <div>
                         <label for="avatar">Ảnh đại diện:</label>
                         <br>
-                        <input type="file" class="dropify mb-3" id="avatar" name="imgUser" data-height="200" onchange="getUrlUpdateUserImg()" accept="image/*" required />
+                        <input type="file" class="mb-1" id="avatar" name="imgUser" data-height="200" onchange="getUrlUpdateUserImg()" accept="image/*" />
+                        <img src="" id="previewUser" alt="image" width="200px">
                         <input type="hidden" name="avatar" id="userAvatar">
                     </div>
                     <label for="specialization">Trạng thái:</label>
@@ -75,6 +76,7 @@
             const res = await fetch(api, options);
             const data = await res.json();
             document.querySelector('#userAvatar').value = data.secure_url;
+            document.getElementById('previewUser').src = data.secure_url;
             console.log(document.querySelector('#userAvatar'))
         } catch (error) {
             console.error("Lỗi khi tải từ Cloudinary:", error);
@@ -88,16 +90,18 @@
             var client = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
-            var imgSrc = $tr.find(".userImg").attr("src");
+            var imgUserSrc = $tr.find(".userImg").attr("src");
             console.log(client);
             $('#userId').val(client[0]);
             $('#userName').val(client[1]);
             $('#userEmail').val(client[2]);
-            $('#userPassword').val(client[3]);
+            $('#updateUserPassword').val(client[3]);
             $('#phoneNumber').val(client[4]);
-            $('#userAvatar').val(imgSrc);
             $('#status option[value="' + client[7].trim() + '"]').prop('selected', true);
             $('.dropify').dropify();
+            $('#previewUser').attr('src', imgUserSrc);
+            console.log(document.getElementById('previewUser').src);
+            $('#userAvatar').val(imgUserSrc);
 
             $('#updateUser').on('submit', function(event) {
                 if (checkUserName() && checkUserPassword()) {
@@ -112,7 +116,7 @@
             $('#userName').on('input', function() {
                 checkUserName();
             });
-            $('#userPassword').on('input', function() {
+            $('#updateUserPassword').on('input', function() {
                 checkUserPassword();
             });
 
@@ -132,9 +136,9 @@
             }
 
             function checkUserPassword() {
-                var password = $('#userPassword').val();
+                var password = $('#updateUserPassword').val();
                 var passwordError = $('#passwordError');
-                var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&%#])[A-Za-z\d@$!%*?&%#]{8,}$/;;
                 if (passwordPattern.test(password)) {
                     passwordError.text('');
                     check = true;
@@ -146,15 +150,15 @@
             }
         });
 
-        $('#userPassword').on('click', function() {
-            var passwordInput = $('#passwordInput');
+        $('#hideUserPassword').on('click', function() {
+            var passwordInput = $('#updateUserPassword');
             var passwordType = passwordInput.attr('type');
             if (passwordType === 'password') {
                 passwordInput.attr('type', 'text');
-                $('#userPassword i').removeClass('fa-eye').addClass('fa-eye-slash');
+                $('#hideUserPassword i').removeClass('fa-eye').addClass('fa-eye-slash');
             } else {
                 passwordInput.attr('type', 'password');
-                $('#userPassword i').removeClass('fa-eye-slash').addClass('fa-eye');
+                $('#hideUserPassword i').removeClass('fa-eye-slash').addClass('fa-eye');
             }
         });
     });

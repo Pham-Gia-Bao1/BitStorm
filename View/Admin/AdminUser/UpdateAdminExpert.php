@@ -47,7 +47,9 @@
                     <br>
                     <label for="avatar">Ảnh đại diện:</label>
                     <div>
-                        <input type="file" class="dropify mb-3" id="imgUpdateExpert" name="imgUpdateExpert" data-height="200" onchange="getUrlImgUpdateExpert()" accept="image/*" required />
+                        <input type="file" class="mb-1" id="imgUpdateExpert" name="imgUpdateExpert" data-height="200" onchange="getUrlImgUpdateExpert()" accept="image/*" />
+                        <br>
+                        <img src="" id="previewExpertImg" alt="image" width="150px">
                         <input type="hidden" name="updateAvatarExpert" id="updateAvatarExpert">
                     </div>
                     <label for="avatar">Đánh giá:</label>
@@ -56,7 +58,9 @@
                     </div>
                     <label for="certificate">Chứng chỉ</label>
                     <div>
-                        <input type="file" class="dropify mb-3" id="updateCertImg" name="updateCertImg" data-height="200" onchange="getUrlImgUpdateCertificate()" accept="image/*" required />
+                        <input type="file" class="mb-1" id="updateCertImg" name="updateCertImg" data-height="200" onchange="getUrlImgUpdateCertificate()" accept="image/*" />
+                        <br>
+                        <img src="" id="previewCertImg" alt="image" width="150px">
                         <input type="hidden" name="updateCertificate" id="updateCertificate">
                     </div>
                     <label for="specialization">Chức vụ:</label>
@@ -102,6 +106,7 @@
             const res = await fetch(api, options);
             const data = await res.json();
             document.querySelector('#updateAvatarExpert').value = data.secure_url;
+            document.getElementById('previewExpertImg').src = data.secure_url;
         } catch (error) {
             console.error("Lỗi khi tải từ Cloudinary:", error);
         }
@@ -127,12 +132,11 @@
             const res = await fetch(api, options);
             const data = await res.json();
             document.querySelector('#updateCertificate').value = data.secure_url;
-            console.log(document.querySelector('#updateCertificate').value);
+            document.getElementById('previewCertImg').src = data.secure_url;
         } catch (error) {
             console.error("Lỗi khi tải từ Cloudinary:", error);
         }
     }
-
     $(document).ready(function() {
         $('.edit-expert-btn').on('click', function() {
             $('#updateExpertModal').modal('show');
@@ -140,7 +144,7 @@
             var expert = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
-            var imgSrc = $tr.find(".userImg").attr("src");
+            var imgSrc = $tr.find(".expertImg").attr("src");
             var imgCertificate = $tr.find(".CertificateImg").attr("src");
             console.log(expert);
             $('#userId').val(expert[0]);
@@ -151,12 +155,14 @@
             $('#phoneNumber').val(expert[5]);
             $('#age').val(expert[6]);
             $('#experienceExpert').val(expert[7]);
-            $('#updateAvatarExpert').val(imgSrc);
             $('#rating').val(expert[9]);
-            $('#updateCertificate').val(imgCertificate);
             $('#specialization').val(expert[11]);
+            $('#previewExpertImg').attr('src', imgSrc);
+            $('#previewCertImg').attr('src', imgCertificate);
             $('#status option[value="' + expert[12].trim() + '"]').prop('selected', true);
             $('.dropify').dropify();
+            $('#updateAvatarExpert').val(imgSrc);
+            $('#updateCertificate').val(imgCertificate);
         });
         //validate form
         $('#experienceExpert').on('input', function() {
@@ -171,11 +177,6 @@
 
         $('#updateExpert').on('submit', function(event) {
             if (checkExperienceExpertLength() && checkNameExpertLength() && checkTitleExpertLength() && validateGenderExpert() && validateStatusExpert()) {
-                console.log(checkExperienceExpertLength());
-                console.log(checkTitleExpertLength());
-                console.log(validateGenderExpert());
-                console.log(validateStatusExpert());
-                console.log(checkNameExpertLength());
                 $(this).submit();
             } else {
                 alert('Bạn phải điền form đúng theo yêu cầu trước khi submit!.');
@@ -185,10 +186,12 @@
 
         function checkExperienceExpertLength() {
             var inputValue = $('#experienceExpert').val();
-            var charCount = inputValue.length; // Sử dụng length để đếm số ký tự
+            var charCount = inputValue.length;
+            // Sử dụng length để đếm số ký tự
+            console.log(charCount);
             var errorSpan = $('#ExperienceExpertError');
-            if (charCount < 100 || charCount > 255) {
-                errorSpan.text('Nội dung phải có từ 100 đến 255 ký tự.');
+            if (charCount < 100 || charCount > 500) {
+                errorSpan.text('Nội dung phải có độ dài từ 100 đến 500 ký tự.');
                 check = false;
             } else {
                 errorSpan.text(null);
