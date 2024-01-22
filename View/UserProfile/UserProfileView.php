@@ -70,7 +70,7 @@ include("../root/CSS/UserProfile.css.php");
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-body">
+        <div class="modal-body overflow-hidden">
           <div class="col-xs-12 d-flex justify-content-between box_title">
             <div class="modal-h2">Ảnh đại diện</div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

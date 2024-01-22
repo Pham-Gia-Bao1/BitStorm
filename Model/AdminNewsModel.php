@@ -104,6 +104,6 @@ class AdminNews extends Connection
             $results = $sth->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         }
-        return null;
+        return false;
     }
 }

@@ -12,14 +12,15 @@
     endTime.setHours(parseInt(endTimeParts[0], 10));
     endTime.setMinutes(parseInt(endTimeParts[1], 10));
     var options = {
-            hour: '2-digit',
+        hour: '2-digit',
     };
     var formattedStartTime = startTime.toLocaleTimeString('en-US', options);
     var formattedEndTime = endTime.toLocaleTimeString('en-US', options);
     renderDetailExpert();
     suggestExperts();
+
     function renderDetailExpert() {
-            cardExperts.innerHTML = `
+        cardExperts.innerHTML = `
                 <div class="col-sm-4 doctor_image">
                     <img src="${expert.profile_picture}" alt="image">
             </div>
@@ -60,30 +61,45 @@
                 <div class="row mt-5 d-flex justify-content-center align-content-center">
                 <div class="col-sm-12 checkout">
                     <form action="" method="post">
-                       <a type="submit" class="checkoutButton" name="userID" id="checkoutBtn" <?php include_once("../Model/UserProfileModel.php");
-                                                                                                $userprofile = new UserProfile();
-                                                                                                $role_id = $userprofile->get_role_id();
-                                                                                                if (isset($_COOKIE[$cookie_name]) && $role_id == 2) { ?> href="Checkout?expert_id=${expert.id}" <?php }; ?>>
-                            Đi đến trang đặt lịch <i class="fa-solid fa-arrow-right ml-1"></i>
-                        </a>
+                        <?php
+                        include_once("../Model/UserProfileModel.php");
+                        $userprofile = new UserProfile();
+                        $role_id = $userprofile->get_role_id();
+
+                        if (isset($_COOKIE[$cookie_name]) && $role_id == 2) {
+                            echo '<a type="submit" class="checkoutButton" name="userID" id="checkoutBtn" href="Checkout?expert_id=${expert.id}">
+                                    Đi đến trang đặt lịch <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </a>';
+                        } else {
+                            echo '<a type="submit" class="checkoutButton" name="userID" id="checkoutBtn1">
+                                    Đi đến trang đặt lịch <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </a>';
+                        }
+                        ?>
                     </form>
                 </div>
                 </div>
             </div>
         `;
+
+        document.getElementById('checkoutBtn1').addEventListener('click', function() {
+            alert("Bạn chưa đăng nhập!");
+        })
+
         function generateStarRating(countRating) {
-                let stars = '';
-                for (let i = 0; i < countRating; i++) {
-                    stars += ' &#9733;';
+            let stars = '';
+            for (let i = 0; i < countRating; i++) {
+                stars += ' &#9733;';
             }
             return stars;
         }
     }
+
     function suggestExperts() {
-            let count = 0;
-            experts.forEach((experts) => {
-                if (count < 4 && experts.id !== expert.id) {
-                    resultOfSuggestExperts.innerHTML += `
+        let count = 0;
+        experts.forEach((experts) => {
+            if (count < 4 && experts.id !== expert.id) {
+                resultOfSuggestExperts.innerHTML += `
                     <div class="col-sm-3 mt-4">
                         <div class="card mb-1" style="width: 17rem;">
                             <div class="text-center">

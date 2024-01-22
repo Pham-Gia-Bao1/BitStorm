@@ -14,7 +14,7 @@ include("../root/JS/NavBar.js.php");
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item d-flex justify-content-center align-items-center">
-          <a class="nav-link d-flex justify-content-center align-items-center gap-2" href="Home"> <i style="color: #40A2D8;" class="fa-solid fa-house"></i>Trang Chủ</a>
+          <a class="nav-link d-flex justify-content-center align-items-center gap-2" href="Home">Trang Chủ</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="ContactExpert">Chuyên Gia</a>
@@ -68,13 +68,6 @@ include("../root/JS/NavBar.js.php");
                 <i class="fa-solid fa-user me-3 order-1"></i>
                 <span class="me-auto order-2">Chỉnh sửa trang cá nhân </span>
                 <i class="fa-solid fa-chevron-right ms-3 order-3"></i>
-              </a>
-            </li>
-            <li>
-              <a href="userprofile" class="d-flex align-items-center nav-link">
-                <i class="fa-solid fa-gear me-3 order-1"></i>
-                <span class="me-auto order-2">Cài đặt &amp; riêng tư</span>
-                <i class="fa-solid fa-chevron-right order-3"></i>
               </a>
             </li>
             <li>

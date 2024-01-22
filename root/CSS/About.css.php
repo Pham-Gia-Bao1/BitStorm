@@ -181,6 +181,7 @@
             -ms-transition: all .9s ease;
             width: 100%;
             height: 200px;
+            
     }
         #cards_landscape_wrap-2 .card-flyer:hover .image-box img {
             opacity: 0.7;
