@@ -21,7 +21,7 @@
                     </div>
                     <label for="password">Password:</label>
                     <div class="input-group mb-1">
-                        <input type="text" name="password" id="updateUserPassword" class="form-control" aria-describedby="basic-addon1" required>
+                        <input type="password" name="password" id="updateUserPassword" class="form-control" aria-describedby="basic-addon1" required>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="hideUserPassword">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
@@ -37,8 +37,8 @@
                     <div>
                         <label for="avatar">Ảnh đại diện:</label>
                         <br>
-                        <input type="file" class="mb-1" id="avatar" name="imgUser" data-height="200" onchange="getUrlUpdateUserImg()" accept="image/*"/>
-                        <img src="" id="previewUser" alt="" width="200px">
+                        <input type="file" class="mb-1" id="avatar" name="imgUser" data-height="200" onchange="getUrlUpdateUserImg()" accept="image/*" />
+                        <img src="" id="previewUser" alt="image" width="200px">
                         <input type="hidden" name="avatar" id="userAvatar">
                     </div>
                     <label for="specialization">Trạng thái:</label>
@@ -101,6 +101,7 @@
             $('.dropify').dropify();
             $('#previewUser').attr('src', imgUserSrc);
             console.log(document.getElementById('previewUser').src);
+            $('#userAvatar').val(imgUserSrc);
 
             $('#updateUser').on('submit', function(event) {
                 if (checkUserName() && checkUserPassword()) {
@@ -137,7 +138,7 @@
             function checkUserPassword() {
                 var password = $('#updateUserPassword').val();
                 var passwordError = $('#passwordError');
-                var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&%#])[A-Za-z\d@$!%*?&%#]{8,}$/;;
                 if (passwordPattern.test(password)) {
                     passwordError.text('');
                     check = true;
