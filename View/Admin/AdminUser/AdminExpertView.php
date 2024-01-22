@@ -51,7 +51,7 @@ include("../root/CSS/Admin/AdminExpert.css.php");
                     <td><?php echo $expert['phone_number'] ?></td>
                     <td><?php echo $expert['age'] ?></td>
                     <td><?php echo $expert['experience'] ?></td>
-                    <td class="userImgContainer"><img src="<?php echo $expert['profile_picture'] ?>" alt="image" class="userImg"></td>
+                    <td class="userImgContainer"><img src="<?php echo $expert['profile_picture'] ?>" alt="image" class="expertImg"></td>
                     <td><?php echo $expert['count_rating'] ?></td>
                     <td class="Certificate"><img class="CertificateImg" src="<?php echo $expert['certificate'] ?>" alt="image"></td>
                     <td><?php echo $expert['specialization'] ?></td>

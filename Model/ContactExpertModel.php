@@ -30,9 +30,6 @@ class Expert extends Connection
         JOIN calendar ON experts.id = calendar.expert_id
         WHERE (experts.full_name LIKE :keyword
         OR experts.experience LIKE :keyword
-        OR (DATE_FORMAT(calendar.start_time, '%h:%i %p') LIKE :keyword)
-        OR (DATE_FORMAT(calendar.end_time, '%h:%i %p') LIKE :keyword)
-        OR calendar.day LIKE :keyword)
         AND calendar.day >= :currentDate AND experts.status = 'Hoạt động'";
         $stst = $this->conn->prepare($sql_query);
         $stst->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
