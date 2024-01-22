@@ -65,9 +65,10 @@ class Account
             $account = new Account($username, $password, $email);
             $blog = new Blog();
             $conn = $blog->connect_database();
-            $sql_check = "SELECT * FROM users WHERE email = :email";
+            $sql_check = "SELECT * FROM users WHERE email = :email or name = :name";
             $stmt_check = $conn->prepare($sql_check);
             $stmt_check->bindParam(':email', $email);
+            $stmt_check->bindParam(':name', $username);
             $stmt_check->execute();
             if ($stmt_check->rowCount() > 0) {
                 return false;
@@ -285,6 +286,7 @@ class Account
     {
         $blog = new Blog();
         $conn = $blog->connect_database();
+        // $sql = "SELECT users.email from users where "
         $sql = "INSERT INTO experts (role_id, full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status) VALUES (:role_id, :full_name, :gender, :address, :email, :phone_number, :age, :experience, :profile_picture, :count_rating, :certificate, :specialization, :status)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":role_id", $role_id);

@@ -213,7 +213,6 @@
                 <label for="password">Mật Khẩu:</label>
                 <div class="password-container">
                     <input type="password" class="form-control rounded-pill" id="passwordInput" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$">
-                    <!-- <input type="password" class="form-control" id="passwordInputAgain" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).{8,}$"> -->
                     <i id="password-toggle1" class="password-toggle fas fa-eye-slash"></i>
                 </div>
                 <small id="passwordError" class="text-danger"></small>

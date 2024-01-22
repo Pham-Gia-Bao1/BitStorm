@@ -1,7 +1,7 @@
 
 <?php
 include_once("../Model/ConnectDataBase.php");
-require ("../Controller/Database/database.php");
+require("../Controller/Database/database.php");
 class AdminNews extends Connection
 {
     function selectNews()
@@ -70,7 +70,8 @@ class AdminNews extends Connection
             echo "Connection failed: " . $e->getMessage();
         }
     }
-    function deleteNews($id) {
+    function deleteNews($id)
+    {
         $db = $this->connect_database();
         $sql = "DELETE FROM news WHERE id = :id";
         $stmt = $db->prepare($sql);
@@ -86,5 +87,23 @@ class AdminNews extends Connection
         } else {
             echo "Error updating record " . $stmt->errorCode();
         }
+    }
+    public function find_new($searchTerm)
+    {
+        if (isset($searchTerm)) {
+            $db = $this->connect_database();
+            $searchTerm = '%' . $searchTerm . '%';
+
+            $sql_query = "SELECT * FROM `news`";
+            $sql_query .= " WHERE title LIKE :searchTerm";
+
+            $sth = $db->prepare($sql_query);
+            $sth->bindParam(':searchTerm', $searchTerm, PDO::PARAM_STR);
+            $sth->execute();
+
+            $results = $sth->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        }
+        return null;
     }
 }

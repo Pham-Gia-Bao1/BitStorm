@@ -50,60 +50,36 @@ include_once("../Model/AdminNewsModel.php");
 </div>
 <div class="p-3"></div>
 <div class="search-box">
-  <form method="POST" action="">
+  <form method="POST" action="News">
     <input class="search-input" type="text" placeholder="Search something.." name="keyword" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>">
     <button class="search-btn" name="search" type="submit"><i class="fas fa-search"></i></button>
   </form>
 </div>
 <div class="p-3">
-  <div class="container">
-    <div class="row">
+  <div class="container  bg-light">
+    <div class="row ">
       <?php
-      if (isset($_POST['search'])) {
-        $searchParm = $_POST['keyword'];
-        try {
-          $hostname = "localhost";
-          $database = "data_php";
-          $username = "root";
-          $password = "";
-          $keyword = "$searchParm%";
-          $dsn = "mysql:host=$hostname;dbname=$database;charset=utf8mb4";
-          $connection = new PDO($dsn, $username, $password);
-          $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $sth =  $connection->prepare("SELECT * FROM `news` WHERE title LIKE :keyword");
-          $sth->bindParam(':keyword', $keyword, PDO::PARAM_STR);
-          $sth->execute();
-          while ($row = $sth->fetch(PDO::FETCH_OBJ)) {
+
+      foreach($news as  $new){
       ?>
-            <div class="container">
-              <a href="NewsDetails?id=<?php echo $row->id ?>">
-                <div class="row d-flex">
-                  <div class="col-sm-6">
-                    <div class="mask-group-parent">
-                      <img class="mask-group-icon" alt="ảnh" src="<?php echo $row->image_url ?>">
-                      <p> <b class="danh-sch-10"><?php echo $row->title ?></b></p>
-                      <div class="tr-nh-c">
-                        <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $row->descriptions ?></p>
-                      </div>
-                    </div>
-                  </div>
+      <a href="NewsDetails?id=<?php echo $new['id'] ?>">
+      <div class="container ">
+          <div class="row d-flex">
+            <div class="col-sm-6">
+              <div class="mask-group-parent">
+                <img class="mask-group-icon" alt="ảnh" src="<?php echo $new['image_url'] ?>">
+                <p> <b class="danh-sch-10"><?php echo $new['title']  ?></b></p>
+                <div class="tr-nh-c">
+                  <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo  $new['descriptions'] ?></p>
                 </div>
-              </a>
-              <div class="p-2"></div>
+              </div>
             </div>
-      <?php
-          }
-          if ($sth->rowCount() === 0) {
-            echo "<div class='img-container'>
-                  <img src= './root/Image/news/error.png' class='img'>
-              </div>";
-            echo "<p style= 'font-weight:bold;text-align:center;'>Xin Lỗi Bạn ! Nội Dung Bạn Tìm Không Có Trong BitStorm</p>";
-          }
-        } catch (PDOException $e) {
-          echo "Error: " . $e->getMessage();
-        }
-      }
-      ?>
+          </div>
+
+        <div class="p-2"></div>
+      </div>
+    </a>
+    <?php } ?>
     </div>
   </div>
   <h2 class="h2_row">Dành Cho Bạn</h2>

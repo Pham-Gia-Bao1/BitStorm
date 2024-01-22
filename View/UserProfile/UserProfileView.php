@@ -171,7 +171,7 @@ include("../root/CSS/UserProfile.css.php");
             <div class="img" style="width : 30%">
               <img src="<?= htmlspecialchars($img) ?>" alt="logoutimg" style="width: 100%;" id="img_moddel_setting" class="rounded-circle avata_user">
             </div>
-            <form method="" action="login" class="p-3 m-2 gap-5 form w-100">
+            <form method="post" action="UserProfile" class="p-3 m-2 gap-5 form w-100">
               <div class="form-group p-1 m-1">
                 <label for="username">Tên đăng nhập:</label>
                 <input type="text" class="form-control" id="username" name="username" readonly value="<?= htmlspecialchars($name); ?>">

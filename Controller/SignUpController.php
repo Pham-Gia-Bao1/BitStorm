@@ -52,6 +52,7 @@ class SignUpController
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+            $error = '';
             $account = new Account();
             $password_again = $this->sanitizeInput($_POST['password_again']);
             $name = $this->sanitizeInput($_POST['username']);
@@ -70,23 +71,27 @@ class SignUpController
                             $new_user_name = base64_encode($name);
                             setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
                             $_SESSION['sesscess'] = true;
-
                             echo '<script>window.location.href = "home";</script>';
                             exit;
                         } else {
-                             $_SESSION['error'] = true;
+                            $error = "Name hoặc Email đã tồn tại!";
+                             $_SESSION['error'] = $error;
+                             echo '<script>window.location.href = "home";</script>';
                             exit;
                         }
                     } else {
                          $_SESSION['error'] = true;
+                         echo '<script>window.location.href = "home";</script>';
                         exit;
                     }
                 } else {
                      $_SESSION['error'] = true;
+                     echo '<script>window.location.href = "home";</script>';
                     exit;
                 }
             } else {
                 $_SESSION['error'] = true;
+                echo '<script>window.location.href = "home";</script>';
                 exit;
             }
         }

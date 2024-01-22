@@ -44,8 +44,9 @@ if (isset($_COOKIE[$cookie_name])) {
             $mail->addAddress($dataExpert['email']);
             $mail->addAddress('phamgiabao123abc@gmail.com');
             $mail->isHTML(true);
-            $mail->Subject = 'Test mail Google Meet Link';
-            $randomMeetLink = generateRandomGoogleMeetLink();
+            $mail->Subject = '=?UTF-8?B?' . base64_encode('BitStorm gửi mã phòng gặp mặt') . '?=';
+            $randomMeetLink = 'https://meet.google.com/'.generateRandomGoogleMeetLink();
+            $room_code = generateRandomGoogleMeetLink();
             $greetingImageURL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM56D-YDC_Sgkn8XZW77CCkpqAnBraEglifY15KYZUc4BGMIfak6Ho0ROkQDUoIEexaPU&usqp=CAU';
             $introductionText = "Xin chào !cảm ơn bạn đã tham gia dịch vụ tại BiStorm của chúng tôi.
              Bạn đã được lịch của chuyên gia ".$dataExpert['full_name'];
@@ -54,7 +55,7 @@ if (isset($_COOKIE[$cookie_name])) {
                 <img src="' . $greetingImageURL . '" alt="Greeting Image" style="max-width: 100%; height: auto;">
                 <p>' . $introductionText . '</p>
                 <p> Đây là link phòng gặp mặt chuyên gia <a href="' . $randomMeetLink . '">' . $randomMeetLink . '</a></p>
-                <p> Đây là mã dự phòng nếu link bij lỗi thì bạn lên GG meet nhập mã phòng để tham gia nhé! '.$randomMeetLink.'</p>
+                <p> Đây là mã dự phòng nếu link bị lỗi thì bạn lên GG meet nhập mã phòng để tham gia nhé! '.$room_code.'</p>
             </body>';
             $mail->isHTML(true);
             $result = $mail->send();
@@ -71,7 +72,7 @@ if (isset($_COOKIE[$cookie_name])) {
 function generateRandomGoogleMeetLink()
 {
     $characters = 'abcdefghijklmnopqrstuvwxyz';
-    $googleMeetLink = 'https://meet.google.com/';
+    $googleMeetLink = '';
     for ($i = 0; $i < 3; $i++) {
         if ($i == 1) {
             for ($j = 0; $j < 4; $j++) {
