@@ -44,7 +44,7 @@ include("../root/CSS/Checkout.css.php");
                     <div class="col-sm-5">
                         <p class="mt-3 fw-bold">Họ và tên chuyên gia</p>
                     </div>
-                    <div class="col-sm-6 mt-3"><?php echo $dataExpert['email'] ?></div>
+                    <div class="col-sm-6 mt-3" style="overflow: hidden;"><?php echo $dataExpert['email'] ?></div>
                 </div>
                 <div class="row">
                     <div class="col-sm-5">

@@ -23,7 +23,7 @@ include_once("../Model/HomeModel.php");
                 <h6>Nơi lắng nghe những tâm sự của bạn</h6>
                 <p class="p-3"></p>
                 <div class="wrap">
-                    <button class="button_home">Bắt Đầu Ngay</button>
+                    <a href="ContactExpert"><button class="button_home">Bắt Đầu Ngay</button></a>
                 </div>
                 <p class="p-3"></p>
                 <hr class="hr_home">

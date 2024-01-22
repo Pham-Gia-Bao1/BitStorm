@@ -50,37 +50,40 @@ include_once("../Model/AdminNewsModel.php");
 </div>
 <div class="p-3"></div>
 <div class="search-box">
-  <form method="POST" action="News">
-    <input class="search-input" type="text" placeholder="Search something.." name="keyword" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>">
-    <button class="search-btn" name="search" type="submit"><i class="fas fa-search"></i></button>
+  <form method="get" action="News">
+    <input class="search-input" type="text" placeholder="Tìm kiếm bài báo, tin tức ..." name="search" autocomplete="true" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>">
+    <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
   </form>
 </div>
 <div class="p-3">
-  <div class="container  bg-light">
-    <div class="row ">
-      <?php
-
-      foreach($news as  $new){
-      ?>
-      <a href="NewsDetails?id=<?php echo $new['id'] ?>">
-      <div class="container ">
-          <div class="row d-flex">
-            <div class="col-sm-6">
-              <div class="mask-group-parent">
-                <img class="mask-group-icon" alt="ảnh" src="<?php echo $new['image_url'] ?>">
-                <p> <b class="danh-sch-10"><?php echo $new['title']  ?></b></p>
-                <div class="tr-nh-c">
-                  <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo  $new['descriptions'] ?></p>
+  <div class="container bg-light">
+    <div class="row">
+      <?php if (isset($_GET['search'])) {
+        foreach ($news as $new) : ?>
+          <a href="NewsDetails?id=<?php echo $new['id'] ?>">
+            <div class="container">
+              <div class="row d-flex">
+                <div class="col-sm-6">
+                  <div class="mask-group-parent">
+                    <img class="mask-group-icon" alt="ảnh" src="<?php echo $new['image_url'] ?>">
+                    <p><b class="danh-sch-10"><?php echo $new['title'] ?></b></p>
+                    <div class="tr-nh-c">
+                      <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $new['descriptions'] ?></p>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div class="p-2"></div>
             </div>
-          </div>
-
-        <div class="p-2"></div>
-      </div>
-    </a>
-    <?php } ?>
+          </a>
+      <?php endforeach;
+      };
+      if($news  == false){
+          echo ' <img  src="https://admiral.digital/wp-content/uploads/2023/08/404_page-not-found.png" alt="not found">';
+      }
+      ?>
     </div>
+
   </div>
   <h2 class="h2_row">Dành Cho Bạn</h2>
   <div class="container">
@@ -90,9 +93,8 @@ include_once("../Model/AdminNewsModel.php");
     </div>
     <div id="cards-container">
       <div class="cards">
-        <?php $newAdmin = new AdminNews();
-        $news = $newAdmin->selectNews();
-        foreach ($news as $new) : ?>
+        <?php
+        foreach ($news1 as $new) : ?>
           <div class="card">
             <a href="NewsDetails?id=<?php echo $new['id']; ?>" style="text-decoration-line: none;color:black;">
               <img src="<?php echo $new['image_url'] ?>" alt="Card image cap" class="image_card">

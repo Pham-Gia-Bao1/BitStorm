@@ -1,4 +1,8 @@
 <?php
+if (isset($_SESSION['sesscess1'])) {
+    session_start();
+    showError_booking();
+}
 include("../View/LayOut/Header/Header.php");
 ?>
 <title>Chi tiết chuyên gia</title>
