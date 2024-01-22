@@ -6,7 +6,7 @@ include_once("../Model/UserProfileModel.php");
 class HomeController
 {
         public function index()
-        {   
+        {
             $cookie_name = "User";
             $userprofile = new UserProfile();
             $role_id = $userprofile->get_role_id();

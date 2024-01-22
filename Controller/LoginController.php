@@ -15,6 +15,7 @@ class log_in
                 $email = $this->sanitizeInput($_POST['email']);
                 $password = $this->sanitizeInput($_POST['password']);
                 $result = $account->login($name, $email, $password);
+                $error = '';
                 if ($result) {
                     $new_user_name = base64_encode($name);
                     setcookie("User", $new_user_name, time() + (86400 * 30), "/"); // 86400 = 1 day
@@ -22,7 +23,8 @@ class log_in
                     header("Location: home");
                     exit;
                 } else {
-                    $_SESSION['error'] = true;
+                    $error = "Vui lòng nhập đúng thông tin";
+                    $_SESSION['error'] = $error;
                     header("Location: home");
                 }
             }

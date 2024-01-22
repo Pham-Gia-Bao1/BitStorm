@@ -54,7 +54,7 @@
                         <p class="card-text"><small class="text-muted"> Thời gian : <?php echo htmlspecialchars($posts1->TimePost($booking['create_at_booking'])) ?></small></p>
                         <p class="card-text"><small class="text-muted"> Ngày : <?php echo $booking['create_at_booking']  ?></small></p>
                         <p class="card-text">Chuyên Gia : <?php echo $booking['expert_name'] ?> </p>
-                        <p class="card-text"><small class="text-muted">Mã Phòng <?php echo $booking['link_room_booking']  ?></small></p>
+                        <p class="card-text"><small class="text-muted">Mã Phòng <a href="https://meet.google.com/"><?php echo $booking['link_room_booking']  ?></a></small></p>
                     </div>
                 </div>
             </div>

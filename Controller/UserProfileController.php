@@ -114,9 +114,6 @@ if(isset($_POST['day']) && isset($_POST['start_time'])){
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-if($role_id == 1 || $role_id == 2){
+if(isset($role_id)){
     include("../View/UserProfile/UserProfileView.php");
-}else{
-    header("Location: home");
 }
