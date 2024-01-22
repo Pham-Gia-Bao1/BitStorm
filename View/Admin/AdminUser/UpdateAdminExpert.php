@@ -155,11 +155,9 @@
             $('#phoneNumber').val(expert[5]);
             $('#age').val(expert[6]);
             $('#experienceExpert').val(expert[7]);
-            $('#updateAvatarExpert').val(imgSrc);
             $('#rating').val(expert[9]);
-            // $('#updateCertificate').val(imgCertificate);
             $('#specialization').val(expert[11]);
-            // $('#previewExpertImg').attr('src', imgSrc);
+            $('#previewExpertImg').attr('src', imgSrc);
             $('#previewCertImg').attr('src', imgCertificate);
             $('#status option[value="' + expert[12].trim() + '"]').prop('selected', true);
             $('.dropify').dropify();
