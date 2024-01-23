@@ -587,17 +587,7 @@ VALUES
 ('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 5, 2, 45, 4),
 ('I found this video very helpful.', 'Emily Davis', '2023-01-10 16:25:00', 5, 1, 234, 43);
 
-INSERT INTO comment_posts ( content, author, created_at, post_id) VALUES
-('Great post!', 'John Doe', '2023-01-01 10:00:00', 1),
-('I agree with your points.', 'Jane Smith', '2023-01-02 15:30:00', 1),
-('This post is very informative.', 'Michael Johnson', '2023-01-03 08:45:00', 2),
-('Nice work!', 'Emily Davis', '2023-01-04 12:20:00', 2),
-('I have a question regarding the topic.', 'Robert Wilson', '2023-01-05 09:10:00', 3),
-('Thanks for sharing!', 'Sophia Thompson', '2023-01-06 14:05:00', 3),
-('I enjoyed reading this post.', 'John Doe', '2023-01-07 17:55:00', 4),
-('This post provided valuable insights.', 'Jane Smith', '2023-01-08 11:30:00', 4),
-('Can you provide more examples?', 'Michael Johnson', '2023-01-09 13:40:00', 1),
-('Good job!', 'Emily Davis', '2023-01-10 16:25:00', 4);
+
 CREATE TABLE experts (
   id INT PRIMARY KEY AUTO_INCREMENT,
   role_id INT,
@@ -618,6 +608,7 @@ CREATE TABLE experts (
 
 ALTER TABLE experts
 MODIFY COLUMN full_name varchar(255) UNIQUE;
+
 INSERT INTO experts (id, role_id, full_name, gender, address, email, phone_number, age, experience, profile_picture, count_rating, certificate, specialization, status) VALUES
 (1, 3, 'Hồ Thị Mỹ Anh', 'Nữ', '123 Ngô Quyền, Hải Châu, Đà Nẵng.', 'john.doe@example.com', '1234567890', 30, 'Giảng viên Khoa Tâm lý học, trường ĐH Khoa Học Xã Hội Và Nhân Văn (ĐHQGHN). Kinh nghiệm tư vấn tâm lý trong trường hợp trầm cảm và lo âu trong 7 năm.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbqu-0Q8CDAeN2O7GL0-IBmyCSTVMQGTBLA&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg', "Chuyên gia tâm lý học", 'Hoạt động'),
 (2, 3, 'Nguyễn Anh Tú', 'Nữ', '456 Trần Phú, Thanh Khê, Đà Nẵng.', 'jane.smith@example.com', '9876543210', 35, 'Chuyên gia tham vấn tâm lý trên nhóm thân chủ là người trưởng thành cho các khó khăn tâm lý về công việc, cuộc sống hôn nhân, các mối liên hệ. Kinh nghiệm tham vấn tâm lý cho nhân viên y tế tham gia chống dịch Covid-19 và người lao động có căng thẳng, rối loạn lo âu, trầm cảm do công việc/các điều kiện cuộc sống.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ1yVXix9ieLDoQ9MKtLaWIoF9DNJj-vDMw&usqp=CAU', 5, 'https://marketplace.canva.com/EAFIEvneNCM/1/0/1600w/canva-golden-elegant-certificate-of-appreciation-0bN-aLORS9U.jpg', "Tiến sĩ Tâm lý học", 'Hoạt động'),
@@ -678,19 +669,6 @@ INSERT INTO bookings (user_id, expert_id, note, created_at, status, rating, cale
 (4, 9, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-09 16:00:00', 'Hoạt động', 5,9),
 (5, 10, 'Tôi muốn tư vấn về việc trầm cảm, rối loạn lo âu.', '2023-01-10 11:45:00', 'Hoạt động', 4, 7);
 
-
-create table author (
-		author_id int  primary key,
-        name_author varchar(100),
-        img varchar(255)
-);
-INSERT INTO author (author_id, name_author, img) VALUES
-    (1, 'Trần Văn lỰc', 'profile1.jpg'),
-    (2, 'Mai Thị Anh', 'profile2.jpg'),
-    (3, 'LLee Thị Kim Thoa', 'profile3.jpg'),
-    (4, 'Huỳnh Tố Nga', 'profile4.jpg'),
-    (5, 'Phạm Văn Lịch', 'profile5.jpg'),
-    (6, 'Nguyễn Văn Linh', 'profile6.jpg');
 
 CREATE TABLE IF NOT EXISTS news (
   id INT PRIMARY KEY auto_increment,
@@ -1218,7 +1196,6 @@ VALUES
     ('Podcast 4', 'Description 4', 1, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên'),
     ('Podcast 5', 'Description 5', 2, 'https://www.youtube.com/embed/1jv3r05-eeU?si=yI4GxTOL4e39xZfw', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCkL195trQAiCe7dQMJ5u972ygziMOj2PkR2RNPa9wz3OF6378GuFp2iGQ6OiC2OQKSM&usqp=CAU', 'thiên nhiên');
 
-select * from users;
 
 CREATE TABLE comment_podcast
 (
@@ -1286,7 +1263,3 @@ BEGIN
   WHERE id = NEW.calendar_id;
 END //
 DELIMITER ;
-
-select  * from bookings;
-
-
