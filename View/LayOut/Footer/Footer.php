@@ -21,27 +21,28 @@
                     </div>
                 </div>
             </div>
-            <div class=" col  px-3">
-                <h2 class="column-title">Community</h2>
-                <p class="column-text">About</p>
-                <p class="column-text">Contact Us</p>
-                <p class="column-text">Culture</p>
+            <div class="col px-3">
+                <h2 class="column-title">Cộng đồng</h2>
+                <p class="column-text">Về chúng tôi</p>
+                <p class="column-text">Liên hệ</p>
+                <p class="column-text">Văn hóa</p>
                 <p class="column-text">Blog</p>
             </div>
-            <div class=" col  px-3">
-                <h2 class="column-title">Support</h2>
-                <p class="column-text">Getting started</p>
-                <p class="column-text">Help center</p>
-                <p class="column-text">Server status</p>
-                <p class="column-text">Share your feeling</p>
-                <p class="column-text">Phone call support</p>
+            <div class="col px-3">
+                <h2 class="column-title">Hỗ trợ</h2>
+                <p class="column-text">Bắt đầu</p>
+                <p class="column-text">Trung tâm trợ giúp</p>
+                <p class="column-text">Trạng thái máy chủ</p>
+                <p class="column-text">Chia sẻ cảm xúc của bạn</p>
+                <p class="column-text">Hỗ trợ qua điện thoại</p>
             </div>
-            <div class="col  footer-contact px-3">
-                <h2 class="column-title">Contacts Us</h2>
+            <div class="col footer-contact px-3">
+                <h2 class="column-title">Liên hệ</h2>
                 <p><i class="fas fa-envelope contact-icon"></i>bitstorm@btst.com</p>
                 <p><i class="fas fa-phone contact-icon"></i>099999 8888</p>
                 <p><i class="fas fa-map-marker-alt contact-icon"></i>Sơn Trà, Đà Nẵng</p>
             </div>
+
         </div>
 
     </div>
