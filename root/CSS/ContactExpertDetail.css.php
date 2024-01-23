@@ -163,4 +163,14 @@
     .form-control {
             border-radius: 50px !important;
     }
+    #boxCard1{
+         height:  480px;
+         overflow: hidden;
+         padding-left: 50px !important;
+         /* margin:  0 auto;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column; */
+    }
 </style>

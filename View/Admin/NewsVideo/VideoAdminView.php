@@ -25,7 +25,7 @@ include_once("../root/CSS/Admin/AdminComment.css.php");
         </div>
     </nav>
     <div class="action d-flex justify-content-end">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal" style="margin: 20px; float : left; position: absolute; left: 0;">Create</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal" style="margin: 20px; float : left; position: absolute; left: 0;">Tạo</button>
     </div>
     <div class="container" style="margin-top: 20px;">
         <h2 class="title">

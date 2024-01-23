@@ -8,6 +8,7 @@ $data = $DetailExpertModel->getExpertDetail($id);
 $Experts = $DetailExpertModel->getRecommendExperts($currentDate);
 shuffle($Experts);
 $suggestExperts = $Experts;
+
 include("../View/ContactExpert/ContactExpertDetailView.php");
 $cookie_name = "User";
 if($_SERVER["REQUEST_METHOD"] === "POST"){

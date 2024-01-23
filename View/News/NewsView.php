@@ -76,10 +76,10 @@ include_once("../Model/AdminNewsModel.php");
               <div class="p-2"></div>
             </div>
           </a>
-      <?php endforeach;
-      };
-      if($news  == false){
-          echo ' <img  src="https://admiral.digital/wp-content/uploads/2023/08/404_page-not-found.png" alt="not found">';
+      <?php endforeach; }
+     
+      if ($news  == false) {
+        echo ' <img  src="https://admiral.digital/wp-content/uploads/2023/08/404_page-not-found.png" alt="not found">';
       }
       ?>
     </div>

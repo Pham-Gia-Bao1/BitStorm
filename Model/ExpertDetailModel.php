@@ -23,7 +23,7 @@ class ExpertDetail extends Connection {
     public function getRecommendExperts($currentDate)
     {
         $this->connect_database();
-        $sql_query = "SELECT experts.*,
+        $sql_query = "SELECT experts.*, calendar.day,calendar.status as  status_calendar,
         DATE_FORMAT(calendar.day,'%d/%m/%Y') AS day,
         TIME_FORMAT(calendar.start_time, '%H:%i') AS start_time,
         TIME_FORMAT(calendar.end_time, '%H:%i') AS end_time, calendar.price

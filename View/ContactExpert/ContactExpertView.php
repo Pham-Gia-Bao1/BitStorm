@@ -28,7 +28,7 @@ include("../root/CSS/ContactExpert.css.php");
         </form>
     </div>
     <div class="row mt-3 card_container">
-        <div class="row boxCard" id="boxCard">
+        <div class="row boxCard " id="boxCard">
             <?php if ($resultOfSearchExperts) : ?>
                 <h4 class="mb-3 fw-bold">Chuyên gia dựa theo tìm kiếm của bạn</h4>
                 <?php foreach ($resultOfSearchExperts as $expert) : ?>
@@ -46,10 +46,11 @@ include("../root/CSS/ContactExpert.css.php");
                                     </span>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-1 pl-2 ml-3 mt-2 actives"></div>
+                                    <div class="col-sm-1 pl-2 ml-3 mt-2 actives" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động') { ?> style="background-color: red;" <?php } ?>></div>
                                     <div class="col-sm-10">
-                                        <button class="viewMorebtn">
-                                            <a asp-controller="ContactExpert" asp-action="Details" href="ContactExpertDetail?id=<?= $expert['id'] ?>">
+                                        <button class="viewMorebtn" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động' || $expert['status_calendar'] == "pending") { ?> style="background-color: #EEF5FF !important;  cursor: default !important; " <?php } ?>>
+                                            <a asp-controller="ContactExpert" asp-action="Details" <?php if ($expert['status_calendar'] == 'Ngưng hoạt động') { ?> href="ContactExpert" <?php } else { ?> href="ContactExpertDetail?id=<?php echo $expert['id'];
+                                                                                                                                                                                                                                    }; ?>">
                                                 Xem thêm
                                             </a>
                                         </button>
