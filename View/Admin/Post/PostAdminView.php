@@ -16,15 +16,14 @@ include("../View/Admin/Post/DeletePostAdminView.php");
                 <thead class="">
                     <tr>
                         <th scope="col">id</th>
-                        <th scope="col">user_id</th>
-                        <th scope="col">Lượt tym</th>
+                        <th scope="col">mã người dùng</th>
+                        <th scope="col">Lượt yêu thích</th>
                         <th scope="col">Ẩn danh</th>
                         <th scope="col">Nội dung</th>
                         <th>action</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <style>
                         td:not(td:last-child) {
                             max-width: 100px;
@@ -41,15 +40,11 @@ include("../View/Admin/Post/DeletePostAdminView.php");
                             <td><?php echo $post['isAnonymous'] ?></td>
                             <td style="max-width:600px" class="content_post"><?php echo $post['content'] ?></td>
                             <td>
-                                <button class="btn btn-info ViewPostAdmin" data-bs-toggle="modal" data-bs-target="#viewDetailPostModal">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
+
                                 <button class="btn btn-primary updatePostAdminBtn">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
-                                <button class="btn btn-danger deletePostAdminBtn">
-                                    <i class="fa-solid fa-lock"></i>
-                                </button>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>

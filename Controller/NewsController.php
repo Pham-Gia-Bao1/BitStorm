@@ -12,6 +12,8 @@ if (isset($_GET['search'])) {
     }else{
         $news = $newAdmin->find_new($searchParm);
     }
-    
+}
+else{
+    $news= true;
 }
 include_once ("../View/News/NewsView.php");

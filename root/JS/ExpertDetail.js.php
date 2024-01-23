@@ -83,7 +83,7 @@
         `;
 
         document.getElementById('checkoutBtn1').addEventListener('click', function() {
-            alert("Bạn chưa đăng nhập!");
+            alert("Bạn không phải là người nhận tư vấn!");
         })
 
         function generateStarRating(countRating) {
