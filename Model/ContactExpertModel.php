@@ -1,6 +1,5 @@
 <?php
 include_once("../Model/ConnectDataBase.php");
-
 class Expert extends Connection
 {
     public function getExpertsWithCalendar($currentDate)
